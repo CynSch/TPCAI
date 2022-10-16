@@ -79,7 +79,7 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 92);
+            this.listView1.Location = new System.Drawing.Point(15, 79);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(421, 97);
             this.listView1.TabIndex = 4;
