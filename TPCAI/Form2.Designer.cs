@@ -64,7 +64,7 @@
             this.columnHeader3,
             this.columnHeader4});
             this.ListadoFacturas.HideSelection = false;
-            this.ListadoFacturas.Location = new System.Drawing.Point(6, 29);
+            this.ListadoFacturas.Location = new System.Drawing.Point(6, 19);
             this.ListadoFacturas.Name = "ListadoFacturas";
             this.ListadoFacturas.Size = new System.Drawing.Size(312, 178);
             this.ListadoFacturas.TabIndex = 2;
