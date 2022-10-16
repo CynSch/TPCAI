@@ -16,5 +16,17 @@ namespace TPCAI
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form formulario = new Form2();
+            formulario.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form formulario = new Form3();
+            formulario.Show();
+        }
     }
 }
