@@ -1,6 +1,6 @@
 ﻿namespace TPCAI
 {
-    partial class Form2
+    partial class Form_consulta_cuenta
     {
         /// <summary>
         /// Required designer variable.

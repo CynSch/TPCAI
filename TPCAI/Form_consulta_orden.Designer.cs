@@ -1,6 +1,6 @@
 ﻿namespace TPCAI
 {
-    partial class Form3
+    partial class Form_consulta_orden
     {
         /// <summary>
         /// Required designer variable.

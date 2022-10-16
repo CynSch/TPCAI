@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TPCAI
 {
-    public partial class Form3 : Form
+    public partial class Form_consulta_orden : Form
     {
-        public Form3()
+        public Form_consulta_orden()
         {
             InitializeComponent();
         }
