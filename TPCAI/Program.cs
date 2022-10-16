@@ -17,6 +17,8 @@ namespace TPCAI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form_solicitud_servicio());
+            Application.Run(new Form_consulta_orden());
+            Application.Run(new Form_consulta_cuenta());
         }
     }
 }
