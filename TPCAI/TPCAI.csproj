@@ -64,6 +64,12 @@
     <Compile Include="Form_consulta_orden.Designer.cs">
       <DependentUpon>Form_consulta_orden.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_solicitud_servicio_confirmación.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_solicitud_servicio_confirmación.Designer.cs">
+      <DependentUpon>Form_solicitud_servicio_confirmación.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_solicitud_servicio.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_consulta_orden.resx">
       <DependentUpon>Form_consulta_orden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_solicitud_servicio_confirmación.resx">
+      <DependentUpon>Form_solicitud_servicio_confirmación.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

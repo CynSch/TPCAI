@@ -38,8 +38,7 @@ namespace TPCAI
                     txtNumeroOrden.Clear();
                     return;
                 }
-
-                
+    
                 if (!correcto)
                 {
                     MessageBox.Show("Debe ingresar un valor numerico");

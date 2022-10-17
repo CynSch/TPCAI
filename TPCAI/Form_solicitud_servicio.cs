@@ -66,5 +66,53 @@ namespace TPCAI
         {
 
         }
+
+        private void lbl_localidad_retirodomicilio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_region_nacional_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_provincia_nacional_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_localidad_nacional_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Grp_Destino_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_largo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Solicitud cancelada. Volviendo al menú principal.");
+            return;
+        }
+
+        private void btn_continuar_Click(object sender, EventArgs e)
+        {
+            Form_solicitud_servicio_confirmación form_de_confirmacion = new Form_solicitud_servicio_confirmación();
+            this.Visible = false;
+            form_de_confirmacion.Show();
+        }
+
+        private void lbl_tipo_paquete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
