@@ -61,5 +61,10 @@ namespace TPCAI
         {
 
         }
+
+        private void lbl_peso_servicio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

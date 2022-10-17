@@ -51,10 +51,10 @@
             this.lbl_precio_servicio = new System.Windows.Forms.Label();
             this.lbl_moneda_peso = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_tipo_envio_servicio = new System.Windows.Forms.Label();
+            this.lbl_tipo_envio = new System.Windows.Forms.Label();
             this.lbl_tipo_paquete_servicio = new System.Windows.Forms.Label();
             this.lbl_nro_orden_servicio = new System.Windows.Forms.Label();
-            this.lbl_tipo_envio = new System.Windows.Forms.Label();
-            this.lbl_tipo_envio_servicio = new System.Windows.Forms.Label();
             this.btn_volver_menu_ppal = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -214,70 +214,71 @@
             this.lbl_peso_servicio.AutoSize = true;
             this.lbl_peso_servicio.Location = new System.Drawing.Point(196, 103);
             this.lbl_peso_servicio.Name = "lbl_peso_servicio";
-            this.lbl_peso_servicio.Size = new System.Drawing.Size(30, 20);
+            this.lbl_peso_servicio.Size = new System.Drawing.Size(40, 20);
             this.lbl_peso_servicio.TabIndex = 26;
-            this.lbl_peso_servicio.Text = "xxx";
+            this.lbl_peso_servicio.Text = "2,00";
+            this.lbl_peso_servicio.Click += new System.EventHandler(this.lbl_peso_servicio_Click);
             // 
             // lbl_ancho_servicio
             // 
             this.lbl_ancho_servicio.AutoSize = true;
             this.lbl_ancho_servicio.Location = new System.Drawing.Point(196, 148);
             this.lbl_ancho_servicio.Name = "lbl_ancho_servicio";
-            this.lbl_ancho_servicio.Size = new System.Drawing.Size(30, 20);
+            this.lbl_ancho_servicio.Size = new System.Drawing.Size(40, 20);
             this.lbl_ancho_servicio.TabIndex = 27;
-            this.lbl_ancho_servicio.Text = "xxx";
+            this.lbl_ancho_servicio.Text = "1,00";
             // 
             // lbl_largo_servicio
             // 
             this.lbl_largo_servicio.AutoSize = true;
             this.lbl_largo_servicio.Location = new System.Drawing.Point(196, 195);
             this.lbl_largo_servicio.Name = "lbl_largo_servicio";
-            this.lbl_largo_servicio.Size = new System.Drawing.Size(30, 20);
+            this.lbl_largo_servicio.Size = new System.Drawing.Size(40, 20);
             this.lbl_largo_servicio.TabIndex = 28;
-            this.lbl_largo_servicio.Text = "xxx";
+            this.lbl_largo_servicio.Text = "1,00";
             // 
             // lbl_alto_servicio
             // 
             this.lbl_alto_servicio.AutoSize = true;
             this.lbl_alto_servicio.Location = new System.Drawing.Point(196, 241);
             this.lbl_alto_servicio.Name = "lbl_alto_servicio";
-            this.lbl_alto_servicio.Size = new System.Drawing.Size(30, 20);
+            this.lbl_alto_servicio.Size = new System.Drawing.Size(40, 20);
             this.lbl_alto_servicio.TabIndex = 29;
-            this.lbl_alto_servicio.Text = "xxx";
+            this.lbl_alto_servicio.Text = "1,00";
             // 
             // lbl_origen_servicio
             // 
             this.lbl_origen_servicio.AutoSize = true;
-            this.lbl_origen_servicio.Location = new System.Drawing.Point(531, 103);
+            this.lbl_origen_servicio.Location = new System.Drawing.Point(508, 103);
             this.lbl_origen_servicio.Name = "lbl_origen_servicio";
-            this.lbl_origen_servicio.Size = new System.Drawing.Size(264, 20);
+            this.lbl_origen_servicio.Size = new System.Drawing.Size(372, 20);
             this.lbl_origen_servicio.TabIndex = 30;
-            this.lbl_origen_servicio.Text = "región, provincia, localidad, dirección";
+            this.lbl_origen_servicio.Text = "Metropolitana, CABA, Balvanera, Av. Córdoba 2122";
             this.lbl_origen_servicio.Click += new System.EventHandler(this.lbl_origen_servicio_Click);
             // 
             // lbl_destino_servicio
             // 
             this.lbl_destino_servicio.AutoSize = true;
-            this.lbl_destino_servicio.Location = new System.Drawing.Point(531, 148);
+            this.lbl_destino_servicio.Location = new System.Drawing.Point(508, 148);
             this.lbl_destino_servicio.Name = "lbl_destino_servicio";
-            this.lbl_destino_servicio.Size = new System.Drawing.Size(264, 20);
+            this.lbl_destino_servicio.Size = new System.Drawing.Size(357, 20);
             this.lbl_destino_servicio.TabIndex = 31;
-            this.lbl_destino_servicio.Text = "región, provincia, localidad, dirección";
+            this.lbl_destino_servicio.Text = "Metropolitana, CABA, Belgrano, Av. Cabildo 2000";
             // 
             // lbl_precio_servicio
             // 
             this.lbl_precio_servicio.AutoSize = true;
             this.lbl_precio_servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_precio_servicio.Location = new System.Drawing.Point(553, 195);
+            this.lbl_precio_servicio.Location = new System.Drawing.Point(530, 195);
             this.lbl_precio_servicio.Name = "lbl_precio_servicio";
-            this.lbl_precio_servicio.Size = new System.Drawing.Size(40, 22);
+            this.lbl_precio_servicio.Size = new System.Drawing.Size(43, 22);
             this.lbl_precio_servicio.TabIndex = 32;
-            this.lbl_precio_servicio.Text = "xxx";
+            this.lbl_precio_servicio.Text = "600";
             // 
             // lbl_moneda_peso
             // 
             this.lbl_moneda_peso.AutoSize = true;
-            this.lbl_moneda_peso.Location = new System.Drawing.Point(536, 198);
+            this.lbl_moneda_peso.Location = new System.Drawing.Point(513, 198);
             this.lbl_moneda_peso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_moneda_peso.Name = "lbl_moneda_peso";
             this.lbl_moneda_peso.Size = new System.Drawing.Size(18, 20);
@@ -311,10 +312,32 @@
             this.groupBox1.Controls.Add(this.lbl_ancho);
             this.groupBox1.Location = new System.Drawing.Point(47, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(835, 288);
+            this.groupBox1.Size = new System.Drawing.Size(880, 288);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle";
+            // 
+            // lbl_tipo_envio_servicio
+            // 
+            this.lbl_tipo_envio_servicio.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.lbl_tipo_envio_servicio.AutoSize = true;
+            this.lbl_tipo_envio_servicio.Location = new System.Drawing.Point(508, 58);
+            this.lbl_tipo_envio_servicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_tipo_envio_servicio.Name = "lbl_tipo_envio_servicio";
+            this.lbl_tipo_envio_servicio.Size = new System.Drawing.Size(70, 20);
+            this.lbl_tipo_envio_servicio.TabIndex = 36;
+            this.lbl_tipo_envio_servicio.Text = "Nacional";
+            // 
+            // lbl_tipo_envio
+            // 
+            this.lbl_tipo_envio.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.lbl_tipo_envio.AutoSize = true;
+            this.lbl_tipo_envio.Location = new System.Drawing.Point(383, 58);
+            this.lbl_tipo_envio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_tipo_envio.Name = "lbl_tipo_envio";
+            this.lbl_tipo_envio.Size = new System.Drawing.Size(104, 20);
+            this.lbl_tipo_envio.TabIndex = 35;
+            this.lbl_tipo_envio.Text = "Tipo de Envío";
             // 
             // lbl_tipo_paquete_servicio
             // 
@@ -336,28 +359,6 @@
             this.lbl_nro_orden_servicio.Size = new System.Drawing.Size(120, 22);
             this.lbl_nro_orden_servicio.TabIndex = 35;
             this.lbl_nro_orden_servicio.Text = "1111111111";
-            // 
-            // lbl_tipo_envio
-            // 
-            this.lbl_tipo_envio.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.lbl_tipo_envio.AutoSize = true;
-            this.lbl_tipo_envio.Location = new System.Drawing.Point(383, 58);
-            this.lbl_tipo_envio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_tipo_envio.Name = "lbl_tipo_envio";
-            this.lbl_tipo_envio.Size = new System.Drawing.Size(104, 20);
-            this.lbl_tipo_envio.TabIndex = 35;
-            this.lbl_tipo_envio.Text = "Tipo de Envío";
-            // 
-            // lbl_tipo_envio_servicio
-            // 
-            this.lbl_tipo_envio_servicio.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.lbl_tipo_envio_servicio.AutoSize = true;
-            this.lbl_tipo_envio_servicio.Location = new System.Drawing.Point(531, 58);
-            this.lbl_tipo_envio_servicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_tipo_envio_servicio.Name = "lbl_tipo_envio_servicio";
-            this.lbl_tipo_envio_servicio.Size = new System.Drawing.Size(70, 20);
-            this.lbl_tipo_envio_servicio.TabIndex = 36;
-            this.lbl_tipo_envio_servicio.Text = "Nacional";
             // 
             // btn_volver_menu_ppal
             // 
