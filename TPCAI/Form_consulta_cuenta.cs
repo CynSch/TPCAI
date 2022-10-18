@@ -85,7 +85,14 @@ namespace TPCAI
         //volver al menu principal
         private void btnmenu_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Visible = false;
+            Menu menu = new Menu();
+            menu.Show();
+        }
+
+        private void Form_consulta_cuenta_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }       
 }

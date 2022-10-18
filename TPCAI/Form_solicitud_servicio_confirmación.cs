@@ -59,12 +59,19 @@ namespace TPCAI
 
         private void btn_volver_menu_ppal_Click(object sender, EventArgs e)
         {
-
+            this.Visible = false;
+            Menu menu = new Menu();
+            menu.Show();
         }
 
         private void lbl_peso_servicio_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form_solicitud_servicio_confirmación_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

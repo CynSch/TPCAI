@@ -65,8 +65,14 @@ namespace TPCAI
 
         private void btnMenu(object sender, EventArgs e)
         {
-            this.Close();
+            this.Visible = false;
+            Menu menu = new Menu();
+            menu.Show();
         }
-               
+
+        private void Form_consulta_orden_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

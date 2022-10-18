@@ -96,7 +96,7 @@
             this.columnHeader2.Text = "Estado";
             this.columnHeader2.Width = 323;
             // 
-            // Form3
+            // Form_consulta_orden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -106,8 +106,9 @@
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtNumeroOrden);
             this.Controls.Add(this.label1);
-            this.Name = "Form3";
+            this.Name = "Form_consulta_orden";
             this.Text = "Consultar estado de orden";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_consulta_orden_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

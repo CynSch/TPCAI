@@ -100,7 +100,9 @@ namespace TPCAI
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Solicitud cancelada. Volviendo al menú principal.");
-            return;
+            this.Visible = false;
+            Menu menu = new Menu();
+            menu.Show();
         }
 
         private void btn_continuar_Click(object sender, EventArgs e)
@@ -113,6 +115,11 @@ namespace TPCAI
         private void lbl_tipo_paquete_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form_solicitud_servicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
