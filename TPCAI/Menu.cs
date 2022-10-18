@@ -31,10 +31,13 @@ namespace TPCAI
 
         private void butcuentacorriente_Click(object sender, EventArgs e)
         {
-            Form_consulta_cuenta form_consulta_cuenta_nueva = new Form_consulta_cuenta();
+            
             this.Visible = false;
-            form_consulta_cuenta_nueva.Show();
+            var CC = new Form_consulta_cuenta();
+            CC.Show();
+            CC.MostrarDatos();
         }
+
 
         private void butconsultarorden_Click(object sender, EventArgs e)
         {

@@ -17,26 +17,17 @@ namespace TPCAI
             InitializeComponent();
         }
 
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //var saldo = MostrarSaldo();
-           // listBox1.Items.Add(saldo);
-           // MessageBox.Show(saldo);
-        }
-
         public string MostrarSaldo()
         {
-           var saldo = "$1000000";
+           var saldo = "$1.250.000";
            return saldo; 
         }
-        
-        private void button1_Click(object sender, EventArgs e)
+
+        public void MostrarDatos()
         {
             // saldo de cuenta corriente
             var saldo = MostrarSaldo();
-            listBox1.Items.Add(saldo);
-
+            textBox1.Text = saldo;
 
             // listado de facturas: 
             ListViewItem factura1 = new ListViewItem("1111225");
@@ -79,8 +70,8 @@ namespace TPCAI
             orden2.SubItems.Add("15/10/2022");
             PendientesFacturacion.Items.Add(orden2);
 
-
         }
+       
 
         //volver al menu principal
         private void btnmenu_Click(object sender, EventArgs e)

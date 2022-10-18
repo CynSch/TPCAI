@@ -52,13 +52,14 @@ namespace TPCAI
                     txtNumeroOrden.Clear();
                     return;
                 }
-                
+
                 if (txtNumeroOrden.Text == "1111111111")
                 {
-                    ListViewItem consulta = new ListViewItem("1111111111");
-                    consulta.SubItems.Add("En centro de distibucion");
-                    listView1.Items.Add(consulta);
-                    txtNumeroOrden.Clear();
+                ListViewItem consulta = new ListViewItem("1111111111");
+                consulta.SubItems.Add("En centro de distibucion");
+                listView1.Items.Add(consulta);
+                txtNumeroOrden.Clear();
+                
                 }
 
         }
