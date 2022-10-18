@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TPCAI
 {
@@ -19,7 +20,7 @@ namespace TPCAI
 
         public string MostrarSaldo()
         {
-           var saldo = "$1.250.000";
+           var saldo = "$172.130";
            return saldo; 
         }
 
@@ -36,7 +37,7 @@ namespace TPCAI
             factura1.SubItems.Add("Paga");
             ListadoFacturas.Items.Add(factura1);
 
-            ListViewItem factura2 = new ListViewItem("1234567");
+            ListViewItem factura2 = new ListViewItem("0934567");
             factura2.SubItems.Add("$55000");
             factura2.SubItems.Add("15/06/2022");
             factura2.SubItems.Add("Paga");
@@ -54,13 +55,15 @@ namespace TPCAI
             factura4.SubItems.Add("Impaga");
             ListadoFacturas.Items.Add(factura4);
 
+            ListadoFacturas.Sorting = SortOrder.Ascending;
+
             // ordenes pendientes de facturacion
             ListViewItem orden = new ListViewItem("1111111111");
             orden.SubItems.Add("$15630");
             orden.SubItems.Add("14/10/2022");
             PendientesFacturacion.Items.Add(orden);
 
-            ListViewItem orden1 = new ListViewItem("1111114563");
+            ListViewItem orden1 = new ListViewItem("1111111163");
             orden1.SubItems.Add("$18600");
             orden1.SubItems.Add("14/10/2022");
             PendientesFacturacion.Items.Add(orden1);
@@ -70,6 +73,7 @@ namespace TPCAI
             orden2.SubItems.Add("15/10/2022");
             PendientesFacturacion.Items.Add(orden2);
 
+            PendientesFacturacion.Sorting = SortOrder.Ascending;
         }
        
 

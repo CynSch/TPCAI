@@ -17,6 +17,8 @@ namespace TPCAI
             InitializeComponent();
         }
 
+   
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string ingreso = txtNumeroOrden.Text;
@@ -59,9 +61,9 @@ namespace TPCAI
                 consulta.SubItems.Add("En centro de distibucion");
                 listView1.Items.Add(consulta);
                 txtNumeroOrden.Clear();
-                
                 }
 
+               
         }
 
         private void btnMenu(object sender, EventArgs e)
