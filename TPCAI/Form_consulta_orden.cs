@@ -17,15 +17,14 @@ namespace TPCAI
             InitializeComponent();
         }
 
-   
-
+  
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string ingreso = txtNumeroOrden.Text;
-
             bool correcto = int.TryParse(ingreso, out int entero);
             int IngresoLength = ingreso.Length;
 
+            listView1.Items.Clear(); 
 
                  if (string.IsNullOrEmpty(ingreso))
                  {
@@ -61,11 +60,18 @@ namespace TPCAI
                 consulta.SubItems.Add("En centro de distibucion");
                 listView1.Items.Add(consulta);
                 txtNumeroOrden.Clear();
+
                 }
 
                
+
+                
+
+
         }
 
+        
+       
         private void btnMenu(object sender, EventArgs e)
         {
             this.Visible = false;
