@@ -204,7 +204,7 @@ namespace TPCAI
             // 
             this.cmb_pais_internacional.FormattingEnabled = true;
             this.cmb_pais_internacional.Items.AddRange(new object[] {
-            "03- Av. Cordoba 2122"});
+            "España"});
             this.cmb_pais_internacional.Location = new System.Drawing.Point(122, 559);
             this.cmb_pais_internacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_pais_internacional.Name = "cmb_pais_internacional";

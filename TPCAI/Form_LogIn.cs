@@ -35,5 +35,10 @@ namespace TPCAI
                 return;
             }
         }
+
+        private void Form_LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
