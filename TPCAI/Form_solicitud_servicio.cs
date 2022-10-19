@@ -121,5 +121,40 @@ namespace TPCAI
         {
             Application.Exit();
         }
+
+        private void rd_Internacional_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_region_internacional_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_region_internacional_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_pais_internacional_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_pais_internacional_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_direccion_internacional_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_direccion_internacional_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

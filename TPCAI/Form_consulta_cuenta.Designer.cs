@@ -49,9 +49,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 49);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(50, 74);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 13);
+            this.label1.Size = new System.Drawing.Size(251, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "El saldo de la cuenta corriente es: ";
             // 
@@ -63,9 +65,10 @@
             this.columnHeader3,
             this.columnHeader4});
             this.ListadoFacturas.HideSelection = false;
-            this.ListadoFacturas.Location = new System.Drawing.Point(6, 19);
+            this.ListadoFacturas.Location = new System.Drawing.Point(9, 29);
+            this.ListadoFacturas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ListadoFacturas.Name = "ListadoFacturas";
-            this.ListadoFacturas.Size = new System.Drawing.Size(312, 178);
+            this.ListadoFacturas.Size = new System.Drawing.Size(466, 272);
             this.ListadoFacturas.TabIndex = 2;
             this.ListadoFacturas.UseCompatibleStateImageBehavior = false;
             this.ListadoFacturas.View = System.Windows.Forms.View.Details;
@@ -93,9 +96,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ListadoFacturas);
-            this.groupBox1.Location = new System.Drawing.Point(30, 97);
+            this.groupBox1.Location = new System.Drawing.Point(45, 149);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(328, 213);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(492, 315);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de facturas:";
@@ -103,9 +108,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.PendientesFacturacion);
-            this.groupBox2.Location = new System.Drawing.Point(431, 97);
+            this.groupBox2.Location = new System.Drawing.Point(646, 149);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(296, 213);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(444, 315);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Servicios pendientes de facturacion:";
@@ -117,9 +124,10 @@
             this.columnHeader6,
             this.columnHeader7});
             this.PendientesFacturacion.HideSelection = false;
-            this.PendientesFacturacion.Location = new System.Drawing.Point(6, 19);
+            this.PendientesFacturacion.Location = new System.Drawing.Point(9, 29);
+            this.PendientesFacturacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PendientesFacturacion.Name = "PendientesFacturacion";
-            this.PendientesFacturacion.Size = new System.Drawing.Size(284, 178);
+            this.PendientesFacturacion.Size = new System.Drawing.Size(424, 272);
             this.PendientesFacturacion.TabIndex = 0;
             this.PendientesFacturacion.UseCompatibleStateImageBehavior = false;
             this.PendientesFacturacion.View = System.Windows.Forms.View.Details;
@@ -141,9 +149,10 @@
             // 
             // btnMenu
             // 
-            this.btnMenu.Location = new System.Drawing.Point(317, 342);
+            this.btnMenu.Location = new System.Drawing.Point(882, 490);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(139, 23);
+            this.btnMenu.Size = new System.Drawing.Size(208, 35);
             this.btnMenu.TabIndex = 10;
             this.btnMenu.Text = "Volver al menu principal";
             this.btnMenu.UseVisualStyleBackColor = true;
@@ -151,21 +160,25 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(203, 46);
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(304, 71);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(148, 26);
             this.textBox1.TabIndex = 11;
             // 
             // Form_consulta_cuenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(781, 395);
+            this.ClientSize = new System.Drawing.Size(1145, 552);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form_consulta_cuenta";
             this.Text = "Consultar estado de la cuenta corriente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_consulta_cuenta_FormClosing);

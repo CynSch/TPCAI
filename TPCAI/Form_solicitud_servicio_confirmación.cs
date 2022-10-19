@@ -73,5 +73,10 @@ namespace TPCAI
         {
             Application.Exit();
         }
+
+        private void lbl_nro_orden_servicio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
