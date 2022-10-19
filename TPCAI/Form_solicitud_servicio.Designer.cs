@@ -29,8 +29,6 @@ namespace TPCAI
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmb_Tipo_Paquete = new System.Windows.Forms.ComboBox();
-            this.lbl_tipo_paquete = new System.Windows.Forms.Label();
             this.Grpbx_dimensiones = new System.Windows.Forms.GroupBox();
             this.lbl_cm_alto = new System.Windows.Forms.Label();
             this.Grp_Destino = new System.Windows.Forms.GroupBox();
@@ -79,6 +77,9 @@ namespace TPCAI
             this.lbl_ancho = new System.Windows.Forms.Label();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_continuar = new System.Windows.Forms.Button();
+            this.rd_btn_encomienda = new System.Windows.Forms.RadioButton();
+            this.rd_btn_correspondencia = new System.Windows.Forms.RadioButton();
+            this.grp_tipo_servicio = new System.Windows.Forms.GroupBox();
             this.Grpbx_dimensiones.SuspendLayout();
             this.Grp_Destino.SuspendLayout();
             this.grp_origen.SuspendLayout();
@@ -86,56 +87,20 @@ namespace TPCAI
             ((System.ComponentModel.ISupportInitialize)(this.num_alto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_largo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_ancho)).BeginInit();
+            this.grp_tipo_servicio.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cmb_Tipo_Paquete
-            // 
-            this.cmb_Tipo_Paquete.FormattingEnabled = true;
-            this.cmb_Tipo_Paquete.Items.AddRange(new object[] {
-            "Encomienda",
-            "Correspondencia"});
-            this.cmb_Tipo_Paquete.Location = new System.Drawing.Point(178, 46);
-            this.cmb_Tipo_Paquete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_Tipo_Paquete.Name = "cmb_Tipo_Paquete";
-            this.cmb_Tipo_Paquete.Size = new System.Drawing.Size(180, 28);
-            this.cmb_Tipo_Paquete.TabIndex = 1;
-            this.cmb_Tipo_Paquete.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // lbl_tipo_paquete
-            // 
-            this.lbl_tipo_paquete.AutoSize = true;
-            this.lbl_tipo_paquete.Location = new System.Drawing.Point(32, 49);
-            this.lbl_tipo_paquete.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_tipo_paquete.Name = "lbl_tipo_paquete";
-            this.lbl_tipo_paquete.Size = new System.Drawing.Size(124, 20);
-            this.lbl_tipo_paquete.TabIndex = 2;
-            this.lbl_tipo_paquete.Text = "Tipo de paquete";
-            this.lbl_tipo_paquete.Click += new System.EventHandler(this.lbl_tipo_paquete_Click);
             // 
             // Grpbx_dimensiones
             // 
-            this.Grpbx_dimensiones.Controls.Add(this.lbl_cm_alto);
+            this.Grpbx_dimensiones.Controls.Add(this.grp_tipo_servicio);
             this.Grpbx_dimensiones.Controls.Add(this.Grp_Destino);
             this.Grpbx_dimensiones.Controls.Add(this.grp_origen);
-            this.Grpbx_dimensiones.Controls.Add(this.lbl_cm_largo);
             this.Grpbx_dimensiones.Controls.Add(this.grp_dimensiones);
-            this.Grpbx_dimensiones.Controls.Add(this.lbl_alto);
-            this.Grpbx_dimensiones.Controls.Add(this.lbl_kg);
-            this.Grpbx_dimensiones.Controls.Add(this.lbl_cm_ancho);
-            this.Grpbx_dimensiones.Controls.Add(this.num_peso);
-            this.Grpbx_dimensiones.Controls.Add(this.lbl_peso);
-            this.Grpbx_dimensiones.Controls.Add(this.num_alto);
-            this.Grpbx_dimensiones.Controls.Add(this.cmb_Tipo_Paquete);
-            this.Grpbx_dimensiones.Controls.Add(this.lbl_tipo_paquete);
-            this.Grpbx_dimensiones.Controls.Add(this.lbl_largo);
-            this.Grpbx_dimensiones.Controls.Add(this.num_largo);
-            this.Grpbx_dimensiones.Controls.Add(this.num_ancho);
-            this.Grpbx_dimensiones.Controls.Add(this.lbl_ancho);
             this.Grpbx_dimensiones.Location = new System.Drawing.Point(38, 18);
             this.Grpbx_dimensiones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Grpbx_dimensiones.Name = "Grpbx_dimensiones";
             this.Grpbx_dimensiones.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Grpbx_dimensiones.Size = new System.Drawing.Size(820, 828);
+            this.Grpbx_dimensiones.Size = new System.Drawing.Size(820, 891);
             this.Grpbx_dimensiones.TabIndex = 3;
             this.Grpbx_dimensiones.TabStop = false;
             this.Grpbx_dimensiones.Text = "Solicitar servicio";
@@ -144,7 +109,7 @@ namespace TPCAI
             // lbl_cm_alto
             // 
             this.lbl_cm_alto.AutoSize = true;
-            this.lbl_cm_alto.Location = new System.Drawing.Point(368, 245);
+            this.lbl_cm_alto.Location = new System.Drawing.Point(336, 242);
             this.lbl_cm_alto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_cm_alto.Name = "lbl_cm_alto";
             this.lbl_cm_alto.Size = new System.Drawing.Size(30, 20);
@@ -355,6 +320,7 @@ namespace TPCAI
             this.rd_nacional.TabStop = true;
             this.rd_nacional.Text = "Nacional";
             this.rd_nacional.UseVisualStyleBackColor = true;
+            this.rd_nacional.CheckedChanged += new System.EventHandler(this.rd_nacional_CheckedChanged);
             // 
             // grp_origen
             // 
@@ -372,7 +338,7 @@ namespace TPCAI
             this.grp_origen.Controls.Add(this.lbl_region_retirodomicilio);
             this.grp_origen.Controls.Add(this.rd_btn_entrega_sucursal);
             this.grp_origen.Controls.Add(this.rd_btn_retiro_domicilio);
-            this.grp_origen.Location = new System.Drawing.Point(34, 308);
+            this.grp_origen.Location = new System.Drawing.Point(36, 365);
             this.grp_origen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grp_origen.Name = "grp_origen";
             this.grp_origen.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -392,6 +358,7 @@ namespace TPCAI
             this.cmb_sucursal_entregaensucursal.Name = "cmb_sucursal_entregaensucursal";
             this.cmb_sucursal_entregaensucursal.Size = new System.Drawing.Size(180, 28);
             this.cmb_sucursal_entregaensucursal.TabIndex = 20;
+            this.cmb_sucursal_entregaensucursal.SelectedIndexChanged += new System.EventHandler(this.cmb_sucursal_entregaensucursal_SelectedIndexChanged);
             // 
             // lbl_sucursal_entregaensucursal
             // 
@@ -520,6 +487,7 @@ namespace TPCAI
             this.rd_btn_entrega_sucursal.TabStop = true;
             this.rd_btn_entrega_sucursal.Text = "Entrega en sucursal";
             this.rd_btn_entrega_sucursal.UseVisualStyleBackColor = true;
+            this.rd_btn_entrega_sucursal.CheckedChanged += new System.EventHandler(this.rd_btn_entrega_sucursal_CheckedChanged);
             // 
             // rd_btn_retiro_domicilio
             // 
@@ -532,11 +500,12 @@ namespace TPCAI
             this.rd_btn_retiro_domicilio.TabStop = true;
             this.rd_btn_retiro_domicilio.Text = "Retiro en domicilio";
             this.rd_btn_retiro_domicilio.UseVisualStyleBackColor = true;
+            this.rd_btn_retiro_domicilio.CheckedChanged += new System.EventHandler(this.rd_btn_retiro_domicilio_CheckedChanged);
             // 
             // lbl_cm_largo
             // 
             this.lbl_cm_largo.AutoSize = true;
-            this.lbl_cm_largo.Location = new System.Drawing.Point(368, 191);
+            this.lbl_cm_largo.Location = new System.Drawing.Point(336, 188);
             this.lbl_cm_largo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_cm_largo.Name = "lbl_cm_largo";
             this.lbl_cm_largo.Size = new System.Drawing.Size(30, 20);
@@ -558,7 +527,7 @@ namespace TPCAI
             // 
             this.lbl_alto.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_alto.AutoSize = true;
-            this.lbl_alto.Location = new System.Drawing.Point(32, 242);
+            this.lbl_alto.Location = new System.Drawing.Point(44, 238);
             this.lbl_alto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_alto.Name = "lbl_alto";
             this.lbl_alto.Size = new System.Drawing.Size(37, 20);
@@ -568,7 +537,7 @@ namespace TPCAI
             // lbl_kg
             // 
             this.lbl_kg.AutoSize = true;
-            this.lbl_kg.Location = new System.Drawing.Point(366, 98);
+            this.lbl_kg.Location = new System.Drawing.Point(334, 95);
             this.lbl_kg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_kg.Name = "lbl_kg";
             this.lbl_kg.Size = new System.Drawing.Size(26, 20);
@@ -578,7 +547,7 @@ namespace TPCAI
             // lbl_cm_ancho
             // 
             this.lbl_cm_ancho.AutoSize = true;
-            this.lbl_cm_ancho.Location = new System.Drawing.Point(366, 145);
+            this.lbl_cm_ancho.Location = new System.Drawing.Point(334, 142);
             this.lbl_cm_ancho.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_cm_ancho.Name = "lbl_cm_ancho";
             this.lbl_cm_ancho.Size = new System.Drawing.Size(30, 20);
@@ -589,7 +558,7 @@ namespace TPCAI
             // 
             this.num_peso.AutoSize = true;
             this.num_peso.DecimalPlaces = 2;
-            this.num_peso.Location = new System.Drawing.Point(178, 95);
+            this.num_peso.Location = new System.Drawing.Point(146, 92);
             this.num_peso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.num_peso.Name = "num_peso";
             this.num_peso.Size = new System.Drawing.Size(180, 26);
@@ -600,7 +569,7 @@ namespace TPCAI
             // 
             this.lbl_peso.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_peso.AutoSize = true;
-            this.lbl_peso.Location = new System.Drawing.Point(32, 97);
+            this.lbl_peso.Location = new System.Drawing.Point(42, 94);
             this.lbl_peso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_peso.Name = "lbl_peso";
             this.lbl_peso.Size = new System.Drawing.Size(45, 20);
@@ -612,7 +581,7 @@ namespace TPCAI
             // 
             this.num_alto.AutoSize = true;
             this.num_alto.DecimalPlaces = 2;
-            this.num_alto.Location = new System.Drawing.Point(178, 242);
+            this.num_alto.Location = new System.Drawing.Point(146, 239);
             this.num_alto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.num_alto.Name = "num_alto";
             this.num_alto.Size = new System.Drawing.Size(180, 26);
@@ -622,7 +591,7 @@ namespace TPCAI
             // 
             this.lbl_largo.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_largo.AutoSize = true;
-            this.lbl_largo.Location = new System.Drawing.Point(32, 191);
+            this.lbl_largo.Location = new System.Drawing.Point(44, 188);
             this.lbl_largo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_largo.Name = "lbl_largo";
             this.lbl_largo.Size = new System.Drawing.Size(50, 20);
@@ -634,7 +603,7 @@ namespace TPCAI
             // 
             this.num_largo.AutoSize = true;
             this.num_largo.DecimalPlaces = 2;
-            this.num_largo.Location = new System.Drawing.Point(178, 189);
+            this.num_largo.Location = new System.Drawing.Point(146, 186);
             this.num_largo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.num_largo.Name = "num_largo";
             this.num_largo.Size = new System.Drawing.Size(180, 26);
@@ -644,7 +613,7 @@ namespace TPCAI
             // 
             this.num_ancho.AutoSize = true;
             this.num_ancho.DecimalPlaces = 2;
-            this.num_ancho.Location = new System.Drawing.Point(178, 143);
+            this.num_ancho.Location = new System.Drawing.Point(146, 140);
             this.num_ancho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.num_ancho.Name = "num_ancho";
             this.num_ancho.Size = new System.Drawing.Size(180, 26);
@@ -654,7 +623,7 @@ namespace TPCAI
             // 
             this.lbl_ancho.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_ancho.AutoSize = true;
-            this.lbl_ancho.Location = new System.Drawing.Point(32, 148);
+            this.lbl_ancho.Location = new System.Drawing.Point(44, 142);
             this.lbl_ancho.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_ancho.Name = "lbl_ancho";
             this.lbl_ancho.Size = new System.Drawing.Size(55, 20);
@@ -664,7 +633,7 @@ namespace TPCAI
             // btn_cancelar
             // 
             this.btn_cancelar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btn_cancelar.Location = new System.Drawing.Point(610, 868);
+            this.btn_cancelar.Location = new System.Drawing.Point(608, 933);
             this.btn_cancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(112, 35);
@@ -675,7 +644,7 @@ namespace TPCAI
             // 
             // btn_continuar
             // 
-            this.btn_continuar.Location = new System.Drawing.Point(747, 868);
+            this.btn_continuar.Location = new System.Drawing.Point(745, 933);
             this.btn_continuar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_continuar.Name = "btn_continuar";
             this.btn_continuar.Size = new System.Drawing.Size(112, 35);
@@ -683,6 +652,53 @@ namespace TPCAI
             this.btn_continuar.Text = "Continuar";
             this.btn_continuar.UseVisualStyleBackColor = true;
             this.btn_continuar.Click += new System.EventHandler(this.btn_continuar_Click);
+            // 
+            // rd_btn_encomienda
+            // 
+            this.rd_btn_encomienda.AutoSize = true;
+            this.rd_btn_encomienda.Location = new System.Drawing.Point(42, 48);
+            this.rd_btn_encomienda.Name = "rd_btn_encomienda";
+            this.rd_btn_encomienda.Size = new System.Drawing.Size(123, 24);
+            this.rd_btn_encomienda.TabIndex = 14;
+            this.rd_btn_encomienda.TabStop = true;
+            this.rd_btn_encomienda.Text = "Encomienda";
+            this.rd_btn_encomienda.UseVisualStyleBackColor = true;
+            this.rd_btn_encomienda.CheckedChanged += new System.EventHandler(this.rd_btn_encomienda_CheckedChanged);
+            // 
+            // rd_btn_correspondencia
+            // 
+            this.rd_btn_correspondencia.AutoSize = true;
+            this.rd_btn_correspondencia.Location = new System.Drawing.Point(183, 48);
+            this.rd_btn_correspondencia.Name = "rd_btn_correspondencia";
+            this.rd_btn_correspondencia.Size = new System.Drawing.Size(155, 24);
+            this.rd_btn_correspondencia.TabIndex = 15;
+            this.rd_btn_correspondencia.TabStop = true;
+            this.rd_btn_correspondencia.Text = "Correspondencia";
+            this.rd_btn_correspondencia.UseVisualStyleBackColor = true;
+            this.rd_btn_correspondencia.CheckedChanged += new System.EventHandler(this.rd_btn_correspondencia_CheckedChanged);
+            // 
+            // grp_tipo_servicio
+            // 
+            this.grp_tipo_servicio.Controls.Add(this.rd_btn_correspondencia);
+            this.grp_tipo_servicio.Controls.Add(this.rd_btn_encomienda);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_cm_alto);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_cm_largo);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_alto);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_kg);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_cm_ancho);
+            this.grp_tipo_servicio.Controls.Add(this.num_peso);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_peso);
+            this.grp_tipo_servicio.Controls.Add(this.num_alto);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_largo);
+            this.grp_tipo_servicio.Controls.Add(this.num_largo);
+            this.grp_tipo_servicio.Controls.Add(this.num_ancho);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_ancho);
+            this.grp_tipo_servicio.Location = new System.Drawing.Point(36, 46);
+            this.grp_tipo_servicio.Name = "grp_tipo_servicio";
+            this.grp_tipo_servicio.Size = new System.Drawing.Size(398, 311);
+            this.grp_tipo_servicio.TabIndex = 16;
+            this.grp_tipo_servicio.TabStop = false;
+            this.grp_tipo_servicio.Text = "Tipo de Servicio";
             // 
             // Form_solicitud_servicio
             // 
@@ -699,7 +715,6 @@ namespace TPCAI
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_solicitud_servicio_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Grpbx_dimensiones.ResumeLayout(false);
-            this.Grpbx_dimensiones.PerformLayout();
             this.Grp_Destino.ResumeLayout(false);
             this.Grp_Destino.PerformLayout();
             this.grp_origen.ResumeLayout(false);
@@ -708,13 +723,13 @@ namespace TPCAI
             ((System.ComponentModel.ISupportInitialize)(this.num_alto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_largo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_ancho)).EndInit();
+            this.grp_tipo_servicio.ResumeLayout(false);
+            this.grp_tipo_servicio.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cmb_Tipo_Paquete;
-        private System.Windows.Forms.Label lbl_tipo_paquete;
         private System.Windows.Forms.GroupBox Grpbx_dimensiones;
         private System.Windows.Forms.Label lbl_peso;
         private System.Windows.Forms.NumericUpDown num_peso;
@@ -763,6 +778,9 @@ namespace TPCAI
         private System.Windows.Forms.RadioButton rd_Internacional;
         private System.Windows.Forms.RadioButton rd_nacional;
         private System.Windows.Forms.Button btn_continuar;
+        private System.Windows.Forms.RadioButton rd_btn_correspondencia;
+        private System.Windows.Forms.RadioButton rd_btn_encomienda;
+        private System.Windows.Forms.GroupBox grp_tipo_servicio;
     }
 }
 

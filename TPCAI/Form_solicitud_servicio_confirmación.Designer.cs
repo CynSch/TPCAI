@@ -379,7 +379,7 @@
             // 
             this.btn_volver_menu_ppal.AutoSize = true;
             this.btn_volver_menu_ppal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btn_volver_menu_ppal.Location = new System.Drawing.Point(495, 593);
+            this.btn_volver_menu_ppal.Location = new System.Drawing.Point(496, 626);
             this.btn_volver_menu_ppal.Name = "btn_volver_menu_ppal";
             this.btn_volver_menu_ppal.Size = new System.Drawing.Size(186, 30);
             this.btn_volver_menu_ppal.TabIndex = 36;
@@ -391,7 +391,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 647);
+            this.ClientSize = new System.Drawing.Size(731, 674);
             this.Controls.Add(this.btn_volver_menu_ppal);
             this.Controls.Add(this.lbl_nro_orden_servicio);
             this.Controls.Add(this.groupBox1);

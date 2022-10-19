@@ -19,12 +19,10 @@ namespace TPCAI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -124,7 +122,13 @@ namespace TPCAI
 
         private void rd_Internacional_CheckedChanged(object sender, EventArgs e)
         {
-
+            cmb_region_nacional.Enabled = false;
+            cmb_provincia_nacional.Enabled = false;
+            cmb_localidad_nacional.Enabled = false;
+            txt_direccion_nacional.Enabled = false;
+            cmb_region_internacional.Enabled = true;
+            cmb_pais_internacional.Enabled = true;
+            txt_direccion_internacional.Enabled = true;
         }
 
         private void lbl_region_internacional_Click(object sender, EventArgs e)
@@ -155,6 +159,61 @@ namespace TPCAI
         private void txt_direccion_internacional_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void rd_nacional_CheckedChanged(object sender, EventArgs e)
+        {
+            cmb_region_nacional.Enabled = true;
+            cmb_provincia_nacional.Enabled = true;
+            cmb_localidad_nacional.Enabled = true;
+            txt_direccion_nacional.Enabled = true;
+
+            cmb_region_internacional.Enabled = false;
+            cmb_pais_internacional.Enabled = false;
+            txt_direccion_internacional.Enabled = false;
+        }
+
+        private void rd_btn_retiro_domicilio_CheckedChanged(object sender, EventArgs e)
+        {
+            cmb_region__retirodomicilio.Enabled = true;
+            cmb_provincia_retirodomicilio.Enabled = true;
+            cmb_localidad_retirodomicilio.Enabled = true;
+            txt_domicilio_retirodomicilio.Enabled = true;
+            cmb_region_entregaensucursal.Enabled = false;
+            cmb_sucursal_entregaensucursal.Enabled = false;
+        }
+
+        private void cmb_sucursal_entregaensucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rd_btn_entrega_sucursal_CheckedChanged(object sender, EventArgs e)
+        {
+            cmb_region_entregaensucursal.Enabled = true;
+            cmb_sucursal_entregaensucursal.Enabled = true;
+            cmb_region__retirodomicilio.Enabled = false;
+            cmb_provincia_retirodomicilio.Enabled = false; 
+            cmb_localidad_retirodomicilio.Enabled=false;
+            txt_domicilio_retirodomicilio.Enabled = false;
+
+        }
+
+        private void rd_btn_correspondencia_CheckedChanged(object sender, EventArgs e)
+        {
+            num_peso.Enabled = false;
+            num_ancho.Enabled = false;
+            num_largo.Enabled = false;
+            num_alto.Enabled = false;
+
+        }
+
+        private void rd_btn_encomienda_CheckedChanged(object sender, EventArgs e)
+        {
+            num_peso.Enabled = true;
+            num_ancho.Enabled = true;
+            num_largo.Enabled = true;
+            num_alto.Enabled = true;
         }
     }
 }
