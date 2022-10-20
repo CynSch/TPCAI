@@ -105,29 +105,50 @@ namespace TPCAI
 
         private void btn_continuar_Click(object sender, EventArgs e)
         {
-            if (rd_btn_encomienda.Checked && (num_peso.Value == 0 || num_alto.Value == 0 || num_largo.Value == 0 || num_ancho.Value == 0))
+            if (rd_btn_encomienda.Checked && (num_peso.Value == 0 
+                || num_alto.Value == 0 || num_largo.Value == 0 || num_ancho.Value == 0))
             {
-                MessageBox.Show("Debe completar todos los campos visibles relacionados con el tipo de servicio para continuar");
+                MessageBox.Show("Debe completar todos los campos visibles relacionados" +
+                    " con el tipo de servicio para continuar");
             }
-            else if (rd_btn_retiro_domicilio.Checked && (cmb_region__retirodomicilio.SelectedIndex == -1 || cmb_provincia_retirodomicilio.SelectedIndex == -1 || cmb_localidad_retirodomicilio.SelectedIndex == -1 || string.IsNullOrEmpty(txt_domicilio_retirodomicilio.Text)))
+            else if (rd_btn_retiro_domicilio.Checked && 
+                (cmb_region__retirodomicilio.SelectedIndex == -1 
+                || cmb_provincia_retirodomicilio.SelectedIndex == -1 
+                || cmb_localidad_retirodomicilio.SelectedIndex == -1 
+                || string.IsNullOrEmpty(txt_domicilio_retirodomicilio.Text)))
             {
-                MessageBox.Show("Debe completar todos los campos visibles relacionados con el retiro a domicilio para continuar");
+                MessageBox.Show("Debe completar todos los campos visibles " +
+                    "relacionados con el retiro a domicilio para continuar");
             } 
-            else if (rd_btn_entrega_sucursal.Checked && (cmb_region_entregaensucursal.SelectedIndex == -1 || cmb_sucursal_entregaensucursal.SelectedIndex == -1))
+            else if (rd_btn_entrega_sucursal.Checked && 
+                (cmb_region_entregaensucursal.SelectedIndex == -1 
+                || cmb_sucursal_entregaensucursal.SelectedIndex == -1))
             {
-                MessageBox.Show("Debe completar todos los campos visibles relacionados con la entrega en sucursal para continuar");
+                MessageBox.Show("Debe completar todos los campos visibles " +
+                    "relacionados con la entrega en sucursal para continuar");
             }  
-            else if(rd_nacional.Checked && (cmb_region_nacional.SelectedIndex == -1 || cmb_provincia_nacional.SelectedIndex == -1 || cmb_localidad_nacional.SelectedIndex == -1 || string.IsNullOrEmpty(txt_direccion_nacional.Text)))
+            else if(rd_nacional.Checked && 
+                (cmb_region_nacional.SelectedIndex == -1 
+                || cmb_provincia_nacional.SelectedIndex == -1 
+                || cmb_localidad_nacional.SelectedIndex == -1 
+                || string.IsNullOrEmpty(txt_direccion_nacional.Text)))
             {
-                MessageBox.Show("Debe completar todos los campos visibles relacionados a un destino nacional");
+                MessageBox.Show("Debe completar todos los campos visibles" +
+                    " relacionados a un destino nacional");
             }
-            else if (rd_Internacional.Checked && (cmb_region_internacional.SelectedIndex == -1 || cmb_pais_internacional.SelectedIndex == -1 || cmb_localidad_nacional.SelectedIndex == -1 || string.IsNullOrEmpty(txt_direccion_internacional.Text)))
+            else if (rd_Internacional.Checked && 
+                (cmb_region_internacional.SelectedIndex == -1 
+                || cmb_pais_internacional.SelectedIndex == -1 
+                || cmb_localidad_nacional.SelectedIndex == -1 
+                || string.IsNullOrEmpty(txt_direccion_internacional.Text)))
             {
-                MessageBox.Show("Debe completar todos los campos visibles relacionados a un destino internacional");
+                MessageBox.Show("Debe completar todos los campos visibles" +
+                    " relacionados a un destino internacional");
             }
             else
             {
-                Form_solicitud_servicio_confirmación form_de_confirmacion = new Form_solicitud_servicio_confirmación();
+                Form_solicitud_servicio_confirmación form_de_confirmacion = 
+                    new Form_solicitud_servicio_confirmación();
             this.Visible = false;
             form_de_confirmacion.Show();
             }
