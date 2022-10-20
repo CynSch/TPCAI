@@ -42,7 +42,7 @@ namespace TPCAI
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-
+            //rd_btn_retiro_domicilio.Checked = true;
         }
 
         private void label1_Click_2(object sender, EventArgs e)
@@ -105,7 +105,22 @@ namespace TPCAI
 
         private void btn_continuar_Click(object sender, EventArgs e)
         {
-            if (rd_btn_encomienda.Checked && (num_peso.Value == 0 
+            if (!rd_btn_encomienda.Checked && !rd_btn_correspondencia.Checked)
+            {
+                MessageBox.Show("Debe seleccionar algún tipo de servicio.");
+            }
+
+            if (!rd_btn_entrega_sucursal.Checked && !rd_btn_retiro_domicilio.Checked)
+            {
+                MessageBox.Show("Debe seleccionar algún origen.");
+            }
+
+            if (!rd_nacional.Checked && !rd_Internacional.Checked)
+            {
+                MessageBox.Show("Debe seleccionar algún tipo de destino.");
+            }
+
+            else if (rd_btn_encomienda.Checked && (num_peso.Value == 0 
                 || num_alto.Value == 0 || num_largo.Value == 0 || num_ancho.Value == 0))
             {
                 MessageBox.Show("Las dimensiones deben ser mayor a 0");
@@ -258,7 +273,9 @@ namespace TPCAI
             num_alto.Enabled = true;
         }
 
-
-
+        private void cmb_provincia_retirodomicilio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //rd_btn_retiro_domicilio.Checked = true;
+        }
     }
 }

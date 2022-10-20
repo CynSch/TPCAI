@@ -468,7 +468,6 @@ namespace TPCAI
             this.rd_Internacional.Name = "rd_Internacional";
             this.rd_Internacional.Size = new System.Drawing.Size(126, 24);
             this.rd_Internacional.TabIndex = 9;
-            this.rd_Internacional.TabStop = true;
             this.rd_Internacional.Text = "Internacional";
             this.rd_Internacional.UseVisualStyleBackColor = true;
             this.rd_Internacional.CheckedChanged += new System.EventHandler(this.rd_Internacional_CheckedChanged);
@@ -476,12 +475,12 @@ namespace TPCAI
             // rd_nacional
             // 
             this.rd_nacional.AutoSize = true;
+            this.rd_nacional.Cursor = System.Windows.Forms.Cursors.Default;
             this.rd_nacional.Location = new System.Drawing.Point(28, 48);
             this.rd_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rd_nacional.Name = "rd_nacional";
             this.rd_nacional.Size = new System.Drawing.Size(95, 24);
             this.rd_nacional.TabIndex = 8;
-            this.rd_nacional.TabStop = true;
             this.rd_nacional.Text = "Nacional";
             this.rd_nacional.UseVisualStyleBackColor = true;
             this.rd_nacional.CheckedChanged += new System.EventHandler(this.rd_nacional_CheckedChanged);
@@ -606,6 +605,7 @@ namespace TPCAI
             this.cmb_provincia_retirodomicilio.Name = "cmb_provincia_retirodomicilio";
             this.cmb_provincia_retirodomicilio.Size = new System.Drawing.Size(180, 28);
             this.cmb_provincia_retirodomicilio.TabIndex = 12;
+            this.cmb_provincia_retirodomicilio.SelectedIndexChanged += new System.EventHandler(this.cmb_provincia_retirodomicilio_SelectedIndexChanged);
             // 
             // lbl_provincia_retirodomicilio
             // 
