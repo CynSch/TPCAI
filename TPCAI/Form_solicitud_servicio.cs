@@ -138,7 +138,6 @@ namespace TPCAI
             else if (rd_Internacional.Checked && 
                 (cmb_region_internacional.SelectedIndex == -1 
                 || cmb_pais_internacional.SelectedIndex == -1 
-                || cmb_localidad_nacional.SelectedIndex == -1 
                 || string.IsNullOrEmpty(txt_direccion_internacional.Text)))
             {
                 MessageBox.Show("Debe completar todos los campos visibles" +
