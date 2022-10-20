@@ -30,7 +30,21 @@ namespace TPCAI
         private void InitializeComponent()
         {
             this.Grpbx_dimensiones = new System.Windows.Forms.GroupBox();
+            this.grp_tipo_servicio = new System.Windows.Forms.GroupBox();
+            this.rd_btn_correspondencia = new System.Windows.Forms.RadioButton();
+            this.rd_btn_encomienda = new System.Windows.Forms.RadioButton();
             this.lbl_cm_alto = new System.Windows.Forms.Label();
+            this.lbl_cm_largo = new System.Windows.Forms.Label();
+            this.lbl_alto = new System.Windows.Forms.Label();
+            this.lbl_kg = new System.Windows.Forms.Label();
+            this.lbl_cm_ancho = new System.Windows.Forms.Label();
+            this.num_peso = new System.Windows.Forms.NumericUpDown();
+            this.lbl_peso = new System.Windows.Forms.Label();
+            this.num_alto = new System.Windows.Forms.NumericUpDown();
+            this.lbl_largo = new System.Windows.Forms.Label();
+            this.num_largo = new System.Windows.Forms.NumericUpDown();
+            this.num_ancho = new System.Windows.Forms.NumericUpDown();
+            this.lbl_ancho = new System.Windows.Forms.Label();
             this.Grp_Destino = new System.Windows.Forms.GroupBox();
             this.lbl_direccion_internacional = new System.Windows.Forms.Label();
             this.txt_direccion_internacional = new System.Windows.Forms.TextBox();
@@ -63,31 +77,17 @@ namespace TPCAI
             this.lbl_region_retirodomicilio = new System.Windows.Forms.Label();
             this.rd_btn_entrega_sucursal = new System.Windows.Forms.RadioButton();
             this.rd_btn_retiro_domicilio = new System.Windows.Forms.RadioButton();
-            this.lbl_cm_largo = new System.Windows.Forms.Label();
             this.grp_dimensiones = new System.Windows.Forms.GroupBox();
-            this.lbl_alto = new System.Windows.Forms.Label();
-            this.lbl_kg = new System.Windows.Forms.Label();
-            this.lbl_cm_ancho = new System.Windows.Forms.Label();
-            this.num_peso = new System.Windows.Forms.NumericUpDown();
-            this.lbl_peso = new System.Windows.Forms.Label();
-            this.num_alto = new System.Windows.Forms.NumericUpDown();
-            this.lbl_largo = new System.Windows.Forms.Label();
-            this.num_largo = new System.Windows.Forms.NumericUpDown();
-            this.num_ancho = new System.Windows.Forms.NumericUpDown();
-            this.lbl_ancho = new System.Windows.Forms.Label();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_continuar = new System.Windows.Forms.Button();
-            this.rd_btn_encomienda = new System.Windows.Forms.RadioButton();
-            this.rd_btn_correspondencia = new System.Windows.Forms.RadioButton();
-            this.grp_tipo_servicio = new System.Windows.Forms.GroupBox();
             this.Grpbx_dimensiones.SuspendLayout();
-            this.Grp_Destino.SuspendLayout();
-            this.grp_origen.SuspendLayout();
+            this.grp_tipo_servicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_peso)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_alto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_largo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_ancho)).BeginInit();
-            this.grp_tipo_servicio.SuspendLayout();
+            this.Grp_Destino.SuspendLayout();
+            this.grp_origen.SuspendLayout();
             this.SuspendLayout();
             // 
             // Grpbx_dimensiones
@@ -106,6 +106,53 @@ namespace TPCAI
             this.Grpbx_dimensiones.Text = "Solicitar servicio";
             this.Grpbx_dimensiones.Enter += new System.EventHandler(this.Grpbx_dimensiones_Enter);
             // 
+            // grp_tipo_servicio
+            // 
+            this.grp_tipo_servicio.Controls.Add(this.rd_btn_correspondencia);
+            this.grp_tipo_servicio.Controls.Add(this.rd_btn_encomienda);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_cm_alto);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_cm_largo);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_alto);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_kg);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_cm_ancho);
+            this.grp_tipo_servicio.Controls.Add(this.num_peso);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_peso);
+            this.grp_tipo_servicio.Controls.Add(this.num_alto);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_largo);
+            this.grp_tipo_servicio.Controls.Add(this.num_largo);
+            this.grp_tipo_servicio.Controls.Add(this.num_ancho);
+            this.grp_tipo_servicio.Controls.Add(this.lbl_ancho);
+            this.grp_tipo_servicio.Location = new System.Drawing.Point(36, 46);
+            this.grp_tipo_servicio.Name = "grp_tipo_servicio";
+            this.grp_tipo_servicio.Size = new System.Drawing.Size(398, 311);
+            this.grp_tipo_servicio.TabIndex = 16;
+            this.grp_tipo_servicio.TabStop = false;
+            this.grp_tipo_servicio.Text = "Tipo de Servicio";
+            // 
+            // rd_btn_correspondencia
+            // 
+            this.rd_btn_correspondencia.AutoSize = true;
+            this.rd_btn_correspondencia.Location = new System.Drawing.Point(183, 48);
+            this.rd_btn_correspondencia.Name = "rd_btn_correspondencia";
+            this.rd_btn_correspondencia.Size = new System.Drawing.Size(155, 24);
+            this.rd_btn_correspondencia.TabIndex = 15;
+            this.rd_btn_correspondencia.TabStop = true;
+            this.rd_btn_correspondencia.Text = "Correspondencia";
+            this.rd_btn_correspondencia.UseVisualStyleBackColor = true;
+            this.rd_btn_correspondencia.CheckedChanged += new System.EventHandler(this.rd_btn_correspondencia_CheckedChanged);
+            // 
+            // rd_btn_encomienda
+            // 
+            this.rd_btn_encomienda.AutoSize = true;
+            this.rd_btn_encomienda.Location = new System.Drawing.Point(42, 48);
+            this.rd_btn_encomienda.Name = "rd_btn_encomienda";
+            this.rd_btn_encomienda.Size = new System.Drawing.Size(123, 24);
+            this.rd_btn_encomienda.TabIndex = 14;
+            this.rd_btn_encomienda.TabStop = true;
+            this.rd_btn_encomienda.Text = "Encomienda";
+            this.rd_btn_encomienda.UseVisualStyleBackColor = true;
+            this.rd_btn_encomienda.CheckedChanged += new System.EventHandler(this.rd_btn_encomienda_CheckedChanged);
+            // 
             // lbl_cm_alto
             // 
             this.lbl_cm_alto.AutoSize = true;
@@ -115,6 +162,123 @@ namespace TPCAI
             this.lbl_cm_alto.Size = new System.Drawing.Size(30, 20);
             this.lbl_cm_alto.TabIndex = 13;
             this.lbl_cm_alto.Text = "cm";
+            // 
+            // lbl_cm_largo
+            // 
+            this.lbl_cm_largo.AutoSize = true;
+            this.lbl_cm_largo.Location = new System.Drawing.Point(336, 188);
+            this.lbl_cm_largo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_cm_largo.Name = "lbl_cm_largo";
+            this.lbl_cm_largo.Size = new System.Drawing.Size(30, 20);
+            this.lbl_cm_largo.TabIndex = 13;
+            this.lbl_cm_largo.Text = "cm";
+            // 
+            // lbl_alto
+            // 
+            this.lbl_alto.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.lbl_alto.AutoSize = true;
+            this.lbl_alto.Location = new System.Drawing.Point(44, 238);
+            this.lbl_alto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_alto.Name = "lbl_alto";
+            this.lbl_alto.Size = new System.Drawing.Size(37, 20);
+            this.lbl_alto.TabIndex = 11;
+            this.lbl_alto.Text = "Alto";
+            // 
+            // lbl_kg
+            // 
+            this.lbl_kg.AutoSize = true;
+            this.lbl_kg.Location = new System.Drawing.Point(334, 95);
+            this.lbl_kg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_kg.Name = "lbl_kg";
+            this.lbl_kg.Size = new System.Drawing.Size(26, 20);
+            this.lbl_kg.TabIndex = 6;
+            this.lbl_kg.Text = "kg";
+            // 
+            // lbl_cm_ancho
+            // 
+            this.lbl_cm_ancho.AutoSize = true;
+            this.lbl_cm_ancho.Location = new System.Drawing.Point(334, 142);
+            this.lbl_cm_ancho.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_cm_ancho.Name = "lbl_cm_ancho";
+            this.lbl_cm_ancho.Size = new System.Drawing.Size(30, 20);
+            this.lbl_cm_ancho.TabIndex = 12;
+            this.lbl_cm_ancho.Text = "cm";
+            // 
+            // num_peso
+            // 
+            this.num_peso.AutoSize = true;
+            this.num_peso.DecimalPlaces = 2;
+            this.num_peso.Location = new System.Drawing.Point(146, 92);
+            this.num_peso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.num_peso.Name = "num_peso";
+            this.num_peso.Size = new System.Drawing.Size(180, 26);
+            this.num_peso.TabIndex = 5;
+            this.num_peso.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // lbl_peso
+            // 
+            this.lbl_peso.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.lbl_peso.AutoSize = true;
+            this.lbl_peso.Location = new System.Drawing.Point(42, 94);
+            this.lbl_peso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_peso.Name = "lbl_peso";
+            this.lbl_peso.Size = new System.Drawing.Size(45, 20);
+            this.lbl_peso.TabIndex = 4;
+            this.lbl_peso.Text = "Peso";
+            this.lbl_peso.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // num_alto
+            // 
+            this.num_alto.AutoSize = true;
+            this.num_alto.DecimalPlaces = 2;
+            this.num_alto.Location = new System.Drawing.Point(146, 239);
+            this.num_alto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.num_alto.Name = "num_alto";
+            this.num_alto.Size = new System.Drawing.Size(180, 26);
+            this.num_alto.TabIndex = 8;
+            // 
+            // lbl_largo
+            // 
+            this.lbl_largo.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.lbl_largo.AutoSize = true;
+            this.lbl_largo.Location = new System.Drawing.Point(44, 188);
+            this.lbl_largo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_largo.Name = "lbl_largo";
+            this.lbl_largo.Size = new System.Drawing.Size(50, 20);
+            this.lbl_largo.TabIndex = 10;
+            this.lbl_largo.Text = "Largo";
+            this.lbl_largo.Click += new System.EventHandler(this.lbl_largo_Click);
+            // 
+            // num_largo
+            // 
+            this.num_largo.AutoSize = true;
+            this.num_largo.DecimalPlaces = 2;
+            this.num_largo.Location = new System.Drawing.Point(146, 186);
+            this.num_largo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.num_largo.Name = "num_largo";
+            this.num_largo.Size = new System.Drawing.Size(180, 26);
+            this.num_largo.TabIndex = 7;
+            // 
+            // num_ancho
+            // 
+            this.num_ancho.AutoSize = true;
+            this.num_ancho.DecimalPlaces = 2;
+            this.num_ancho.Location = new System.Drawing.Point(146, 140);
+            this.num_ancho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.num_ancho.Name = "num_ancho";
+            this.num_ancho.Size = new System.Drawing.Size(180, 26);
+            this.num_ancho.TabIndex = 6;
+            // 
+            // lbl_ancho
+            // 
+            this.lbl_ancho.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.lbl_ancho.AutoSize = true;
+            this.lbl_ancho.Location = new System.Drawing.Point(44, 142);
+            this.lbl_ancho.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_ancho.Name = "lbl_ancho";
+            this.lbl_ancho.Size = new System.Drawing.Size(55, 20);
+            this.lbl_ancho.TabIndex = 9;
+            this.lbl_ancho.Text = "Ancho";
             // 
             // Grp_Destino
             // 
@@ -502,16 +666,6 @@ namespace TPCAI
             this.rd_btn_retiro_domicilio.UseVisualStyleBackColor = true;
             this.rd_btn_retiro_domicilio.CheckedChanged += new System.EventHandler(this.rd_btn_retiro_domicilio_CheckedChanged);
             // 
-            // lbl_cm_largo
-            // 
-            this.lbl_cm_largo.AutoSize = true;
-            this.lbl_cm_largo.Location = new System.Drawing.Point(336, 188);
-            this.lbl_cm_largo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_cm_largo.Name = "lbl_cm_largo";
-            this.lbl_cm_largo.Size = new System.Drawing.Size(30, 20);
-            this.lbl_cm_largo.TabIndex = 13;
-            this.lbl_cm_largo.Text = "cm";
-            // 
             // grp_dimensiones
             // 
             this.grp_dimensiones.Location = new System.Drawing.Point(21, 168);
@@ -522,113 +676,6 @@ namespace TPCAI
             this.grp_dimensiones.TabIndex = 7;
             this.grp_dimensiones.TabStop = false;
             this.grp_dimensiones.Text = "Dimensiones";
-            // 
-            // lbl_alto
-            // 
-            this.lbl_alto.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.lbl_alto.AutoSize = true;
-            this.lbl_alto.Location = new System.Drawing.Point(44, 238);
-            this.lbl_alto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_alto.Name = "lbl_alto";
-            this.lbl_alto.Size = new System.Drawing.Size(37, 20);
-            this.lbl_alto.TabIndex = 11;
-            this.lbl_alto.Text = "Alto";
-            // 
-            // lbl_kg
-            // 
-            this.lbl_kg.AutoSize = true;
-            this.lbl_kg.Location = new System.Drawing.Point(334, 95);
-            this.lbl_kg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_kg.Name = "lbl_kg";
-            this.lbl_kg.Size = new System.Drawing.Size(26, 20);
-            this.lbl_kg.TabIndex = 6;
-            this.lbl_kg.Text = "kg";
-            // 
-            // lbl_cm_ancho
-            // 
-            this.lbl_cm_ancho.AutoSize = true;
-            this.lbl_cm_ancho.Location = new System.Drawing.Point(334, 142);
-            this.lbl_cm_ancho.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_cm_ancho.Name = "lbl_cm_ancho";
-            this.lbl_cm_ancho.Size = new System.Drawing.Size(30, 20);
-            this.lbl_cm_ancho.TabIndex = 12;
-            this.lbl_cm_ancho.Text = "cm";
-            // 
-            // num_peso
-            // 
-            this.num_peso.AutoSize = true;
-            this.num_peso.DecimalPlaces = 2;
-            this.num_peso.Location = new System.Drawing.Point(146, 92);
-            this.num_peso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.num_peso.Name = "num_peso";
-            this.num_peso.Size = new System.Drawing.Size(180, 26);
-            this.num_peso.TabIndex = 5;
-            this.num_peso.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // lbl_peso
-            // 
-            this.lbl_peso.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.lbl_peso.AutoSize = true;
-            this.lbl_peso.Location = new System.Drawing.Point(42, 94);
-            this.lbl_peso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_peso.Name = "lbl_peso";
-            this.lbl_peso.Size = new System.Drawing.Size(45, 20);
-            this.lbl_peso.TabIndex = 4;
-            this.lbl_peso.Text = "Peso";
-            this.lbl_peso.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // num_alto
-            // 
-            this.num_alto.AutoSize = true;
-            this.num_alto.DecimalPlaces = 2;
-            this.num_alto.Location = new System.Drawing.Point(146, 239);
-            this.num_alto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.num_alto.Name = "num_alto";
-            this.num_alto.Size = new System.Drawing.Size(180, 26);
-            this.num_alto.TabIndex = 8;
-            // 
-            // lbl_largo
-            // 
-            this.lbl_largo.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.lbl_largo.AutoSize = true;
-            this.lbl_largo.Location = new System.Drawing.Point(44, 188);
-            this.lbl_largo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_largo.Name = "lbl_largo";
-            this.lbl_largo.Size = new System.Drawing.Size(50, 20);
-            this.lbl_largo.TabIndex = 10;
-            this.lbl_largo.Text = "Largo";
-            this.lbl_largo.Click += new System.EventHandler(this.lbl_largo_Click);
-            // 
-            // num_largo
-            // 
-            this.num_largo.AutoSize = true;
-            this.num_largo.DecimalPlaces = 2;
-            this.num_largo.Location = new System.Drawing.Point(146, 186);
-            this.num_largo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.num_largo.Name = "num_largo";
-            this.num_largo.Size = new System.Drawing.Size(180, 26);
-            this.num_largo.TabIndex = 7;
-            // 
-            // num_ancho
-            // 
-            this.num_ancho.AutoSize = true;
-            this.num_ancho.DecimalPlaces = 2;
-            this.num_ancho.Location = new System.Drawing.Point(146, 140);
-            this.num_ancho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.num_ancho.Name = "num_ancho";
-            this.num_ancho.Size = new System.Drawing.Size(180, 26);
-            this.num_ancho.TabIndex = 6;
-            // 
-            // lbl_ancho
-            // 
-            this.lbl_ancho.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.lbl_ancho.AutoSize = true;
-            this.lbl_ancho.Location = new System.Drawing.Point(44, 142);
-            this.lbl_ancho.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_ancho.Name = "lbl_ancho";
-            this.lbl_ancho.Size = new System.Drawing.Size(55, 20);
-            this.lbl_ancho.TabIndex = 9;
-            this.lbl_ancho.Text = "Ancho";
             // 
             // btn_cancelar
             // 
@@ -653,53 +700,6 @@ namespace TPCAI
             this.btn_continuar.UseVisualStyleBackColor = true;
             this.btn_continuar.Click += new System.EventHandler(this.btn_continuar_Click);
             // 
-            // rd_btn_encomienda
-            // 
-            this.rd_btn_encomienda.AutoSize = true;
-            this.rd_btn_encomienda.Location = new System.Drawing.Point(42, 48);
-            this.rd_btn_encomienda.Name = "rd_btn_encomienda";
-            this.rd_btn_encomienda.Size = new System.Drawing.Size(123, 24);
-            this.rd_btn_encomienda.TabIndex = 14;
-            this.rd_btn_encomienda.TabStop = true;
-            this.rd_btn_encomienda.Text = "Encomienda";
-            this.rd_btn_encomienda.UseVisualStyleBackColor = true;
-            this.rd_btn_encomienda.CheckedChanged += new System.EventHandler(this.rd_btn_encomienda_CheckedChanged);
-            // 
-            // rd_btn_correspondencia
-            // 
-            this.rd_btn_correspondencia.AutoSize = true;
-            this.rd_btn_correspondencia.Location = new System.Drawing.Point(183, 48);
-            this.rd_btn_correspondencia.Name = "rd_btn_correspondencia";
-            this.rd_btn_correspondencia.Size = new System.Drawing.Size(155, 24);
-            this.rd_btn_correspondencia.TabIndex = 15;
-            this.rd_btn_correspondencia.TabStop = true;
-            this.rd_btn_correspondencia.Text = "Correspondencia";
-            this.rd_btn_correspondencia.UseVisualStyleBackColor = true;
-            this.rd_btn_correspondencia.CheckedChanged += new System.EventHandler(this.rd_btn_correspondencia_CheckedChanged);
-            // 
-            // grp_tipo_servicio
-            // 
-            this.grp_tipo_servicio.Controls.Add(this.rd_btn_correspondencia);
-            this.grp_tipo_servicio.Controls.Add(this.rd_btn_encomienda);
-            this.grp_tipo_servicio.Controls.Add(this.lbl_cm_alto);
-            this.grp_tipo_servicio.Controls.Add(this.lbl_cm_largo);
-            this.grp_tipo_servicio.Controls.Add(this.lbl_alto);
-            this.grp_tipo_servicio.Controls.Add(this.lbl_kg);
-            this.grp_tipo_servicio.Controls.Add(this.lbl_cm_ancho);
-            this.grp_tipo_servicio.Controls.Add(this.num_peso);
-            this.grp_tipo_servicio.Controls.Add(this.lbl_peso);
-            this.grp_tipo_servicio.Controls.Add(this.num_alto);
-            this.grp_tipo_servicio.Controls.Add(this.lbl_largo);
-            this.grp_tipo_servicio.Controls.Add(this.num_largo);
-            this.grp_tipo_servicio.Controls.Add(this.num_ancho);
-            this.grp_tipo_servicio.Controls.Add(this.lbl_ancho);
-            this.grp_tipo_servicio.Location = new System.Drawing.Point(36, 46);
-            this.grp_tipo_servicio.Name = "grp_tipo_servicio";
-            this.grp_tipo_servicio.Size = new System.Drawing.Size(398, 311);
-            this.grp_tipo_servicio.TabIndex = 16;
-            this.grp_tipo_servicio.TabStop = false;
-            this.grp_tipo_servicio.Text = "Tipo de Servicio";
-            // 
             // Form_solicitud_servicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -715,16 +715,16 @@ namespace TPCAI
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_solicitud_servicio_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Grpbx_dimensiones.ResumeLayout(false);
-            this.Grp_Destino.ResumeLayout(false);
-            this.Grp_Destino.PerformLayout();
-            this.grp_origen.ResumeLayout(false);
-            this.grp_origen.PerformLayout();
+            this.grp_tipo_servicio.ResumeLayout(false);
+            this.grp_tipo_servicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_peso)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_alto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_largo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_ancho)).EndInit();
-            this.grp_tipo_servicio.ResumeLayout(false);
-            this.grp_tipo_servicio.PerformLayout();
+            this.Grp_Destino.ResumeLayout(false);
+            this.Grp_Destino.PerformLayout();
+            this.grp_origen.ResumeLayout(false);
+            this.grp_origen.PerformLayout();
             this.ResumeLayout(false);
 
         }
