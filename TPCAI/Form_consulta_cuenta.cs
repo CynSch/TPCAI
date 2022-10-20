@@ -32,25 +32,25 @@ namespace TPCAI
 
             // listado de facturas: 
             ListViewItem factura1 = new ListViewItem("1111225");
-            factura1.SubItems.Add("$5000");
+            factura1.SubItems.Add("$5.000");
             factura1.SubItems.Add("15/09/2022");
             factura1.SubItems.Add("Paga");
             ListadoFacturas.Items.Add(factura1);
 
             ListViewItem factura2 = new ListViewItem("0934567");
-            factura2.SubItems.Add("$55000");
+            factura2.SubItems.Add("$55.000");
             factura2.SubItems.Add("15/06/2022");
             factura2.SubItems.Add("Paga");
             ListadoFacturas.Items.Add(factura2);
 
             ListViewItem factura3 = new ListViewItem("1682694");
-            factura3.SubItems.Add("$21500");
+            factura3.SubItems.Add("$21.500");
             factura3.SubItems.Add("05/10/2022");
             factura3.SubItems.Add("Impaga");
             ListadoFacturas.Items.Add(factura3);
 
             ListViewItem factura4 = new ListViewItem("1825663");
-            factura4.SubItems.Add("$150630");
+            factura4.SubItems.Add("$15.0630");
             factura4.SubItems.Add("10/10/2022");
             factura4.SubItems.Add("Impaga");
             ListadoFacturas.Items.Add(factura4);
@@ -59,17 +59,17 @@ namespace TPCAI
 
             // ordenes pendientes de facturacion
             ListViewItem orden = new ListViewItem("1111111111");
-            orden.SubItems.Add("$15630");
+            orden.SubItems.Add("$15.630");
             orden.SubItems.Add("14/10/2022");
             PendientesFacturacion.Items.Add(orden);
 
             ListViewItem orden1 = new ListViewItem("1111111163");
-            orden1.SubItems.Add("$18600");
+            orden1.SubItems.Add("$18.600");
             orden1.SubItems.Add("14/10/2022");
             PendientesFacturacion.Items.Add(orden1);
 
             ListViewItem orden2 = new ListViewItem("1111214583");
-            orden2.SubItems.Add("$9050");
+            orden2.SubItems.Add("$9.050");
             orden2.SubItems.Add("15/10/2022");
             PendientesFacturacion.Items.Add(orden2);
 
@@ -88,6 +88,11 @@ namespace TPCAI
         private void Form_consulta_cuenta_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }       
 }

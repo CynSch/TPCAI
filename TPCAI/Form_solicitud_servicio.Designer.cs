@@ -398,7 +398,7 @@ namespace TPCAI
             // 
             this.cmb_localidad_nacional.FormattingEnabled = true;
             this.cmb_localidad_nacional.Items.AddRange(new object[] {
-            "Balvanera"});
+            "Belgrano"});
             this.cmb_localidad_nacional.Location = new System.Drawing.Point(112, 231);
             this.cmb_localidad_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_localidad_nacional.Name = "cmb_localidad_nacional";
@@ -709,8 +709,10 @@ namespace TPCAI
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.Grpbx_dimensiones);
             this.Controls.Add(this.btn_continuar);
+            this.Location = new System.Drawing.Point(350, 10);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form_solicitud_servicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Solicitud de servicio";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_solicitud_servicio_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);

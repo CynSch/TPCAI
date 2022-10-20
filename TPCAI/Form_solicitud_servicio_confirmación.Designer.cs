@@ -214,9 +214,10 @@
             this.lbl_precio.Location = new System.Drawing.Point(39, 426);
             this.lbl_precio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_precio.Name = "lbl_precio";
-            this.lbl_precio.Size = new System.Drawing.Size(59, 20);
+            this.lbl_precio.Size = new System.Drawing.Size(71, 20);
             this.lbl_precio.TabIndex = 25;
-            this.lbl_precio.Text = "Precio";
+            this.lbl_precio.Text = "Importe";
+            this.lbl_precio.Click += new System.EventHandler(this.lbl_precio_Click);
             // 
             // lbl_peso_servicio
             // 
@@ -399,6 +400,7 @@
             this.Controls.Add(this.lbl_solicitud_exitosa);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Form_solicitud_servicio_confirmación";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Confirmación de solicitud de servicio";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_solicitud_servicio_confirmación_FormClosing);
             this.Load += new System.EventHandler(this.Form_solicitud_servicio_confirmación_Load);

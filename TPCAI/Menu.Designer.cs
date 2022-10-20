@@ -33,11 +33,12 @@ namespace TPCAI
             this.butcuentacorriente = new System.Windows.Forms.Button();
             this.butconsultarorden = new System.Windows.Forms.Button();
             this.LabelBienvenido = new System.Windows.Forms.Label();
+            this.butsalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // butsolicitarservicio
             // 
-            this.butsolicitarservicio.Location = new System.Drawing.Point(130, 175);
+            this.butsolicitarservicio.Location = new System.Drawing.Point(128, 221);
             this.butsolicitarservicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.butsolicitarservicio.Name = "butsolicitarservicio";
             this.butsolicitarservicio.Size = new System.Drawing.Size(417, 48);
@@ -48,7 +49,7 @@ namespace TPCAI
             // 
             // butcuentacorriente
             // 
-            this.butcuentacorriente.Location = new System.Drawing.Point(130, 325);
+            this.butcuentacorriente.Location = new System.Drawing.Point(128, 322);
             this.butcuentacorriente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.butcuentacorriente.Name = "butcuentacorriente";
             this.butcuentacorriente.Size = new System.Drawing.Size(417, 48);
@@ -59,7 +60,7 @@ namespace TPCAI
             // 
             // butconsultarorden
             // 
-            this.butconsultarorden.Location = new System.Drawing.Point(130, 477);
+            this.butconsultarorden.Location = new System.Drawing.Point(128, 430);
             this.butconsultarorden.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.butconsultarorden.Name = "butconsultarorden";
             this.butconsultarorden.Size = new System.Drawing.Size(417, 48);
@@ -80,18 +81,32 @@ namespace TPCAI
             this.LabelBienvenido.Text = "Bienvenido";
             this.LabelBienvenido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // butsalir
+            // 
+            this.butsalir.Location = new System.Drawing.Point(128, 535);
+            this.butsalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butsalir.Name = "butsalir";
+            this.butsalir.Size = new System.Drawing.Size(417, 48);
+            this.butsalir.TabIndex = 4;
+            this.butsalir.Text = "Salir";
+            this.butsalir.UseVisualStyleBackColor = true;
+            this.butsalir.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(672, 777);
+            this.Controls.Add(this.butsalir);
             this.Controls.Add(this.LabelBienvenido);
             this.Controls.Add(this.butconsultarorden);
             this.Controls.Add(this.butcuentacorriente);
             this.Controls.Add(this.butsolicitarservicio);
+            this.Location = new System.Drawing.Point(2, 0);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.Load += new System.EventHandler(this.Menu_Load);
@@ -106,5 +121,6 @@ namespace TPCAI
         private System.Windows.Forms.Button butcuentacorriente;
         private System.Windows.Forms.Button butconsultarorden;
         private System.Windows.Forms.Label LabelBienvenido;
+        private System.Windows.Forms.Button butsalir;
     }
 }

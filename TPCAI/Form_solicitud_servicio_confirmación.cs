@@ -78,5 +78,10 @@ namespace TPCAI
         {
 
         }
+
+        private void lbl_precio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

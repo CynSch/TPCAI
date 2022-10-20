@@ -167,6 +167,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(148, 26);
             this.textBox1.TabIndex = 11;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form_consulta_cuenta
             // 
@@ -180,6 +182,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form_consulta_cuenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar estado de la cuenta corriente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_consulta_cuenta_FormClosing);
             this.groupBox1.ResumeLayout(false);

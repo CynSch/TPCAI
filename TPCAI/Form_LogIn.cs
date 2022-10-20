@@ -27,15 +27,6 @@ namespace TPCAI
 
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            if(txtUsuario.Text != "admin" || txtContraseña.Text != "1234")
-            {
-                MessageBox.Show("Usuario o contraseña incorrecto. Intente nuevamente");
-                return;
-            }
-        }
-
         private void Form_LogIn_Load(object sender, EventArgs e)
         {
 
@@ -43,7 +34,12 @@ namespace TPCAI
 
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == "admin" && txtContraseña.Text == "1234")
+            if (txtUsuario.Text != "AndresPanitsch" || txtContraseña.Text != "soyprofesor")
+            {
+                MessageBox.Show("Usuario o contraseña incorrecto. Intente nuevamente");
+                return;
+            }
+            else
             {
                 Menu elMenu = new Menu();
                 this.Hide();
@@ -53,7 +49,18 @@ namespace TPCAI
 
         private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
+            if (!(txtUsuario.Text is null) && txtUsuario.Text != "")
+            {
+                if (!(txtContraseña.Text is null) && txtContraseña.Text != "")
+                {
+                    btnAceptar.Enabled = true;
+                }
+            }
+        }
 
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -108,8 +108,7 @@ namespace TPCAI
             if (rd_btn_encomienda.Checked && (num_peso.Value == 0 
                 || num_alto.Value == 0 || num_largo.Value == 0 || num_ancho.Value == 0))
             {
-                MessageBox.Show("Debe completar todos los campos visibles relacionados" +
-                    " con el tipo de servicio para continuar");
+                MessageBox.Show("Las dimensiones deben ser mayor a 0");
             }
             else if (rd_btn_retiro_domicilio.Checked && 
                 (cmb_region__retirodomicilio.SelectedIndex == -1 

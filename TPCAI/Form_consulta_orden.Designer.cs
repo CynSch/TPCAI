@@ -113,6 +113,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form_consulta_orden";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar estado de orden";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_consulta_orden_FormClosing);
             this.ResumeLayout(false);
