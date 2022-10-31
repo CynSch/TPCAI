@@ -42,6 +42,7 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnMenu = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbl_CUIT = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -170,11 +171,24 @@
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // lbl_CUIT
+            // 
+            this.lbl_CUIT.AutoSize = true;
+            this.lbl_CUIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_CUIT.Location = new System.Drawing.Point(346, 24);
+            this.lbl_CUIT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_CUIT.Name = "lbl_CUIT";
+            this.lbl_CUIT.Size = new System.Drawing.Size(46, 20);
+            this.lbl_CUIT.TabIndex = 12;
+            this.lbl_CUIT.Text = "CUIT";
+            this.lbl_CUIT.Click += new System.EventHandler(this.label2_Click);
+            // 
             // Form_consulta_cuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1145, 552);
+            this.Controls.Add(this.lbl_CUIT);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.groupBox2);
@@ -208,5 +222,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lbl_CUIT;
     }
 }

@@ -26,6 +26,9 @@ namespace TPCAI
 
         public void MostrarDatos()
         {
+            //CUIT del cliente
+            lbl_CUIT.Text = "CUIT = 30-99998888-2";
+
             // saldo de cuenta corriente
             var saldo = MostrarSaldo();
             textBox1.Text = saldo;
@@ -91,6 +94,11 @@ namespace TPCAI
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

@@ -56,6 +56,8 @@
             this.lbl_tipo_paquete_servicio = new System.Windows.Forms.Label();
             this.lbl_nro_orden_servicio = new System.Windows.Forms.Label();
             this.btn_volver_menu_ppal = new System.Windows.Forms.Button();
+            this.lbl_urgencia_opcion = new System.Windows.Forms.Label();
+            this.lbl_urgencia = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +87,7 @@
             // lbl_cm_alto
             // 
             this.lbl_cm_alto.AutoSize = true;
-            this.lbl_cm_alto.Location = new System.Drawing.Point(254, 242);
+            this.lbl_cm_alto.Location = new System.Drawing.Point(254, 225);
             this.lbl_cm_alto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_cm_alto.Name = "lbl_cm_alto";
             this.lbl_cm_alto.Size = new System.Drawing.Size(30, 20);
@@ -95,7 +97,7 @@
             // lbl_cm_largo
             // 
             this.lbl_cm_largo.AutoSize = true;
-            this.lbl_cm_largo.Location = new System.Drawing.Point(254, 195);
+            this.lbl_cm_largo.Location = new System.Drawing.Point(254, 178);
             this.lbl_cm_largo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_cm_largo.Name = "lbl_cm_largo";
             this.lbl_cm_largo.Size = new System.Drawing.Size(30, 20);
@@ -107,7 +109,7 @@
             this.lbl_alto.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_alto.AutoSize = true;
             this.lbl_alto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_alto.Location = new System.Drawing.Point(38, 242);
+            this.lbl_alto.Location = new System.Drawing.Point(38, 225);
             this.lbl_alto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_alto.Name = "lbl_alto";
             this.lbl_alto.Size = new System.Drawing.Size(41, 20);
@@ -117,7 +119,7 @@
             // lbl_kg
             // 
             this.lbl_kg.AutoSize = true;
-            this.lbl_kg.Location = new System.Drawing.Point(256, 103);
+            this.lbl_kg.Location = new System.Drawing.Point(256, 86);
             this.lbl_kg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_kg.Name = "lbl_kg";
             this.lbl_kg.Size = new System.Drawing.Size(26, 20);
@@ -127,7 +129,7 @@
             // lbl_cm_ancho
             // 
             this.lbl_cm_ancho.AutoSize = true;
-            this.lbl_cm_ancho.Location = new System.Drawing.Point(254, 148);
+            this.lbl_cm_ancho.Location = new System.Drawing.Point(254, 131);
             this.lbl_cm_ancho.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_cm_ancho.Name = "lbl_cm_ancho";
             this.lbl_cm_ancho.Size = new System.Drawing.Size(30, 20);
@@ -139,7 +141,7 @@
             this.lbl_peso.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_peso.AutoSize = true;
             this.lbl_peso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_peso.Location = new System.Drawing.Point(38, 103);
+            this.lbl_peso.Location = new System.Drawing.Point(38, 86);
             this.lbl_peso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_peso.Name = "lbl_peso";
             this.lbl_peso.Size = new System.Drawing.Size(49, 20);
@@ -150,7 +152,7 @@
             // 
             this.lbl_tipo_paquete.AutoSize = true;
             this.lbl_tipo_paquete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tipo_paquete.Location = new System.Drawing.Point(38, 58);
+            this.lbl_tipo_paquete.Location = new System.Drawing.Point(38, 41);
             this.lbl_tipo_paquete.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_tipo_paquete.Name = "lbl_tipo_paquete";
             this.lbl_tipo_paquete.Size = new System.Drawing.Size(139, 20);
@@ -162,7 +164,7 @@
             this.lbl_largo.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_largo.AutoSize = true;
             this.lbl_largo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_largo.Location = new System.Drawing.Point(38, 195);
+            this.lbl_largo.Location = new System.Drawing.Point(38, 178);
             this.lbl_largo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_largo.Name = "lbl_largo";
             this.lbl_largo.Size = new System.Drawing.Size(55, 20);
@@ -174,7 +176,7 @@
             this.lbl_ancho.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_ancho.AutoSize = true;
             this.lbl_ancho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ancho.Location = new System.Drawing.Point(38, 148);
+            this.lbl_ancho.Location = new System.Drawing.Point(38, 131);
             this.lbl_ancho.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_ancho.Name = "lbl_ancho";
             this.lbl_ancho.Size = new System.Drawing.Size(60, 20);
@@ -186,7 +188,7 @@
             this.lbl_origen.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_origen.AutoSize = true;
             this.lbl_origen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_origen.Location = new System.Drawing.Point(39, 336);
+            this.lbl_origen.Location = new System.Drawing.Point(39, 319);
             this.lbl_origen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_origen.Name = "lbl_origen";
             this.lbl_origen.Size = new System.Drawing.Size(62, 20);
@@ -199,7 +201,7 @@
             this.lbl_destino.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_destino.AutoSize = true;
             this.lbl_destino.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_destino.Location = new System.Drawing.Point(38, 381);
+            this.lbl_destino.Location = new System.Drawing.Point(38, 364);
             this.lbl_destino.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_destino.Name = "lbl_destino";
             this.lbl_destino.Size = new System.Drawing.Size(71, 20);
@@ -211,7 +213,7 @@
             this.lbl_precio.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_precio.AutoSize = true;
             this.lbl_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_precio.Location = new System.Drawing.Point(39, 426);
+            this.lbl_precio.Location = new System.Drawing.Point(40, 453);
             this.lbl_precio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_precio.Name = "lbl_precio";
             this.lbl_precio.Size = new System.Drawing.Size(71, 20);
@@ -222,7 +224,7 @@
             // lbl_peso_servicio
             // 
             this.lbl_peso_servicio.AutoSize = true;
-            this.lbl_peso_servicio.Location = new System.Drawing.Point(196, 103);
+            this.lbl_peso_servicio.Location = new System.Drawing.Point(196, 86);
             this.lbl_peso_servicio.Name = "lbl_peso_servicio";
             this.lbl_peso_servicio.Size = new System.Drawing.Size(40, 20);
             this.lbl_peso_servicio.TabIndex = 26;
@@ -232,7 +234,7 @@
             // lbl_ancho_servicio
             // 
             this.lbl_ancho_servicio.AutoSize = true;
-            this.lbl_ancho_servicio.Location = new System.Drawing.Point(196, 148);
+            this.lbl_ancho_servicio.Location = new System.Drawing.Point(196, 131);
             this.lbl_ancho_servicio.Name = "lbl_ancho_servicio";
             this.lbl_ancho_servicio.Size = new System.Drawing.Size(40, 20);
             this.lbl_ancho_servicio.TabIndex = 27;
@@ -241,7 +243,7 @@
             // lbl_largo_servicio
             // 
             this.lbl_largo_servicio.AutoSize = true;
-            this.lbl_largo_servicio.Location = new System.Drawing.Point(196, 195);
+            this.lbl_largo_servicio.Location = new System.Drawing.Point(196, 178);
             this.lbl_largo_servicio.Name = "lbl_largo_servicio";
             this.lbl_largo_servicio.Size = new System.Drawing.Size(40, 20);
             this.lbl_largo_servicio.TabIndex = 28;
@@ -250,7 +252,7 @@
             // lbl_alto_servicio
             // 
             this.lbl_alto_servicio.AutoSize = true;
-            this.lbl_alto_servicio.Location = new System.Drawing.Point(196, 242);
+            this.lbl_alto_servicio.Location = new System.Drawing.Point(196, 225);
             this.lbl_alto_servicio.Name = "lbl_alto_servicio";
             this.lbl_alto_servicio.Size = new System.Drawing.Size(40, 20);
             this.lbl_alto_servicio.TabIndex = 29;
@@ -259,7 +261,7 @@
             // lbl_origen_servicio
             // 
             this.lbl_origen_servicio.AutoSize = true;
-            this.lbl_origen_servicio.Location = new System.Drawing.Point(196, 336);
+            this.lbl_origen_servicio.Location = new System.Drawing.Point(196, 319);
             this.lbl_origen_servicio.Name = "lbl_origen_servicio";
             this.lbl_origen_servicio.Size = new System.Drawing.Size(372, 20);
             this.lbl_origen_servicio.TabIndex = 30;
@@ -269,7 +271,7 @@
             // lbl_destino_servicio
             // 
             this.lbl_destino_servicio.AutoSize = true;
-            this.lbl_destino_servicio.Location = new System.Drawing.Point(196, 381);
+            this.lbl_destino_servicio.Location = new System.Drawing.Point(196, 364);
             this.lbl_destino_servicio.Name = "lbl_destino_servicio";
             this.lbl_destino_servicio.Size = new System.Drawing.Size(357, 20);
             this.lbl_destino_servicio.TabIndex = 31;
@@ -280,7 +282,7 @@
             this.lbl_precio_servicio.AutoSize = true;
             this.lbl_precio_servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_precio_servicio.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lbl_precio_servicio.Location = new System.Drawing.Point(216, 423);
+            this.lbl_precio_servicio.Location = new System.Drawing.Point(217, 450);
             this.lbl_precio_servicio.Name = "lbl_precio_servicio";
             this.lbl_precio_servicio.Size = new System.Drawing.Size(48, 25);
             this.lbl_precio_servicio.TabIndex = 32;
@@ -291,7 +293,7 @@
             this.lbl_moneda_peso.AutoSize = true;
             this.lbl_moneda_peso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_moneda_peso.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lbl_moneda_peso.Location = new System.Drawing.Point(196, 423);
+            this.lbl_moneda_peso.Location = new System.Drawing.Point(197, 449);
             this.lbl_moneda_peso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_moneda_peso.Name = "lbl_moneda_peso";
             this.lbl_moneda_peso.Size = new System.Drawing.Size(24, 25);
@@ -300,6 +302,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_urgencia_opcion);
+            this.groupBox1.Controls.Add(this.lbl_urgencia);
             this.groupBox1.Controls.Add(this.lbl_tipo_envio_servicio);
             this.groupBox1.Controls.Add(this.lbl_tipo_envio);
             this.groupBox1.Controls.Add(this.lbl_tipo_paquete_servicio);
@@ -323,18 +327,19 @@
             this.groupBox1.Controls.Add(this.lbl_tipo_paquete);
             this.groupBox1.Controls.Add(this.lbl_largo);
             this.groupBox1.Controls.Add(this.lbl_ancho);
-            this.groupBox1.Location = new System.Drawing.Point(47, 125);
+            this.groupBox1.Location = new System.Drawing.Point(47, 115);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(635, 483);
+            this.groupBox1.Size = new System.Drawing.Size(635, 495);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lbl_tipo_envio_servicio
             // 
             this.lbl_tipo_envio_servicio.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_tipo_envio_servicio.AutoSize = true;
-            this.lbl_tipo_envio_servicio.Location = new System.Drawing.Point(197, 288);
+            this.lbl_tipo_envio_servicio.Location = new System.Drawing.Point(197, 271);
             this.lbl_tipo_envio_servicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_tipo_envio_servicio.Name = "lbl_tipo_envio_servicio";
             this.lbl_tipo_envio_servicio.Size = new System.Drawing.Size(70, 20);
@@ -346,7 +351,7 @@
             this.lbl_tipo_envio.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.lbl_tipo_envio.AutoSize = true;
             this.lbl_tipo_envio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tipo_envio.Location = new System.Drawing.Point(38, 288);
+            this.lbl_tipo_envio.Location = new System.Drawing.Point(38, 271);
             this.lbl_tipo_envio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_tipo_envio.Name = "lbl_tipo_envio";
             this.lbl_tipo_envio.Size = new System.Drawing.Size(117, 20);
@@ -356,7 +361,7 @@
             // lbl_tipo_paquete_servicio
             // 
             this.lbl_tipo_paquete_servicio.AutoSize = true;
-            this.lbl_tipo_paquete_servicio.Location = new System.Drawing.Point(196, 58);
+            this.lbl_tipo_paquete_servicio.Location = new System.Drawing.Point(196, 41);
             this.lbl_tipo_paquete_servicio.Name = "lbl_tipo_paquete_servicio";
             this.lbl_tipo_paquete_servicio.Size = new System.Drawing.Size(98, 20);
             this.lbl_tipo_paquete_servicio.TabIndex = 34;
@@ -387,6 +392,31 @@
             this.btn_volver_menu_ppal.Text = "Volver al Menú Principal";
             this.btn_volver_menu_ppal.UseVisualStyleBackColor = true;
             this.btn_volver_menu_ppal.Click += new System.EventHandler(this.btn_volver_menu_ppal_Click);
+            // 
+            // lbl_urgencia_opcion
+            // 
+            this.lbl_urgencia_opcion.AutoSize = true;
+            this.lbl_urgencia_opcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_urgencia_opcion.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.lbl_urgencia_opcion.Location = new System.Drawing.Point(196, 407);
+            this.lbl_urgencia_opcion.Name = "lbl_urgencia_opcion";
+            this.lbl_urgencia_opcion.Size = new System.Drawing.Size(29, 20);
+            this.lbl_urgencia_opcion.TabIndex = 38;
+            this.lbl_urgencia_opcion.Text = "No";
+            this.lbl_urgencia_opcion.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // lbl_urgencia
+            // 
+            this.lbl_urgencia.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.lbl_urgencia.AutoSize = true;
+            this.lbl_urgencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_urgencia.Location = new System.Drawing.Point(38, 409);
+            this.lbl_urgencia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_urgencia.Name = "lbl_urgencia";
+            this.lbl_urgencia.Size = new System.Drawing.Size(81, 20);
+            this.lbl_urgencia.TabIndex = 37;
+            this.lbl_urgencia.Text = "Urgencia";
+            this.lbl_urgencia.Click += new System.EventHandler(this.label3_Click);
             // 
             // Form_solicitud_servicio_confirmación
             // 
@@ -441,5 +471,7 @@
         private System.Windows.Forms.Label lbl_tipo_envio_servicio;
         private System.Windows.Forms.Label lbl_tipo_envio;
         private System.Windows.Forms.Button btn_volver_menu_ppal;
+        private System.Windows.Forms.Label lbl_urgencia_opcion;
+        private System.Windows.Forms.Label lbl_urgencia;
     }
 }

@@ -110,12 +110,12 @@ namespace TPCAI
                 MessageBox.Show("Debe seleccionar algún tipo de servicio.");
             }
 
-            if (!rd_btn_entrega_sucursal.Checked && !rd_btn_retiro_domicilio.Checked)
+            if (!rd_btn_origen_entrega_sucursal.Checked && !rd_btn_retiro_domicilio.Checked)
             {
                 MessageBox.Show("Debe seleccionar algún origen.");
             }
 
-            if (!rd_nacional.Checked && !rd_Internacional.Checked)
+            if (!rd_btn_nacional.Checked && !rd_btn_internacional.Checked)
             {
                 MessageBox.Show("Debe seleccionar algún tipo de destino.");
             }
@@ -134,23 +134,36 @@ namespace TPCAI
                 MessageBox.Show("Debe completar todos los campos visibles " +
                     "relacionados con el retiro a domicilio para continuar");
             } 
-            else if (rd_btn_entrega_sucursal.Checked && 
-                (cmb_region_entregaensucursal.SelectedIndex == -1 
-                || cmb_sucursal_entregaensucursal.SelectedIndex == -1))
+            else if (rd_btn_origen_entrega_sucursal.Checked && 
+                (cmb_region_entregaensucursal_origen.SelectedIndex == -1 
+                || cmb_sucursal_entregaensucursal_origen.SelectedIndex == -1))
             {
                 MessageBox.Show("Debe completar todos los campos visibles " +
                     "relacionados con la entrega en sucursal para continuar");
-            }  
-            else if(rd_nacional.Checked && 
+            }
+            else if (!rd_btn_entrega_domicilio.Checked && !rd_btn_destino_entrega_sucursal.Checked)
+            {
+                MessageBox.Show("Debe seleccionar algún tipo de destino nacional.");
+            }
+            else if(rd_btn_nacional.Checked &&
+                rd_btn_entrega_domicilio.Checked &&
                 (cmb_region_nacional.SelectedIndex == -1 
                 || cmb_provincia_nacional.SelectedIndex == -1 
                 || cmb_localidad_nacional.SelectedIndex == -1 
                 || string.IsNullOrEmpty(txt_direccion_nacional.Text)))
             {
                 MessageBox.Show("Debe completar todos los campos visibles" +
-                    " relacionados a un destino nacional");
+                    " relacionados a un destino nacional a domicilio");
             }
-            else if (rd_Internacional.Checked && 
+            else if (rd_btn_nacional.Checked &&
+                rd_btn_entrega_domicilio.Checked &&
+                (cmb_region_entregaensucursal_destino.SelectedIndex == -1
+                || cmb_sucursal_entregaensucursal_destino.SelectedIndex == -1))
+            {
+                MessageBox.Show("Debe completar todos los campos visibles" +
+                    " relacionados a un destino nacional en sucursal");
+            }
+            else if (rd_btn_internacional.Checked && 
                 (cmb_region_internacional.SelectedIndex == -1 
                 || cmb_pais_internacional.SelectedIndex == -1 
                 || string.IsNullOrEmpty(txt_direccion_internacional.Text)))
@@ -236,8 +249,8 @@ namespace TPCAI
             cmb_provincia_retirodomicilio.Enabled = true;
             cmb_localidad_retirodomicilio.Enabled = true;
             txt_domicilio_retirodomicilio.Enabled = true;
-            cmb_region_entregaensucursal.Enabled = false;
-            cmb_sucursal_entregaensucursal.Enabled = false;
+            cmb_region_entregaensucursal_origen.Enabled = false;
+            cmb_sucursal_entregaensucursal_origen.Enabled = false;
         }
 
         private void cmb_sucursal_entregaensucursal_SelectedIndexChanged(object sender, EventArgs e)
@@ -247,8 +260,8 @@ namespace TPCAI
 
         private void rd_btn_entrega_sucursal_CheckedChanged(object sender, EventArgs e)
         {
-            cmb_region_entregaensucursal.Enabled = true;
-            cmb_sucursal_entregaensucursal.Enabled = true;
+            cmb_region_entregaensucursal_origen.Enabled = true;
+            cmb_sucursal_entregaensucursal_origen.Enabled = true;
             cmb_region__retirodomicilio.Enabled = false;
             cmb_provincia_retirodomicilio.Enabled = false; 
             cmb_localidad_retirodomicilio.Enabled=false;
@@ -276,6 +289,16 @@ namespace TPCAI
         private void cmb_provincia_retirodomicilio_SelectedIndexChanged(object sender, EventArgs e)
         {
             //rd_btn_retiro_domicilio.Checked = true;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
