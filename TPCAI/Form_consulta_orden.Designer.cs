@@ -147,9 +147,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(177, 239);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(42, 244);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 13);
+            this.label6.Size = new System.Drawing.Size(126, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "Estado De la Orden: ";
             // 
@@ -157,10 +158,11 @@
             // 
             this.TxtEstadoOrden.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.TxtEstadoOrden.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtEstadoOrden.Location = new System.Drawing.Point(138, 255);
+            this.TxtEstadoOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtEstadoOrden.Location = new System.Drawing.Point(174, 244);
             this.TxtEstadoOrden.Name = "TxtEstadoOrden";
             this.TxtEstadoOrden.ReadOnly = true;
-            this.TxtEstadoOrden.Size = new System.Drawing.Size(181, 13);
+            this.TxtEstadoOrden.Size = new System.Drawing.Size(261, 15);
             this.TxtEstadoOrden.TabIndex = 14;
             // 
             // Form_consulta_orden

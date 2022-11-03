@@ -59,7 +59,7 @@ namespace TPCAI
 
                 TxtNroOrden.Text = "1111111111";
                 TxtFechaOrden.Text = "10/09/2022";
-                TxtImporteOrden.Text = "600";
+                TxtImporteOrden.Text = "$600";
                 TxtDestinoOrden.Text = "Av. Cabildo 2000, Belgrano, Metropolitana CABA";
 
                 TxtEstadoOrden.Text = "EN CENTRO DE DISTRIBUCION";
