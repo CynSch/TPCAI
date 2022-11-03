@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CuentaCorrienteServiciosFacturados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentaCorrienteServiciosFacturados.Designer.cs">
+      <DependentUpon>CuentaCorrienteServiciosFacturados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CuentaCorrienteServiciosFacturados.resx">
+      <DependentUpon>CuentaCorrienteServiciosFacturados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_LogIn.resx">
       <DependentUpon>Form_LogIn.cs</DependentUpon>
     </EmbeddedResource>

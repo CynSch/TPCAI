@@ -35,11 +35,7 @@ namespace TPCAI
 
             // listado de facturas: 
             ListadoFacturas.FullRowSelect = true;
-            ListViewItem factura1 = new ListViewItem("1111225");
-            factura1.SubItems.Add("$18.000");
-            factura1.SubItems.Add("15/09/2022");
-            factura1.SubItems.Add("Paga");
-            ListadoFacturas.Items.Add(factura1);
+
 
             ListViewItem factura2 = new ListViewItem("0934567");
             factura2.SubItems.Add("$55.000");
@@ -47,17 +43,7 @@ namespace TPCAI
             factura2.SubItems.Add("Paga");
             ListadoFacturas.Items.Add(factura2);
 
-            ListViewItem factura3 = new ListViewItem("1682694");
-            factura3.SubItems.Add("$21.500");
-            factura3.SubItems.Add("05/10/2022");
-            factura3.SubItems.Add("Impaga");
-            ListadoFacturas.Items.Add(factura3);
 
-            ListViewItem factura4 = new ListViewItem("1825663");
-            factura4.SubItems.Add("$15.630");
-            factura4.SubItems.Add("10/10/2022");
-            factura4.SubItems.Add("Impaga");
-            ListadoFacturas.Items.Add(factura4);
 
             ListadoFacturas.Sorting = SortOrder.Ascending;
 
@@ -85,12 +71,10 @@ namespace TPCAI
 
         private void BtnDetalleFactura_Click(object sender, EventArgs e)
         {
-            ListViewItem item = ListadoFacturas.GetItemAt(ListadoFacturas.FocusedItem.Position.X, ListadoFacturas.FocusedItem.Position.Y);
 
-            MessageBox.Show("Factura Nº" + item.Text + "\n\n" + "\n\n" + "Servicios Facturados: " + "\n\n" + "Orden Número:  "
-                     + "\n\n" + "Fecha" + "\n\n" + "Destino:" + "\n\n" + "Monto:" +
-                     "\n\n" + "\n\n" + "Servicios Facturados: " + "\n\n" + "Orden Número:"
-                     + "\n\n" + "Fecha" + "\n\n" + "Destino:" + "\n\n" + "Monto:" + "\n\n" + "\n\n" + "Importe Total:  " + item.SubItems[1].Text);
+            var FC = new CuentaCorrienteServiciosFacturados();
+            FC.Show();
+            FC.MostrarDatos();
 
         }
 
