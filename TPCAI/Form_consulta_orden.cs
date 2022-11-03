@@ -24,7 +24,6 @@ namespace TPCAI
             bool correcto = int.TryParse(ingreso, out int entero);
             int IngresoLength = ingreso.Length;
 
-            listView1.Items.Clear(); 
 
                  if (string.IsNullOrEmpty(ingreso))
                  {
@@ -56,11 +55,16 @@ namespace TPCAI
 
                 if (txtNumeroOrden.Text == "1111111111")
                 {
-                ListViewItem consulta = new ListViewItem("1111111111");
-                consulta.SubItems.Add("En centro de distibucion");
-                listView1.Items.Add(consulta);
                 txtNumeroOrden.Clear();
 
+                TxtNroOrden.Text = "1111111111";
+                TxtFechaOrden.Text = "10/09/2022";
+                TxtImporteOrden.Text = "600";
+                TxtDestinoOrden.Text = "Av. Cabildo 2000, Belgrano, Metropolitana CABA";
+
+                TxtEstadoOrden.Text = "EN CENTRO DE DISTRIBUCION";
+
+                //"en centro de distribucion"
                 }
 
                
@@ -82,6 +86,11 @@ namespace TPCAI
         private void Form_consulta_orden_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Form_consulta_orden_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
