@@ -300,5 +300,10 @@ namespace TPCAI
         {
 
         }
+
+        private void grp_bx_nacional_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
