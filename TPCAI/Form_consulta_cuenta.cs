@@ -34,8 +34,9 @@ namespace TPCAI
             textBox1.Text = saldo;
 
             // listado de facturas: 
+            ListadoFacturas.FullRowSelect = true;
             ListViewItem factura1 = new ListViewItem("1111225");
-            factura1.SubItems.Add("$5.000");
+            factura1.SubItems.Add("$18.000");
             factura1.SubItems.Add("15/09/2022");
             factura1.SubItems.Add("Paga");
             ListadoFacturas.Items.Add(factura1);
@@ -53,7 +54,7 @@ namespace TPCAI
             ListadoFacturas.Items.Add(factura3);
 
             ListViewItem factura4 = new ListViewItem("1825663");
-            factura4.SubItems.Add("$15.0630");
+            factura4.SubItems.Add("$15.630");
             factura4.SubItems.Add("10/10/2022");
             factura4.SubItems.Add("Impaga");
             ListadoFacturas.Items.Add(factura4);
@@ -64,21 +65,34 @@ namespace TPCAI
             ListViewItem orden = new ListViewItem("1111111111");
             orden.SubItems.Add("$15.630");
             orden.SubItems.Add("14/10/2022");
+            orden.SubItems.Add("Pedro J. Frías 1080, 5220 Jesus María, Córdoba");
             PendientesFacturacion.Items.Add(orden);
 
             ListViewItem orden1 = new ListViewItem("1111111163");
             orden1.SubItems.Add("$18.600");
             orden1.SubItems.Add("14/10/2022");
+            orden1.SubItems.Add("San Martín 1002, B7000GKV Tandil, Provincia de Buenos Aires");
             PendientesFacturacion.Items.Add(orden1);
 
             ListViewItem orden2 = new ListViewItem("1111214583");
             orden2.SubItems.Add("$9.050");
             orden2.SubItems.Add("15/10/2022");
+            orden2.SubItems.Add("Cordero 2985, 2646 San Fernando, Buenos Aires");
             PendientesFacturacion.Items.Add(orden2);
 
             PendientesFacturacion.Sorting = SortOrder.Ascending;
         }
-       
+
+        private void BtnDetalleFactura_Click(object sender, EventArgs e)
+        {
+            ListViewItem item = ListadoFacturas.GetItemAt(ListadoFacturas.FocusedItem.Position.X, ListadoFacturas.FocusedItem.Position.Y);
+
+            MessageBox.Show("Factura Nº" + item.Text + "\n\n" + "\n\n" + "Servicios Facturados: " + "\n\n" + "Orden Número:  "
+                     + "\n\n" + "Fecha" + "\n\n" + "Destino:" + "\n\n" + "Monto:" +
+                     "\n\n" + "\n\n" + "Servicios Facturados: " + "\n\n" + "Orden Número:"
+                     + "\n\n" + "Fecha" + "\n\n" + "Destino:" + "\n\n" + "Monto:" + "\n\n" + "\n\n" + "Importe Total:  " + item.SubItems[1].Text);
+
+        }
 
         //volver al menu principal
         private void btnmenu_Click(object sender, EventArgs e)
@@ -102,5 +116,9 @@ namespace TPCAI
         {
 
         }
+
+           
+
+   
     }       
 }
