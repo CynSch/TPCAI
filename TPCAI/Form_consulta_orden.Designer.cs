@@ -84,28 +84,28 @@
             // 
             this.TxtNroOrden.Location = new System.Drawing.Point(110, 91);
             this.TxtNroOrden.Name = "TxtNroOrden";
-            this.TxtNroOrden.Size = new System.Drawing.Size(244, 20);
+            this.TxtNroOrden.Size = new System.Drawing.Size(325, 20);
             this.TxtNroOrden.TabIndex = 5;
             // 
             // TxtFechaOrden
             // 
             this.TxtFechaOrden.Location = new System.Drawing.Point(110, 117);
             this.TxtFechaOrden.Name = "TxtFechaOrden";
-            this.TxtFechaOrden.Size = new System.Drawing.Size(244, 20);
+            this.TxtFechaOrden.Size = new System.Drawing.Size(325, 20);
             this.TxtFechaOrden.TabIndex = 6;
             // 
             // TxtImporteOrden
             // 
             this.TxtImporteOrden.Location = new System.Drawing.Point(110, 143);
             this.TxtImporteOrden.Name = "TxtImporteOrden";
-            this.TxtImporteOrden.Size = new System.Drawing.Size(244, 20);
+            this.TxtImporteOrden.Size = new System.Drawing.Size(325, 20);
             this.TxtImporteOrden.TabIndex = 7;
             // 
             // TxtDestinoOrden
             // 
             this.TxtDestinoOrden.Location = new System.Drawing.Point(110, 169);
             this.TxtDestinoOrden.Name = "TxtDestinoOrden";
-            this.TxtDestinoOrden.Size = new System.Drawing.Size(398, 20);
+            this.TxtDestinoOrden.Size = new System.Drawing.Size(325, 20);
             this.TxtDestinoOrden.TabIndex = 8;
             // 
             // label2
@@ -147,7 +147,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 258);
+            this.label6.Location = new System.Drawing.Point(177, 239);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 13);
             this.label6.TabIndex = 13;
@@ -155,10 +155,12 @@
             // 
             // TxtEstadoOrden
             // 
+            this.TxtEstadoOrden.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.TxtEstadoOrden.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtEstadoOrden.Location = new System.Drawing.Point(138, 255);
             this.TxtEstadoOrden.Name = "TxtEstadoOrden";
             this.TxtEstadoOrden.ReadOnly = true;
-            this.TxtEstadoOrden.Size = new System.Drawing.Size(181, 20);
+            this.TxtEstadoOrden.Size = new System.Drawing.Size(181, 13);
             this.TxtEstadoOrden.TabIndex = 14;
             // 
             // Form_consulta_orden
