@@ -52,47 +52,36 @@ namespace TPCAI
             this.num_ancho = new System.Windows.Forms.NumericUpDown();
             this.lbl_ancho = new System.Windows.Forms.Label();
             this.Grp_Destino = new System.Windows.Forms.GroupBox();
-            this.cmb_sucursal_entregaensucursal_destino = new System.Windows.Forms.ComboBox();
-            this.lbl_sucursal_entregaensucursal_destino = new System.Windows.Forms.Label();
-            this.rd_btn_entrega_domicilio = new System.Windows.Forms.RadioButton();
-            this.cmb_region_entregaensucursal_destino = new System.Windows.Forms.ComboBox();
             this.lbl_direccion_internacional = new System.Windows.Forms.Label();
-            this.lbl_region_entregaensucursal_destino = new System.Windows.Forms.Label();
-            this.lbl_direccion_nacional = new System.Windows.Forms.Label();
-            this.rd_btn_destino_entrega_sucursal = new System.Windows.Forms.RadioButton();
-            this.txt_direccion_nacional = new System.Windows.Forms.TextBox();
             this.txt_direccion_internacional = new System.Windows.Forms.TextBox();
-            this.cmb_localidad_nacional = new System.Windows.Forms.ComboBox();
-            this.lbl_localidad_nacional = new System.Windows.Forms.Label();
             this.cmb_pais_internacional = new System.Windows.Forms.ComboBox();
-            this.cmb_provincia_nacional = new System.Windows.Forms.ComboBox();
-            this.lbl_provincia_nacional = new System.Windows.Forms.Label();
             this.lbl_pais_internacional = new System.Windows.Forms.Label();
-            this.cmb_region_nacional = new System.Windows.Forms.ComboBox();
-            this.lbl_region_nacional = new System.Windows.Forms.Label();
-            this.cmb_region_internacional = new System.Windows.Forms.ComboBox();
             this.rd_btn_nacional = new System.Windows.Forms.RadioButton();
             this.rd_btn_internacional = new System.Windows.Forms.RadioButton();
-            this.lbl_region_internacional = new System.Windows.Forms.Label();
             this.grp_origen = new System.Windows.Forms.GroupBox();
             this.cmb_sucursal_entregaensucursal_origen = new System.Windows.Forms.ComboBox();
             this.lbl_sucursal_entregaensucursal_origen = new System.Windows.Forms.Label();
-            this.cmb_region_entregaensucursal_origen = new System.Windows.Forms.ComboBox();
-            this.lbl_region_entregaensucursal_origen = new System.Windows.Forms.Label();
             this.lbl_domicilio_retirodomicilio = new System.Windows.Forms.Label();
             this.txt_domicilio_retirodomicilio = new System.Windows.Forms.TextBox();
             this.cmb_localidad_retirodomicilio = new System.Windows.Forms.ComboBox();
             this.lbl_localidad_retirodomicilio = new System.Windows.Forms.Label();
             this.cmb_provincia_retirodomicilio = new System.Windows.Forms.ComboBox();
             this.lbl_provincia_retirodomicilio = new System.Windows.Forms.Label();
-            this.cmb_region__retirodomicilio = new System.Windows.Forms.ComboBox();
-            this.lbl_region_retirodomicilio = new System.Windows.Forms.Label();
             this.rd_btn_origen_entrega_sucursal = new System.Windows.Forms.RadioButton();
             this.rd_btn_retiro_domicilio = new System.Windows.Forms.RadioButton();
             this.grp_dimensiones = new System.Windows.Forms.GroupBox();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_continuar = new System.Windows.Forms.Button();
-            this.grp_bx_nacional = new System.Windows.Forms.GroupBox();
+            this.lbl_provincia_nacional = new System.Windows.Forms.Label();
+            this.cmb_provincia_nacional = new System.Windows.Forms.ComboBox();
+            this.lbl_localidad_nacional = new System.Windows.Forms.Label();
+            this.cmb_localidad_nacional = new System.Windows.Forms.ComboBox();
+            this.txt_direccion_nacional = new System.Windows.Forms.TextBox();
+            this.rd_btn_destino_entrega_sucursal = new System.Windows.Forms.RadioButton();
+            this.lbl_direccion_nacional = new System.Windows.Forms.Label();
+            this.rd_btn_entrega_domicilio = new System.Windows.Forms.RadioButton();
+            this.cmb_sucursal_entregaensucursal_destino = new System.Windows.Forms.ComboBox();
+            this.lbl_sucursal_entregaensucursal_destino = new System.Windows.Forms.Label();
             this.Grp_solicitar_servicio.SuspendLayout();
             this.gpr_urgencia.SuspendLayout();
             this.grp_tipo_servicio.SuspendLayout();
@@ -102,7 +91,6 @@ namespace TPCAI
             ((System.ComponentModel.ISupportInitialize)(this.num_ancho)).BeginInit();
             this.Grp_Destino.SuspendLayout();
             this.grp_origen.SuspendLayout();
-            this.grp_bx_nacional.SuspendLayout();
             this.SuspendLayout();
             // 
             // Grp_solicitar_servicio
@@ -129,7 +117,7 @@ namespace TPCAI
             this.gpr_urgencia.Controls.Add(this.label4);
             this.gpr_urgencia.Controls.Add(this.label6);
             this.gpr_urgencia.Controls.Add(this.label7);
-            this.gpr_urgencia.Location = new System.Drawing.Point(24, 877);
+            this.gpr_urgencia.Location = new System.Drawing.Point(24, 814);
             this.gpr_urgencia.Name = "gpr_urgencia";
             this.gpr_urgencia.Size = new System.Drawing.Size(398, 85);
             this.gpr_urgencia.TabIndex = 17;
@@ -363,73 +351,36 @@ namespace TPCAI
             // 
             // Grp_Destino
             // 
+            this.Grp_Destino.Controls.Add(this.lbl_sucursal_entregaensucursal_destino);
+            this.Grp_Destino.Controls.Add(this.cmb_sucursal_entregaensucursal_destino);
             this.Grp_Destino.Controls.Add(this.lbl_direccion_internacional);
             this.Grp_Destino.Controls.Add(this.txt_direccion_internacional);
+            this.Grp_Destino.Controls.Add(this.rd_btn_destino_entrega_sucursal);
+            this.Grp_Destino.Controls.Add(this.lbl_direccion_nacional);
+            this.Grp_Destino.Controls.Add(this.rd_btn_entrega_domicilio);
             this.Grp_Destino.Controls.Add(this.cmb_pais_internacional);
+            this.Grp_Destino.Controls.Add(this.txt_direccion_nacional);
             this.Grp_Destino.Controls.Add(this.lbl_pais_internacional);
-            this.Grp_Destino.Controls.Add(this.cmb_region_internacional);
             this.Grp_Destino.Controls.Add(this.rd_btn_nacional);
             this.Grp_Destino.Controls.Add(this.rd_btn_internacional);
-            this.Grp_Destino.Controls.Add(this.lbl_region_internacional);
-            this.Grp_Destino.Controls.Add(this.grp_bx_nacional);
+            this.Grp_Destino.Controls.Add(this.cmb_localidad_nacional);
+            this.Grp_Destino.Controls.Add(this.lbl_localidad_nacional);
+            this.Grp_Destino.Controls.Add(this.cmb_provincia_nacional);
+            this.Grp_Destino.Controls.Add(this.lbl_provincia_nacional);
             this.Grp_Destino.Location = new System.Drawing.Point(446, 46);
             this.Grp_Destino.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Grp_Destino.Name = "Grp_Destino";
             this.Grp_Destino.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Grp_Destino.Size = new System.Drawing.Size(369, 916);
+            this.Grp_Destino.Size = new System.Drawing.Size(369, 853);
             this.Grp_Destino.TabIndex = 11;
             this.Grp_Destino.TabStop = false;
             this.Grp_Destino.Text = "Destino";
             this.Grp_Destino.Enter += new System.EventHandler(this.Grp_Destino_Enter);
             // 
-            // cmb_sucursal_entregaensucursal_destino
-            // 
-            this.cmb_sucursal_entregaensucursal_destino.FormattingEnabled = true;
-            this.cmb_sucursal_entregaensucursal_destino.Items.AddRange(new object[] {
-            "03- Av. Cordoba 2122"});
-            this.cmb_sucursal_entregaensucursal_destino.Location = new System.Drawing.Point(125, 479);
-            this.cmb_sucursal_entregaensucursal_destino.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_sucursal_entregaensucursal_destino.Name = "cmb_sucursal_entregaensucursal_destino";
-            this.cmb_sucursal_entregaensucursal_destino.Size = new System.Drawing.Size(180, 28);
-            this.cmb_sucursal_entregaensucursal_destino.TabIndex = 25;
-            // 
-            // lbl_sucursal_entregaensucursal_destino
-            // 
-            this.lbl_sucursal_entregaensucursal_destino.AutoSize = true;
-            this.lbl_sucursal_entregaensucursal_destino.Location = new System.Drawing.Point(36, 482);
-            this.lbl_sucursal_entregaensucursal_destino.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_sucursal_entregaensucursal_destino.Name = "lbl_sucursal_entregaensucursal_destino";
-            this.lbl_sucursal_entregaensucursal_destino.Size = new System.Drawing.Size(75, 20);
-            this.lbl_sucursal_entregaensucursal_destino.TabIndex = 26;
-            this.lbl_sucursal_entregaensucursal_destino.Text = "Sucursal ";
-            // 
-            // rd_btn_entrega_domicilio
-            // 
-            this.rd_btn_entrega_domicilio.AutoSize = true;
-            this.rd_btn_entrega_domicilio.Location = new System.Drawing.Point(31, 20);
-            this.rd_btn_entrega_domicilio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rd_btn_entrega_domicilio.Name = "rd_btn_entrega_domicilio";
-            this.rd_btn_entrega_domicilio.Size = new System.Drawing.Size(177, 24);
-            this.rd_btn_entrega_domicilio.TabIndex = 22;
-            this.rd_btn_entrega_domicilio.TabStop = true;
-            this.rd_btn_entrega_domicilio.Text = "Entrega en domicilio";
-            this.rd_btn_entrega_domicilio.UseVisualStyleBackColor = true;
-            // 
-            // cmb_region_entregaensucursal_destino
-            // 
-            this.cmb_region_entregaensucursal_destino.FormattingEnabled = true;
-            this.cmb_region_entregaensucursal_destino.Items.AddRange(new object[] {
-            "Metropolitana"});
-            this.cmb_region_entregaensucursal_destino.Location = new System.Drawing.Point(125, 430);
-            this.cmb_region_entregaensucursal_destino.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_region_entregaensucursal_destino.Name = "cmb_region_entregaensucursal_destino";
-            this.cmb_region_entregaensucursal_destino.Size = new System.Drawing.Size(180, 28);
-            this.cmb_region_entregaensucursal_destino.TabIndex = 23;
-            // 
             // lbl_direccion_internacional
             // 
             this.lbl_direccion_internacional.AutoSize = true;
-            this.lbl_direccion_internacional.Location = new System.Drawing.Point(43, 222);
+            this.lbl_direccion_internacional.Location = new System.Drawing.Point(62, 150);
             this.lbl_direccion_internacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_direccion_internacional.Name = "lbl_direccion_internacional";
             this.lbl_direccion_internacional.Size = new System.Drawing.Size(75, 20);
@@ -437,50 +388,9 @@ namespace TPCAI
             this.lbl_direccion_internacional.Text = "Dirección";
             this.lbl_direccion_internacional.Click += new System.EventHandler(this.lbl_direccion_internacional_Click);
             // 
-            // lbl_region_entregaensucursal_destino
-            // 
-            this.lbl_region_entregaensucursal_destino.AutoSize = true;
-            this.lbl_region_entregaensucursal_destino.Location = new System.Drawing.Point(36, 433);
-            this.lbl_region_entregaensucursal_destino.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_region_entregaensucursal_destino.Name = "lbl_region_entregaensucursal_destino";
-            this.lbl_region_entregaensucursal_destino.Size = new System.Drawing.Size(60, 20);
-            this.lbl_region_entregaensucursal_destino.TabIndex = 24;
-            this.lbl_region_entregaensucursal_destino.Text = "Region";
-            // 
-            // lbl_direccion_nacional
-            // 
-            this.lbl_direccion_nacional.AutoSize = true;
-            this.lbl_direccion_nacional.Location = new System.Drawing.Point(36, 252);
-            this.lbl_direccion_nacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_direccion_nacional.Name = "lbl_direccion_nacional";
-            this.lbl_direccion_nacional.Size = new System.Drawing.Size(75, 20);
-            this.lbl_direccion_nacional.TabIndex = 17;
-            this.lbl_direccion_nacional.Text = "Dirección";
-            // 
-            // rd_btn_destino_entrega_sucursal
-            // 
-            this.rd_btn_destino_entrega_sucursal.AutoSize = true;
-            this.rd_btn_destino_entrega_sucursal.Location = new System.Drawing.Point(33, 384);
-            this.rd_btn_destino_entrega_sucursal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rd_btn_destino_entrega_sucursal.Name = "rd_btn_destino_entrega_sucursal";
-            this.rd_btn_destino_entrega_sucursal.Size = new System.Drawing.Size(176, 24);
-            this.rd_btn_destino_entrega_sucursal.TabIndex = 22;
-            this.rd_btn_destino_entrega_sucursal.TabStop = true;
-            this.rd_btn_destino_entrega_sucursal.Text = "Entrega en sucursal";
-            this.rd_btn_destino_entrega_sucursal.UseVisualStyleBackColor = true;
-            // 
-            // txt_direccion_nacional
-            // 
-            this.txt_direccion_nacional.Location = new System.Drawing.Point(116, 248);
-            this.txt_direccion_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_direccion_nacional.Multiline = true;
-            this.txt_direccion_nacional.Name = "txt_direccion_nacional";
-            this.txt_direccion_nacional.Size = new System.Drawing.Size(180, 113);
-            this.txt_direccion_nacional.TabIndex = 16;
-            // 
             // txt_direccion_internacional
             // 
-            this.txt_direccion_internacional.Location = new System.Drawing.Point(127, 218);
+            this.txt_direccion_internacional.Location = new System.Drawing.Point(146, 146);
             this.txt_direccion_internacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_direccion_internacional.Multiline = true;
             this.txt_direccion_internacional.Name = "txt_direccion_internacional";
@@ -488,66 +398,22 @@ namespace TPCAI
             this.txt_direccion_internacional.TabIndex = 22;
             this.txt_direccion_internacional.TextChanged += new System.EventHandler(this.txt_direccion_internacional_TextChanged);
             // 
-            // cmb_localidad_nacional
-            // 
-            this.cmb_localidad_nacional.FormattingEnabled = true;
-            this.cmb_localidad_nacional.Items.AddRange(new object[] {
-            "Belgrano"});
-            this.cmb_localidad_nacional.Location = new System.Drawing.Point(116, 184);
-            this.cmb_localidad_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_localidad_nacional.Name = "cmb_localidad_nacional";
-            this.cmb_localidad_nacional.Size = new System.Drawing.Size(180, 28);
-            this.cmb_localidad_nacional.TabIndex = 14;
-            this.cmb_localidad_nacional.SelectedIndexChanged += new System.EventHandler(this.cmb_localidad_nacional_SelectedIndexChanged);
-            // 
-            // lbl_localidad_nacional
-            // 
-            this.lbl_localidad_nacional.AutoSize = true;
-            this.lbl_localidad_nacional.Location = new System.Drawing.Point(36, 191);
-            this.lbl_localidad_nacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_localidad_nacional.Name = "lbl_localidad_nacional";
-            this.lbl_localidad_nacional.Size = new System.Drawing.Size(77, 20);
-            this.lbl_localidad_nacional.TabIndex = 15;
-            this.lbl_localidad_nacional.Text = "Localidad";
-            // 
             // cmb_pais_internacional
             // 
             this.cmb_pais_internacional.FormattingEnabled = true;
             this.cmb_pais_internacional.Items.AddRange(new object[] {
             "España"});
-            this.cmb_pais_internacional.Location = new System.Drawing.Point(127, 158);
+            this.cmb_pais_internacional.Location = new System.Drawing.Point(146, 96);
             this.cmb_pais_internacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_pais_internacional.Name = "cmb_pais_internacional";
             this.cmb_pais_internacional.Size = new System.Drawing.Size(180, 28);
             this.cmb_pais_internacional.TabIndex = 20;
             this.cmb_pais_internacional.SelectedIndexChanged += new System.EventHandler(this.cmb_pais_internacional_SelectedIndexChanged);
             // 
-            // cmb_provincia_nacional
-            // 
-            this.cmb_provincia_nacional.FormattingEnabled = true;
-            this.cmb_provincia_nacional.Items.AddRange(new object[] {
-            "CABA"});
-            this.cmb_provincia_nacional.Location = new System.Drawing.Point(116, 125);
-            this.cmb_provincia_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_provincia_nacional.Name = "cmb_provincia_nacional";
-            this.cmb_provincia_nacional.Size = new System.Drawing.Size(180, 28);
-            this.cmb_provincia_nacional.TabIndex = 12;
-            this.cmb_provincia_nacional.SelectedIndexChanged += new System.EventHandler(this.cmb_provincia_nacional_SelectedIndexChanged);
-            // 
-            // lbl_provincia_nacional
-            // 
-            this.lbl_provincia_nacional.AutoSize = true;
-            this.lbl_provincia_nacional.Location = new System.Drawing.Point(36, 128);
-            this.lbl_provincia_nacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_provincia_nacional.Name = "lbl_provincia_nacional";
-            this.lbl_provincia_nacional.Size = new System.Drawing.Size(72, 20);
-            this.lbl_provincia_nacional.TabIndex = 13;
-            this.lbl_provincia_nacional.Text = "Provincia";
-            // 
             // lbl_pais_internacional
             // 
             this.lbl_pais_internacional.AutoSize = true;
-            this.lbl_pais_internacional.Location = new System.Drawing.Point(43, 161);
+            this.lbl_pais_internacional.Location = new System.Drawing.Point(62, 99);
             this.lbl_pais_internacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_pais_internacional.Name = "lbl_pais_internacional";
             this.lbl_pais_internacional.Size = new System.Drawing.Size(39, 20);
@@ -555,45 +421,11 @@ namespace TPCAI
             this.lbl_pais_internacional.Text = "Pais";
             this.lbl_pais_internacional.Click += new System.EventHandler(this.lbl_pais_internacional_Click);
             // 
-            // cmb_region_nacional
-            // 
-            this.cmb_region_nacional.FormattingEnabled = true;
-            this.cmb_region_nacional.Items.AddRange(new object[] {
-            "Metropolitana"});
-            this.cmb_region_nacional.Location = new System.Drawing.Point(116, 64);
-            this.cmb_region_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_region_nacional.Name = "cmb_region_nacional";
-            this.cmb_region_nacional.Size = new System.Drawing.Size(180, 28);
-            this.cmb_region_nacional.TabIndex = 10;
-            this.cmb_region_nacional.SelectedIndexChanged += new System.EventHandler(this.cmb_region_nacional_SelectedIndexChanged);
-            // 
-            // lbl_region_nacional
-            // 
-            this.lbl_region_nacional.AutoSize = true;
-            this.lbl_region_nacional.Location = new System.Drawing.Point(36, 67);
-            this.lbl_region_nacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_region_nacional.Name = "lbl_region_nacional";
-            this.lbl_region_nacional.Size = new System.Drawing.Size(60, 20);
-            this.lbl_region_nacional.TabIndex = 11;
-            this.lbl_region_nacional.Text = "Región";
-            // 
-            // cmb_region_internacional
-            // 
-            this.cmb_region_internacional.FormattingEnabled = true;
-            this.cmb_region_internacional.Items.AddRange(new object[] {
-            "Europa"});
-            this.cmb_region_internacional.Location = new System.Drawing.Point(127, 98);
-            this.cmb_region_internacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_region_internacional.Name = "cmb_region_internacional";
-            this.cmb_region_internacional.Size = new System.Drawing.Size(180, 28);
-            this.cmb_region_internacional.TabIndex = 18;
-            this.cmb_region_internacional.SelectedIndexChanged += new System.EventHandler(this.cmb_region_internacional_SelectedIndexChanged);
-            // 
             // rd_btn_nacional
             // 
             this.rd_btn_nacional.AutoSize = true;
             this.rd_btn_nacional.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rd_btn_nacional.Location = new System.Drawing.Point(23, 361);
+            this.rd_btn_nacional.Location = new System.Drawing.Point(29, 359);
             this.rd_btn_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rd_btn_nacional.Name = "rd_btn_nacional";
             this.rd_btn_nacional.Size = new System.Drawing.Size(95, 24);
@@ -614,38 +446,23 @@ namespace TPCAI
             this.rd_btn_internacional.UseVisualStyleBackColor = true;
             this.rd_btn_internacional.CheckedChanged += new System.EventHandler(this.rd_Internacional_CheckedChanged);
             // 
-            // lbl_region_internacional
-            // 
-            this.lbl_region_internacional.AutoSize = true;
-            this.lbl_region_internacional.Location = new System.Drawing.Point(43, 101);
-            this.lbl_region_internacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_region_internacional.Name = "lbl_region_internacional";
-            this.lbl_region_internacional.Size = new System.Drawing.Size(60, 20);
-            this.lbl_region_internacional.TabIndex = 19;
-            this.lbl_region_internacional.Text = "Region";
-            this.lbl_region_internacional.Click += new System.EventHandler(this.lbl_region_internacional_Click);
-            // 
             // grp_origen
             // 
             this.grp_origen.Controls.Add(this.cmb_sucursal_entregaensucursal_origen);
             this.grp_origen.Controls.Add(this.lbl_sucursal_entregaensucursal_origen);
-            this.grp_origen.Controls.Add(this.cmb_region_entregaensucursal_origen);
-            this.grp_origen.Controls.Add(this.lbl_region_entregaensucursal_origen);
             this.grp_origen.Controls.Add(this.lbl_domicilio_retirodomicilio);
             this.grp_origen.Controls.Add(this.txt_domicilio_retirodomicilio);
             this.grp_origen.Controls.Add(this.cmb_localidad_retirodomicilio);
             this.grp_origen.Controls.Add(this.lbl_localidad_retirodomicilio);
             this.grp_origen.Controls.Add(this.cmb_provincia_retirodomicilio);
             this.grp_origen.Controls.Add(this.lbl_provincia_retirodomicilio);
-            this.grp_origen.Controls.Add(this.cmb_region__retirodomicilio);
-            this.grp_origen.Controls.Add(this.lbl_region_retirodomicilio);
             this.grp_origen.Controls.Add(this.rd_btn_origen_entrega_sucursal);
             this.grp_origen.Controls.Add(this.rd_btn_retiro_domicilio);
             this.grp_origen.Location = new System.Drawing.Point(24, 365);
             this.grp_origen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grp_origen.Name = "grp_origen";
             this.grp_origen.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grp_origen.Size = new System.Drawing.Size(398, 500);
+            this.grp_origen.Size = new System.Drawing.Size(398, 426);
             this.grp_origen.TabIndex = 10;
             this.grp_origen.TabStop = false;
             this.grp_origen.Text = "Origen";
@@ -656,7 +473,7 @@ namespace TPCAI
             this.cmb_sucursal_entregaensucursal_origen.FormattingEnabled = true;
             this.cmb_sucursal_entregaensucursal_origen.Items.AddRange(new object[] {
             "03- Av. Cordoba 2122"});
-            this.cmb_sucursal_entregaensucursal_origen.Location = new System.Drawing.Point(158, 435);
+            this.cmb_sucursal_entregaensucursal_origen.Location = new System.Drawing.Point(158, 377);
             this.cmb_sucursal_entregaensucursal_origen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_sucursal_entregaensucursal_origen.Name = "cmb_sucursal_entregaensucursal_origen";
             this.cmb_sucursal_entregaensucursal_origen.Size = new System.Drawing.Size(180, 28);
@@ -666,38 +483,17 @@ namespace TPCAI
             // lbl_sucursal_entregaensucursal_origen
             // 
             this.lbl_sucursal_entregaensucursal_origen.AutoSize = true;
-            this.lbl_sucursal_entregaensucursal_origen.Location = new System.Drawing.Point(42, 438);
+            this.lbl_sucursal_entregaensucursal_origen.Location = new System.Drawing.Point(42, 380);
             this.lbl_sucursal_entregaensucursal_origen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_sucursal_entregaensucursal_origen.Name = "lbl_sucursal_entregaensucursal_origen";
             this.lbl_sucursal_entregaensucursal_origen.Size = new System.Drawing.Size(75, 20);
             this.lbl_sucursal_entregaensucursal_origen.TabIndex = 21;
             this.lbl_sucursal_entregaensucursal_origen.Text = "Sucursal ";
             // 
-            // cmb_region_entregaensucursal_origen
-            // 
-            this.cmb_region_entregaensucursal_origen.FormattingEnabled = true;
-            this.cmb_region_entregaensucursal_origen.Items.AddRange(new object[] {
-            "Metropolitana"});
-            this.cmb_region_entregaensucursal_origen.Location = new System.Drawing.Point(158, 385);
-            this.cmb_region_entregaensucursal_origen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_region_entregaensucursal_origen.Name = "cmb_region_entregaensucursal_origen";
-            this.cmb_region_entregaensucursal_origen.Size = new System.Drawing.Size(180, 28);
-            this.cmb_region_entregaensucursal_origen.TabIndex = 18;
-            // 
-            // lbl_region_entregaensucursal_origen
-            // 
-            this.lbl_region_entregaensucursal_origen.AutoSize = true;
-            this.lbl_region_entregaensucursal_origen.Location = new System.Drawing.Point(42, 388);
-            this.lbl_region_entregaensucursal_origen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_region_entregaensucursal_origen.Name = "lbl_region_entregaensucursal_origen";
-            this.lbl_region_entregaensucursal_origen.Size = new System.Drawing.Size(60, 20);
-            this.lbl_region_entregaensucursal_origen.TabIndex = 19;
-            this.lbl_region_entregaensucursal_origen.Text = "Región";
-            // 
             // lbl_domicilio_retirodomicilio
             // 
             this.lbl_domicilio_retirodomicilio.AutoSize = true;
-            this.lbl_domicilio_retirodomicilio.Location = new System.Drawing.Point(40, 258);
+            this.lbl_domicilio_retirodomicilio.Location = new System.Drawing.Point(40, 223);
             this.lbl_domicilio_retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_domicilio_retirodomicilio.Name = "lbl_domicilio_retirodomicilio";
             this.lbl_domicilio_retirodomicilio.Size = new System.Drawing.Size(72, 20);
@@ -707,10 +503,11 @@ namespace TPCAI
             // 
             // txt_domicilio_retirodomicilio
             // 
-            this.txt_domicilio_retirodomicilio.Location = new System.Drawing.Point(158, 258);
+            this.txt_domicilio_retirodomicilio.Location = new System.Drawing.Point(158, 223);
             this.txt_domicilio_retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_domicilio_retirodomicilio.Multiline = true;
             this.txt_domicilio_retirodomicilio.Name = "txt_domicilio_retirodomicilio";
-            this.txt_domicilio_retirodomicilio.Size = new System.Drawing.Size(180, 26);
+            this.txt_domicilio_retirodomicilio.Size = new System.Drawing.Size(180, 78);
             this.txt_domicilio_retirodomicilio.TabIndex = 16;
             // 
             // cmb_localidad_retirodomicilio
@@ -718,7 +515,7 @@ namespace TPCAI
             this.cmb_localidad_retirodomicilio.FormattingEnabled = true;
             this.cmb_localidad_retirodomicilio.Items.AddRange(new object[] {
             "Balvanera"});
-            this.cmb_localidad_retirodomicilio.Location = new System.Drawing.Point(158, 208);
+            this.cmb_localidad_retirodomicilio.Location = new System.Drawing.Point(158, 106);
             this.cmb_localidad_retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_localidad_retirodomicilio.Name = "cmb_localidad_retirodomicilio";
             this.cmb_localidad_retirodomicilio.Size = new System.Drawing.Size(180, 28);
@@ -727,7 +524,7 @@ namespace TPCAI
             // lbl_localidad_retirodomicilio
             // 
             this.lbl_localidad_retirodomicilio.AutoSize = true;
-            this.lbl_localidad_retirodomicilio.Location = new System.Drawing.Point(40, 209);
+            this.lbl_localidad_retirodomicilio.Location = new System.Drawing.Point(40, 107);
             this.lbl_localidad_retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_localidad_retirodomicilio.Name = "lbl_localidad_retirodomicilio";
             this.lbl_localidad_retirodomicilio.Size = new System.Drawing.Size(77, 20);
@@ -740,7 +537,7 @@ namespace TPCAI
             this.cmb_provincia_retirodomicilio.FormattingEnabled = true;
             this.cmb_provincia_retirodomicilio.Items.AddRange(new object[] {
             "CABA"});
-            this.cmb_provincia_retirodomicilio.Location = new System.Drawing.Point(158, 152);
+            this.cmb_provincia_retirodomicilio.Location = new System.Drawing.Point(158, 50);
             this.cmb_provincia_retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_provincia_retirodomicilio.Name = "cmb_provincia_retirodomicilio";
             this.cmb_provincia_retirodomicilio.Size = new System.Drawing.Size(180, 28);
@@ -750,40 +547,17 @@ namespace TPCAI
             // lbl_provincia_retirodomicilio
             // 
             this.lbl_provincia_retirodomicilio.AutoSize = true;
-            this.lbl_provincia_retirodomicilio.Location = new System.Drawing.Point(42, 155);
+            this.lbl_provincia_retirodomicilio.Location = new System.Drawing.Point(42, 53);
             this.lbl_provincia_retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_provincia_retirodomicilio.Name = "lbl_provincia_retirodomicilio";
             this.lbl_provincia_retirodomicilio.Size = new System.Drawing.Size(72, 20);
             this.lbl_provincia_retirodomicilio.TabIndex = 13;
             this.lbl_provincia_retirodomicilio.Text = "Provincia";
             // 
-            // cmb_region__retirodomicilio
-            // 
-            this.cmb_region__retirodomicilio.FormattingEnabled = true;
-            this.cmb_region__retirodomicilio.Items.AddRange(new object[] {
-            "Metropolitana"});
-            this.cmb_region__retirodomicilio.Location = new System.Drawing.Point(158, 98);
-            this.cmb_region__retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_region__retirodomicilio.Name = "cmb_region__retirodomicilio";
-            this.cmb_region__retirodomicilio.Size = new System.Drawing.Size(180, 28);
-            this.cmb_region__retirodomicilio.TabIndex = 10;
-            this.cmb_region__retirodomicilio.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            // 
-            // lbl_region_retirodomicilio
-            // 
-            this.lbl_region_retirodomicilio.AutoSize = true;
-            this.lbl_region_retirodomicilio.Location = new System.Drawing.Point(42, 101);
-            this.lbl_region_retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_region_retirodomicilio.Name = "lbl_region_retirodomicilio";
-            this.lbl_region_retirodomicilio.Size = new System.Drawing.Size(60, 20);
-            this.lbl_region_retirodomicilio.TabIndex = 11;
-            this.lbl_region_retirodomicilio.Text = "Región";
-            this.lbl_region_retirodomicilio.Click += new System.EventHandler(this.label1_Click_1);
-            // 
             // rd_btn_origen_entrega_sucursal
             // 
             this.rd_btn_origen_entrega_sucursal.AutoSize = true;
-            this.rd_btn_origen_entrega_sucursal.Location = new System.Drawing.Point(39, 334);
+            this.rd_btn_origen_entrega_sucursal.Location = new System.Drawing.Point(46, 331);
             this.rd_btn_origen_entrega_sucursal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rd_btn_origen_entrega_sucursal.Name = "rd_btn_origen_entrega_sucursal";
             this.rd_btn_origen_entrega_sucursal.Size = new System.Drawing.Size(176, 24);
@@ -796,7 +570,7 @@ namespace TPCAI
             // rd_btn_retiro_domicilio
             // 
             this.rd_btn_retiro_domicilio.AutoSize = true;
-            this.rd_btn_retiro_domicilio.Location = new System.Drawing.Point(39, 42);
+            this.rd_btn_retiro_domicilio.Location = new System.Drawing.Point(44, 189);
             this.rd_btn_retiro_domicilio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rd_btn_retiro_domicilio.Name = "rd_btn_retiro_domicilio";
             this.rd_btn_retiro_domicilio.Size = new System.Drawing.Size(163, 24);
@@ -840,28 +614,115 @@ namespace TPCAI
             this.btn_continuar.UseVisualStyleBackColor = true;
             this.btn_continuar.Click += new System.EventHandler(this.btn_continuar_Click);
             // 
-            // grp_bx_nacional
+            // lbl_provincia_nacional
             // 
-            this.grp_bx_nacional.Controls.Add(this.cmb_sucursal_entregaensucursal_destino);
-            this.grp_bx_nacional.Controls.Add(this.lbl_sucursal_entregaensucursal_destino);
-            this.grp_bx_nacional.Controls.Add(this.cmb_region_entregaensucursal_destino);
-            this.grp_bx_nacional.Controls.Add(this.rd_btn_entrega_domicilio);
-            this.grp_bx_nacional.Controls.Add(this.lbl_region_entregaensucursal_destino);
-            this.grp_bx_nacional.Controls.Add(this.lbl_direccion_nacional);
-            this.grp_bx_nacional.Controls.Add(this.rd_btn_destino_entrega_sucursal);
-            this.grp_bx_nacional.Controls.Add(this.txt_direccion_nacional);
-            this.grp_bx_nacional.Controls.Add(this.cmb_localidad_nacional);
-            this.grp_bx_nacional.Controls.Add(this.lbl_localidad_nacional);
-            this.grp_bx_nacional.Controls.Add(this.cmb_provincia_nacional);
-            this.grp_bx_nacional.Controls.Add(this.lbl_provincia_nacional);
-            this.grp_bx_nacional.Controls.Add(this.cmb_region_nacional);
-            this.grp_bx_nacional.Controls.Add(this.lbl_region_nacional);
-            this.grp_bx_nacional.Location = new System.Drawing.Point(30, 384);
-            this.grp_bx_nacional.Name = "grp_bx_nacional";
-            this.grp_bx_nacional.Size = new System.Drawing.Size(332, 524);
-            this.grp_bx_nacional.TabIndex = 27;
-            this.grp_bx_nacional.TabStop = false;
-            this.grp_bx_nacional.Enter += new System.EventHandler(this.grp_bx_nacional_Enter);
+            this.lbl_provincia_nacional.AutoSize = true;
+            this.lbl_provincia_nacional.Location = new System.Drawing.Point(62, 414);
+            this.lbl_provincia_nacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_provincia_nacional.Name = "lbl_provincia_nacional";
+            this.lbl_provincia_nacional.Size = new System.Drawing.Size(72, 20);
+            this.lbl_provincia_nacional.TabIndex = 13;
+            this.lbl_provincia_nacional.Text = "Provincia";
+            // 
+            // cmb_provincia_nacional
+            // 
+            this.cmb_provincia_nacional.FormattingEnabled = true;
+            this.cmb_provincia_nacional.Items.AddRange(new object[] {
+            "CABA"});
+            this.cmb_provincia_nacional.Location = new System.Drawing.Point(142, 411);
+            this.cmb_provincia_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmb_provincia_nacional.Name = "cmb_provincia_nacional";
+            this.cmb_provincia_nacional.Size = new System.Drawing.Size(180, 28);
+            this.cmb_provincia_nacional.TabIndex = 12;
+            this.cmb_provincia_nacional.SelectedIndexChanged += new System.EventHandler(this.cmb_provincia_nacional_SelectedIndexChanged);
+            // 
+            // lbl_localidad_nacional
+            // 
+            this.lbl_localidad_nacional.AutoSize = true;
+            this.lbl_localidad_nacional.Location = new System.Drawing.Point(62, 470);
+            this.lbl_localidad_nacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_localidad_nacional.Name = "lbl_localidad_nacional";
+            this.lbl_localidad_nacional.Size = new System.Drawing.Size(77, 20);
+            this.lbl_localidad_nacional.TabIndex = 15;
+            this.lbl_localidad_nacional.Text = "Localidad";
+            // 
+            // cmb_localidad_nacional
+            // 
+            this.cmb_localidad_nacional.FormattingEnabled = true;
+            this.cmb_localidad_nacional.Items.AddRange(new object[] {
+            "Belgrano"});
+            this.cmb_localidad_nacional.Location = new System.Drawing.Point(142, 463);
+            this.cmb_localidad_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmb_localidad_nacional.Name = "cmb_localidad_nacional";
+            this.cmb_localidad_nacional.Size = new System.Drawing.Size(180, 28);
+            this.cmb_localidad_nacional.TabIndex = 14;
+            this.cmb_localidad_nacional.SelectedIndexChanged += new System.EventHandler(this.cmb_localidad_nacional_SelectedIndexChanged);
+            // 
+            // txt_direccion_nacional
+            // 
+            this.txt_direccion_nacional.Location = new System.Drawing.Point(142, 596);
+            this.txt_direccion_nacional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_direccion_nacional.Multiline = true;
+            this.txt_direccion_nacional.Name = "txt_direccion_nacional";
+            this.txt_direccion_nacional.Size = new System.Drawing.Size(180, 113);
+            this.txt_direccion_nacional.TabIndex = 16;
+            // 
+            // rd_btn_destino_entrega_sucursal
+            // 
+            this.rd_btn_destino_entrega_sucursal.AutoSize = true;
+            this.rd_btn_destino_entrega_sucursal.Location = new System.Drawing.Point(67, 735);
+            this.rd_btn_destino_entrega_sucursal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rd_btn_destino_entrega_sucursal.Name = "rd_btn_destino_entrega_sucursal";
+            this.rd_btn_destino_entrega_sucursal.Size = new System.Drawing.Size(176, 24);
+            this.rd_btn_destino_entrega_sucursal.TabIndex = 22;
+            this.rd_btn_destino_entrega_sucursal.TabStop = true;
+            this.rd_btn_destino_entrega_sucursal.Text = "Entrega en sucursal";
+            this.rd_btn_destino_entrega_sucursal.UseVisualStyleBackColor = true;
+            this.rd_btn_destino_entrega_sucursal.CheckedChanged += new System.EventHandler(this.rd_btn_destino_entrega_sucursal_CheckedChanged);
+            // 
+            // lbl_direccion_nacional
+            // 
+            this.lbl_direccion_nacional.AutoSize = true;
+            this.lbl_direccion_nacional.Location = new System.Drawing.Point(62, 600);
+            this.lbl_direccion_nacional.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_direccion_nacional.Name = "lbl_direccion_nacional";
+            this.lbl_direccion_nacional.Size = new System.Drawing.Size(75, 20);
+            this.lbl_direccion_nacional.TabIndex = 17;
+            this.lbl_direccion_nacional.Text = "Dirección";
+            // 
+            // rd_btn_entrega_domicilio
+            // 
+            this.rd_btn_entrega_domicilio.AutoSize = true;
+            this.rd_btn_entrega_domicilio.Location = new System.Drawing.Point(66, 562);
+            this.rd_btn_entrega_domicilio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rd_btn_entrega_domicilio.Name = "rd_btn_entrega_domicilio";
+            this.rd_btn_entrega_domicilio.Size = new System.Drawing.Size(177, 24);
+            this.rd_btn_entrega_domicilio.TabIndex = 22;
+            this.rd_btn_entrega_domicilio.TabStop = true;
+            this.rd_btn_entrega_domicilio.Text = "Entrega en domicilio";
+            this.rd_btn_entrega_domicilio.UseVisualStyleBackColor = true;
+            this.rd_btn_entrega_domicilio.CheckedChanged += new System.EventHandler(this.rd_btn_entrega_domicilio_CheckedChanged);
+            // 
+            // cmb_sucursal_entregaensucursal_destino
+            // 
+            this.cmb_sucursal_entregaensucursal_destino.FormattingEnabled = true;
+            this.cmb_sucursal_entregaensucursal_destino.Items.AddRange(new object[] {
+            "03- Av. Cordoba 2122"});
+            this.cmb_sucursal_entregaensucursal_destino.Location = new System.Drawing.Point(142, 783);
+            this.cmb_sucursal_entregaensucursal_destino.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmb_sucursal_entregaensucursal_destino.Name = "cmb_sucursal_entregaensucursal_destino";
+            this.cmb_sucursal_entregaensucursal_destino.Size = new System.Drawing.Size(180, 28);
+            this.cmb_sucursal_entregaensucursal_destino.TabIndex = 22;
+            // 
+            // lbl_sucursal_entregaensucursal_destino
+            // 
+            this.lbl_sucursal_entregaensucursal_destino.AutoSize = true;
+            this.lbl_sucursal_entregaensucursal_destino.Location = new System.Drawing.Point(58, 786);
+            this.lbl_sucursal_entregaensucursal_destino.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_sucursal_entregaensucursal_destino.Name = "lbl_sucursal_entregaensucursal_destino";
+            this.lbl_sucursal_entregaensucursal_destino.Size = new System.Drawing.Size(75, 20);
+            this.lbl_sucursal_entregaensucursal_destino.TabIndex = 22;
+            this.lbl_sucursal_entregaensucursal_destino.Text = "Sucursal ";
             // 
             // Form_solicitud_servicio
             // 
@@ -892,8 +753,6 @@ namespace TPCAI
             this.Grp_Destino.PerformLayout();
             this.grp_origen.ResumeLayout(false);
             this.grp_origen.PerformLayout();
-            this.grp_bx_nacional.ResumeLayout(false);
-            this.grp_bx_nacional.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -916,16 +775,12 @@ namespace TPCAI
         private System.Windows.Forms.GroupBox grp_origen;
         private System.Windows.Forms.RadioButton rd_btn_origen_entrega_sucursal;
         private System.Windows.Forms.RadioButton rd_btn_retiro_domicilio;
-        private System.Windows.Forms.ComboBox cmb_region__retirodomicilio;
-        private System.Windows.Forms.Label lbl_region_retirodomicilio;
         private System.Windows.Forms.Label lbl_domicilio_retirodomicilio;
         private System.Windows.Forms.TextBox txt_domicilio_retirodomicilio;
         private System.Windows.Forms.ComboBox cmb_localidad_retirodomicilio;
         private System.Windows.Forms.Label lbl_localidad_retirodomicilio;
         private System.Windows.Forms.ComboBox cmb_provincia_retirodomicilio;
         private System.Windows.Forms.Label lbl_provincia_retirodomicilio;
-        private System.Windows.Forms.ComboBox cmb_region_entregaensucursal_origen;
-        private System.Windows.Forms.Label lbl_region_entregaensucursal_origen;
         private System.Windows.Forms.ComboBox cmb_sucursal_entregaensucursal_origen;
         private System.Windows.Forms.Label lbl_sucursal_entregaensucursal_origen;
         private System.Windows.Forms.Button btn_cancelar;
@@ -934,16 +789,6 @@ namespace TPCAI
         private System.Windows.Forms.TextBox txt_direccion_internacional;
         private System.Windows.Forms.ComboBox cmb_pais_internacional;
         private System.Windows.Forms.Label lbl_pais_internacional;
-        private System.Windows.Forms.ComboBox cmb_region_internacional;
-        private System.Windows.Forms.Label lbl_region_internacional;
-        private System.Windows.Forms.Label lbl_direccion_nacional;
-        private System.Windows.Forms.TextBox txt_direccion_nacional;
-        private System.Windows.Forms.ComboBox cmb_localidad_nacional;
-        private System.Windows.Forms.Label lbl_localidad_nacional;
-        private System.Windows.Forms.ComboBox cmb_provincia_nacional;
-        private System.Windows.Forms.Label lbl_provincia_nacional;
-        private System.Windows.Forms.ComboBox cmb_region_nacional;
-        private System.Windows.Forms.Label lbl_region_nacional;
         private System.Windows.Forms.RadioButton rd_btn_internacional;
         private System.Windows.Forms.RadioButton rd_btn_nacional;
         private System.Windows.Forms.Button btn_continuar;
@@ -955,14 +800,17 @@ namespace TPCAI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmb_sucursal_entregaensucursal_destino;
-        private System.Windows.Forms.Label lbl_sucursal_entregaensucursal_destino;
-        private System.Windows.Forms.RadioButton rd_btn_entrega_domicilio;
-        private System.Windows.Forms.ComboBox cmb_region_entregaensucursal_destino;
-        private System.Windows.Forms.Label lbl_region_entregaensucursal_destino;
-        private System.Windows.Forms.RadioButton rd_btn_destino_entrega_sucursal;
         private System.Windows.Forms.CheckBox chkbx_urgencia;
-        private System.Windows.Forms.GroupBox grp_bx_nacional;
+        private System.Windows.Forms.Label lbl_sucursal_entregaensucursal_destino;
+        private System.Windows.Forms.ComboBox cmb_sucursal_entregaensucursal_destino;
+        private System.Windows.Forms.RadioButton rd_btn_destino_entrega_sucursal;
+        private System.Windows.Forms.Label lbl_direccion_nacional;
+        private System.Windows.Forms.RadioButton rd_btn_entrega_domicilio;
+        private System.Windows.Forms.TextBox txt_direccion_nacional;
+        private System.Windows.Forms.ComboBox cmb_localidad_nacional;
+        private System.Windows.Forms.Label lbl_localidad_nacional;
+        private System.Windows.Forms.ComboBox cmb_provincia_nacional;
+        private System.Windows.Forms.Label lbl_provincia_nacional;
     }
 }
 

@@ -126,8 +126,7 @@ namespace TPCAI
                 MessageBox.Show("Las dimensiones deben ser mayor a 0");
             }
             else if (rd_btn_retiro_domicilio.Checked && 
-                (cmb_region__retirodomicilio.SelectedIndex == -1 
-                || cmb_provincia_retirodomicilio.SelectedIndex == -1 
+                (cmb_provincia_retirodomicilio.SelectedIndex == -1 
                 || cmb_localidad_retirodomicilio.SelectedIndex == -1 
                 || string.IsNullOrEmpty(txt_domicilio_retirodomicilio.Text)))
             {
@@ -135,8 +134,7 @@ namespace TPCAI
                     "relacionados con el retiro a domicilio para continuar");
             } 
             else if (rd_btn_origen_entrega_sucursal.Checked && 
-                (cmb_region_entregaensucursal_origen.SelectedIndex == -1 
-                || cmb_sucursal_entregaensucursal_origen.SelectedIndex == -1))
+                (cmb_sucursal_entregaensucursal_origen.SelectedIndex == -1))
             {
                 MessageBox.Show("Debe completar todos los campos visibles " +
                     "relacionados con la entrega en sucursal para continuar");
@@ -147,8 +145,7 @@ namespace TPCAI
             }
             else if(rd_btn_nacional.Checked &&
                 rd_btn_entrega_domicilio.Checked &&
-                (cmb_region_nacional.SelectedIndex == -1 
-                || cmb_provincia_nacional.SelectedIndex == -1 
+                (cmb_provincia_nacional.SelectedIndex == -1 
                 || cmb_localidad_nacional.SelectedIndex == -1 
                 || string.IsNullOrEmpty(txt_direccion_nacional.Text)))
             {
@@ -157,15 +154,13 @@ namespace TPCAI
             }
             else if (rd_btn_nacional.Checked &&
                 rd_btn_entrega_domicilio.Checked &&
-                (cmb_region_entregaensucursal_destino.SelectedIndex == -1
-                || cmb_sucursal_entregaensucursal_destino.SelectedIndex == -1))
+                (cmb_sucursal_entregaensucursal_destino.SelectedIndex == -1))
             {
                 MessageBox.Show("Debe completar todos los campos visibles" +
                     " relacionados a un destino nacional en sucursal");
             }
             else if (rd_btn_internacional.Checked && 
-                (cmb_region_internacional.SelectedIndex == -1 
-                || cmb_pais_internacional.SelectedIndex == -1 
+                (cmb_pais_internacional.SelectedIndex == -1 
                 || string.IsNullOrEmpty(txt_direccion_internacional.Text)))
             {
                 MessageBox.Show("Debe completar todos los campos visibles" +
@@ -192,13 +187,14 @@ namespace TPCAI
 
         private void rd_Internacional_CheckedChanged(object sender, EventArgs e)
         {
-            cmb_region_nacional.Enabled = false;
+            //cmb_region_nacional.Enabled = false;
             cmb_provincia_nacional.Enabled = false;
             cmb_localidad_nacional.Enabled = false;
             txt_direccion_nacional.Enabled = false;
-            cmb_region_internacional.Enabled = true;
+            //cmb_region_internacional.Enabled = true;
             cmb_pais_internacional.Enabled = true;
             txt_direccion_internacional.Enabled = true;
+            cmb_sucursal_entregaensucursal_destino.Enabled = false;
         }
 
         private void lbl_region_internacional_Click(object sender, EventArgs e)
@@ -233,23 +229,23 @@ namespace TPCAI
 
         private void rd_nacional_CheckedChanged(object sender, EventArgs e)
         {
-            cmb_region_nacional.Enabled = true;
+            //cmb_region_nacional.Enabled = true;
             cmb_provincia_nacional.Enabled = true;
             cmb_localidad_nacional.Enabled = true;
             txt_direccion_nacional.Enabled = true;
 
-            cmb_region_internacional.Enabled = false;
+            //cmb_region_internacional.Enabled = false;
             cmb_pais_internacional.Enabled = false;
             txt_direccion_internacional.Enabled = false;
         }
 
         private void rd_btn_retiro_domicilio_CheckedChanged(object sender, EventArgs e)
         {
-            cmb_region__retirodomicilio.Enabled = true;
+            //cmb_region__retirodomicilio.Enabled = true;
             cmb_provincia_retirodomicilio.Enabled = true;
             cmb_localidad_retirodomicilio.Enabled = true;
             txt_domicilio_retirodomicilio.Enabled = true;
-            cmb_region_entregaensucursal_origen.Enabled = false;
+            //cmb_region_entregaensucursal_origen.Enabled = false;
             cmb_sucursal_entregaensucursal_origen.Enabled = false;
         }
 
@@ -260,11 +256,9 @@ namespace TPCAI
 
         private void rd_btn_entrega_sucursal_CheckedChanged(object sender, EventArgs e)
         {
-            cmb_region_entregaensucursal_origen.Enabled = true;
+            //cmb_region_entregaensucursal_origen.Enabled = true;
             cmb_sucursal_entregaensucursal_origen.Enabled = true;
-            cmb_region__retirodomicilio.Enabled = false;
-            cmb_provincia_retirodomicilio.Enabled = false; 
-            cmb_localidad_retirodomicilio.Enabled=false;
+            //cmb_region__retirodomicilio.Enabled = false;
             txt_domicilio_retirodomicilio.Enabled = false;
 
         }
@@ -304,6 +298,19 @@ namespace TPCAI
         private void grp_bx_nacional_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void rd_btn_entrega_domicilio_CheckedChanged(object sender, EventArgs e)
+        {
+            cmb_sucursal_entregaensucursal_destino.Enabled= false;
+            txt_direccion_nacional.Enabled = true;
+
+        }
+
+        private void rd_btn_destino_entrega_sucursal_CheckedChanged(object sender, EventArgs e)
+        {
+            cmb_sucursal_entregaensucursal_destino.Enabled = true;
+            txt_direccion_nacional.Enabled = false;
         }
     }
 }
