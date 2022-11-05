@@ -10,7 +10,7 @@ namespace TPCAI
     internal class EstadoDeOrden
     {
         //Propiedades
-        public int Codigo_De_Estado { get; set; }
+        public int CodigoDeEstado { get; set; }
         public string Descripcion { get; set; }
 
         //Métodos
@@ -24,7 +24,7 @@ namespace TPCAI
                 string[] datosSeparados = proximaLinea.Split('|');
 
                 var estado = new EstadoDeOrden();
-                estado.Codigo_De_Estado = int.Parse(datosSeparados[0]);
+                estado.CodigoDeEstado = int.Parse(datosSeparados[0]);
                 estado.Descripcion = datosSeparados[1];
             }
         }
