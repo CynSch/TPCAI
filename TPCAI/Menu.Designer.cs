@@ -3,6 +3,7 @@ namespace TPCAI
 {
     partial class Menu
     {
+        //NO MODIFICAR
         /// <summary>
         /// Required designer variable.
         /// </summary>

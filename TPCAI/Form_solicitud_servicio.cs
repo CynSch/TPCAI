@@ -12,6 +12,7 @@ namespace TPCAI
 {
     public partial class Form_solicitud_servicio : Form
     {
+        //NO MODIFICAR
         public Form_solicitud_servicio()
         {
             InitializeComponent();
