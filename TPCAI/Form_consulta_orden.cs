@@ -92,5 +92,10 @@ namespace TPCAI
         {
 
         }
+
+        private void txtNumeroOrden_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

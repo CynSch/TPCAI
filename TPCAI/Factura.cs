@@ -17,8 +17,15 @@ namespace TPCAI
 
         public bool EstaPaga { get; set; }
         public ClienteCorporativo ClienteCorporativo { get; set; }
+        public int CUIT { get; set; }
         static internal List<SolicitudDeOrden> OrdenesAsociadas { get; set; }
 
+        //SOY MELU!
+        //AGREGUÉ UNA LISTA DE FACTURAS. EN EL MÉTODO LISTAR FACTURAS,
+        //FUI AGREGANDO CADA LÍNEA DEL ARCHIVO A ESTA LISTA CREADA.> 
+       //También agregué el atributo "CUIT" como para ver rápidamente de qué cliente es la factura. 
+        static public List<Factura> FacturasExistentes { get; set; }
+        //
 
         //Métodos
         internal static void ListarFacturas() //Lista las sucursales del txt
@@ -37,6 +44,8 @@ namespace TPCAI
                 factura.Monto = decimal.Parse(datosSeparados[1]);
                 factura.FechaFactura = DateTime.Parse(datosSeparados[2]);
                // factura.ClienteCorporativo = datosSeparados[3]; VER FLOR
+
+                Factura.FacturasExistentes.Add(factura);
 
             }
         }
