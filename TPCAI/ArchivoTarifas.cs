@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TPCAI
 {
@@ -18,7 +19,7 @@ namespace TPCAI
 
 
             //Grabo la tarifa desde la lista TarifaActual en memoria al archivo
-            using StreamWriter writer = File.CreateText("Tarifa.txt");
+            StreamWriter writertarifa = File.CreateText("Tarifa.txt");
 
             // tarifa = RangoDePesos|RecargoUrgente|RecargoRetiroEnPuerta|RegargoEntregaEnPuerta
 
@@ -27,10 +28,10 @@ namespace TPCAI
                     + tarifa.RecargoUrgente.ToString() + "|"
                     + tarifa.RecargoRetiroEnPuerta.ToString() + "|"
                     + tarifa.RecargoEntregaEnPuerta.ToString();
-                writer.WriteLine(linea);
+                writertarifa.WriteLine(linea);
             }
             //Grabo el rango desde la lista Rangos en memoria al archivo
-            using StreamWriter writer = File.CreateText("RangoDePeso.txt");
+            StreamWriter writerrango = File.CreateText("RangoDePeso.txt");
 
             //PesoMinKg|PesoMaxKg|Precios
             foreach (RangoDePeso rango in RangoDePeso.Rangos)
@@ -38,7 +39,7 @@ namespace TPCAI
                 string linea = rango.PesoMinKg.ToString() + "|"
                     + rango.PesoMaxKg.ToString() + "|"
                     + rango.PreciosxDistancia.ToString();
-                writer.WriteLine(linea);
+                writerrango.WriteLine(linea);
             }
             //No estoy muy segura de como se graban los diccionarios
         }
@@ -52,8 +53,8 @@ namespace TPCAI
                 string[] datos = linea.Split('|');
                 RangoDePeso rango = new RangoDePeso()
                 {
-                    PesoMinKg = decimal.Parse(datos[0], CultureInfo.InvariantCulture),
-                    PesoMaxKg = decimal.Parse(datos[1], CultureInfo.InvariantCulture),
+                    PesoMinKg = decimal.Parse(datos[0]),
+                    PesoMaxKg = decimal.Parse(datos[1]),
                     PreciosxDistancia = new Dictionary<TipoPrecio, decimal>
                     {
                         [TipoPrecio.Local] = decimal.Parse(datos[2]),
@@ -71,7 +72,7 @@ namespace TPCAI
             }
 
             //Cargo la tarifa desde el archivo a memoria
-            var datostarifa = File.ReadLines("Tarifa.txt").First().Split("|");
+            var datostarifa = File.ReadLines("Tarifa.txt").First().Split('|');
 
             //RecargoUrgente|RecargoRetiroEnPuerta|RegargoEntregaEnPuerta
             Tarifa tarifa = new Tarifa()
@@ -83,9 +84,9 @@ namespace TPCAI
                     [20M] = RangoDePeso.BuscarRangoPorMaximo(20M),
                     [30M] = RangoDePeso.BuscarRangoPorMaximo(30M)
                 },
-                RecargoUrgente = decimal.Parse(datostarifa[0], CultureInfo.InvariantCulture),
-                RecargoRetiroEnPuerta = decimal.Parse(datostarifa[1], CultureInfo.InvariantCulture),
-                RecargoEntregaEnPuerta = decimal.Parse(datostarifa[2], CultureInfo.InvariantCulture)
+                RecargoUrgente = decimal.Parse(datostarifa[0]),
+                RecargoRetiroEnPuerta = decimal.Parse(datostarifa[1]),
+                RecargoEntregaEnPuerta = decimal.Parse(datostarifa[2])
             };
 
             Tarifa.TarifaActual.Add(tarifa);
