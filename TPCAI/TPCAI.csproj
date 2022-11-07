@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArchivoTarifas.cs" />
     <Compile Include="ClienteCorporativo.cs" />
     <Compile Include="CuentaCorriente.cs" />
     <Compile Include="CuentaCorrienteServiciosFacturados.cs">
@@ -106,6 +107,7 @@
     <Compile Include="SolicitudDeOrden.cs" />
     <Compile Include="Sucursal.cs" />
     <Compile Include="Tarifa.cs" />
+    <Compile Include="TipoPrecio.cs" />
     <EmbeddedResource Include="CuentaCorrienteServiciosFacturados.resx">
       <DependentUpon>CuentaCorrienteServiciosFacturados.cs</DependentUpon>
     </EmbeddedResource>

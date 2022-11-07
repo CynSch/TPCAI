@@ -17,6 +17,8 @@ namespace TPCAI
             InitializeComponent();
         }
 
+        //Faltaria agregar en cada metodo sobre cuando se selecciona algo en el form que lo guarde en una
+        //variable que poder atribuirselo al atributo del objeto nueva Solicitud.
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
