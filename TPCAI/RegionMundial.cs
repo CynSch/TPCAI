@@ -28,7 +28,7 @@ namespace TPCAI
         public void ListarRegiones()
         {
             //Cargo las regiones mundiales desde el archivo a la lista RegionesMundiales para que esten en memoria
-            var archivoRegionMundial = new StreamReader("TextFile1.txt");
+            var archivoRegionMundial = new StreamReader("RegionesMundiales.txt");
             while (!archivoRegionMundial.EndOfStream)
             {
                 string proximaLinea = archivoRegionMundial.ReadLine();
