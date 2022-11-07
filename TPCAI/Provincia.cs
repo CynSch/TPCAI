@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TPCAI
 {
@@ -62,7 +63,7 @@ namespace TPCAI
 
             //SOLO USAR SI SE AGREGÓ UNA PROVINCIA O SE MODIFICÓ EL DATO DE ALGUNA PRE-EXISTENTE
 
-            using StreamWriter writer = File.CreateText("Provincia.txt");
+            StreamWriter writer = File.CreateText("Provincia.txt");
 
             //Codigo|Nombre|CodigoDeRegionNacional|ListLocalidadesAsociadas
 
