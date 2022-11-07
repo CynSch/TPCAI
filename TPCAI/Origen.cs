@@ -12,6 +12,11 @@ namespace TPCAI
 
         // Propiedades
 
+        //SOY MELU! AVISO QUE AGREGUÉ LA PROPIEDAD "NumeroDeOrden" PARA PODER LINKEAR EL ORIGEN
+        //CON UNA ORDEN PARTICULAR. TAMBIÉN LO METÍ EN EL CONSTRUCTOR
+        public int NumeroDeOrden { get; set; }
+        //
+
         public bool EsRetiroEnDomicilio { get; set; }
         public bool EsEntregaEnSucursal { get; set; }
         public int CodigoDeRegionMundial { get; set; }
@@ -26,9 +31,9 @@ namespace TPCAI
         public Origen(){ }
 
         // constructor lleno
-        public Origen( bool retiroEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, string codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
+        public Origen(int numDeOrden, bool retiroEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, string codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
         {
-           
+            NumeroDeOrden = numDeOrden;
             EsRetiroEnDomicilio = retiroEnDomicilio;
             EsEntregaEnSucursal = entregaEnSucursal;
             CodigoDeRegionMundial = codigoDeRegionMundial;

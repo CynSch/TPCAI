@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,8 @@ namespace TPCAI
 {
     internal class SolicitudDeOrden
     {
-        //Constructor
-        public SolicitudDeOrden(int numeroDeOrden, int iDDeServicio, ClienteCorporativo clienteCorporativo, Destino destino, bool esUrgente, int codigoDeEstado)
+        //Constructor - comentado, porque no me deja sino ir armando el objeto linea por linea. 
+        /*public SolicitudDeOrden(int numeroDeOrden, int iDDeServicio, ClienteCorporativo clienteCorporativo, Destino destino, bool esUrgente, int codigoDeEstado)
         {
             NumeroDeOrden = numeroDeOrden;
             IDDeServicio = iDDeServicio;
@@ -17,20 +18,40 @@ namespace TPCAI
             Destino = destino;
             EsUrgente = esUrgente;
             CodigoDeEstado = codigoDeEstado;
-        }
+        }*/
 
         //Propiedades
         public int NumeroDeOrden { get; private set; }
         public int IDDeServicio { get; set; }
-        public ClienteCorporativo ClienteCorporativo { get; set; }
-        public Destino Destino { get; set; }
+        public int CUITCliente { get; set; }
+        public string Destino { get; set; }
         public bool EsUrgente { get; set; }
         public int CodigoDeEstado { get; set; }
+        static internal List<SolicitudDeOrden> SolicitudesExistentes { get; set; }
 
         //Métodos
+        internal static void CargarEstados()
+        //Saca los estados disponibles del archivo "Solicitudes.txt" y los mete en la lista SolicitudesExistentes
+        //El archivo de solicitudes va a tener tooooodas las solicitudes realizadas, para todos los clientes existentes. 
+        {
+            /*El archivo tiene el formato:
+            "num_de_orden|id_servicio|cuit_cliente|destino|bool_urgente_o_no|cod_de_estado"*/
+            var archivoSolicitudes = new StreamReader("Solicitudes.txt");
+            while (!archivoSolicitudes.EndOfStream)
+            {
+                string proximaLinea = archivoSolicitudes.ReadLine();
+                string[] datosSeparados = proximaLinea.Split('|');
 
-        //El archivo de solicitudes va a tener tooooodas las solicitudes realizadas,
-        //para todos los clientes existentes. 
+                var solicitud = new SolicitudDeOrden();
+                solicitud.NumeroDeOrden = int.Parse(datosSeparados[0]);
+                solicitud.IDDeServicio = int.Parse(datosSeparados[1]);
+                solicitud.CUITCliente = int.Parse(datosSeparados[2]);
+                solicitud.Destino=
+
+
+
+            }
+        }
 
         public static void GenerarNumeroDeOrden()
         {
@@ -64,6 +85,12 @@ namespace TPCAI
             //3. Revisa el codigo de estado de la orden en cuestión 
             //4. Busca en el archivo de estados, a qué corresponde el código de la orden. 
             //5. Devuelve la descripción del estado de la orden. 
+        }
+
+        internal static void GrabarNuevaSolicitud()
+        //Este método se tiene que ejecutar cuando hacemos click en "confirmar" la solicitud
+        {
+
         }
     }
 }

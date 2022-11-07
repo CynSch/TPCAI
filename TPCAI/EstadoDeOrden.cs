@@ -12,9 +12,11 @@ namespace TPCAI
         //Propiedades
         public int CodigoDeEstado { get; set; }
         public string Descripcion { get; set; }
+        static internal List<EstadoDeOrden> EstadosDisponibles { get; set; }
 
         //Métodos
-        internal static void CargarEstados() //Saca los estados disponibles del archivo "Estados.txt"
+        internal static void CargarEstados()
+        //Saca los estados disponibles del archivo "Estados.txt" y los mete en la lista EstadosDisponibles
         {
             //El archivo tiene el formato: "1|Creado"
             var archivoEstados = new StreamReader("Estados.txt");
@@ -26,6 +28,9 @@ namespace TPCAI
                 var estado = new EstadoDeOrden();
                 estado.CodigoDeEstado = int.Parse(datosSeparados[0]);
                 estado.Descripcion = datosSeparados[1];
+
+                //Agrego el estado a la lista de Estados Disponibles
+                EstadoDeOrden.EstadosDisponibles.Add(estado);
             }
         }
     }

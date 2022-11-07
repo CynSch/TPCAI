@@ -9,8 +9,9 @@ namespace TPCAI
     internal class Destino
     {
 
-        public Destino(bool esnacional, bool esInternacional, bool entregaEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, string codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
+        public Destino(int numDeOrden, bool esnacional, bool esInternacional, bool entregaEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, string codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
         {
+            NumeroDeOrden = numDeOrden;
             Esnacional = esnacional;
             EsInternacional = esInternacional;
             EntregaEnDomicilio = entregaEnDomicilio;
@@ -25,6 +26,11 @@ namespace TPCAI
 
         }
         //Propiedades
+
+        //SOY MELU! AVISO QUE AGREGUÉ LA PROPIEDAD "NumeroDeOrden" PARA PODER LINKEAR EL DESTINO
+        //CON UNA ORDEN PARTICULAR. TAMBIÉN LO METÍ EN EL CONSTRUCTOR
+        public int NumeroDeOrden { get; set; }
+        //
         public bool Esnacional { get; set; }
         public bool EsInternacional { get; set; }
         public bool EntregaEnDomicilio { get; set; }
