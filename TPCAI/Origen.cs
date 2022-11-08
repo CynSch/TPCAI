@@ -16,8 +16,8 @@ namespace TPCAI
         public int NumeroDeOrden { get; set; }
         //
 
-        public bool EsRetiroEnDomicilio { get; set; }  // supone que el radiobutton de retiro en domicilio esta seleccionado
-        public bool EsEntregaEnSucursal { get; set; } // supone que el radiobutton de entrega en sucursal esta seleccionado
+        public bool EsRetiroEnDomicilio { get; set; }  // true si el rb esta seleccionado, false si no lo esta
+        public bool EsEntregaEnSucursal { get; set; } // true si el rb esta seleccionado, false si no lo esta
         public int CodigoDeRegionNacional { get; set; }
         public int CodigoDeProvincia { get; set; }
         public int CodigoDeLocalidad { get; set; }
@@ -29,8 +29,8 @@ namespace TPCAI
         public Origen(int numDeOrden, bool retiroEnDomicilio, bool entregaEnSucursal, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
         {
             NumeroDeOrden = numDeOrden;
-            EsRetiroEnDomicilio = retiroEnDomicilio; // supone que el radiobutton de retiro en domicilio esta seleccionado
-            EsEntregaEnSucursal = entregaEnSucursal; // supone que el radiobutton de entrega en sucursal esta seleccionado
+            EsRetiroEnDomicilio = retiroEnDomicilio; 
+            EsEntregaEnSucursal = entregaEnSucursal; 
             CodigoDeRegionNacional = codigoDeRegionNacional;
             CodigoDeProvincia = codigoDeProvincia;
             CodigoDeLocalidad = codigoDeLocalidad;
@@ -45,49 +45,61 @@ namespace TPCAI
        public void MostrarOrigen()
        {
    
-            string origen = StringOrigen();
-            
-     
+            string origen = StringOrigen(EsRetiroEnDomicilio, EsEntregaEnSucursal);
 
        }
 
-       private string StringOrigen()
+       private string StringOrigen(bool retiroDomicilio, bool entregaSucursal)
         {
-            string salida;
-            Provincia nombreProvincia = this.BuscarProvincia();
+            string salida = null;
+            RegionNacional nombreRegionNacional = this.BuscarRegionNacional(CodigoDeRegionNacional);
+            Provincia nombreProvincia = this.BuscarProvincia(CodigoDeProvincia);
+            Localidad nombreLocalidad = this.BuscarLocalidad(CodigoDeLocalidad);
 
-            if (EsRetiroEnDomicilio == false)
+            if (retiroDomicilio == false)
             {
-                salida = string.Format(this.CodigoDeRegionNacional.ToString(), nombreProvincia,
-                                        this.CodigoDeLocalidad.ToString(), this.NroSucursal.ToString());
+                Sucursal nombreSucursal = BuscarSucursal(NroSucursal);
 
+                salida = string.Format(nombreRegionNacional.ToString(), nombreProvincia,
+                                        nombreLocalidad, nombreSucursal);
+                
             }
 
-            if (EsEntregaEnSucursal == false)
+            if (entregaSucursal == false)
             {
-                salida = String.Format(this.CodigoDeRegionNacional.ToString(), nombreProvincia,
-                                        this.CodigoDeLocalidad.ToString(), this.Direccion.ToString());
+
+               return salida = String.Format(nombreRegionNacional.ToString(), nombreProvincia,
+                                       nombreLocalidad, this.Direccion.ToString());
+
+                
             }
 
-            return salida;
-
+            return salida; 
+ 
         }
          
         
-        private RegionNacional BuscarRegionNacional()
+        private RegionNacional BuscarRegionNacional(int codigoRegNac)
         {
-            return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == CodigoDeRegionNacional);
+            return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
 
         }
 
-        private Provincia BuscarProvincia()
+        private Provincia BuscarProvincia(int codigoProvincia)
         {
-            return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == CodigoDeProvincia);
+            return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
         }
 
-        private Localidad BuscarLocalidad()
+        private Localidad BuscarLocalidad(int codigoLocalidad)
         {
+            return Localidad.LstLocaldiades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
+        }
+
+        private Sucursal BuscarSucursal(int codigoSucursal)
+        {
+            return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
 
         }
+
     }
 }

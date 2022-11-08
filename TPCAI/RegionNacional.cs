@@ -15,12 +15,14 @@ namespace TPCAI
             NombreDeRegionNacional = nombreDeRegionNacional;
 
         }
+        //constructor vacio
+        public RegionNacional () { }
 
         public int CodigoDeRegionNacional { get; set; }
         public string NombreDeRegionNacional { get; set; }
 
         public List<Provincia> Provincias { get; set; }
-        static public List<RegionNacional> LstRegionesNacionales { get; set; }
+        static internal List<RegionNacional> LstRegionesNacionales { get; set; }
 
         public static void ListarRegiones()
         {
@@ -33,7 +35,7 @@ namespace TPCAI
                 //Codigo|Nombre
 
                 string[] datosSeparados = proximaLinea.Split('|');
-                RegionNacional regionNacional = new RegionNacional();
+                var regionNacional = new RegionNacional();
                 regionNacional.CodigoDeRegionNacional = int.Parse(datosSeparados[0]);
                 regionNacional.NombreDeRegionNacional = datosSeparados[1];
 
