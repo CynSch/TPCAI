@@ -25,7 +25,7 @@ namespace TPCAI
         }
      
         // Metodos
-        public void ListarRegiones()
+        public void ListarRegionesMundiales()
         {
             //Cargo las regiones mundiales desde el archivo a la lista RegionesMundiales para que esten en memoria
             var archivoRegionMundial = new StreamReader("RegionesMundiales.txt");
@@ -44,6 +44,24 @@ namespace TPCAI
               
 
             }
+        }
+
+        internal static void GrabarRegionesMundiales()
+        {
+            //Grabo las regiones en memoria al archivo.
+
+            StreamWriter writer = File.CreateText("RegionesMundiales.txt");
+
+            //Codigo|Nombre
+
+            foreach (RegionMundial regionmundial in LstRegionesMundiales)
+            {
+                string linea = regionmundial.CodigoDeRegionMundial.ToString() + "|"
+                    + regionmundial.NombreDeRegionMundial.ToString() + "|";
+                writer.WriteLine(linea);
+            }
+
+
         }
 
     }

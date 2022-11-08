@@ -27,8 +27,6 @@ namespace TPCAI
         public string Direccion { get; set; }
         public int NroSucursal { get; set; }
 
-        //Constructor vacio
-        public Origen(){ }
 
         // constructor lleno
         public Origen(int numDeOrden, bool retiroEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, string codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
