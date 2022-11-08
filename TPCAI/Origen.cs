@@ -41,7 +41,6 @@ namespace TPCAI
 
         //Metodos:
 
-
        public void MostrarOrigen()
        {
    
@@ -68,7 +67,7 @@ namespace TPCAI
             if (entregaSucursal == false)
             {
 
-               return salida = String.Format(nombreRegionNacional.ToString(), nombreProvincia,
+                salida = String.Format(nombreRegionNacional.ToString(), nombreProvincia,
                                        nombreLocalidad, this.Direccion.ToString());
 
                 
