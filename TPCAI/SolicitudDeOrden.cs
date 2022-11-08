@@ -31,8 +31,6 @@ namespace TPCAI
         public bool EsUrgente { get; set; }
         public int CodigoDeEstado { get; set; }
         static internal List<SolicitudDeOrden> SolicitudesExistentes { get; set; }
-        static internal List<SolicitudDeOrden> OrdenesDeUnCliente { get; set; }
-
 
         //Métodos
         internal static void CargarSolicitudesExistentes()
@@ -86,7 +84,6 @@ namespace TPCAI
 
         public static void BuscarOrdenDeServicio(int NumDeOrdenABuscar)
         {
-            //VER MI PARCIAL CON AREVALO PLA
             //1. Recorre la lista de ordenes existentes
             //2. Busca el NumDeOrdenABuscar
             //3. Si lo encuentra, devuelve número de orden, fecha, importe, destino y estado de la orden. 
@@ -106,27 +103,31 @@ namespace TPCAI
             }
 
 
-            }
+        }
 
         public static void ListarOrdenesPendientesDeFacturacion(int cuit_cliente)
         {
-            //Limpio la lista que contendrá todas las órdenes de un cliente
-            OrdenesDeUnCliente.Clear();
+            //Creo una lista vacíaque contendrá todas las órdenes de un cliente
+            List<SolicitudDeOrden> ordenesDelCliente = new List<SolicitudDeOrden>();
 
-            //Recorrer las solicitudes y ver cuáles son del cliente ingresado
+            //Agrego a la lista las solicitudes del cliente
             foreach (SolicitudDeOrden sol in SolicitudesExistentes)
             {
                 if (sol.CUITCliente == cuit_cliente)
                 {
-                    SolicitudDeOrden.OrdenesDeUnCliente.Add(sol);
+                    ordenesDelCliente.Add(sol);
                 }
             }
 
+            //Recorrer la lista de facturas, 1 vez por cada orden.  
+            //   Para las órdenes que no tienen factura asociada, devuelve:
+            //   número de orden, importe, fecha y destino. 
             if (OrdenesDeUnCliente.Count > 0)
             {
-                //recorrer la lista de facturas, y ver si existen facturas asociadas con dichos números de orden 
-                //   Para las órdenes que no tienen factura asociada, devuelve:
-                //   número de orden, importe, fecha y destino. 
+                foreach (SolicitudDeOrden sol in ordenesDelCliente)
+                {
+                    
+                }
             }
             else
             {
