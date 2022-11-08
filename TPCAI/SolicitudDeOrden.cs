@@ -83,7 +83,7 @@ namespace TPCAI
             return NumeroGenerado;
         }
 
-        public static void BuscarOrdenDeServicio(int NumDeOrdenABuscar)
+        public static void BuscarYMostrarOrdenDeServicio(int NumDeOrdenABuscar)
         {
             //1. Recorre la lista de ordenes existentes
             //2. Busca el NumDeOrdenABuscar
@@ -105,10 +105,11 @@ namespace TPCAI
 
 
         }
+        //Falta linkear el rdo con la UI
 
         public static void ListarOrdenesPendientesDeFacturacion(int cuit_cliente)
         {
-            //Creo una lista vacía que contenga las órdenes pendientes de facturacion de un cliente
+            //Creo una lista vacía que sirva para almacenar las órdenes pendientes de facturacion de un cliente
             List<SolicitudDeOrden> OrdenesPendientesDeFacturacion = new List<SolicitudDeOrden>();
 
             //Agrego a la lista todas las solicitudes del cliente
@@ -132,38 +133,70 @@ namespace TPCAI
                     }
                 }
             }
-                   
-            //Recorrer la lista de facturas, 1 vez por cada orden.  
-            //   Para las órdenes que no tienen factura asociada, devuelve:
-            //   número de orden, importe, fecha y destino. 
-            if (ordenesDelCliente.Count > 0)
+
+            foreach (SolicitudDeOrden ordenPendienteDeFacturacion in OrdenesPendientesDeFacturacion)
             {
-                foreach (SolicitudDeOrden sol in ordenesDelCliente)
-                {
-                    
-                }
+                //Mostrar en pantalla número de orden, importe, fecha y destino. 
             }
-            else
-            {
-                MessageBox.Show("El cliente no tiene ninguna órden asociada");
-            }
+
         }
+        //Falta linkear el rdo con la UI
         public static void MostrarEstadoDeOrden(int NumDeOrdenABuscar)
         {
-            //1. Busca él número de orden ingresado en el archivo de órdenes.
-            //2. Valida que sea él mismo el cliente de dicha orden, por seguridad. 
-            //3. Revisa el codigo de estado de la orden en cuestión 
-            //4. Busca en el archivo de estados, a qué corresponde el código de la orden. 
-            //5. Devuelve la descripción del estado de la orden. 
+            //Creo un bool para ver si existe la orden que se quiere buscar. 
+            int codEstadoDeLaOrden = 0;
+            string EstadoDeLaOrden = 0;
+            bool ordenEncontrada = false;
+            do
+            {
+                foreach (SolicitudDeOrden sol in SolicitudesExistentes)
+                {
+                    if (sol.NumeroDeOrden == NumDeOrdenABuscar)
+                    {
+                        ordenEncontrada = true;
+
+                        //Guarda el codigo de estado de la orden en cuestión 
+                        codEstadoDeLaOrden = sol.CodigoDeEstado;
+                    }
+                }
+                if (ordenEncontrada == false)
+                {
+                    //Mostrar mensaje de error - orden inexistente. 
+                }
+            } while (ordenEncontrada == false);
+
+            if (ordenEncontrada == true)
+            {
+                //Busca en la lista de estados, a cuál corresponde el código del estado de la orden. 
+                foreach (EstadoDeOrden estado in EstadoDeOrden.EstadosDisponibles)
+                {
+                    if (estado.CodigoDeEstado == codEstadoDeLaOrden)
+                    {
+                        EstadoDeLaOrden = estado.Descripcion;
+                    }
+                }
+                //Mostrar numero de orden, fecha, importe, destino y estado.  
+            }
         }
+        //Falta linkear el rdo con la UI
 
         internal static void GrabarNuevaSolicitud()
         //Este método se tiene que ejecutar cuando hacemos click en "confirmar" la solicitud
         //La nueva solicitud se tiene que agregar a la lista SolicitudesExistentes!!
         {
-            //Antes de empezar, hay que darle a CargarSolicitudesExistentes"
             var nuevaSolicitud = new SolicitudDeOrden();
-            nuevaSolicitud.NumeroDeOrden = GenerarNumeroDeOrden();
-        }
+            /*nuevaSolicitud.NumeroDeOrden = GenerarNumeroDeOrden();
+            nuevaSolicitud.IDDeServicio = //linkear con el radio button seleccionado. 
+            nuevaSolicitud.CUITCliente = //linkear con el cliente que está logueado. 
+            nuevaSolicitud.Origen = //
+            nuevaSolicitud.Destino = //
+            nuevaSolicitud.EsUrgente = //
+            //falta agregar codigo de estado*/
+
+            SolicitudesExistentes.Add(nuevaSolicitud);
+         }
+        
+    
     }
-}
+    }
+
