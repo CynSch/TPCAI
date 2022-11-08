@@ -21,7 +21,7 @@ namespace TPCAI
         static internal List<SolicitudDeOrden> OrdenesAsociadas { get; set; }
 
         //SOY MELU!
-        //AGREGUÉ UNA LISTA DE FACTURAS. EN EL MÉTODO LISTAR FACTURAS,
+        //AGREGUÉ UNA LISTA DE FACTURAS, Y EN EL MÉTODO LISTAR FACTURAS
         //FUI AGREGANDO CADA LÍNEA DEL ARCHIVO A ESTA LISTA CREADA.> 
        //También agregué el atributo "CUIT" como para ver rápidamente de qué cliente es la factura. 
         static public List<Factura> FacturasExistentes { get; set; }

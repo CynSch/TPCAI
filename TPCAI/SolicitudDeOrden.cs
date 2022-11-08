@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -119,10 +120,21 @@ namespace TPCAI
                 }
             }
 
+            foreach (SolicitudDeOrden sol in ordenesDelCliente)
+            {
+                foreach (Factura fact in Factura.FacturasExistentes)
+                {
+                    foreach (SolicitudDeOrden ordenAsociada in Factura.OrdenesAsociadas)
+                    {
+
+                    }
+                }
+            }
+                   
             //Recorrer la lista de facturas, 1 vez por cada orden.  
             //   Para las órdenes que no tienen factura asociada, devuelve:
             //   número de orden, importe, fecha y destino. 
-            if (OrdenesDeUnCliente.Count > 0)
+            if (ordenesDelCliente.Count > 0)
             {
                 foreach (SolicitudDeOrden sol in ordenesDelCliente)
                 {
