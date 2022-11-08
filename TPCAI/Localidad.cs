@@ -16,7 +16,7 @@ namespace TPCAI
         }
         public int CodigoDeLocalidad { get; set; }
         public string NombreDeLocalidad { get; set; }
-        static private List<Localidad> LstLocaldiades { get; set; }
+        static public List<Localidad> LstLocaldiades { get; set; }
 
         public static void ListarLocalidad()
         {

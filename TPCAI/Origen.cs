@@ -74,9 +74,9 @@ namespace TPCAI
         }
          
         
-        private void BuscarRegionNacional()
+        private RegionNacional BuscarRegionNacional()
         {
-            
+            return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == CodigoDeRegionNacional);
 
         }
 
