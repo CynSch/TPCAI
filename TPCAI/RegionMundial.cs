@@ -14,7 +14,7 @@ namespace TPCAI
         public string NombreDeRegionMundial { get; set; }
         public  List<Pais> PaisesAsociados { get; set; }
 
-        static private List<RegionMundial> LstRegionesMundiales { get; set; }
+        static public List<RegionMundial> LstRegionesMundiales { get; set; }
 
         //construtor
         public RegionMundial(int codigoDeRegionMundial, string nombreDeRegionMundial)
@@ -23,9 +23,12 @@ namespace TPCAI
             NombreDeRegionMundial = nombreDeRegionMundial;
            // PaisesAsociados = Pais.
         }
+
+        //constructor vacio
+        //public RegionMundial() { };
      
         // Metodos
-        public void ListarRegionesMundiales()
+        public void CargarRegionesMundiales()
         {
             //Cargo las regiones mundiales desde el archivo a la lista RegionesMundiales para que esten en memoria
             var archivoRegionMundial = new StreamReader("RegionesMundiales.txt");
@@ -36,12 +39,9 @@ namespace TPCAI
                 //Codigo|Nombre
 
                 string[] datosSeparados = proximaLinea.Split('|');
-                RegionMundial regionMundial = new RegionMundial();
-                regionMundial.CodigoDeRegionMundial = int.Parse(datosSeparados[0]);
-                regionMundial.NombreDeRegionMundial = datosSeparados[1];
-
+                var regionMundial = new RegionMundial(int.Parse(datosSeparados[0]), datosSeparados[1]); //con el constructor
+               
                 RegionMundial.LstRegionesMundiales.Add(regionMundial);
-              
 
             }
         }
