@@ -44,6 +44,7 @@ namespace TPCAI
         public string Direccion { get; set; }
         public int NroSucursal { get; set; }
         static public List<Destino> DestinosExistentes { get; set; }
+        
 
         //Metodos
 
@@ -51,22 +52,7 @@ namespace TPCAI
         {
             //Completar la muestra del destino
             //Devuelve el Destino.
-            var archivoDestino = new StreamReader("Destinos.txt");
-            while (!archivoDestino.EndOfStream)
-
-            {
-                string proximaLinea = archivoDestino.ReadLine();
-                string[] datosSeparados = proximaLinea.Split('|');
-
-                var destino = new Destino();
-                destino. = int.Parse(datosSeparados[0]);
-                destino. = decimal.Parse(datosSeparados[1]);
-                destino. = .Parse(datosSeparados[2]);
-                
-
-                Destino.DestinosExistentes.Add(destino);
-
-            }
+            
         }
     
     }
