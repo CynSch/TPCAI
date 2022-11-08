@@ -10,7 +10,7 @@ namespace TPCAI
     internal class Destino
     {
 
-       /* public Destino(int numDeOrden, bool esnacional, bool esInternacional, bool entregaEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, string codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
+        public Destino(int numDeOrden, bool esnacional, bool esInternacional, bool entregaEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, string codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
         {
             NumeroDeOrden = numDeOrden;
             Esnacional = esnacional;
@@ -25,7 +25,7 @@ namespace TPCAI
             Direccion = direccion;
             NroSucursal = nroSucursal;
 
-        }*/
+        }
         //Propiedades
 
         //SOY MELU! AVISO QUE AGREGUÉ LA PROPIEDAD "NumeroDeOrden" PARA PODER LINKEAR EL DESTINO
