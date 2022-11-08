@@ -18,7 +18,7 @@ namespace TPCAI
         public bool EstaPaga { get; set; }
         public ClienteCorporativo ClienteCorporativo { get; set; }
         public int CUIT { get; set; }
-        static internal List<SolicitudDeOrden> OrdenesAsociadas { get; set; }
+        public List<SolicitudDeOrden> OrdenesAsociadas { get; set; }
 
         //SOY MELU!
         //AGREGUÉ UNA LISTA DE FACTURAS, Y EN EL MÉTODO LISTAR FACTURAS

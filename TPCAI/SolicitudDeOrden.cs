@@ -108,25 +108,27 @@ namespace TPCAI
 
         public static void ListarOrdenesPendientesDeFacturacion(int cuit_cliente)
         {
-            //Creo una lista vacíaque contendrá todas las órdenes de un cliente
-            List<SolicitudDeOrden> ordenesDelCliente = new List<SolicitudDeOrden>();
+            //Creo una lista vacía que contenga las órdenes pendientes de facturacion de un cliente
+            List<SolicitudDeOrden> OrdenesPendientesDeFacturacion = new List<SolicitudDeOrden>();
 
-            //Agrego a la lista las solicitudes del cliente
+            //Agrego a la lista todas las solicitudes del cliente
             foreach (SolicitudDeOrden sol in SolicitudesExistentes)
             {
                 if (sol.CUITCliente == cuit_cliente)
                 {
-                    ordenesDelCliente.Add(sol);
+                    OrdenesPendientesDeFacturacion.Add(sol);
                 }
             }
 
-            foreach (SolicitudDeOrden sol in ordenesDelCliente)
+            //Saco de la lista las ordenes que tienen factura asociada
+            //Para cada orden, hay que chequear que exista una factura con la orden incluida 
+            foreach (SolicitudDeOrden sol in OrdenesPendientesDeFacturacion)
             {
                 foreach (Factura fact in Factura.FacturasExistentes)
                 {
-                    foreach (SolicitudDeOrden ordenAsociada in Factura.OrdenesAsociadas)
+                    if (fact.OrdenesAsociadas.Contains(sol))
                     {
-
+                        OrdenesPendientesDeFacturacion.Remove(sol);
                     }
                 }
             }
