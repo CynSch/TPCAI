@@ -92,7 +92,7 @@ namespace TPCAI
 
         private Localidad BuscarLocalidad(int codigoLocalidad)
         {
-            return Localidad.LstLocaldiades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
+            return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
         }
 
         private Sucursal BuscarSucursal(int codigoSucursal)
