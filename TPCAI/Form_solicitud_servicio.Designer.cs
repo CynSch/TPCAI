@@ -372,6 +372,7 @@ namespace TPCAI
             this.num_ancho.Name = "num_ancho";
             this.num_ancho.Size = new System.Drawing.Size(180, 26);
             this.num_ancho.TabIndex = 6;
+            this.num_ancho.ValueChanged += new System.EventHandler(this.num_ancho_ValueChanged);
             // 
             // lbl_ancho
             // 

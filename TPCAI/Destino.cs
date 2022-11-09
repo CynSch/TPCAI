@@ -14,7 +14,7 @@ namespace TPCAI
         public Destino(int numDeOrden, bool esnacional, bool esInternacional, bool entregaEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, int codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
         {
             NumeroDeOrden = numDeOrden;
-            Esnacional = esnacional;
+            EsNacional = esnacional;
             EsInternacional = esInternacional;
             EntregaEnDomicilio = entregaEnDomicilio;
             EntregaEnSucursal = entregaEnSucursal;
@@ -33,7 +33,7 @@ namespace TPCAI
         //CON UNA ORDEN PARTICULAR. TAMBIÉN LO METÍ EN EL CONSTRUCTOR
         public int NumeroDeOrden { get; set; }
         //
-        public bool Esnacional { get; set; }
+        public bool EsNacional { get; set; }
         public bool EsInternacional { get; set; }
         public bool EntregaEnDomicilio { get; set; }
         public bool EntregaEnSucursal { get; set; }
@@ -53,7 +53,7 @@ namespace TPCAI
         {
             //Completar la muestra del destino
             //Devuelve el Destino.
-            string destino = StringDestino(Esnacional,EsInternacional,EntregaEnDomicilio, EntregaEnSucursal);
+            string destino = StringDestino(EsNacional,EsInternacional,EntregaEnDomicilio, EntregaEnSucursal);
         }
 
         private string StringDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal)

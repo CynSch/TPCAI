@@ -18,11 +18,11 @@ namespace TPCAI
 
         public string Contraseña { get; set; }
 
-        private CuentaCorriente CuentaAsignada { get; set}
+        private CuentaCorriente CuentaAsignada { get; set; }
     }
 
-    public decimal MostrarSaldoCuenta()
+  /*  public decimal MostrarSaldoCuenta()
     {
         return this.CuentaAsignada.Saldo;
-    }
+    }*/
 }

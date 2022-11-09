@@ -8,6 +8,8 @@ namespace TPCAI
 {
     internal class Servicio
     {
+        public int NumeroDeOrden { get; set; }
+
         public int IDDeServicio { get; set; }
 
         public bool EsEncomienda { get; set; }

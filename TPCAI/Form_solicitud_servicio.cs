@@ -382,5 +382,10 @@ namespace TPCAI
         {
 
         }
+
+        private void num_ancho_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

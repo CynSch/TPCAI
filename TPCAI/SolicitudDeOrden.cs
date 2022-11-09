@@ -33,6 +33,9 @@ namespace TPCAI
         public int CodigoDeEstado { get; set; }
         public DateTime Fecha { get; private set; }
         public decimal Importe { get; set; }
+
+        //Agregar atributo n°factura (puede ser nullable)
+        //Crear metodo de buscarOrdenesAsociadasA1Factura.
         static internal List<SolicitudDeOrden> SolicitudesExistentes { get; set; }
 
         //Métodos
