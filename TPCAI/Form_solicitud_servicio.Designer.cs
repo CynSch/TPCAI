@@ -62,7 +62,7 @@ namespace TPCAI
             this.txt_domicilio_retirodomicilio = new System.Windows.Forms.TextBox();
             this.cmb_localidad_origen = new System.Windows.Forms.ComboBox();
             this.lbl_localidad_retirodomicilio = new System.Windows.Forms.Label();
-            this.cmb_provincia_retirodomicilio = new System.Windows.Forms.ComboBox();
+            this.cmb_provincia_origen = new System.Windows.Forms.ComboBox();
             this.lbl_provincia_retirodomicilio = new System.Windows.Forms.Label();
             this.rd_btn_origen_entrega_sucursal = new System.Windows.Forms.RadioButton();
             this.rd_btn_retiro_domicilio = new System.Windows.Forms.RadioButton();
@@ -413,7 +413,7 @@ namespace TPCAI
             this.grp_origen.Controls.Add(this.txt_domicilio_retirodomicilio);
             this.grp_origen.Controls.Add(this.cmb_localidad_origen);
             this.grp_origen.Controls.Add(this.lbl_localidad_retirodomicilio);
-            this.grp_origen.Controls.Add(this.cmb_provincia_retirodomicilio);
+            this.grp_origen.Controls.Add(this.cmb_provincia_origen);
             this.grp_origen.Controls.Add(this.lbl_provincia_retirodomicilio);
             this.grp_origen.Controls.Add(this.rd_btn_origen_entrega_sucursal);
             this.grp_origen.Controls.Add(this.rd_btn_retiro_domicilio);
@@ -491,17 +491,15 @@ namespace TPCAI
             this.lbl_localidad_retirodomicilio.Text = "Localidad";
             this.lbl_localidad_retirodomicilio.Click += new System.EventHandler(this.lbl_localidad_retirodomicilio_Click);
             // 
-            // cmb_provincia_retirodomicilio
+            // cmb_provincia_origen
             // 
-            this.cmb_provincia_retirodomicilio.FormattingEnabled = true;
-            this.cmb_provincia_retirodomicilio.Items.AddRange(new object[] {
-            "CABA"});
-            this.cmb_provincia_retirodomicilio.Location = new System.Drawing.Point(158, 50);
-            this.cmb_provincia_retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmb_provincia_retirodomicilio.Name = "cmb_provincia_retirodomicilio";
-            this.cmb_provincia_retirodomicilio.Size = new System.Drawing.Size(180, 28);
-            this.cmb_provincia_retirodomicilio.TabIndex = 12;
-            this.cmb_provincia_retirodomicilio.SelectedIndexChanged += new System.EventHandler(this.cmb_provincia_retirodomicilio_SelectedIndexChanged);
+            this.cmb_provincia_origen.FormattingEnabled = true;
+            this.cmb_provincia_origen.Location = new System.Drawing.Point(158, 50);
+            this.cmb_provincia_origen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmb_provincia_origen.Name = "cmb_provincia_origen";
+            this.cmb_provincia_origen.Size = new System.Drawing.Size(180, 28);
+            this.cmb_provincia_origen.TabIndex = 12;
+            this.cmb_provincia_origen.SelectedIndexChanged += new System.EventHandler(this.cmb_provincia_retirodomicilio_SelectedIndexChanged);
             // 
             // lbl_provincia_retirodomicilio
             // 
@@ -789,7 +787,7 @@ namespace TPCAI
         private System.Windows.Forms.TextBox txt_domicilio_retirodomicilio;
         private System.Windows.Forms.ComboBox cmb_localidad_origen;
         private System.Windows.Forms.Label lbl_localidad_retirodomicilio;
-        private System.Windows.Forms.ComboBox cmb_provincia_retirodomicilio;
+        private System.Windows.Forms.ComboBox cmb_provincia_origen;
         private System.Windows.Forms.Label lbl_provincia_retirodomicilio;
         private System.Windows.Forms.ComboBox cmb_sucursal_entregaensucursal_origen;
         private System.Windows.Forms.Label lbl_sucursal_entregaensucursal_origen;

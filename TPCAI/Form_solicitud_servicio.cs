@@ -15,6 +15,8 @@ namespace TPCAI
         public Form_solicitud_servicio()
         {
             InitializeComponent();
+            cmb_provincia_origen.Items.Add(Provincia.TodasLasProvincias);
+            //cmb_localidad_origen.Items.Add(Provincia.LocalidadesAsociadas);
         }
 
         //Faltaria agregar en cada metodo sobre cuando se selecciona algo en el form que lo guarde en una
@@ -130,7 +132,7 @@ namespace TPCAI
                 MessageBox.Show("Las dimensiones deben ser mayor a 0");
             }
             else if (rd_btn_retiro_domicilio.Checked && 
-                (cmb_provincia_retirodomicilio.SelectedIndex == -1 
+                (cmb_provincia_origen.SelectedIndex == -1 
                 || cmb_localidad_origen.SelectedIndex == -1 
                 || string.IsNullOrEmpty(txt_domicilio_retirodomicilio.Text)))
             {
@@ -138,7 +140,7 @@ namespace TPCAI
                     "relacionados con el retiro a domicilio para continuar");
             }
             else if (rd_btn_origen_entrega_sucursal.Checked &&
-                (cmb_provincia_retirodomicilio.SelectedIndex == -1
+                (cmb_provincia_origen.SelectedIndex == -1
                 || cmb_localidad_origen.SelectedIndex == -1
                 || cmb_sucursal_entregaensucursal_origen.SelectedIndex == -1))
             {
@@ -298,7 +300,7 @@ namespace TPCAI
         private void rd_btn_retiro_domicilio_CheckedChanged(object sender, EventArgs e)
         {
             //cmb_region__retirodomicilio.Enabled = true;
-            cmb_provincia_retirodomicilio.Enabled = true;
+            cmb_provincia_origen.Enabled = true;
             cmb_localidad_origen.Enabled = true;
             txt_domicilio_retirodomicilio.Enabled = true;
             //cmb_region_entregaensucursal_origen.Enabled = false;
@@ -336,9 +338,10 @@ namespace TPCAI
             num_alto.Enabled = true;
         }
 
+
         private void cmb_provincia_retirodomicilio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //rd_btn_retiro_domicilio.Checked = true;
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

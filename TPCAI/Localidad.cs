@@ -39,6 +39,11 @@ namespace TPCAI
                 Localidad.LstLocalidades.Add(localidad);
             }
         }
+        /*public static List<Localidad> ListarLocalidadesAsociadas(int codigoDeProvincia)
+        {
+
+        }*/
+
 
     }
 }

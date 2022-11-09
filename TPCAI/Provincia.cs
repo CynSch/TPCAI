@@ -81,7 +81,7 @@ namespace TPCAI
             CodigoDeProvincia = codigoDeProvincia;
             NombreDeProvincia = nombreDeProvincia;
             CodigoDeRegionNacional = codigoDeRegionNacional;
-            //   LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas((codigoDeProvincia));
+            //LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas((codigoDeProvincia));
             TodasLasProvincias.Add(this);
         }
     }
