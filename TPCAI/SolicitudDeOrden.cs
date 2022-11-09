@@ -153,7 +153,7 @@ namespace TPCAI
         {
             //Creo un bool para ver si existe la orden que se quiere buscar. 
             int codEstadoDeLaOrden = 0;
-            string EstadoDeLaOrden = 0;
+            string EstadoDeLaOrden;
             bool ordenEncontrada = false;
             do
             {

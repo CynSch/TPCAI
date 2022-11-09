@@ -105,8 +105,10 @@ namespace TPCAI
             menu.Show();
         }
 
+        //DE ACÁ HAY QUE IR EXTRAYENDO LOS DATOS QUE INGRESA EL USUARIO Y LLAMAR AL METODO CREAR SOLICITUD
         private void btn_continuar_Click(object sender, EventArgs e)
         {
+            //Validaciones de que se ingresen datos
             if (!rd_btn_encomienda.Checked && !rd_btn_correspondencia.Checked)
             {
                 MessageBox.Show("Debe seleccionar algún tipo de servicio.");
@@ -129,7 +131,7 @@ namespace TPCAI
             }
             else if (rd_btn_retiro_domicilio.Checked && 
                 (cmb_provincia_retirodomicilio.SelectedIndex == -1 
-                || cmb_localidad_retirodomicilio.SelectedIndex == -1 
+                || cmb_localidad_origen.SelectedIndex == -1 
                 || string.IsNullOrEmpty(txt_domicilio_retirodomicilio.Text)))
             {
                 MessageBox.Show("Debe completar todos los campos visibles " +
@@ -137,7 +139,7 @@ namespace TPCAI
             }
             else if (rd_btn_origen_entrega_sucursal.Checked &&
                 (cmb_provincia_retirodomicilio.SelectedIndex == -1
-                || cmb_localidad_retirodomicilio.SelectedIndex == -1
+                || cmb_localidad_origen.SelectedIndex == -1
                 || cmb_sucursal_entregaensucursal_origen.SelectedIndex == -1))
             {
                 MessageBox.Show("Debe completar todos los campos visibles " +
@@ -177,12 +179,46 @@ namespace TPCAI
                 MessageBox.Show("Debe completar todos los campos visibles" +
                     " relacionados a un destino internacional");
             }
+
+            //ALMACENAR EL INPUT DEL USUARIO EN VARIABLES
+            bool esEncomienda;
+            decimal peso;
+            decimal ancho;
+            decimal largo;
+            decimal alto;
+            Provincia provincia;
+            Localidad localidad;
+            Origen origen_provincia;
+            Origen origen_localidad;
+
+            if (rd_btn_encomienda.Checked)
+            {
+                esEncomienda = true;
+                peso = num_peso.Value;
+                ancho = num_ancho.Value;
+                largo = num_largo.Value;
+                alto = num_alto.Value;
+            }
+            else if (rd_btn_correspondencia.Checked)
+            {
+                esEncomienda = false;
+            }
+
+            //origen_provincia = cmb_provincia_retirodomicilio.SelectedItem;
+            //origen_localidad = cmb_localidad_origen.SelectedItem;
+
+
+
+            //LLAMAR AL MÉTODO Y PASARLE EL INPUT DEL USUARIO
+
+
+                //ACÁ SE LLAMA AL FORM DE CONFIRMACIÓN
             else
             {
                 Form_solicitud_servicio_confirmación form_de_confirmacion = 
-                    new Form_solicitud_servicio_confirmación();
-            this.Visible = false;
-            form_de_confirmacion.Show();
+                new Form_solicitud_servicio_confirmación();
+                this.Visible = false;
+                form_de_confirmacion.Show();
             }
         }
 
@@ -263,7 +299,7 @@ namespace TPCAI
         {
             //cmb_region__retirodomicilio.Enabled = true;
             cmb_provincia_retirodomicilio.Enabled = true;
-            cmb_localidad_retirodomicilio.Enabled = true;
+            cmb_localidad_origen.Enabled = true;
             txt_domicilio_retirodomicilio.Enabled = true;
             //cmb_region_entregaensucursal_origen.Enabled = false;
             cmb_sucursal_entregaensucursal_origen.Enabled = false;
