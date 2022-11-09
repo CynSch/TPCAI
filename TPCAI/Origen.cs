@@ -49,26 +49,37 @@ namespace TPCAI
        private string StringOrigen(bool retiroDomicilio, bool entregaSucursal)
         {
             string salida = null;
-            RegionNacional nombreRegionNacional = this.BuscarRegionNacional(CodigoDeRegionNacional);
-            Provincia nombreProvincia = this.BuscarProvincia(CodigoDeProvincia);
-            Localidad nombreLocalidad = this.BuscarLocalidad(CodigoDeLocalidad);
 
-            if (retiroDomicilio == false)
+            // Busca la region nacional por el codigo y devuelve el nombre de la region nacional
+            RegionNacional region = this.BuscarRegionNacional(CodigoDeRegionNacional); // me devuelve toda la linea, pero yo solo quiero el nombre
+            string rn = region.NombreDeRegionNacional; // le asigno el nombre a una variable que es la que voy a mostrar
+
+            // Busca la provincis por el codigo y devuelve el nombre de la provincia
+            Provincia provincia = this.BuscarProvincia(CodigoDeProvincia);
+            string nombreProvincia = provincia.NombreDeProvincia;
+
+            // Busca la localidad por el codigo y devuelve el nombre de la localidad
+            Localidad localidad = this.BuscarLocalidad(CodigoDeLocalidad);
+            string nombreLocalidad = localidad.NombreDeLocalidad;
+
+
+            // se ejecuta si el rb de entrega en sucursal esta seleccionado
+            if (entregaSucursal == true)
             {
-                Sucursal nombreSucursal = BuscarSucursal(NroSucursal);
+                // Busca la sucursal por el codigo y devuelve la direccion de la sucursal
+                Sucursal sucursal = BuscarSucursal(NroSucursal);
+                string direccionSucursal = sucursal.Direccion;
 
-                salida = string.Format(nombreRegionNacional.ToString(), nombreProvincia,
-                                        nombreLocalidad, nombreSucursal);
+                salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccionSucursal;
                 
             }
 
-            if (entregaSucursal == false)
+            // se ejecuta si el rb de retiro en domicilio esta seleccionado
+            if (retiroDomicilio == true)
             {
 
-                salida = String.Format(nombreRegionNacional.ToString(), nombreProvincia,
-                                       nombreLocalidad, this.Direccion.ToString());
-
-                
+                salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + this.Direccion;
+   
             }
 
             return salida; 

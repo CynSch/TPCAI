@@ -12,9 +12,10 @@ namespace TPCAI
         // propiedades 
         public int CodigoDeRegionMundial { get; set; }
         public string NombreDeRegionMundial { get; set; }
-        public  List<Pais> PaisesAsociados { get; set; }
 
-        static internal List<RegionMundial> LstRegionesMundiales { get; set; }
+       // public  List<Pais> PaisesAsociados { get; set; }
+
+        public List<RegionMundial> LstRegionesMundiales { get; set; }
 
         //construtor
         public RegionMundial(int codigoDeRegionMundial, string nombreDeRegionMundial)
@@ -25,7 +26,7 @@ namespace TPCAI
         }
 
         //constructor vacio
-        //public RegionMundial() { };
+        public RegionMundial() { }
      
         // Metodos
         public void CargarRegionesMundiales()
@@ -41,7 +42,7 @@ namespace TPCAI
                 string[] datosSeparados = proximaLinea.Split('|');
                 var regionMundial = new RegionMundial(int.Parse(datosSeparados[0]), datosSeparados[1]); //con el constructor
                
-                RegionMundial.LstRegionesMundiales.Add(regionMundial);
+                LstRegionesMundiales.Add(regionMundial);
 
             }
         }
