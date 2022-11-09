@@ -16,7 +16,7 @@ namespace TPCAI
 
         static internal List<Provincia> TodasLasProvincias = new List<Provincia>();
 
-        internal List<Provincia> ListarProvincias(int codigoregion)
+        internal List<Provincia> ListarProvinciasxRegion(int codigoregion)
         {
             //Creo una lista de las provincias asociadas a una región
 
@@ -37,7 +37,7 @@ namespace TPCAI
         internal static void CargarProvincias()
         {
             //Cargo las provincias desde el archivo a la lista TodasLasProvincias para que esten en memoria
-            StreamReader reader = new StreamReader("Provincia.txt");
+            StreamReader reader = new StreamReader("Provincias.txt");
 
             while(!reader.EndOfStream)
             {
@@ -46,7 +46,7 @@ namespace TPCAI
                 //Codigo|Nombre|CodigoDeRegionNacional|ListLocalidadesAsociadas
 
                 string[] datos = linea.Split('|');
-                Provincia provincia = new Provincia(int.Parse(datos[0]), datos[1], int.Parse(datos[2]));
+                Provincia provincia = new Provincia(int.Parse(datos[0]),datos[1],int.Parse(datos[2]));
                
                 //Usa metodo de Localidades donde busca por codigo de provincia.
               //  provincia.LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provincia.CodigoDeProvincia);
@@ -60,7 +60,7 @@ namespace TPCAI
 
             //SOLO USAR SI SE AGREGÓ UNA PROVINCIA O SE MODIFICÓ EL DATO DE ALGUNA PRE-EXISTENTE
 
-            StreamWriter writer = File.CreateText("Provincia.txt");
+            StreamWriter writer = File.CreateText("Provincias.txt");
 
             //Codigo|Nombre|CodigoDeRegionNacional|ListLocalidadesAsociadas
 
@@ -83,6 +83,31 @@ namespace TPCAI
             CodigoDeRegionNacional = codigoDeRegionNacional;
             //LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas((codigoDeProvincia));
             TodasLasProvincias.Add(this);
+        }
+
+        public static int BuscarRegionXProvincia(int codigoprovincia)
+        {
+            //Busco el codigo de una region sabiendo la provincia ya seleccionada.
+
+            int codigoregionbuscado = 0;
+            foreach (Provincia provincia in TodasLasProvincias)
+            {
+                if (provincia.CodigoDeProvincia == codigoprovincia)
+                {
+                    codigoregionbuscado = provincia.CodigoDeRegionNacional;
+                }
+            }
+            return codigoregionbuscado;
+        }
+
+        public static string ListarProvincias()
+        {
+            string linea = "";
+            foreach (Provincia provincia in TodasLasProvincias)
+            {
+                linea = linea + "Codigo De Provincia" + provincia.CodigoDeProvincia + " - " + provincia.NombreDeProvincia + "\n";
+            }
+            return linea;
         }
     }
 }
