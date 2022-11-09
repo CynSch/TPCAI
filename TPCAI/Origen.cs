@@ -39,14 +39,7 @@ namespace TPCAI
 
         //Metodos:
 
-       public void MostrarOrigen()
-       {
-   
-            string origen = StringOrigen(EsRetiroEnDomicilio, EsEntregaEnSucursal);
-
-       }
-
-       private string StringOrigen(bool retiroDomicilio, bool entregaSucursal)
+        public string MostrarOrigen(bool retiroDomicilio, bool entregaSucursal)
         {
             string salida = null;
 

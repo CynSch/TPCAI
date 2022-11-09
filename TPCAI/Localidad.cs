@@ -37,10 +37,7 @@ namespace TPCAI
                 Localidad.LstLocalidades.Add(localidad);
             }
         }
-        /*public static List<Localidad> ListarLocalidadesAsociadas(int codigoDeProvincia)
-        {
-
-        }*/
+        
 
         public static int BuscarProvinciaXLocalidad(int codigolocalidad)
         {
@@ -56,7 +53,10 @@ namespace TPCAI
             }
             return codigoprovinciabuscado;
         }
-
+        public List <Localidad> ListarLocalidadesAsociadas(int codigoDeProvincia)
+        {
+            return LstLocalidades.FindAll(L => L.CodigoDeProvincia == codigoDeProvincia);
+        }
 
     }
 }
