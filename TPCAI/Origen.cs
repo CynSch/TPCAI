@@ -14,8 +14,6 @@ namespace TPCAI
         // Propiedades
 
         public int NumeroDeOrden { get; set; }
-        //
-
         public bool EsRetiroEnDomicilio { get; set; }  // true si el rb esta seleccionado, false si no lo esta
         public bool EsEntregaEnSucursal { get; set; } // true si el rb esta seleccionado, false si no lo esta
         public int CodigoDeRegionNacional { get; set; }
