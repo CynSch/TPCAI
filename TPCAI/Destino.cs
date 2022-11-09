@@ -52,8 +52,90 @@ namespace TPCAI
         {
             //Completar la muestra del destino
             //Devuelve el Destino.
-            
+            string destino = StringDestino(Esnacional,EsInternacional,EntregaEnDomicilio, EntregaEnSucursal);
         }
-    
+
+        private string StringDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal)
+        {
+            string salida = null;
+
+            RegionNacional regionN = this.BuscarRegionNacional(CodigoDeRegionNacional);
+            string rn = regionN.NombreDeRegionNacional;
+
+            RegionMundial regionM = this.BuscarRegionMundial(CodigoDeRegionMundial);
+            string rm = regionM.NombreDeRegionMundial;
+
+
+            Provincia provincia = this.BuscarProvincia(CodigoDeProvincia);
+            string nombreProvincia = provincia.NombreDeProvincia;
+
+
+            Localidad localidad = this.BuscarLocalidad(CodigoDeLocalidad);
+            string nombreLocalidad = localidad.NombreDeLocalidad;
+
+            Pais pais = this.BuscarPais(CodigoDePais);
+            string nombrePais = pais.NombreDePais;
+            
+            //Se ejecuta si el rb de internacional esta seleccionado
+            if (internacional == true)
+            {
+                salida = rm + "," + pais + this.Direccion;
+            }
+            //Se ejecuta si el rb de nacional esta seleccionado
+            if (nacional == true)
+            {
+                // se ejecuta si el rb de entrega en sucursal esta seleccionado
+                if (entregaSucursal == true)
+                {
+                    // Busca la sucursal por el codigo y devuelve la direccion de la sucursal
+                    Sucursal sucursal = BuscarSucursal(NroSucursal);
+                    string direccionSucursal = sucursal.Direccion;
+
+                    salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccionSucursal;
+
+                }
+
+                // se ejecuta si el rb de retiro en domicilio esta seleccionado
+                if (entregaDomicilio == true)
+                {
+
+                    salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + this.Direccion;
+
+                }
+                
+            }
+            return salida;
+
+        }
+
+        private RegionNacional BuscarRegionNacional(int codigoRegNac)
+        {
+            return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
+
+        }
+
+        private Provincia BuscarProvincia(int codigoProvincia)
+        {
+            return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
+        }
+
+        private Localidad BuscarLocalidad(int codigoLocalidad)
+        {
+            return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
+        }
+
+        private Sucursal BuscarSucursal(int codigoSucursal)
+        {
+            return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
+
+        }
+        private RegionMundial BuscarRegionMundial(int codigoRegionMundial)
+        {
+            return RegionMundial.LstRegionesMundiales.Find(regionMundial => regionMundial.CodigoDeRegionMundial == codigoRegionMundial);
+        }
+        private Pais BuscarPais(int codigoPais)
+        {
+            return Pais.TodosLosPaises.Find(pais => pais.CodigoDePais == codigoPais);
+        }
     }
 }

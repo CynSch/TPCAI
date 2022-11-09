@@ -15,7 +15,7 @@ namespace TPCAI
 
        // public  List<Pais> PaisesAsociados { get; set; }
 
-        public List<RegionMundial> LstRegionesMundiales { get; set; }
+        static internal List<RegionMundial> LstRegionesMundiales { get; set; }
 
         //construtor
         public RegionMundial(int codigoDeRegionMundial, string nombreDeRegionMundial)
