@@ -185,13 +185,30 @@ namespace TPCAI
         //La nueva solicitud se tiene que agregar a la lista SolicitudesExistentes!!
         {
             var nuevaSolicitud = new SolicitudDeOrden();
-            /*nuevaSolicitud.NumeroDeOrden = GenerarNumeroDeOrden();
-            nuevaSolicitud.IDDeServicio = //linkear con el radio button seleccionado. 
-            nuevaSolicitud.CUITCliente = //linkear con el cliente que está logueado. 
-            nuevaSolicitud.Origen = //
-            nuevaSolicitud.Destino = //
-            nuevaSolicitud.EsUrgente = //
+            nuevaSolicitud.NumeroDeOrden = GenerarNumeroDeOrden();
+
+            /*nuevaSolicitud.IDDeServicio = //linkear con el radio button seleccionado. 
+             if (se seleccionó el radio button de correspondencia)
+                  {
+                      IDDeServicio = 1
+                  }
+             else
+                  {
+                      IDDeServicio = 2
+                  }
+                  
+            nuevaSolicitud.CUITCliente = //linkear con el cliente que está logueado. */
+
+            //CREAR INSTANCIA DE ORIGEN
+            nuevaSolicitud.Origen = 
+
+            //CREAR INSTANCIA DE DESTINO
+            nuevaSolicitud.Destino  
+
+            nuevaSolicitud.EsUrgente //linkear con la selección del checkbox.  
+
             //falta agregar codigo de estado*/
+
 
             SolicitudesExistentes.Add(nuevaSolicitud);
          }
