@@ -15,6 +15,17 @@ namespace TPCAI
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
+            textBox_Orden.Show(); //Mostrar Nro de Orden
+            textBox_TPaquete.Show();
+            textBox_Peso.Show();
+            textBox_Ancho.Show();
+            textBox_Largo.Show();
+            textBox_Alto.Show();
+            textBoxT_Envio.Show();
+            textBox_Origen.Show(/*Origen.MostrarOrigen()*/);
+            textBox_Destino.Show(/*Destino.MostrarDestino() */);
+            textBox_Urgencia.Show();
+            textBox_Importe.Show();
         }
 
         private void Form_solicitud_servicio_confirmación_Load(object sender, EventArgs e)
@@ -102,6 +113,11 @@ namespace TPCAI
         private void label1_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void lbl_destino_servicio_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
