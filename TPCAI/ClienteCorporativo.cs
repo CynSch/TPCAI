@@ -8,5 +8,6 @@ namespace TPCAI
 {
     internal class ClienteCorporativo
     {
+        public string NombreCliente { get; set; }
     }
 }

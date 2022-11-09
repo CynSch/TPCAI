@@ -11,7 +11,7 @@ namespace TPCAI
     {
         //Propiedades
         public int NroSucursal { get; private set; }
-        public RegionNacional RegionNacional { get; set; }
+        public Localidad Localidad { get; set; }
         public string Direccion { get; set; }
 
         static internal List<Sucursal> TodasLasSucursales { get; set; }
@@ -31,8 +31,11 @@ namespace TPCAI
 
                 var sucursal = new Sucursal();
                 sucursal.NroSucursal = int.Parse(datosSeparados[0]);
-                //sucursal.RegionNacional = datosSeparados[1]; VER FLOR
+                sucursal.Localidad.CodigoDeLocalidad = int.Parse(datosSeparados[1]);
                 sucursal.Direccion = datosSeparados[2];
+
+                //agrego a lista
+                Sucursal.TodasLasSucursales.Add(sucursal);
             }
 
 

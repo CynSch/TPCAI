@@ -37,6 +37,9 @@ namespace TPCAI
                 pais.CodigoDePais = datosSeparados[0];
                 pais.NombreDePais = datosSeparados[1];
                 pais.CodigoDeRegionMundial = int.Parse(datosSeparados[2]);
+
+                //agrego a lista
+                Pais.TodosLosPaises.Add(pais);
             }
 
         }
