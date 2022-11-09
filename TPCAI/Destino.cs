@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace TPCAI
     internal class Destino
     {
 
-        public Destino(int numDeOrden, bool esnacional, bool esInternacional, bool entregaEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, string codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
+        public Destino(int numDeOrden, bool esnacional, bool esInternacional, bool entregaEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, int codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
         {
             NumeroDeOrden = numDeOrden;
             Esnacional = esnacional;
@@ -37,7 +38,7 @@ namespace TPCAI
         public bool EntregaEnDomicilio { get; set; }
         public bool EntregaEnSucursal { get; set; }
         public int CodigoDeRegionMundial { get; set; }
-        public string CodigoDePais { get; set; }
+        public int CodigoDePais { get; set; }
         public int CodigoDeRegionNacional { get; set; }
         public int CodigoDeProvincia { get; set; }
         public int CodigoDeLocalidad { get; set; }
@@ -48,7 +49,7 @@ namespace TPCAI
 
         //Metodos
 
-        public static void MostrarDestino()
+        public void MostrarDestino()
         {
             //Completar la muestra del destino
             //Devuelve el Destino.
