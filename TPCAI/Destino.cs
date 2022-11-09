@@ -49,14 +49,9 @@ namespace TPCAI
 
         //Metodos
 
-        public void MostrarDestino()
-        {
-            //Completar la muestra del destino
-            //Devuelve el Destino.
-            string destino = StringDestino(EsNacional,EsInternacional,EntregaEnDomicilio, EntregaEnSucursal);
-        }
 
-        private string StringDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal)
+
+        public string MostrarDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal)
         {
             string salida = null;
 
