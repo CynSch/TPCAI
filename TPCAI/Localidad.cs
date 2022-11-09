@@ -9,16 +9,16 @@ namespace TPCAI
 {
     internal class Localidad
     {
-        public Localidad(int codigoDeLocalidad, string nombreDeLocalidad)
+        public Localidad(int codigoDeLocalidad, string nombreDeLocalidad, int codigoprovincia)
         {
             CodigoDeLocalidad = codigoDeLocalidad;
             NombreDeLocalidad = nombreDeLocalidad;
+            CodigoDeProvincia = codigoprovincia;
         }
-
-        public Localidad() { }
 
         public int CodigoDeLocalidad { get; set; }
         public string NombreDeLocalidad { get; set; }
+        public int CodigoDeProvincia { get; set; }
         static internal List<Localidad> LstLocalidades { get; set; }
 
         public static void ListarLocalidad()
@@ -32,14 +32,27 @@ namespace TPCAI
                 //Codigo|Nombre
 
                 string[] datosSeparados = proximaLinea.Split('|');
-                Localidad localidad = new Localidad();
-                localidad.CodigoDeLocalidad = int.Parse(datosSeparados[0]);
-                localidad.NombreDeLocalidad = datosSeparados[1];
+                Localidad localidad = new Localidad(int.Parse(datosSeparados[0]), datosSeparados[1], int.Parse(datosSeparados[2]));
 
                 Localidad.LstLocalidades.Add(localidad);
             }
         }
         
+
+        public static int BuscarProvinciaXLocalidad(int codigolocalidad)
+        {
+            //Busco el codigo de una provincia sabiendo la localidad ya seleccioanda.
+
+            int codigoprovinciabuscado = 0;
+            foreach (Localidad localidad in LstLocalidades)
+            {
+                if (localidad.CodigoDeLocalidad == codigolocalidad)
+                {
+                    codigoprovinciabuscado = localidad.CodigoDeProvincia;
+                }
+            }
+            return codigoprovinciabuscado;
+        }
 
 
     }

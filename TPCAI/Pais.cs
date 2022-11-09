@@ -12,14 +12,12 @@ namespace TPCAI
 
 
         //Propiedades
-        public string CodigoDePais { get; private set; }
+        public int CodigoDePais { get; private set; }
         public string NombreDePais { get; set; }
         public int CodigoDeRegionMundial { get; set; }
 
         static internal List<Pais> TodosLosPaises { get; set; }
-        
-        
-        
+
 
         //Métodos
         internal static void ListarPaises() //Lista los paises del txt
@@ -34,7 +32,7 @@ namespace TPCAI
                 string[] datosSeparados = proximaLinea.Split('|');
 
                 var pais = new Pais();
-                pais.CodigoDePais = datosSeparados[0];
+                pais.CodigoDePais = int.Parse(datosSeparados[0]);
                 pais.NombreDePais = datosSeparados[1];
                 pais.CodigoDeRegionMundial = int.Parse(datosSeparados[2]);
 
@@ -43,5 +41,20 @@ namespace TPCAI
             }
 
         }
+
+        internal static int BuscarCodigoRegionXPais(int codigopais)
+        {
+            int codigoregion = 0;
+            foreach (Pais pais in TodosLosPaises)
+            {
+                if(pais.CodigoDePais == codigopais)
+                {
+                    codigoregion = pais.CodigoDeRegionMundial;
+                }
+            }
+            return codigoregion;
+        }
+
+        //Falta metodo de carga desde archivo
     }
 }
