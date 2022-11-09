@@ -31,6 +31,8 @@ namespace TPCAI
         public string Destino { get; set; }
         public bool EsUrgente { get; set; }
         public int CodigoDeEstado { get; set; }
+        public DateTime Fecha { get; private set; }
+        public decimal Importe { get; set; }
         static internal List<SolicitudDeOrden> SolicitudesExistentes { get; set; }
 
         //Métodos
@@ -69,7 +71,7 @@ namespace TPCAI
             //1. revisa la lista de solicitudes
             //2. Busca el número de orden mayor
             //3. le suma 1 a ese número
-            int NumeroGenerado;
+            int NumeroGenerado = 0;
             int UltimoNumeroDeOrden = 0;
 
             foreach(SolicitudDeOrden sol in SolicitudesExistentes)
@@ -83,27 +85,33 @@ namespace TPCAI
             return NumeroGenerado;
         }
 
-        public static void BuscarYMostrarOrdenDeServicio(int NumDeOrdenABuscar)
+        public static void BuscarYMostrarOrdenDeServicio()
         {
-            //1. Recorre la lista de ordenes existentes
-            //2. Busca el NumDeOrdenABuscar
-            //3. Si lo encuentra, devuelve número de orden, fecha, importe, destino y estado de la orden. 
+            //ALTERNATIVA: El método podría devolver el objeto de solicitud, y desde la UI
+            //llamamos a los distintos atributos del objeto. 
+            int NumDeOrdenABuscar;
             bool encontrado = false;
-            foreach (SolicitudDeOrden sol in SolicitudesExistentes)
+            do
             {
-                if (sol.NumeroDeOrden == NumDeOrdenABuscar)
+                NumDeOrdenABuscar = Validador.PedirInt("Ingrese el número de orden a buscar",1,666666);
+                //Chequear la clase validador para que en vez de writeline escriba en el form. 
+
+                //Hasta encontrar la orden, recorre las solicitudes existenes. 
+                //Si se encuentra, devuelve número de orden, fecha, importe, destino y estado de la orden. 
+                foreach (SolicitudDeOrden sol in SolicitudesExistentes)
                 {
-                    encontrado = true;
-                    //mostrar datos en pantalla - como se hace eso con winforms?
+                    if (sol.NumeroDeOrden == NumDeOrdenABuscar)
+                    {
+                        encontrado = true;
+                        //MOSTRAR DATOS EN PANTALLA
+                    }
                 }
-            }
-            if (!encontrado)
-            {
-                //devolver mensaje de que no se encontró la orden
-                MessageBox.Show("El número de orden ingresado no existe. Intente con otro número");
-            }
-
-
+                if (!encontrado)
+                {
+                    Console.WriteLine("no encontrado");
+                    //devolver mensaje de que no se encontró la orden
+                }
+            } while (!encontrado);
         }
         //Falta linkear el rdo con la UI
 
@@ -200,15 +208,26 @@ namespace TPCAI
             nuevaSolicitud.CUITCliente = //linkear con el cliente que está logueado. */
 
             //CREAR INSTANCIA DE ORIGEN
-            nuevaSolicitud.Origen = 
+            //var origen_solicitud = new Origen(); 
+            //Para que funcione el constructor, hay que ir linkeando cada selección del usuario con los parámetro que te pide
+            //nuevaSolicitud.Origen = origen_solicitud;
 
             //CREAR INSTANCIA DE DESTINO
-            nuevaSolicitud.Destino  
+            //var destino_solicitud = new Destino();
+            //Para que funcione el constructor, hay que ir linkeando cada selección del usuario con los parámetro que te pide
+            //nuevaSolicitud.Destino = destino_solicitud;
 
-            nuevaSolicitud.EsUrgente //linkear con la selección del checkbox.  
+            //linkear urgencia con la selección del checkbox.
+            /*if (checkbox seleccionado)
+                {
+                    nuevaSolicitud.EsUrgente = true;
+                }
+                else
+                {
+                    nuevaSolicitud.EsUrgente = false;
+                }*/
 
-            //falta agregar codigo de estado*/
-
+            nuevaSolicitud.CodigoDeEstado = 1;
 
             SolicitudesExistentes.Add(nuevaSolicitud);
          }

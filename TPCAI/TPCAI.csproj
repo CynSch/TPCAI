@@ -108,6 +108,7 @@
     <Compile Include="Sucursal.cs" />
     <Compile Include="Tarifa.cs" />
     <Compile Include="TipoPrecio.cs" />
+    <Compile Include="Validador.cs" />
     <EmbeddedResource Include="CuentaCorrienteServiciosFacturados.resx">
       <DependentUpon>CuentaCorrienteServiciosFacturados.cs</DependentUpon>
     </EmbeddedResource>
