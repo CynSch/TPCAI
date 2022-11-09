@@ -51,8 +51,8 @@ namespace TPCAI
             string salida = null;
 
             // Busca la region nacional por el codigo y devuelve el nombre de la region nacional
-            RegionNacional region = this.BuscarRegionNacional(CodigoDeRegionNacional);
-            string rn = region.NombreDeRegionNacional;
+            RegionNacional region = this.BuscarRegionNacional(CodigoDeRegionNacional); // me devuelve toda la linea, pero yo solo quiero el nombre
+            string rn = region.NombreDeRegionNacional; // le asigno el nombre a una variable que es la que voy a mostrar
 
             // Busca la provincis por el codigo y devuelve el nombre de la provincia
             Provincia provincia = this.BuscarProvincia(CodigoDeProvincia);
@@ -70,7 +70,7 @@ namespace TPCAI
                 Sucursal sucursal = BuscarSucursal(NroSucursal);
                 string direccionSucursal = sucursal.Direccion;
 
-                salida = (rn + ", " + nombreProvincia + ", " + nombreLocalidad + ", " + direccionSucursal);
+                salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccionSucursal;
                 
             }
 
@@ -78,7 +78,7 @@ namespace TPCAI
             if (retiroDomicilio == true)
             {
 
-                salida = (rn + ", " + nombreProvincia + ", " + nombreLocalidad + ", " + this.Direccion);
+                salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + this.Direccion;
    
             }
 
