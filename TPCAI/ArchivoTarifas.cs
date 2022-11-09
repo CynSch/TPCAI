@@ -22,40 +22,44 @@ namespace TPCAI
             StreamWriter writertarifa = File.CreateText("Tarifa.txt");
 
             // tarifa = RangoDePesos|RecargoUrgente|RecargoRetiroEnPuerta|RegargoEntregaEnPuerta
+            string lineatarifa = "";
+            Tarifa tarifa = new Tarifa();
+            lineatarifa = tarifa.RecargoUrgente + "|" + tarifa.RecargoRetiroEnPuerta +
+              "|" + tarifa.RecargoEntregaEnPuerta;
+            writertarifa.WriteLine(lineatarifa);
+            writertarifa.Close();
 
-            foreach (Tarifa tarifa in Tarifa.TarifaActual)
-            {   string linea = tarifa.RangoDePesos.ToString() + "|"
-                    + tarifa.RecargoUrgente.ToString() + "|"
-                    + tarifa.RecargoRetiroEnPuerta.ToString() + "|"
-                    + tarifa.RecargoEntregaEnPuerta.ToString();
-                writertarifa.WriteLine(linea);
-            }
             //Grabo el rango desde la lista Rangos en memoria al archivo
+
             StreamWriter writerrango = File.CreateText("RangoDePeso.txt");
 
             //PesoMinKg|PesoMaxKg|Precios
+            string linearangos = "";
             foreach (RangoDePeso rango in RangoDePeso.Rangos)
             {
-                string linea = rango.PesoMinKg.ToString() + "|"
-                    + rango.PesoMaxKg.ToString() + "|"
-                    + rango.PreciosxDistancia.ToString();
-                writerrango.WriteLine(linea);
+                linearangos = linearangos + (rango.PesoMinKg.ToString() + "|" + rango.PesoMaxKg.ToString() + "|");
+                foreach (var precio in rango.PreciosxDistancia)
+                {
+                    linearangos = linearangos + (precio.Value.ToString() + "|");
+                }
             }
-            //No estoy muy segura de como se graban los diccionarios
+            writerrango.WriteLine(linearangos);
+            writerrango.Close();
         }
+
         internal static void CargarTarifario()
         {
             //Cargo el rango de peso desde el archivo a memoria
-            foreach (var linea in File.ReadLines("RangoDePeso.txt"))
-
-            //PesoMinKg|PesoMaxKg|Precios
+            StreamReader reader = new StreamReader("RangoDePeso.txt");
+            while (!reader.EndOfStream)
             {
+                string linea = reader.ReadLine();
+
+                //PesoMinKg|PesoMaxKg|Precios
+
                 string[] datos = linea.Split('|');
-                RangoDePeso rango = new RangoDePeso()
-                {
-                    PesoMinKg = decimal.Parse(datos[0]),
-                    PesoMaxKg = decimal.Parse(datos[1]),
-                    PreciosxDistancia = new Dictionary<TipoPrecio, decimal>
+                RangoDePeso rango = new RangoDePeso(decimal.Parse(datos[0]), decimal.Parse(datos[1]),
+                    new Dictionary<TipoPrecio, decimal>
                     {
                         [TipoPrecio.Local] = decimal.Parse(datos[2]),
                         [TipoPrecio.Provincial] = decimal.Parse(datos[3]),
@@ -66,8 +70,7 @@ namespace TPCAI
                         [TipoPrecio.America_del_Norte] = decimal.Parse(datos[8]),
                         [TipoPrecio.Europa] = decimal.Parse(datos[9]),
                         [TipoPrecio.Asia] = decimal.Parse(datos[10]),
-                    }
-                };
+                    });
                 RangoDePeso.Rangos.Add(rango);
             }
 
@@ -88,8 +91,7 @@ namespace TPCAI
                 RecargoRetiroEnPuerta = decimal.Parse(datostarifa[1]),
                 RecargoEntregaEnPuerta = decimal.Parse(datostarifa[2])
             };
-
-            Tarifa.TarifaActual.Add(tarifa);
+            Tarifa.Tarifario.Add(tarifa);
         }
     }
 }

@@ -36,9 +36,7 @@ namespace TPCAI
                 localidad.CodigoDeLocalidad = int.Parse(datosSeparados[0]);
                 localidad.NombreDeLocalidad = datosSeparados[1];
 
-                Localidad.LstLocaldiades.Add(localidad);
-
-
+                Localidad.LstLocalidades.Add(localidad);
             }
         }
 

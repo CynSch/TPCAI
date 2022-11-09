@@ -14,7 +14,7 @@ namespace TPCAI
         internal int CodigoDeRegionNacional { get; set; }    
         internal List<Localidad> LocalidadesAsociadas { get; set; }
 
-        static internal List<Provincia> TodasLasProvincias { get; set; }
+        static internal List<Provincia> TodasLasProvincias = new List<Provincia>();
 
         internal List<Provincia> ListarProvincias(int codigoregion)
         {
@@ -37,7 +37,7 @@ namespace TPCAI
         internal static void CargarProvincias()
         {
             //Cargo las provincias desde el archivo a la lista TodasLasProvincias para que esten en memoria
-            using StreamReader reader = new StreamReader("Provincia.txt");
+            StreamReader reader = new StreamReader("Provincia.txt");
 
             while(!reader.EndOfStream)
             {
@@ -46,13 +46,10 @@ namespace TPCAI
                 //Codigo|Nombre|CodigoDeRegionNacional|ListLocalidadesAsociadas
 
                 string[] datos = linea.Split('|');
-                Provincia provincia = new Provincia();
-                provincia.CodigoDeProvincia = int.Parse(datos[0]);
-                provincia.NombreDeProvincia = datos[1];
-                provincia.CodigoDeRegionNacional = int.Parse(datos[2]);
-                
+                Provincia provincia = new Provincia(int.Parse(datos[0]), datos[1], int.Parse(datos[2]));
+               
                 //Usa metodo de Localidades donde busca por codigo de provincia.
-                provincia.LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provincia.CodigoDeProvincia);
+              //  provincia.LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provincia.CodigoDeProvincia);
                 Provincia.TodasLasProvincias.Add(provincia);
             }
         }
@@ -74,6 +71,7 @@ namespace TPCAI
                     + provincia.CodigoDeRegionNacional.ToString();
                 writer.WriteLine(linea);
             }
+            writer.Close();
 
         }
 
@@ -83,7 +81,8 @@ namespace TPCAI
             CodigoDeProvincia = codigoDeProvincia;
             NombreDeProvincia = nombreDeProvincia;
             CodigoDeRegionNacional = codigoDeRegionNacional;
-            LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas((codigoDeProvincia));
+            //   LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas((codigoDeProvincia));
+            TodasLasProvincias.Add(this);
         }
     }
 }
