@@ -53,7 +53,10 @@ namespace TPCAI
             }
             return codigoprovinciabuscado;
         }
-
+        public List <Localidad> ListarLocalidadesAsociadas(int codigoDeProvincia)
+        {
+            return LstLocalidades.FindAll(L => L.CodigoDeProvincia == codigoDeProvincia);
+        }
 
     }
 }
