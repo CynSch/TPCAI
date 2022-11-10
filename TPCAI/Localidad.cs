@@ -53,7 +53,7 @@ namespace TPCAI
             }
             return codigoprovinciabuscado;
         }
-        public List <Localidad> ListarLocalidadesAsociadas(int codigoDeProvincia)
+        public static List <Localidad> ListarLocalidadesAsociadas(int codigoDeProvincia)
         {
             List<Localidad> lista = new List<Localidad>();
            
