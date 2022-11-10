@@ -55,7 +55,11 @@ namespace TPCAI
         }
         public List <Localidad> ListarLocalidadesAsociadas(int codigoDeProvincia)
         {
-            return LstLocalidades.FindAll(L => L.CodigoDeProvincia == codigoDeProvincia);
+            List<Localidad> lista = new List<Localidad>();
+           
+            lista = LstLocalidades.FindAll(L => L.CodigoDeProvincia == codigoDeProvincia);
+            
+            return lista; 
         }
 
     }

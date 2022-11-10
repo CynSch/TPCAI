@@ -15,28 +15,33 @@ namespace TPCAI
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
-            textBox_Orden.Show(); //Mostrar Nro de Orden
-            textBox_TPaquete.Show();
-            textBox_Peso.Show();
-            textBox_Ancho.Show();
-            textBox_Largo.Show();
-            textBox_Alto.Show();
-            textBoxT_Envio.Show();
-            textBox_Origen.Show(/*Origen.MostrarOrigen()*/);
-            textBox_Destino.Show(/*Destino.MostrarDestino() */);
-            textBox_Urgencia.Show();
-            textBox_Importe.Show();
+            SolicitudDeOrden solicitudDeOrden = BuscarOrden();
+            
+            textBox_Orden.Text = "1111111111"; //Mostrar Nro de Orden
+            textBox_TPaquete.Text = "Encomienda";
+            textBox_Peso.Text = "2.00";
+            textBox_Ancho.Text = "1.00";
+            textBox_Largo.Text = "1.00";
+            textBox_Alto.Text = "1.00";
+            textBoxT_Envio.Text = "Nacional";
+            textBox_Origen.Text = "Metropolitana,CABA,Balvanera,Av.Cordoba 2122";
+            textBox_Destino.Text = "Metropolitana,CABA,Belgrano,Av.Cabildo 2000";
+            textBox_Urgencia.Text = "No";
+            textBox_Importe.Text = "600";
         }
+        private SolicitudDeOrden BuscarOrden(int numeroOrden)
+        {
+            
+            return SolicitudDeOrden.SolicitudesExistentes.Find(s=>s.NumeroDeOrden == numeroOrden);
+        }
+
 
         private void Form_solicitud_servicio_confirmación_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -48,25 +53,14 @@ namespace TPCAI
 
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void lbl_tipo_paquete_servicio_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void lbl_origen_servicio_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_volver_menu_ppal_Click(object sender, EventArgs e)
         {
@@ -75,20 +69,14 @@ namespace TPCAI
             menu.Show();
         }
 
-        private void lbl_peso_servicio_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void Form_solicitud_servicio_confirmación_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
-        private void lbl_nro_orden_servicio_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void lbl_precio_Click(object sender, EventArgs e)
         {
@@ -103,21 +91,6 @@ namespace TPCAI
         private void label3_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_destino_servicio_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

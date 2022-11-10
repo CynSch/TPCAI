@@ -42,31 +42,21 @@
             this.lbl_origen = new System.Windows.Forms.Label();
             this.lbl_destino = new System.Windows.Forms.Label();
             this.lbl_precio = new System.Windows.Forms.Label();
-            this.lbl_peso_servicio = new System.Windows.Forms.Label();
-            this.lbl_ancho_servicio = new System.Windows.Forms.Label();
-            this.lbl_largo_servicio = new System.Windows.Forms.Label();
-            this.lbl_alto_servicio = new System.Windows.Forms.Label();
-            this.lbl_origen_servicio = new System.Windows.Forms.Label();
-            this.lbl_precio_servicio = new System.Windows.Forms.Label();
             this.lbl_moneda_peso = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbl_urgencia_opcion = new System.Windows.Forms.Label();
-            this.lbl_urgencia = new System.Windows.Forms.Label();
-            this.lbl_tipo_envio_servicio = new System.Windows.Forms.Label();
-            this.lbl_tipo_envio = new System.Windows.Forms.Label();
-            this.lbl_tipo_paquete_servicio = new System.Windows.Forms.Label();
-            this.lbl_nro_orden_servicio = new System.Windows.Forms.Label();
-            this.btn_volver_menu_ppal = new System.Windows.Forms.Button();
-            this.textBox_Destino = new System.Windows.Forms.TextBox();
-            this.textBox_TPaquete = new System.Windows.Forms.TextBox();
-            this.textBox_Peso = new System.Windows.Forms.TextBox();
-            this.textBox_Ancho = new System.Windows.Forms.TextBox();
-            this.textBox_Largo = new System.Windows.Forms.TextBox();
-            this.textBox_Alto = new System.Windows.Forms.TextBox();
-            this.textBoxT_Envio = new System.Windows.Forms.TextBox();
-            this.textBox_Origen = new System.Windows.Forms.TextBox();
-            this.textBox_Urgencia = new System.Windows.Forms.TextBox();
             this.textBox_Importe = new System.Windows.Forms.TextBox();
+            this.textBox_Urgencia = new System.Windows.Forms.TextBox();
+            this.textBox_Origen = new System.Windows.Forms.TextBox();
+            this.textBoxT_Envio = new System.Windows.Forms.TextBox();
+            this.textBox_Alto = new System.Windows.Forms.TextBox();
+            this.textBox_Largo = new System.Windows.Forms.TextBox();
+            this.textBox_Ancho = new System.Windows.Forms.TextBox();
+            this.textBox_Peso = new System.Windows.Forms.TextBox();
+            this.textBox_TPaquete = new System.Windows.Forms.TextBox();
+            this.textBox_Destino = new System.Windows.Forms.TextBox();
+            this.lbl_urgencia = new System.Windows.Forms.Label();
+            this.lbl_tipo_envio = new System.Windows.Forms.Label();
+            this.btn_volver_menu_ppal = new System.Windows.Forms.Button();
             this.textBox_Orden = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -221,76 +211,12 @@
             this.lbl_precio.Text = "Importe";
             this.lbl_precio.Click += new System.EventHandler(this.lbl_precio_Click);
             // 
-            // lbl_peso_servicio
-            // 
-            this.lbl_peso_servicio.AutoSize = true;
-            this.lbl_peso_servicio.Location = new System.Drawing.Point(316, 56);
-            this.lbl_peso_servicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_peso_servicio.Name = "lbl_peso_servicio";
-            this.lbl_peso_servicio.Size = new System.Drawing.Size(28, 13);
-            this.lbl_peso_servicio.TabIndex = 26;
-            this.lbl_peso_servicio.Text = "2,00";
-            this.lbl_peso_servicio.Click += new System.EventHandler(this.lbl_peso_servicio_Click);
-            // 
-            // lbl_ancho_servicio
-            // 
-            this.lbl_ancho_servicio.AutoSize = true;
-            this.lbl_ancho_servicio.Location = new System.Drawing.Point(316, 94);
-            this.lbl_ancho_servicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_ancho_servicio.Name = "lbl_ancho_servicio";
-            this.lbl_ancho_servicio.Size = new System.Drawing.Size(28, 13);
-            this.lbl_ancho_servicio.TabIndex = 27;
-            this.lbl_ancho_servicio.Text = "1,00";
-            // 
-            // lbl_largo_servicio
-            // 
-            this.lbl_largo_servicio.AutoSize = true;
-            this.lbl_largo_servicio.Location = new System.Drawing.Point(316, 127);
-            this.lbl_largo_servicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_largo_servicio.Name = "lbl_largo_servicio";
-            this.lbl_largo_servicio.Size = new System.Drawing.Size(28, 13);
-            this.lbl_largo_servicio.TabIndex = 28;
-            this.lbl_largo_servicio.Text = "1,00";
-            // 
-            // lbl_alto_servicio
-            // 
-            this.lbl_alto_servicio.AutoSize = true;
-            this.lbl_alto_servicio.Location = new System.Drawing.Point(316, 158);
-            this.lbl_alto_servicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_alto_servicio.Name = "lbl_alto_servicio";
-            this.lbl_alto_servicio.Size = new System.Drawing.Size(28, 13);
-            this.lbl_alto_servicio.TabIndex = 29;
-            this.lbl_alto_servicio.Text = "1,00";
-            // 
-            // lbl_origen_servicio
-            // 
-            this.lbl_origen_servicio.AutoSize = true;
-            this.lbl_origen_servicio.Location = new System.Drawing.Point(194, 0);
-            this.lbl_origen_servicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_origen_servicio.Name = "lbl_origen_servicio";
-            this.lbl_origen_servicio.Size = new System.Drawing.Size(251, 13);
-            this.lbl_origen_servicio.TabIndex = 30;
-            this.lbl_origen_servicio.Text = "Metropolitana, CABA, Balvanera, Av. Córdoba 2122";
-            this.lbl_origen_servicio.Click += new System.EventHandler(this.lbl_origen_servicio_Click);
-            // 
-            // lbl_precio_servicio
-            // 
-            this.lbl_precio_servicio.AutoSize = true;
-            this.lbl_precio_servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_precio_servicio.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lbl_precio_servicio.Location = new System.Drawing.Point(323, 292);
-            this.lbl_precio_servicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_precio_servicio.Name = "lbl_precio_servicio";
-            this.lbl_precio_servicio.Size = new System.Drawing.Size(35, 17);
-            this.lbl_precio_servicio.TabIndex = 32;
-            this.lbl_precio_servicio.Text = "600";
-            // 
             // lbl_moneda_peso
             // 
             this.lbl_moneda_peso.AutoSize = true;
             this.lbl_moneda_peso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_moneda_peso.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lbl_moneda_peso.Location = new System.Drawing.Point(301, 294);
+            this.lbl_moneda_peso.Location = new System.Drawing.Point(108, 292);
             this.lbl_moneda_peso.Name = "lbl_moneda_peso";
             this.lbl_moneda_peso.Size = new System.Drawing.Size(17, 17);
             this.lbl_moneda_peso.TabIndex = 33;
@@ -308,18 +234,9 @@
             this.groupBox1.Controls.Add(this.textBox_Peso);
             this.groupBox1.Controls.Add(this.textBox_TPaquete);
             this.groupBox1.Controls.Add(this.textBox_Destino);
-            this.groupBox1.Controls.Add(this.lbl_urgencia_opcion);
             this.groupBox1.Controls.Add(this.lbl_urgencia);
-            this.groupBox1.Controls.Add(this.lbl_tipo_envio_servicio);
             this.groupBox1.Controls.Add(this.lbl_tipo_envio);
-            this.groupBox1.Controls.Add(this.lbl_tipo_paquete_servicio);
             this.groupBox1.Controls.Add(this.lbl_moneda_peso);
-            this.groupBox1.Controls.Add(this.lbl_precio_servicio);
-            this.groupBox1.Controls.Add(this.lbl_origen_servicio);
-            this.groupBox1.Controls.Add(this.lbl_alto_servicio);
-            this.groupBox1.Controls.Add(this.lbl_largo_servicio);
-            this.groupBox1.Controls.Add(this.lbl_ancho_servicio);
-            this.groupBox1.Controls.Add(this.lbl_peso_servicio);
             this.groupBox1.Controls.Add(this.lbl_precio);
             this.groupBox1.Controls.Add(this.lbl_destino);
             this.groupBox1.Controls.Add(this.lbl_origen);
@@ -333,27 +250,104 @@
             this.groupBox1.Controls.Add(this.lbl_largo);
             this.groupBox1.Controls.Add(this.lbl_ancho);
             this.groupBox1.Location = new System.Drawing.Point(31, 75);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(423, 322);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // lbl_urgencia_opcion
+            // textBox_Importe
             // 
-            this.lbl_urgencia_opcion.AutoSize = true;
-            this.lbl_urgencia_opcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_urgencia_opcion.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lbl_urgencia_opcion.Location = new System.Drawing.Point(323, 266);
-            this.lbl_urgencia_opcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_urgencia_opcion.Name = "lbl_urgencia_opcion";
-            this.lbl_urgencia_opcion.Size = new System.Drawing.Size(21, 13);
-            this.lbl_urgencia_opcion.TabIndex = 38;
-            this.lbl_urgencia_opcion.Text = "No";
-            this.lbl_urgencia_opcion.Click += new System.EventHandler(this.label2_Click_1);
+            this.textBox_Importe.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Importe.Location = new System.Drawing.Point(131, 294);
+            this.textBox_Importe.Name = "textBox_Importe";
+            this.textBox_Importe.ReadOnly = true;
+            this.textBox_Importe.Size = new System.Drawing.Size(56, 13);
+            this.textBox_Importe.TabIndex = 48;
+            // 
+            // textBox_Urgencia
+            // 
+            this.textBox_Urgencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Urgencia.Location = new System.Drawing.Point(134, 263);
+            this.textBox_Urgencia.Name = "textBox_Urgencia";
+            this.textBox_Urgencia.ReadOnly = true;
+            this.textBox_Urgencia.Size = new System.Drawing.Size(25, 13);
+            this.textBox_Urgencia.TabIndex = 47;
+            // 
+            // textBox_Origen
+            // 
+            this.textBox_Origen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Origen.Location = new System.Drawing.Point(134, 204);
+            this.textBox_Origen.Name = "textBox_Origen";
+            this.textBox_Origen.ReadOnly = true;
+            this.textBox_Origen.Size = new System.Drawing.Size(248, 13);
+            this.textBox_Origen.TabIndex = 46;
+            // 
+            // textBoxT_Envio
+            // 
+            this.textBoxT_Envio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxT_Envio.Location = new System.Drawing.Point(134, 173);
+            this.textBoxT_Envio.Name = "textBoxT_Envio";
+            this.textBoxT_Envio.ReadOnly = true;
+            this.textBoxT_Envio.Size = new System.Drawing.Size(88, 13);
+            this.textBoxT_Envio.TabIndex = 45;
+            // 
+            // textBox_Alto
+            // 
+            this.textBox_Alto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Alto.Location = new System.Drawing.Point(134, 143);
+            this.textBox_Alto.Name = "textBox_Alto";
+            this.textBox_Alto.ReadOnly = true;
+            this.textBox_Alto.Size = new System.Drawing.Size(25, 13);
+            this.textBox_Alto.TabIndex = 44;
+            // 
+            // textBox_Largo
+            // 
+            this.textBox_Largo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Largo.Location = new System.Drawing.Point(134, 113);
+            this.textBox_Largo.Name = "textBox_Largo";
+            this.textBox_Largo.ReadOnly = true;
+            this.textBox_Largo.Size = new System.Drawing.Size(25, 13);
+            this.textBox_Largo.TabIndex = 43;
+            // 
+            // textBox_Ancho
+            // 
+            this.textBox_Ancho.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Ancho.Location = new System.Drawing.Point(134, 82);
+            this.textBox_Ancho.Name = "textBox_Ancho";
+            this.textBox_Ancho.ReadOnly = true;
+            this.textBox_Ancho.Size = new System.Drawing.Size(25, 13);
+            this.textBox_Ancho.TabIndex = 42;
+            // 
+            // textBox_Peso
+            // 
+            this.textBox_Peso.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Peso.Location = new System.Drawing.Point(134, 48);
+            this.textBox_Peso.Name = "textBox_Peso";
+            this.textBox_Peso.ReadOnly = true;
+            this.textBox_Peso.Size = new System.Drawing.Size(25, 13);
+            this.textBox_Peso.TabIndex = 41;
+            // 
+            // textBox_TPaquete
+            // 
+            this.textBox_TPaquete.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_TPaquete.Location = new System.Drawing.Point(134, 20);
+            this.textBox_TPaquete.Name = "textBox_TPaquete";
+            this.textBox_TPaquete.ReadOnly = true;
+            this.textBox_TPaquete.Size = new System.Drawing.Size(88, 13);
+            this.textBox_TPaquete.TabIndex = 40;
+            // 
+            // textBox_Destino
+            // 
+            this.textBox_Destino.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Destino.Location = new System.Drawing.Point(134, 230);
+            this.textBox_Destino.Name = "textBox_Destino";
+            this.textBox_Destino.ReadOnly = true;
+            this.textBox_Destino.Size = new System.Drawing.Size(248, 13);
+            this.textBox_Destino.TabIndex = 39;
             // 
             // lbl_urgencia
             // 
@@ -367,16 +361,6 @@
             this.lbl_urgencia.Text = "Urgencia";
             this.lbl_urgencia.Click += new System.EventHandler(this.label3_Click);
             // 
-            // lbl_tipo_envio_servicio
-            // 
-            this.lbl_tipo_envio_servicio.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.lbl_tipo_envio_servicio.AutoSize = true;
-            this.lbl_tipo_envio_servicio.Location = new System.Drawing.Point(316, 176);
-            this.lbl_tipo_envio_servicio.Name = "lbl_tipo_envio_servicio";
-            this.lbl_tipo_envio_servicio.Size = new System.Drawing.Size(49, 13);
-            this.lbl_tipo_envio_servicio.TabIndex = 36;
-            this.lbl_tipo_envio_servicio.Text = "Nacional";
-            // 
             // lbl_tipo_envio
             // 
             this.lbl_tipo_envio.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
@@ -388,37 +372,12 @@
             this.lbl_tipo_envio.TabIndex = 35;
             this.lbl_tipo_envio.Text = "Tipo de Envío";
             // 
-            // lbl_tipo_paquete_servicio
-            // 
-            this.lbl_tipo_paquete_servicio.AutoSize = true;
-            this.lbl_tipo_paquete_servicio.Location = new System.Drawing.Point(316, 27);
-            this.lbl_tipo_paquete_servicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_tipo_paquete_servicio.Name = "lbl_tipo_paquete_servicio";
-            this.lbl_tipo_paquete_servicio.Size = new System.Drawing.Size(66, 13);
-            this.lbl_tipo_paquete_servicio.TabIndex = 34;
-            this.lbl_tipo_paquete_servicio.Text = "Encomienda";
-            this.lbl_tipo_paquete_servicio.Click += new System.EventHandler(this.lbl_tipo_paquete_servicio_Click);
-            // 
-            // lbl_nro_orden_servicio
-            // 
-            this.lbl_nro_orden_servicio.AutoSize = true;
-            this.lbl_nro_orden_servicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_nro_orden_servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lbl_nro_orden_servicio.ForeColor = System.Drawing.Color.Red;
-            this.lbl_nro_orden_servicio.Location = new System.Drawing.Point(354, 46);
-            this.lbl_nro_orden_servicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_nro_orden_servicio.Name = "lbl_nro_orden_servicio";
-            this.lbl_nro_orden_servicio.Size = new System.Drawing.Size(107, 17);
-            this.lbl_nro_orden_servicio.TabIndex = 35;
-            this.lbl_nro_orden_servicio.Text = "#1111111111";
-            this.lbl_nro_orden_servicio.Click += new System.EventHandler(this.lbl_nro_orden_servicio_Click);
-            // 
             // btn_volver_menu_ppal
             // 
             this.btn_volver_menu_ppal.AutoSize = true;
             this.btn_volver_menu_ppal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_volver_menu_ppal.Location = new System.Drawing.Point(331, 407);
-            this.btn_volver_menu_ppal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_volver_menu_ppal.Margin = new System.Windows.Forms.Padding(2);
             this.btn_volver_menu_ppal.Name = "btn_volver_menu_ppal";
             this.btn_volver_menu_ppal.Size = new System.Drawing.Size(131, 23);
             this.btn_volver_menu_ppal.TabIndex = 36;
@@ -426,83 +385,15 @@
             this.btn_volver_menu_ppal.UseVisualStyleBackColor = true;
             this.btn_volver_menu_ppal.Click += new System.EventHandler(this.btn_volver_menu_ppal_Click);
             // 
-            // textBox_Destino
-            // 
-            this.textBox_Destino.Location = new System.Drawing.Point(134, 230);
-            this.textBox_Destino.Name = "textBox_Destino";
-            this.textBox_Destino.Size = new System.Drawing.Size(248, 20);
-            this.textBox_Destino.TabIndex = 39;
-            // 
-            // textBox_TPaquete
-            // 
-            this.textBox_TPaquete.Location = new System.Drawing.Point(134, 20);
-            this.textBox_TPaquete.Name = "textBox_TPaquete";
-            this.textBox_TPaquete.Size = new System.Drawing.Size(88, 20);
-            this.textBox_TPaquete.TabIndex = 40;
-            // 
-            // textBox_Peso
-            // 
-            this.textBox_Peso.Location = new System.Drawing.Point(134, 48);
-            this.textBox_Peso.Name = "textBox_Peso";
-            this.textBox_Peso.Size = new System.Drawing.Size(25, 20);
-            this.textBox_Peso.TabIndex = 41;
-            // 
-            // textBox_Ancho
-            // 
-            this.textBox_Ancho.Location = new System.Drawing.Point(134, 82);
-            this.textBox_Ancho.Name = "textBox_Ancho";
-            this.textBox_Ancho.Size = new System.Drawing.Size(25, 20);
-            this.textBox_Ancho.TabIndex = 42;
-            // 
-            // textBox_Largo
-            // 
-            this.textBox_Largo.Location = new System.Drawing.Point(134, 113);
-            this.textBox_Largo.Name = "textBox_Largo";
-            this.textBox_Largo.Size = new System.Drawing.Size(25, 20);
-            this.textBox_Largo.TabIndex = 43;
-            // 
-            // textBox_Alto
-            // 
-            this.textBox_Alto.Location = new System.Drawing.Point(134, 143);
-            this.textBox_Alto.Name = "textBox_Alto";
-            this.textBox_Alto.Size = new System.Drawing.Size(25, 20);
-            this.textBox_Alto.TabIndex = 44;
-            // 
-            // textBoxT_Envio
-            // 
-            this.textBoxT_Envio.Location = new System.Drawing.Point(134, 173);
-            this.textBoxT_Envio.Name = "textBoxT_Envio";
-            this.textBoxT_Envio.Size = new System.Drawing.Size(88, 20);
-            this.textBoxT_Envio.TabIndex = 45;
-            // 
-            // textBox_Origen
-            // 
-            this.textBox_Origen.Location = new System.Drawing.Point(134, 204);
-            this.textBox_Origen.Name = "textBox_Origen";
-            this.textBox_Origen.Size = new System.Drawing.Size(248, 20);
-            this.textBox_Origen.TabIndex = 46;
-            // 
-            // textBox_Urgencia
-            // 
-            this.textBox_Urgencia.Location = new System.Drawing.Point(134, 263);
-            this.textBox_Urgencia.Name = "textBox_Urgencia";
-            this.textBox_Urgencia.Size = new System.Drawing.Size(25, 20);
-            this.textBox_Urgencia.TabIndex = 47;
-            // 
-            // textBox_Importe
-            // 
-            this.textBox_Importe.Location = new System.Drawing.Point(134, 289);
-            this.textBox_Importe.Name = "textBox_Importe";
-            this.textBox_Importe.Size = new System.Drawing.Size(56, 20);
-            this.textBox_Importe.TabIndex = 48;
-            // 
             // textBox_Orden
             // 
+            this.textBox_Orden.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_Orden.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.textBox_Orden.ForeColor = System.Drawing.Color.Red;
             this.textBox_Orden.Location = new System.Drawing.Point(110, 43);
             this.textBox_Orden.Name = "textBox_Orden";
-            this.textBox_Orden.Size = new System.Drawing.Size(143, 23);
+            this.textBox_Orden.ReadOnly = true;
+            this.textBox_Orden.Size = new System.Drawing.Size(143, 16);
             this.textBox_Orden.TabIndex = 41;
             // 
             // Form_solicitud_servicio_confirmación
@@ -512,12 +403,11 @@
             this.ClientSize = new System.Drawing.Size(487, 438);
             this.Controls.Add(this.textBox_Orden);
             this.Controls.Add(this.btn_volver_menu_ppal);
-            this.Controls.Add(this.lbl_nro_orden_servicio);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbl_nro_orden);
             this.Controls.Add(this.lbl_solicitud_exitosa);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_solicitud_servicio_confirmación";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Confirmación de solicitud de servicio";
@@ -546,20 +436,10 @@
         private System.Windows.Forms.Label lbl_origen;
         private System.Windows.Forms.Label lbl_destino;
         private System.Windows.Forms.Label lbl_precio;
-        private System.Windows.Forms.Label lbl_peso_servicio;
-        private System.Windows.Forms.Label lbl_ancho_servicio;
-        private System.Windows.Forms.Label lbl_largo_servicio;
-        private System.Windows.Forms.Label lbl_alto_servicio;
-        private System.Windows.Forms.Label lbl_origen_servicio;
-        private System.Windows.Forms.Label lbl_precio_servicio;
         private System.Windows.Forms.Label lbl_moneda_peso;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lbl_tipo_paquete_servicio;
-        private System.Windows.Forms.Label lbl_nro_orden_servicio;
-        private System.Windows.Forms.Label lbl_tipo_envio_servicio;
         private System.Windows.Forms.Label lbl_tipo_envio;
         private System.Windows.Forms.Button btn_volver_menu_ppal;
-        private System.Windows.Forms.Label lbl_urgencia_opcion;
         private System.Windows.Forms.Label lbl_urgencia;
         private System.Windows.Forms.TextBox textBox_Importe;
         private System.Windows.Forms.TextBox textBox_Urgencia;
