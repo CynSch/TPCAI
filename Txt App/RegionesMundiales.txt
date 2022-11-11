@@ -1,0 +1,5 @@
+﻿1|PaisesLimitrofes
+2|RestoAmericaLatina
+3|AmericaDelNorte
+4|Europa
+5|Asia

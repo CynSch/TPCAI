@@ -79,6 +79,37 @@ namespace TPCAI
  
         }
 
+        internal static void CargarOrigenOrdenesExistentes()
+        //Saca los origenes existentes en OrigenOrdenes y los mete en la lista TodosLosOrigenes
+        {
+            // Formato del archivo:
+            // NumeroOrden|EsretiroEnDomicilio|EsEntregaEnSucursal|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
+
+            //Primero vacío la lista, por las dudas.
+             TodosLosOrigenes.Clear();
+
+            //recorro linea por linea del archivo, y voy agregando a la lista de solicitudes existentes. 
+            var archivoOrigen = new StreamReader("OrigenOrdenes.txt");
+            while (!archivoOrigen.EndOfStream)
+            {
+                string proximaLinea = archivoOrigen.ReadLine();
+                string[] datosSeparados = proximaLinea.Split('|');
+
+                var origenExistente = new Origen();
+                origenExistente.NumeroDeOrden = int.Parse(datosSeparados[0]);
+                origenExistente.EsRetiroEnDomicilio = bool.Parse(datosSeparados[1]);
+                origenExistente.EsEntregaEnSucursal = bool.Parse(datosSeparados[2]);
+                origenExistente.CodigoDeRegionNacional = int.Parse(datosSeparados[3]);
+                origenExistente.CodigoDeProvincia = int.Parse(datosSeparados[4]);
+                origenExistente.CodigoDeLocalidad = int.Parse(datosSeparados[5]);
+                origenExistente.Direccion = datosSeparados[6];
+                origenExistente.NroSucursal = int.Parse(datosSeparados[7]);
+
+                //Agrego el origen a la lista.
+                Origen.TodosLosOrigenes.Add(origenExistente);
+            }
+        }
+
         internal static void GrabarOrigen()
         {
             //Grabo los origenes desde la lista TodosLosOrigenes en memoria al archivo.
@@ -86,7 +117,7 @@ namespace TPCAI
 
             StreamWriter writer = File.CreateText("OrigenOrdenes.txt");
 
-            //NumeroOrden|EsretiroEnDomicilio|EsEntregaEnSucursal|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
+            //Formato del archivo: NumeroOrden|EsretiroEnDomicilio|EsEntregaEnSucursal|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
 
             foreach (Origen origenOrden in TodosLosOrigenes)
             {
@@ -101,20 +132,12 @@ namespace TPCAI
             }
             writer.Close();
         }
+
         internal static Origen GrabarNuevoOrigen(int numOrden, bool retiroDomicilio, bool entregaSucursal, int codRegNac, int codProvincia,
             int codLoc, string direccion, int nroSucursal)
         {
             //el nuevo origen se agrega a la lista 
-            var nuevoOrigen = new Origen();
-
-            nuevoOrigen.NumeroDeOrden = numOrden;
-            nuevoOrigen.EsRetiroEnDomicilio = retiroDomicilio;
-            nuevoOrigen.EsEntregaEnSucursal =entregaSucursal;
-            nuevoOrigen.CodigoDeRegionNacional =codRegNac;
-            nuevoOrigen.CodigoDeProvincia =codProvincia;
-            nuevoOrigen.CodigoDeLocalidad = codLoc;
-            nuevoOrigen.Direccion = direccion;
-            nuevoOrigen.NroSucursal = nroSucursal;
+            var nuevoOrigen = new Origen(numOrden, retiroDomicilio, entregaSucursal, codRegNac, codProvincia, codLoc, direccion, nroSucursal);
 
             TodosLosOrigenes.Add(nuevoOrigen);
 
