@@ -24,6 +24,11 @@ namespace TPCAI
 
         public decimal Peso { get; set; }
 
+        internal static Servicio GrabarNuevoServicio()
+        {
+            throw new NotImplementedException();
+        }
+
         //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
         //GrabarNuevoServicio()
     }

@@ -49,9 +49,7 @@ namespace TPCAI
 
         //Metodos
 
-        //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
-        //GrabarNuevoDestino()
-
+        
         public string MostrarDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal, int codigoDeRegionMundial,
             int codigoPais, int codigoRegionNacional, int codigoProvincia, int CodigoLocalidad, string direccion, int nroSucursal)
         {
@@ -105,34 +103,41 @@ namespace TPCAI
 
         }
 
-       /* private RegionNacional BuscarRegionNacional(int codigoRegNac)
+        //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
+        //GrabarNuevoDestino()
+        internal static Destino GrabarNuevoDestino()
         {
-            return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
+            throw new NotImplementedException();
+        }
 
-        }*/
+        /* private RegionNacional BuscarRegionNacional(int codigoRegNac)
+         {
+             return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
 
-       /* private Provincia BuscarProvincia(int codigoProvincia)
-        {
-            return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
-        }*/
+         }*/
 
-       /* private Localidad BuscarLocalidad(int codigoLocalidad)
-        {
-            return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
-        }*/
+        /* private Provincia BuscarProvincia(int codigoProvincia)
+         {
+             return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
+         }*/
 
-       /* private Sucursal BuscarSucursal(int codigoSucursal)
-        {
-            return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
+        /* private Localidad BuscarLocalidad(int codigoLocalidad)
+         {
+             return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
+         }*/
 
-        }*/
+        /* private Sucursal BuscarSucursal(int codigoSucursal)
+         {
+             return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
+
+         }*/
         /*private RegionMundial BuscarRegionMundial(int codigoRegionMundial)
         {
             return RegionMundial.LstRegionesMundiales.Find(regionMundial => regionMundial.CodigoDeRegionMundial == codigoRegionMundial);
         }*/
-       /* private Pais BuscarPais(int codigoPais)
-        {
-            return Pais.TodosLosPaises.Find(pais => pais.CodigoDePais == codigoPais);
-        }*/
+        /* private Pais BuscarPais(int codigoPais)
+         {
+             return Pais.TodosLosPaises.Find(pais => pais.CodigoDePais == codigoPais);
+         }*/
     }
 }

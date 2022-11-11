@@ -206,25 +206,26 @@ namespace TPCAI
             else
             {
                 //CREACIÓN DE VARIABLES
-                bool esEncomienda;
-                bool esCorrespondencia;
+                int cuitCliente;
+                bool esEncomienda = false;
+                bool esCorrespondencia = false;
                 decimal peso;
                 decimal ancho;
                 decimal largo;
                 decimal alto;
-                bool origen_retiroEnDomicilio;
-                bool origen_entregaEnSucursal;
+                bool origen_retiroEnDomicilio = false;
+                bool origen_entregaEnSucursal = false;
                 string domicilio_origen;
                 Sucursal sucursal_origen;
-                bool esUrgente;
-                bool esInternacional;
-                bool esNacional;
+                bool esUrgente=false;
+                bool esInternacional = false ;
+                bool esNacional=false;
                 Pais pais;
                 string direccion_destino_internacional;
                 Provincia destino_provincia;
                 Localidad destino_localidad;
-                bool entregaADomicilio_destino;
-                bool entregaEnSucursal_destino;
+                bool entregaADomicilio_destino=false;
+                bool entregaEnSucursal_destino=false;
                 string direccion_destino_nacional;
                 Sucursal sucursal_destino;
                 Provincia origen_provincia;
@@ -261,8 +262,6 @@ namespace TPCAI
                 }
 
                 string localidadSeleccionada = cmb_localidad_origen.SelectedText;
-                bool loc_encontrada = false;
-
                 foreach (Localidad l in Localidad.LstLocalidades)
                 {
                     if (l.NombreDeLocalidad == localidadSeleccionada)
@@ -306,7 +305,6 @@ namespace TPCAI
                 {
                     esInternacional = true;
                     esNacional = false;
-
                     string paisSeleccionado = cmb_pais_internacional.SelectedText;
                     foreach(Pais p in Pais.TodosLosPaises)
                     {
@@ -364,11 +362,13 @@ namespace TPCAI
 
                 decimal importe = Tarifa.CalcularImporte(esUrgente,esCorrespondencia,peso,origen_retiroEnDomicilio,entregaADomicilio_destino,origen_localidad.CodigoDeLocalidad,sucursal_origen.NroSucursal,esNacional,pais.CodigoDePais,destino_localidad.CodigoDeLocalidad);
 
+                cuitCliente = 1111111;
+
                 //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 
-                SolicitudDeOrden nuevaSolicitud = SolicitudDeOrden.GrabarNuevaSolicitud();
+                SolicitudDeOrden nuevaSolicitud = SolicitudDeOrden.GrabarNuevaSolicitud(cuitCliente,esUrgente,fecha,importe);
                 Destino nuevoDestino = Destino.GrabarNuevoDestino();
-                Origen nuevoOrigen = Origen.GrabarNuevoOrigen();
+                Origen nuevoOrigen = Origen.GrabarNuevoOrigen(nuevaSolicitud.NumeroDeOrden, origen_retiroEnDomicilio, origen_entregaEnSucursal, origen_provincia.CodigoDeRegionNacional, origen_provincia.CodigoDeProvincia, origen_localidad.CodigoDeLocalidad, domicilio_origen, sucursal_origen.NroSucursal);  
                 Servicio nuevoServicio = Servicio.GrabarNuevoServicio();
 
                 //LLAMADO AL FORM DE CONFIRMACIÓN
