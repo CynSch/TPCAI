@@ -44,7 +44,7 @@ namespace TPCAI
         //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
         //GrabarNuevoOrigen()
 
-        public string MostrarOrigen(bool retiroDomicilio, bool entregaSucursal, int codigoDeRegionNacional, int codigoDeProvincia,
+        public static string MostrarOrigen(bool retiroDomicilio, bool entregaSucursal, int codigoDeRegionNacional, int codigoDeProvincia,
             int codigoDeLocalidad, string direccion, int nroSucursal)
         {
             string salida = null;
@@ -123,10 +123,14 @@ namespace TPCAI
             foreach (Origen origenOrden in TodosLosOrigenes)
             {
 
-                string linea = origenOrden.NumeroDeOrden.ToString() + "|" + origenOrden.EsRetiroEnDomicilio.ToString() + 
-                    "|" + origenOrden.EsEntregaEnSucursal.ToString() + "|" + origenOrden.CodigoDeRegionNacional.ToString() +
-                        "|" + origenOrden.CodigoDeProvincia.ToString() + "|" + origenOrden.CodigoDeLocalidad.ToString() + "|" + origenOrden.Direccion +
-                        "|" + origenOrden.NroSucursal.ToString();
+                string linea = origenOrden.NumeroDeOrden.ToString() + "|" 
+                    + origenOrden.EsRetiroEnDomicilio.ToString() + "|" 
+                    + origenOrden.EsEntregaEnSucursal.ToString() + "|" 
+                    + origenOrden.CodigoDeRegionNacional.ToString() + "|" 
+                    + origenOrden.CodigoDeProvincia.ToString() + "|" 
+                    + origenOrden.CodigoDeLocalidad.ToString() + "|"
+                    + origenOrden.Direccion + "|" 
+                    + origenOrden.NroSucursal.ToString();
 
 
                 writer.WriteLine(linea);

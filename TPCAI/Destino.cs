@@ -31,10 +31,7 @@ namespace TPCAI
         public Destino() { }
         //Propiedades
 
-        //SOY MELU! AVISO QUE AGREGUÉ LA PROPIEDAD "NumeroDeOrden" PARA PODER LINKEAR EL DESTINO
-        //CON UNA ORDEN PARTICULAR. TAMBIÉN LO METÍ EN EL CONSTRUCTOR
         public int NumeroDeOrden { get; set; }
-        //
         public bool EsNacional { get; set; }
         public bool EsInternacional { get; set; }
         public bool EntregaEnDomicilio { get; set; }
@@ -52,7 +49,7 @@ namespace TPCAI
         //Metodos
 
         
-        public string MostrarDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal, int codigoDeRegionMundial,
+        public static string MostrarDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal, int codigoDeRegionMundial,
             int codigoPais, int codigoRegionNacional, int codigoProvincia, int CodigoLocalidad, string direccion, int nroSucursal)
         {
             string salida = null;
@@ -96,7 +93,7 @@ namespace TPCAI
                 if (entregaDomicilio == true)
                 {
 
-                    salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + this.Direccion;
+                    salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccion;
 
                 }
                 
@@ -104,16 +101,17 @@ namespace TPCAI
             return salida;
 
         }
-        internal static void CargarDestinoOrdenesExistentes()
-        //Saca los destinos existentes en OrigenOrdenes y los mete en la lista TodosLosOrigenes
+        internal static void CargarDestinoExistentes()
+        //Saca los destinos existentes en DestinoOrdenes y los mete en la lista TodosLosDestinos
         {
             // Formato del archivo:
-            // NumeroOrden|EsretiroEnDomicilio|EsEntregaEnSucursal|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
+            // NumeroOrden|EsInternacional|EsNacional|EsEntregaEnDomicilio|EsEntregaEnSucursal|CodigoDeRegionMundial|CodigoDePais|
+            // CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
 
             //Primero vacío la lista, por las dudas.
             DestinosExistentes.Clear();
 
-            //recorro linea por linea del archivo, y voy agregando a la lista de solicitudes existentes. 
+            //recorro linea por linea del archivo, y voy agregando a la lista de destinos existentes. 
             var archivoDestino = new StreamReader("DestinoOrdenes.txt");
             while (!archivoDestino.EndOfStream)
             {
@@ -134,20 +132,16 @@ namespace TPCAI
                 destinoExistente.Direccion = datosSeparados[10];
                 destinoExistente.NroSucursal = int.Parse(datosSeparados[11]);
 
-                //Agrego el origen a la lista.
+                //Agrego el destino a la lista.
                 Destino.DestinosExistentes.Add(destinoExistente);
             }
         }
 
         internal static void GrabarDestino()
         {
-            //Grabo los origenes desde la lista TodosLosOrigenes en memoria al archivo.
-
+            //Grabo los destinos desde la lista TodosLosdestinos en memoria al archivo.
 
             StreamWriter writer = File.CreateText("DestinoOrdenes.txt");
-
-            //Formato del archivo:
-            //NumeroOrden|EsInternacional|EsNacional|EntregaEnDomicilio|EsEntregaEnSucursal|CodigoDeRegionMundial|CodigoDePais|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
 
             foreach (Destino destinoOrden in DestinosExistentes)
             {

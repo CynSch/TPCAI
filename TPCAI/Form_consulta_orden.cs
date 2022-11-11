@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,7 @@ namespace TPCAI
         {
             InitializeComponent();
         }
-
-  
+       
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string ingreso = txtNumeroOrden.Text;
@@ -47,24 +47,18 @@ namespace TPCAI
                 }
                 else
                 {
-                int nro;
-                bool ingresoCorrecto = int.TryParse(ingreso, out nro);
 
               //  SolicitudDeOrden solicitud = BuscarOrden(nro);
 
                     foreach (SolicitudDeOrden solicitud in SolicitudDeOrden.SolicitudesExistentes)
                     {
-                        if (solicitud.NumeroDeOrden == nro)
+                        if (solicitud.NumeroDeOrden == entero)
                         {
                             TxtNroOrden.Text = solicitud.NumeroDeOrden.ToString();
                             TxtFechaOrden.Text = solicitud.Fecha.ToString();
                             TxtImporteOrden.Text = solicitud.Importe.ToString();
 
                             TxtDestinoOrden.Text = _Destino(solicitud);
-                            //Destino destino = BuscarDestino(solicitud.NumeroDeOrden);
-                            
-                            
-                            TxtDestinoOrden.Text = "Av. Cabildo 2000, Belgrano, Metropolitana CABA";
 
                              EstadoDeOrden estado = BuscarEstado(solicitud.CodigoDeEstado);
                              string nombreEstado = estado.Descripcion;
@@ -81,40 +75,7 @@ namespace TPCAI
                       
                     }
 
-            
-
                 }
-                
-
-                if()
-                
-               /* if (txtNumeroOrden.Text != "1111111111")
-                {
-
-
-                    MessageBox.Show("La orden ingresada no existe. Intente con otro número");
-                    txtNumeroOrden.Clear();
-                    return;
-                }*/
-
-                if (txtNumeroOrden.Text == "1111111111")
-                {
-                txtNumeroOrden.Clear();
-
-                TxtNroOrden.Text = "1111111111";
-                TxtFechaOrden.Text = "10/09/2022";
-                TxtImporteOrden.Text = "$600";
-                TxtDestinoOrden.Text = "Av. Cabildo 2000, Belgrano, Metropolitana CABA";
-
-                TxtEstadoOrden.Text = "EN CENTRO DE DISTRIBUCION";
-
-                //"en centro de distribucion"
-                }
-
-               
-
-                
-
 
         }
         private EstadoDeOrden BuscarEstado(int codigoestado)
@@ -143,20 +104,13 @@ namespace TPCAI
             string direccion = destino.Direccion;
             int nroSucursal = destino.NroSucursal;
 
-          //  string destinoAMostrar = Destino.MostrarDestino(nacional, internacional,entregaDomicilio, entregaEnSucursal, codRegionMundial, 
-                //codPais, codRegNacional, codProvincia, codLocalidad, direccion, nroSucursal);
+            string destinoAMostrar = Destino.MostrarDestino(nacional, internacional,entregaDomicilio, entregaEnSucursal, codRegionMundial, 
+                codPais, codRegNacional, codProvincia, codLocalidad, direccion, nroSucursal);
 
 
-                return "o";
+                return destinoAMostrar;
 
         }
-
-        private SolicitudDeOrden BuscarOrden(int numeroOrden)
-        {
-
-            return SolicitudDeOrden.SolicitudesExistentes.Find(s => s.NumeroDeOrden == numeroOrden);
-        }
-
 
         private void btnMenu(object sender, EventArgs e)
         {
@@ -172,7 +126,8 @@ namespace TPCAI
 
         private void Form_consulta_orden_Load(object sender, EventArgs e)
         {
-
+            SolicitudDeOrden.CargarSolicitudesExistentes();
+            EstadoDeOrden.CargarEstados();
         }
 
         private void txtNumeroOrden_TextChanged(object sender, EventArgs e)
