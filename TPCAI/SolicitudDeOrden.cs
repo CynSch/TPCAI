@@ -24,18 +24,16 @@ namespace TPCAI
         public int CodigoDeEstado { get; set; }
         public DateTime Fecha { get; private set; }
         public decimal Importe { get; set; }
+        public int NumeroDeFactura { get; set; }
 
-        //Agregar atributo n°factura (puede ser nullable)
-        //Crear metodo de buscarOrdenesAsociadasA1Factura.
         static internal List<SolicitudDeOrden> SolicitudesExistentes { get; set; }
 
         //Métodos
         internal static void CargarSolicitudesExistentes()
         //Saca los estados disponibles del archivo "Solicitudes.txt" y los mete en la lista SolicitudesExistentes
-        //El archivo de solicitudes va a tener tooooodas las solicitudes realizadas, para todos los clientes existentes. 
         {
             //El archivo tiene el formato:
-            //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado"
+            //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado|nroFactura"
 
             //Primero vacío la lista, por las dudas.
             SolicitudesExistentes.Clear();
@@ -54,6 +52,7 @@ namespace TPCAI
                 solicitud.Fecha = DateTime.Parse(datosSeparados[3]);
                 solicitud.Importe = decimal.Parse(datosSeparados[4]);
                 solicitud.CodigoDeEstado = int.Parse(datosSeparados[5]);
+                solicitud.NumeroDeFactura = int.Parse(datosSeparados[6]);
 
                 //Agrego la solicitud a la lista.
                 SolicitudDeOrden.SolicitudesExistentes.Add(solicitud);
@@ -79,37 +78,13 @@ namespace TPCAI
             return NumeroGenerado;
         }
 
-        public static void BuscarYMostrarOrdenDeServicio()
+        public static SolicitudDeOrden BuscarOrdenDeServicio(int NumDeOrdenABuscar)
         {
-            //ALTERNATIVA: El método podría devolver el objeto de solicitud, y desde la UI
-            //llamamos a los distintos atributos del objeto. 
-            int NumDeOrdenABuscar;
-            bool encontrado = false;
-            do
-            {
-                NumDeOrdenABuscar = Validador.PedirInt("Ingrese el número de orden a buscar",1,666666);
-                //Chequear la clase validador para que en vez de writeline escriba en el form. 
-
-                //Hasta encontrar la orden, recorre las solicitudes existenes. 
-                //Si se encuentra, devuelve número de orden, fecha, importe, destino y estado de la orden. 
-                foreach (SolicitudDeOrden sol in SolicitudesExistentes)
-                {
-                    if (sol.NumeroDeOrden == NumDeOrdenABuscar)
-                    {
-                        encontrado = true;
-                        //MOSTRAR DATOS EN PANTALLA
-                    }
-                }
-                if (!encontrado)
-                {
-                    Console.WriteLine("no encontrado");
-                    //devolver mensaje de que no se encontró la orden
-                }
-            } while (!encontrado);
+            return SolicitudesExistentes.Find(solicitud => solicitud.NumeroDeOrden == NumDeOrdenABuscar);
         }
-        //Falta linkear el rdo con la UI
 
-        public static void ListarOrdenesPendientesDeFacturacion(int cuit_cliente)
+        public static List<SolicitudDeOrden> ListarOrdenesPendientesDeFacturacion(int cuit_cliente)
+        //Devuelve una lista de órdenes pendientes de facturación
         {
             //Creo una lista vacía que sirva para almacenar las órdenes pendientes de facturacion de un cliente
             List<SolicitudDeOrden> OrdenesPendientesDeFacturacion = new List<SolicitudDeOrden>();
@@ -135,39 +110,34 @@ namespace TPCAI
                     }
                 }
             }
-
-            foreach (SolicitudDeOrden ordenPendienteDeFacturacion in OrdenesPendientesDeFacturacion)
-            {
-                //Mostrar en pantalla número de orden, importe, fecha y destino. 
-            }
-
+            return OrdenesPendientesDeFacturacion;
         }
-        //Falta linkear el rdo con la UI
-        public static void MostrarEstadoDeOrden(int NumDeOrdenABuscar)
+        public static string BuscarEstadoDeOrden(int NumDeOrdenABuscar)
+        //Devuelve una string con el estado de la orden. 
         {
             //Creo un bool para ver si existe la orden que se quiere buscar. 
             int codEstadoDeLaOrden = 0;
-            string EstadoDeLaOrden;
-            bool ordenEncontrada = false;
+            string EstadoDeLaOrden = "";
+            bool ordenExiste = false;
+            SolicitudDeOrden ordenEncontrada;
+
             do
             {
                 foreach (SolicitudDeOrden sol in SolicitudesExistentes)
                 {
                     if (sol.NumeroDeOrden == NumDeOrdenABuscar)
                     {
-                        ordenEncontrada = true;
-
-                        //Guarda el codigo de estado de la orden en cuestión 
+                        ordenExiste = true;
                         codEstadoDeLaOrden = sol.CodigoDeEstado;
                     }
                 }
-                if (ordenEncontrada == false)
+                if (ordenExiste == false)
                 {
-                    //Mostrar mensaje de error - orden inexistente. 
+                    MessageBox.Show("La orden no existe. Inténtelo nuevamente");
                 }
-            } while (ordenEncontrada == false);
+            } while (!ordenExiste);
 
-            if (ordenEncontrada == true)
+            if (ordenExiste)
             {
                 //Busca en la lista de estados, a cuál corresponde el código del estado de la orden. 
                 foreach (EstadoDeOrden estado in EstadoDeOrden.EstadosDisponibles)
@@ -177,14 +147,14 @@ namespace TPCAI
                         EstadoDeLaOrden = estado.Descripcion;
                     }
                 }
-                //Mostrar numero de orden, fecha, importe, destino y estado.  
             }
+
+            return EstadoDeLaOrden;
         }
-        //Falta linkear el rdo con la UI
 
         internal static SolicitudDeOrden GrabarNuevaSolicitud(int cUITCliente,bool esUrgente,DateTime fecha,decimal importe)
         //Este método se tiene que ejecutar cuando hacemos click en "confirmar" la solicitud
-        //La nueva solicitud se tiene que agregar a la lista SolicitudesExistentes!!
+        //La nueva solicitud se agrega a la lista SolicitudesExistentes
         {
             var nuevaSolicitud = new SolicitudDeOrden();
 
@@ -200,22 +170,36 @@ namespace TPCAI
             return nuevaSolicitud;
          }
 
-        internal static void GrabarSolicitudes()
+        internal static void GrabarSolicitudesEnArchivo()
         {
             //Grabo las solicitudes desde la lista SolicitudesExistentes en memoria al archivo en caso de que se haya agregado una Solicitud
 
             StreamWriter writer = File.CreateText("Solicitudes.txt");
 
-            //Codigo|Nombre|CodigoDeRegionNacional|ListLocalidadesAsociadas
+            foreach (SolicitudDeOrden sol in SolicitudesExistentes)
+            {
+                //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado|nroFactura"
+                string linea = sol.NumeroDeOrden.ToString() + "|"
+                    + sol.CUITCliente.ToString() + "|"
+                    + sol.EsUrgente + "|" + sol.Fecha + "|" 
+                    + sol.Importe.ToString() + "|" + sol.CodigoDeEstado.ToString() 
+                    + sol.NumeroDeFactura.ToString();
+                writer.WriteLine(linea);
+            }
+            writer.Close();
+        }
+        public List<SolicitudDeOrden> BuscarOrdenesAsociadasAFactura(int num_factura)
+        {
+            List<SolicitudDeOrden> ordenesAsociadas = new List<SolicitudDeOrden>();
 
             foreach (SolicitudDeOrden sol in SolicitudesExistentes)
             {
-                /*string linea = sol.NumeroDeOrden.ToString() + "|"
-                    + xxx + "|"
-                    + xxx;
-                writer.WriteLine(linea);*/
+                if (sol.NumeroDeFactura == num_factura)
+                {
+                    ordenesAsociadas.Add(sol);
+                }
             }
-            writer.Close();
+            return ordenesAsociadas;
         }
     }
 }
