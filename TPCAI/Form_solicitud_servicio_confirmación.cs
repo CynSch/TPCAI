@@ -15,25 +15,41 @@ namespace TPCAI
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
-            //SolicitudDeOrden solicitudDeOrden = BuscarOrden();
-            SolicitudDeOrden solicitudDeOrden = BuscarOrden(11);
+            SolicitudDeOrden solicitudDeOrden = BuscarOrden(); //Lnikear nro de orden.
+            Servicio servicio;
+            string numeroDeOrden = solicitudDeOrden.NumeroDeOrden.ToString();
 
-            textBox_Orden.Text = "1111111111"; //Mostrar Nro de Orden
-            textBox_TPaquete.Text = "Encomienda";
-            textBox_Peso.Text = "2.00";
+            textBox_Orden.Text = solicitudDeOrden.NumeroDeOrden.ToString(); //Mostrar Nro de Orden
+            textBox_TPaquete.Text = "";
+            textBox_Peso.Text = Form_consulta_orden.txtNumeroOrden.Text;
             textBox_Ancho.Text = "1.00";
             textBox_Largo.Text = "1.00";
             textBox_Alto.Text = "1.00";
             textBoxT_Envio.Text = "Nacional";
-            textBox_Origen.Text = "Metropolitana,CABA,Balvanera,Av.Cordoba 2122";
-            textBox_Destino.Text = "Metropolitana,CABA,Belgrano,Av.Cabildo 2000";
-            textBox_Urgencia.Text = "No";
-            textBox_Importe.Text = "600";
+            textBox_Origen.Text = solicitudDeOrden.Origen;
+            textBox_Destino.Text = solicitudDeOrden.Destino;
+            textBox_Urgencia.Text = Urgencia(solicitudDeOrden.EsUrgente);
+            textBox_Importe.Text = solicitudDeOrden.Importe.ToString();
+
         }
         private SolicitudDeOrden BuscarOrden(int numeroOrden)
         {
-            
-            return SolicitudDeOrden.SolicitudesExistentes.Find(s=>s.NumeroDeOrden == numeroOrden);
+
+            return SolicitudDeOrden.SolicitudesExistentes.Find(s => s.NumeroDeOrden == numeroOrden);
+        }
+
+        private string Urgencia(bool urgencia)
+        {
+            string salida = "";
+            if (urgencia == true)
+            {
+                salida = "Si";
+            }
+            else
+            {
+                salida = "No";
+            }
+            return salida;
         }
 
 
