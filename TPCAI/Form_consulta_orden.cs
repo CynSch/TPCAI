@@ -57,35 +57,15 @@ namespace TPCAI
                             TxtNroOrden.Text = solicitud.NumeroDeOrden.ToString();
                             TxtFechaOrden.Text = solicitud.Fecha.ToString();
                             TxtImporteOrden.Text = solicitud.Importe.ToString();
-
                             TxtDestinoOrden.Text = _Destino(solicitud);
-
-                             EstadoDeOrden estado = BuscarEstado(solicitud.CodigoDeEstado);
-                             string nombreEstado = estado.Descripcion;
-                             TxtEstadoOrden.Text = nombreEstado;
+                            TxtEstadoOrden.Text = SolicitudDeOrden.BuscarEstadoDeOrden(solicitud.CodigoDeEstado); 
                             
                         }
-                        else
-                        {
-                            MessageBox.Show("La orden ingresada no existe. Intente con otro número");
-                            txtNumeroOrden.Clear();
-
-                        }
-
-                      
+                   
                     }
 
                 }
 
-        }
-        private EstadoDeOrden BuscarEstado(int codigoestado)
-        {
-            return EstadoDeOrden.EstadosDisponibles.Find(e => e.CodigoDeEstado == codigoestado);
-        }
-
-        private Destino BuscarDestino(int nroOrden)
-        {
-            return Destino.DestinosExistentes.Find(d => d.NumeroDeOrden == nroOrden);
         }
 
         private string _Destino(SolicitudDeOrden solicitud)
@@ -111,7 +91,10 @@ namespace TPCAI
                 return destinoAMostrar;
 
         }
-
+        private Destino BuscarDestino(int nroOrden)
+        {
+            return Destino.DestinosExistentes.Find(d => d.NumeroDeOrden == nroOrden);
+        }
         private void btnMenu(object sender, EventArgs e)
         {
             this.Visible = false;

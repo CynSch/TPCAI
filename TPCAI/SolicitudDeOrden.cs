@@ -119,7 +119,7 @@ namespace TPCAI
             int codEstadoDeLaOrden = 0;
             string EstadoDeLaOrden = "";
             bool ordenExiste = false;
-            SolicitudDeOrden ordenEncontrada;
+            //SolicitudDeOrden ordenEncontrada;
 
             do
             {
