@@ -221,13 +221,14 @@ namespace TPCAI
                 bool esInternacional = false ;
                 bool esNacional=false;
                 Pais pais;
-                string direccion_destino_internacional;
+                string direccion_destino;
+                //string direccion_destino_internacional;
                 Provincia destino_provincia;
                 Localidad destino_localidad;
                 bool entregaADomicilio_destino=false;
                 bool entregaEnSucursal_destino=false;
-                string direccion_destino_nacional;
-                Sucursal sucursal_destino;
+                //string direccion_destino_nacional;
+                Sucursal sucursal_destino=null;
                 Provincia origen_provincia;
                 Localidad origen_localidad;
                 DateTime fecha = DateTime.Now;
@@ -314,8 +315,9 @@ namespace TPCAI
                     esNacional = false;
                     string paisSeleccionado = cmb_pais_internacional.SelectedText;
                     pais = Pais.TodosLosPaises.Find(pa => pa.NombreDePais == paisSeleccionado);
-                    direccion_destino_internacional = txt_direccion_internacional.Text;
+                    direccion_destino = txt_direccion_internacional.Text;
                     destino_localidad = null;
+                    destino_provincia = null;
                 }
                 else
                 {
@@ -324,14 +326,14 @@ namespace TPCAI
                     esNacional = true;
 
                     string provinciaElegida = cmb_provincia_nacional.SelectedText;
-                    foreach (Provincia p in Provincia.TodasLasProvincias)
+                    /*foreach (Provincia p in Provincia.TodasLasProvincias)
                     {
                         if (p.NombreDeProvincia == provinciaElegida)
                         {
                             destino_provincia = p;
                         }
-                    }
-
+                    }*/
+                    destino_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaElegida);
                     string localidadElegida = cmb_localidad_nacional.SelectedText;
                     destino_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadElegida);
 
@@ -340,21 +342,15 @@ namespace TPCAI
                     {
                         entregaADomicilio_destino = true;
                         entregaEnSucursal_destino = false;
-                        direccion_destino_nacional = txt_direccion_nacional.Text;
+                        direccion_destino = txt_direccion_nacional.Text;
+                        sucursal_destino = null;
                     }
                     else
                     {
                         entregaEnSucursal_destino = true;
                         entregaADomicilio_destino = false;
-
+                        direccion_destino = null;
                         string sucursalElegida = cmb_sucursal_entregaensucursal_destino.SelectedText;
-                        /*foreach (Sucursal s in Sucursal.TodasLasSucursales)
-                        {
-                            if (s.Direccion == sucursalElegida)
-                            {
-                                sucursal_destino = s;
-                            }
-                        }*/
                         sucursal_destino = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == sucursalElegida);
                     }
                 }
@@ -366,7 +362,7 @@ namespace TPCAI
                 //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 
                 SolicitudDeOrden nuevaSolicitud = SolicitudDeOrden.GrabarNuevaSolicitud(cuitCliente,esUrgente,fecha,importe);
-                Destino nuevoDestino = Destino.GrabarNuevoDestino();
+                Destino nuevoDestino = Destino.GrabarNuevoDestino(nuevaSolicitud.NumeroDeOrden,esInternacional,esNacional,entregaADomicilio_destino,entregaEnSucursal_destino,pais.CodigoDeRegionMundial,pais.CodigoDePais,destino_provincia.CodigoDeRegionNacional,destino_provincia.CodigoDeProvincia,destino_localidad.CodigoDeLocalidad,direccion_destino,sucursal_destino.NroSucursal);
                 Origen nuevoOrigen = Origen.GrabarNuevoOrigen(nuevaSolicitud.NumeroDeOrden, origen_retiroEnDomicilio, origen_entregaEnSucursal, origen_provincia.CodigoDeRegionNacional, origen_provincia.CodigoDeProvincia, origen_localidad.CodigoDeLocalidad, domicilio_origen, sucursal_origen.NroSucursal);  
                 Servicio nuevoServicio = Servicio.GrabarNuevoServicio();
 
