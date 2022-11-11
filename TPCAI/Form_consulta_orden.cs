@@ -45,13 +45,57 @@ namespace TPCAI
                     txtNumeroOrden.Clear();
                     return;
                 }
-
-                if (txtNumeroOrden.Text != "1111111111")
+                else
                 {
+                int nro;
+                bool ingresoCorrecto = int.TryParse(ingreso, out nro);
+
+              //  SolicitudDeOrden solicitud = BuscarOrden(nro);
+
+                    foreach (SolicitudDeOrden solicitud in SolicitudDeOrden.SolicitudesExistentes)
+                    {
+                        if (solicitud.NumeroDeOrden == nro)
+                        {
+                            TxtNroOrden.Text = solicitud.NumeroDeOrden.ToString();
+                            TxtFechaOrden.Text = solicitud.Fecha.ToString();
+                            TxtImporteOrden.Text = solicitud.Importe.ToString();
+
+                            TxtDestinoOrden.Text = _Destino(solicitud);
+                            //Destino destino = BuscarDestino(solicitud.NumeroDeOrden);
+                            
+                            
+                            TxtDestinoOrden.Text = "Av. Cabildo 2000, Belgrano, Metropolitana CABA";
+
+                             EstadoDeOrden estado = BuscarEstado(solicitud.CodigoDeEstado);
+                             string nombreEstado = estado.Descripcion;
+                             TxtEstadoOrden.Text = nombreEstado;
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("La orden ingresada no existe. Intente con otro número");
+                            txtNumeroOrden.Clear();
+
+                        }
+
+                      
+                    }
+
+            
+
+                }
+                
+
+                if()
+                
+               /* if (txtNumeroOrden.Text != "1111111111")
+                {
+
+
                     MessageBox.Show("La orden ingresada no existe. Intente con otro número");
                     txtNumeroOrden.Clear();
                     return;
-                }
+                }*/
 
                 if (txtNumeroOrden.Text == "1111111111")
                 {
@@ -73,9 +117,47 @@ namespace TPCAI
 
 
         }
+        private EstadoDeOrden BuscarEstado(int codigoestado)
+        {
+            return EstadoDeOrden.EstadosDisponibles.Find(e => e.CodigoDeEstado == codigoestado);
+        }
 
-        
-       
+        private Destino BuscarDestino(int nroOrden)
+        {
+            return Destino.DestinosExistentes.Find(d => d.NumeroDeOrden == nroOrden);
+        }
+
+        private string _Destino(SolicitudDeOrden solicitud)
+        {
+            Destino destino = BuscarDestino(solicitud.NumeroDeOrden);
+            int nroOrden = destino.NumeroDeOrden;
+            bool internacional = destino.EsInternacional;
+            bool nacional = destino.EsNacional;
+            bool entregaDomicilio = destino.EntregaEnDomicilio;
+            bool entregaEnSucursal = destino.EntregaEnSucursal;
+            int codRegionMundial = destino.CodigoDeRegionMundial;
+            int codPais = destino.CodigoDePais;
+            int codRegNacional = destino.CodigoDeRegionNacional;
+            int codProvincia = destino.CodigoDeProvincia;
+            int codLocalidad = destino.CodigoDeLocalidad;
+            string direccion = destino.Direccion;
+            int nroSucursal = destino.NroSucursal;
+
+          //  string destinoAMostrar = Destino.MostrarDestino(nacional, internacional,entregaDomicilio, entregaEnSucursal, codRegionMundial, 
+                //codPais, codRegNacional, codProvincia, codLocalidad, direccion, nroSucursal);
+
+
+                return "o";
+
+        }
+
+        private SolicitudDeOrden BuscarOrden(int numeroOrden)
+        {
+
+            return SolicitudDeOrden.SolicitudesExistentes.Find(s => s.NumeroDeOrden == numeroOrden);
+        }
+
+
         private void btnMenu(object sender, EventArgs e)
         {
             this.Visible = false;
