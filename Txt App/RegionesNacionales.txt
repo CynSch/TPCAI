@@ -1,0 +1,4 @@
+1|Sur
+2|Centro
+3|Norte
+4|Metropolitana
