@@ -15,8 +15,9 @@ namespace TPCAI
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
-            SolicitudDeOrden solicitudDeOrden = BuscarOrden();
-            
+            //SolicitudDeOrden solicitudDeOrden = BuscarOrden();
+            SolicitudDeOrden solicitudDeOrden = BuscarOrden(11);
+
             textBox_Orden.Text = "1111111111"; //Mostrar Nro de Orden
             textBox_TPaquete.Text = "Encomienda";
             textBox_Peso.Text = "2.00";

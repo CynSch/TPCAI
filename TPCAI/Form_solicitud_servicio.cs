@@ -17,7 +17,8 @@ namespace TPCAI
             InitializeComponent();
 
             //Linkeo dropdown con lista de Provincias. 
-            cmb_provincia_origen.Items.Add(Provincia.TodasLasProvincias);
+            //cmb_provincia_origen.Items.Add(Provincia.TodasLasProvincias);
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,7 +56,13 @@ namespace TPCAI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //Para probar dropdown
+            List<string> provincias = new List<string>();
+            Provincia prov = new Provincia(12, "Buenos Aires", 3);
+            Provincia prov2 = new Provincia(13, "Mendoza", 4);
+            provincias.Add(prov.NombreDeProvincia);
+            provincias.Add(prov2.NombreDeProvincia);
+            cmb_provincia_origen.Items.Add(provincias);
         }
 
         private void grp_Origen_Enter(object sender, EventArgs e)

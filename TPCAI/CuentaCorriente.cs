@@ -24,7 +24,7 @@ namespace TPCAI
         }
 
 
-        public static List<CuentaCorriente> ListarCLientesMorosos()
+        /*public static List<CuentaCorriente> ListarCLientesMorosos()
         {
             List<CuentaCorriente> morosos = new List<CuentaCorriente>();
 
@@ -37,6 +37,6 @@ namespace TPCAI
             }
 
             return morosos;
-        }
+        }*/
     }
 }
