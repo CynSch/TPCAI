@@ -44,27 +44,28 @@ namespace TPCAI
         //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
         //GrabarNuevoOrigen()
 
-        public string MostrarOrigen(bool retiroDomicilio, bool entregaSucursal)
+        public string MostrarOrigen(bool retiroDomicilio, bool entregaSucursal, int codigoDeRegionNacional, int codigoDeProvincia,
+            int codigoDeLocalidad, string direccion, int nroSucursal)
         {
             string salida = null;
 
             // Busca la region nacional por el codigo y devuelve el nombre de la region nacional
-            RegionNacional region = RegionNacional.BuscarRegionNacional(CodigoDeRegionNacional); // me devuelve toda la linea, pero yo solo quiero el nombre
+            RegionNacional region = RegionNacional.BuscarRegionNacional(codigoDeRegionNacional); // me devuelve toda la linea, pero yo solo quiero el nombre
             string rn = region.NombreDeRegionNacional; // le asigno el nombre a una variable que es la que voy a mostrar
 
             // Busca la provincis por el codigo y devuelve el nombre de la provincia
-            Provincia provincia = Provincia.BuscarProvincia(CodigoDeProvincia);
+            Provincia provincia = Provincia.BuscarProvincia(codigoDeProvincia);
             string nombreProvincia = provincia.NombreDeProvincia;
 
             // Busca la localidad por el codigo y devuelve el nombre de la localidad
-            Localidad localidad = Localidad.BuscarLocalidad(CodigoDeLocalidad);
+            Localidad localidad = Localidad.BuscarLocalidad(codigoDeLocalidad);
             string nombreLocalidad = localidad.NombreDeLocalidad;
 
             // se ejecuta si el rb de entrega en sucursal esta seleccionado
             if (entregaSucursal == true)
             {
                 // Busca la sucursal por el codigo y devuelve la direccion de la sucursal
-                Sucursal sucursal = Sucursal.BuscarSucursal(NroSucursal);
+                Sucursal sucursal = Sucursal.BuscarSucursal(nroSucursal);
                 string direccionSucursal = sucursal.Direccion;
                 salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccionSucursal;        
             }
@@ -72,7 +73,7 @@ namespace TPCAI
             // se ejecuta si el rb de retiro en domicilio esta seleccionado
             if (retiroDomicilio == true)
             {
-                salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + this.Direccion;
+                salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccion;
             }
 
             return salida; 

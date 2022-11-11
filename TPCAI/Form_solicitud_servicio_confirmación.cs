@@ -18,12 +18,13 @@ namespace TPCAI
         public string _Largo;
         public string _Alto;
         public string _TipoEnvio;
+        public int _NroOrdenGenerada;
 
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
-            SolicitudDeOrden solicitudDeOrden = BuscarOrden(); //Lnikear nro de orden.
-            Servicio servicio;
+            SolicitudDeOrden solicitudDeOrden = BuscarOrden(_NroOrdenGenerada); //Lnikear nro de orden.
+           
             string numeroDeOrden = solicitudDeOrden.NumeroDeOrden.ToString();
 
             textBox_Orden.Text = solicitudDeOrden.NumeroDeOrden.ToString(); //Mostrar Nro de Orden
