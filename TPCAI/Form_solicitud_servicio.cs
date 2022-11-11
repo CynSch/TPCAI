@@ -80,7 +80,16 @@ namespace TPCAI
 
         private void cmb_provincia_nacional_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Almaceno la provincia seleccionada
+            Provincia provinciaSeleccionada = (Provincia)cmb_provincia_nacional.SelectedItem;
 
+            //Llamo al metodo que muestra las localidades asociadas a la provincia. 
+            List<Localidad> localidadesAsociadas = new List<Localidad>();
+            localidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provinciaSeleccionada.CodigoDeProvincia);
+
+            //Asocio la lista con el elemento dropdown
+            cmb_localidad_nacional.Items.Clear();
+            cmb_localidad_nacional.Items.Add(localidadesAsociadas);
         }
 
         private void cmb_localidad_nacional_SelectedIndexChanged(object sender, EventArgs e)
@@ -223,6 +232,58 @@ namespace TPCAI
                     esCorrespondencia = true;
                 }
 
+                origen_provincia = (Provincia)cmb_provincia_origen.SelectedItem;
+                origen_localidad = (Localidad)cmb_localidad_origen.SelectedItem;
+
+                if (rd_btn_retiro_domicilio.Checked)
+                {
+                    origen_retiroEnDomicilio = true;
+                    origen_entregaEnSucursal = false;
+                    domicilio_origen = txt_domicilio_retirodomicilio.Text;
+
+                }
+                else if (rd_btn_origen_entrega_sucursal.Checked)
+                {
+                    origen_retiroEnDomicilio = false;
+                    origen_entregaEnSucursal = true;
+                    sucursal_origen = (Sucursal)cmb_sucursal_entregaensucursal_origen.SelectedItem;
+                }
+
+                if (chkbx_urgencia.Checked)
+                {
+                    esUrgente = true;
+                }
+                else if (!chkbx_urgencia.Checked)
+                {
+                    esUrgente = false;
+                }
+
+                if (rd_btn_internacional.Checked)
+                {
+                    esInternacional = true;
+                    esNacional = false;
+                    pais = (Pais)cmb_pais_internacional.SelectedItem;
+                    direccion_destino_internacional = txt_direccion_internacional.Text;
+                }
+                else if (rd_btn_nacional.Checked)
+                {
+                    esInternacional = false;
+                    esNacional = true;
+                    destino_provincia = (Provincia)cmb_provincia_nacional.SelectedItem;
+                    destino_localidad = (Localidad)cmb_localidad_nacional.SelectedItem;
+                    if (rd_btn_entrega_domicilio.Checked)
+                    {
+                        entregaADomicilio_destino = true;
+                        entregaEnSucursal_destino = false;
+                        direccion_destino_nacional = txt_direccion_nacional.Text;
+                    }
+                    else if (rd_btn_destino_entrega_sucursal.Checked)
+                    {
+                        entregaEnSucursal_destino = true;
+                        entregaADomicilio_destino = false;
+                        sucursal_destino = (Sucursal)cmb_sucursal_entregaensucursal_destino.SelectedItem;
+                    }
+                }
 
                 //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 
@@ -258,6 +319,9 @@ namespace TPCAI
             rd_btn_destino_entrega_sucursal.Enabled = false;
             lbl_direccion_nacional.Enabled = false;
             lbl_sucursal_entregaensucursal_destino.Enabled = false;
+
+            cmb_pais_internacional.Items.Clear();
+            cmb_pais_internacional.Items.Add(Pais.TodosLosPaises);
         }
 
         private void lbl_region_internacional_Click(object sender, EventArgs e)
@@ -305,6 +369,8 @@ namespace TPCAI
             cmb_sucursal_entregaensucursal_destino.Enabled = true;
             lbl_direccion_nacional.Enabled = true;
             lbl_sucursal_entregaensucursal_destino.Enabled = true;
+
+            cmb_provincia_nacional.Items.Add(Provincia.TodasLasProvincias);
         }
 
         private void rd_btn_retiro_domicilio_CheckedChanged(object sender, EventArgs e)
@@ -329,10 +395,17 @@ namespace TPCAI
             //cmb_region__retirodomicilio.Enabled = false;
             txt_domicilio_retirodomicilio.Enabled = false;
 
-            List<Sucursal> sucursalesAsociadas = new List<Sucursal>();
-            sucursalesAsociadas = Sucursal.ListarSucursalesAsociadas()
-            cmb_sucursal_entregaensucursal_origen.Items.Add(sucursalesAsociadas);
+            //Saco el dato de la provincia y localidad seleccionadas
+            Provincia provinciaSeleccionada = (Provincia)cmb_provincia_origen.SelectedItem;
+            Localidad localidadSeleccionada = (Localidad)cmb_localidad_origen.SelectedItem;
 
+            //Creo una lista para almacenar las sucursales disponibles
+            List<Sucursal> sucursalesAsociadas = new List<Sucursal>();
+            sucursalesAsociadas = Sucursal.ListarSucursalesAsociadas(provinciaSeleccionada.CodigoDeProvincia, localidadSeleccionada.CodigoDeLocalidad);
+
+            //Linkeo la lista de sucursales con el drodpwon     
+            cmb_sucursal_entregaensucursal_origen.Items.Clear();
+            cmb_sucursal_entregaensucursal_origen.Items.Add(sucursalesAsociadas);
         }
 
         private void rd_btn_correspondencia_CheckedChanged(object sender, EventArgs e)
@@ -363,6 +436,7 @@ namespace TPCAI
             localidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provinciaSeleccionada.CodigoDeProvincia);
 
             //Asocio la lista con el elemento dropdown
+            cmb_localidad_origen.Items.Clear();
             cmb_localidad_origen.Items.Add(localidadesAsociadas);
         }
 
@@ -398,6 +472,17 @@ namespace TPCAI
             lbl_direccion_nacional.Enabled = false;
             lbl_sucursal_entregaensucursal_destino.Enabled = true;
 
+            //Saco el dato de la provincia y localidad seleccionadas
+            Provincia provinciaSeleccionada = (Provincia)cmb_provincia_nacional.SelectedItem;
+            Localidad localidadSeleccionada = (Localidad)cmb_localidad_nacional.SelectedItem;
+
+            //Creo una lista para almacenar las sucursales disponibles
+            List<Sucursal> sucursalesAsociadas = new List<Sucursal>();
+            sucursalesAsociadas = Sucursal.ListarSucursalesAsociadas(provinciaSeleccionada.CodigoDeProvincia, localidadSeleccionada.CodigoDeLocalidad);
+
+            //Linkeo la lista de sucursales con el drodpwon     
+            cmb_sucursal_entregaensucursal_destino.Items.Clear();
+            cmb_sucursal_entregaensucursal_destino.Items.Add(sucursalesAsociadas);
         }
 
         private void txt_direccion_nacional_TextChanged(object sender, EventArgs e)
