@@ -52,30 +52,31 @@ namespace TPCAI
         //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
         //GrabarNuevoDestino()
 
-        public string MostrarDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal)
+        public string MostrarDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal, int codigoDeRegionMundial,
+            int codigoPais, int codigoRegionNacional, int codigoProvincia, int CodigoLocalidad, string direccion, int nroSucursal)
         {
             string salida = null;
 
-            RegionNacional regionN = RegionNacional.BuscarRegionNacional(CodigoDeRegionNacional);
+            RegionNacional regionN = RegionNacional.BuscarRegionNacional(codigoRegionNacional);
             string rn = regionN.NombreDeRegionNacional;
 
 
-            Provincia provincia = Provincia.BuscarProvincia(CodigoDeProvincia);
+            Provincia provincia = Provincia.BuscarProvincia(codigoProvincia);
             string nombreProvincia = provincia.NombreDeProvincia;
 
-            Localidad localidad = Localidad.BuscarLocalidad(CodigoDeLocalidad);
+            Localidad localidad = Localidad.BuscarLocalidad(CodigoLocalidad);
             string nombreLocalidad = localidad.NombreDeLocalidad;
             
             //Se ejecuta si el rb de internacional esta seleccionado
             if (internacional == true)
             {
-                RegionMundial regionM = RegionMundial.BuscarRegionMundial(CodigoDeRegionMundial);
+                RegionMundial regionM = RegionMundial.BuscarRegionMundial(codigoDeRegionMundial);
                 string rm = regionM.NombreDeRegionMundial;
 
-                Pais pais = Pais.BuscarPais(CodigoDePais);
+                Pais pais = Pais.BuscarPais(codigoPais);
                 string nombrePais = pais.NombreDePais;
 
-                salida = rm + "," + nombrePais + this.Direccion;
+                salida = rm + "," + nombrePais + direccion;
             }
             //Se ejecuta si el rb de nacional esta seleccionado
             if (nacional == true)
@@ -84,7 +85,7 @@ namespace TPCAI
                 if (entregaSucursal == true)
                 {
                     // Busca la sucursal por el codigo y devuelve la direccion de la sucursal
-                    Sucursal sucursal = Sucursal.BuscarSucursal(NroSucursal);
+                    Sucursal sucursal = Sucursal.BuscarSucursal(nroSucursal);
                     string direccionSucursal = sucursal.Direccion;
 
                     salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccionSucursal;
