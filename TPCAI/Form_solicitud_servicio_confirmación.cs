@@ -12,6 +12,13 @@ namespace TPCAI
 {
     public partial class Form_solicitud_servicio_confirmación : Form
     {
+
+        public string _Peso;
+        public string _Ancho;
+        public string _Largo;
+        public string _Alto;
+        public string _TipoEnvio;
+
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
@@ -21,11 +28,11 @@ namespace TPCAI
 
             textBox_Orden.Text = solicitudDeOrden.NumeroDeOrden.ToString(); //Mostrar Nro de Orden
             textBox_TPaquete.Text = "";
-            textBox_Peso.Text = Form_consulta_orden.txtNumeroOrden.Text;
-            textBox_Ancho.Text = "1.00";
-            textBox_Largo.Text = "1.00";
-            textBox_Alto.Text = "1.00";
-            textBoxT_Envio.Text = "Nacional";
+            textBox_Peso.Text = _Peso;
+            textBox_Ancho.Text = _Ancho;
+            textBox_Largo.Text = _Largo;
+            textBox_Alto.Text = _Alto;
+            textBoxT_Envio.Text = _TipoEnvio;
             textBox_Origen.Text = solicitudDeOrden.Origen;
             textBox_Destino.Text = solicitudDeOrden.Destino;
             textBox_Urgencia.Text = Urgencia(solicitudDeOrden.EsUrgente);

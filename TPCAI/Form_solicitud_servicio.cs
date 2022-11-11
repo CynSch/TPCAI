@@ -365,12 +365,22 @@ namespace TPCAI
                 Servicio nuevoServicio = Servicio.GrabarNuevoServicio();
 
                 //LLAMADO AL FORM DE CONFIRMACIÓN
-                Form_solicitud_servicio_confirmación form_de_confirmacion = 
-                new Form_solicitud_servicio_confirmación();
+                Form_solicitud_servicio_confirmación form_de_confirmacion =   new Form_solicitud_servicio_confirmación();
                 this.Visible = false;
 
-                    //ACÁ LINKEAR LOS ELEMENTOS DEL FORM CON LA NUEVA SOLICITUD
-                form_de_confirmacion.lbl_kg.Text = nuevoServicio.Peso.ToString();
+                   //ACÁ LINKEAR LOS ELEMENTOS DEL FORM CON LA NUEVA SOLICITUD
+                form_de_confirmacion._Peso = nuevoServicio.Peso.ToString();
+                form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString();
+                form_de_confirmacion._Largo = nuevoServicio.Largo.ToString();
+                form_de_confirmacion._Alto = nuevoServicio.Alto.ToString();
+                if (rd_btn_nacional.Checked)
+                {
+                    form_de_confirmacion._TipoEnvio = "Nacional";
+                }
+                else
+                {
+                    form_de_confirmacion._TipoEnvio = "Internacional";
+                }              
                 form_de_confirmacion.Show();
             }
         }
