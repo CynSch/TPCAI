@@ -41,9 +41,6 @@ namespace TPCAI
 
         //Metodos:
 
-        //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
-        //GrabarNuevoOrigen()
-
         public static string MostrarOrigen(bool retiroDomicilio, bool entregaSucursal, int codigoDeRegionNacional, int codigoDeProvincia,
             int codigoDeLocalidad, string direccion, int nroSucursal)
         {
