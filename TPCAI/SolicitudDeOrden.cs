@@ -12,16 +12,7 @@ namespace TPCAI
 {
     internal class SolicitudDeOrden
     {
-        //Constructor - comentado, porque no me deja sino ir armando el objeto linea por linea. 
-        /*public SolicitudDeOrden(int numeroDeOrden, int iDDeServicio, ClienteCorporativo clienteCorporativo, Destino destino, bool esUrgente, int codigoDeEstado)
-        {
-            NumeroDeOrden = numeroDeOrden;
-            IDDeServicio = iDDeServicio;
-            ClienteCorporativo = clienteCorporativo;
-            Destino = destino;
-            EsUrgente = esUrgente;
-            CodigoDeEstado = codigoDeEstado;
-        }*/
+        //Constructor
 
         //Propiedades
         public int NumeroDeOrden { get; private set; }
@@ -234,8 +225,24 @@ namespace TPCAI
 
             SolicitudesExistentes.Add(nuevaSolicitud);
          }
-        
-    
+
+        internal static void GrabarSolicitudes()
+        {
+            //Grabo las solicitudes desde la lista SolicitudesExistentes en memoria al archivo en caso de que se haya agregado una Solicitud
+
+            StreamWriter writer = File.CreateText("Solicitudes.txt");
+
+            //Codigo|Nombre|CodigoDeRegionNacional|ListLocalidadesAsociadas
+
+            foreach (SolicitudDeOrden sol in SolicitudesExistentes)
+            {
+                /*string linea = sol.NumeroDeOrden.ToString() + "|"
+                    + xxx + "|"
+                    + xxx;
+                writer.WriteLine(linea);*/
+            }
+            writer.Close();
+        }
     }
-    }
+}
 

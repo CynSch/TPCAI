@@ -37,8 +37,11 @@ namespace TPCAI
                 //agrego a lista
                 Sucursal.TodasLasSucursales.Add(sucursal);
             }
-
-
+        }
+        public static List<Sucursal> ListarSucursalesAsociadas(int codigoDeProvincia, int codigoDeLocalidad)
+        {
+            List<Sucursal> sucursales = new List<Sucursal>();
+            return sucursales;
         }
     }
 }

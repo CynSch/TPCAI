@@ -15,12 +15,11 @@ namespace TPCAI
         public Form_solicitud_servicio()
         {
             InitializeComponent();
+
+            //Linkeo dropdown con lista de Provincias. 
             cmb_provincia_origen.Items.Add(Provincia.TodasLasProvincias);
-            //cmb_localidad_origen.Items.Add(Provincia.LocalidadesAsociadas);
         }
 
-        //Faltaria agregar en cada metodo sobre cuando se selecciona algo en el form que lo guarde en una
-        //variable que poder atribuirselo al atributo del objeto nueva Solicitud.
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
@@ -181,42 +180,53 @@ namespace TPCAI
                 MessageBox.Show("Debe completar todos los campos visibles" +
                     " relacionados a un destino internacional");
             }
-
-            //ALMACENAR EL INPUT DEL USUARIO EN VARIABLES
-            bool esEncomienda;
-            decimal peso;
-            decimal ancho;
-            decimal largo;
-            decimal alto;
-            Provincia provincia;
-            Localidad localidad;
-            Origen origen_provincia;
-            Origen origen_localidad;
-
-            if (rd_btn_encomienda.Checked)
-            {
-                esEncomienda = true;
-                peso = num_peso.Value;
-                ancho = num_ancho.Value;
-                largo = num_largo.Value;
-                alto = num_alto.Value;
-            }
-            else if (rd_btn_correspondencia.Checked)
-            {
-                esEncomienda = false;
-            }
-
-            //origen_provincia = cmb_provincia_retirodomicilio.SelectedItem;
-            //origen_localidad = cmb_localidad_origen.SelectedItem;
-
-
-
-            //LLAMAR AL MÉTODO Y PASARLE EL INPUT DEL USUARIO
-
-
-                //ACÁ SE LLAMA AL FORM DE CONFIRMACIÓN
             else
             {
+                //CREACIÓN DE VARIABLES
+                bool esEncomienda;
+                bool esCorrespondencia;
+                decimal peso;
+                decimal ancho;
+                decimal largo;
+                decimal alto;
+                bool origen_retiroEnDomicilio;
+                bool origen_entregaEnSucursal;
+                string domicilio_origen;
+                Sucursal sucursal_origen;
+                bool esUrgente;
+                bool esInternacional;
+                bool esNacional;
+                Pais pais;
+                string direccion_destino_internacional;
+                Provincia destino_provincia;
+                Localidad destino_localidad;
+                bool entregaADomicilio_destino;
+                bool entregaEnSucursal_destino;
+                string direccion_destino_nacional;
+                Sucursal sucursal_destino;
+                Provincia origen_provincia;
+                Localidad origen_localidad;
+
+                //ASIGNACIÓN DE INPUT A VARIABLES
+                if (rd_btn_encomienda.Checked)
+                {
+                    esCorrespondencia = false;
+                    esEncomienda = true;
+                    peso = num_peso.Value;
+                    ancho = num_ancho.Value;
+                    largo = num_largo.Value;
+                    alto = num_alto.Value;
+                }
+                else if (rd_btn_correspondencia.Checked)
+                {
+                    esEncomienda = false;
+                    esCorrespondencia = true;
+                }
+
+
+                //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
+
+                //LLAMADO AL FORM DE CONFIRMACIÓN
                 Form_solicitud_servicio_confirmación form_de_confirmacion = 
                 new Form_solicitud_servicio_confirmación();
                 this.Visible = false;
@@ -319,6 +329,10 @@ namespace TPCAI
             //cmb_region__retirodomicilio.Enabled = false;
             txt_domicilio_retirodomicilio.Enabled = false;
 
+            List<Sucursal> sucursalesAsociadas = new List<Sucursal>();
+            sucursalesAsociadas = Sucursal.ListarSucursalesAsociadas()
+            cmb_sucursal_entregaensucursal_origen.Items.Add(sucursalesAsociadas);
+
         }
 
         private void rd_btn_correspondencia_CheckedChanged(object sender, EventArgs e)
@@ -341,7 +355,15 @@ namespace TPCAI
 
         private void cmb_provincia_retirodomicilio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            //Almaceno la provincia seleccionada en una variable. 
+            Provincia provinciaSeleccionada = (Provincia)cmb_provincia_origen.SelectedItem;
+
+            //Llamo al metodo que muestra las localidades asociadas a la provincia. 
+            List<Localidad> localidadesAsociadas = new List<Localidad>();
+            localidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provinciaSeleccionada.CodigoDeProvincia);
+
+            //Asocio la lista con el elemento dropdown
+            cmb_localidad_origen.Items.Add(localidadesAsociadas);
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -386,6 +408,11 @@ namespace TPCAI
         private void num_ancho_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmb_localidad_origen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Localidad localidad_origen = (Localidad)cmb_localidad_origen.SelectedItem;
         }
     }
 }

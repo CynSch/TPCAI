@@ -480,6 +480,7 @@ namespace TPCAI
             this.cmb_localidad_origen.Name = "cmb_localidad_origen";
             this.cmb_localidad_origen.Size = new System.Drawing.Size(180, 28);
             this.cmb_localidad_origen.TabIndex = 14;
+            this.cmb_localidad_origen.SelectedIndexChanged += new System.EventHandler(this.cmb_localidad_origen_SelectedIndexChanged);
             // 
             // lbl_localidad_retirodomicilio
             // 
