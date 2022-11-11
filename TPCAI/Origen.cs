@@ -36,8 +36,8 @@ namespace TPCAI
             CodigoDeLocalidad = codigoDeLocalidad;
             Direccion = direccion;
             NroSucursal = nroSucursal;
-
         }
+        public Origen() { } // constructor vacio
 
         //Metodos:
 
@@ -78,59 +78,71 @@ namespace TPCAI
             return salida; 
  
         }
-        internal static void GrabarNuevoOrigen()
+
+        internal static void GrabarOrigen()
         {
             //Grabo los origenes desde la lista TodosLosOrigenes en memoria al archivo.
 
 
             StreamWriter writer = File.CreateText("OrigenOrdenes.txt");
 
-            //Codigo|Nombre|CodigoDeRegionNacional|ListLocalidadesAsociadas
+            //NumeroOrden|EsretiroEnDomicilio|EsEntregaEnSucursal|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
 
             foreach (Origen origenOrden in TodosLosOrigenes)
             {
-                string linea = "";
 
-                if (origenOrden.EsEntregaEnSucursal == true)
-                {
-                    linea = origenOrden.NumeroDeOrden.ToString() + "|" + origenOrden.CodigoDeRegionNacional.ToString() +
-                        "|" + origenOrden.CodigoDeProvincia.ToString() + "|" + origenOrden.CodigoDeLocalidad.ToString() +
+                string linea = origenOrden.NumeroDeOrden.ToString() + "|" + origenOrden.EsRetiroEnDomicilio.ToString() + 
+                    "|" + origenOrden.EsEntregaEnSucursal.ToString() + "|" + origenOrden.CodigoDeRegionNacional.ToString() +
+                        "|" + origenOrden.CodigoDeProvincia.ToString() + "|" + origenOrden.CodigoDeLocalidad.ToString() + "|" + origenOrden.Direccion +
                         "|" + origenOrden.NroSucursal.ToString();
-                   
-                } 
-                else if(origenOrden.EsRetiroEnDomicilio == true)
-                {
-                    linea = origenOrden.NumeroDeOrden.ToString() + "|" + origenOrden.CodigoDeRegionNacional.ToString() +
-                        "|" + origenOrden.CodigoDeProvincia.ToString() + "|" + origenOrden.CodigoDeLocalidad.ToString() +
-                        "|" + origenOrden.Direccion;  
-                }
-               
+
+
                 writer.WriteLine(linea);
             }
             writer.Close();
         }
+        internal static Origen GrabarNuevoOrigen(int numOrden, bool retiroDomicilio, bool entregaSucursal, int codRegNac, int codProvincia,
+            int codLoc, string direccion, int nroSucursal)
+        {
+            //el nuevo origen se agrega a la lista 
+            var nuevoOrigen = new Origen();
 
-            /*  private RegionNacional BuscarRegionNacional(int codigoRegNac)
-              {
-                  return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
+            nuevoOrigen.NumeroDeOrden = numOrden;
+            nuevoOrigen.EsRetiroEnDomicilio = retiroDomicilio;
+            nuevoOrigen.EsEntregaEnSucursal =entregaSucursal;
+            nuevoOrigen.CodigoDeRegionNacional =codRegNac;
+            nuevoOrigen.CodigoDeProvincia =codProvincia;
+            nuevoOrigen.CodigoDeLocalidad = codLoc;
+            nuevoOrigen.Direccion = direccion;
+            nuevoOrigen.NroSucursal = nroSucursal;
 
-              }*/
+            TodosLosOrigenes.Add(nuevoOrigen);
 
-            /*private Provincia BuscarProvincia(int codigoProvincia)
-            {
-                return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
-            }
-            */
-            /*private Localidad BuscarLocalidad(int codigoLocalidad)
-            {
-                return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
-            }*/
-
-            /* private Sucursal BuscarSucursal(int codigoSucursal)
-             {
-                 return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
-
-             }*/
+            return nuevoOrigen;
 
         }
+
+        /*  private RegionNacional BuscarRegionNacional(int codigoRegNac)
+          {
+              return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
+
+          }*/
+
+        /*private Provincia BuscarProvincia(int codigoProvincia)
+        {
+            return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
+        }
+        */
+        /*private Localidad BuscarLocalidad(int codigoLocalidad)
+        {
+            return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
+        }*/
+
+        /* private Sucursal BuscarSucursal(int codigoSucursal)
+         {
+             return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
+
+         }*/
+
+    }
 }
