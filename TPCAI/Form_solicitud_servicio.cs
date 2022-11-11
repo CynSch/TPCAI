@@ -397,8 +397,8 @@ namespace TPCAI
                 {
                     form_de_confirmacion._TipoEnvio = "Internacional";
                 }
-                //form_de_confirmacion._Origen = //"linkear origen";
-                //form_de_confirmacion._Destino = //"linkear destino";
+                form_de_confirmacion._Origen = Origen.MostrarOrigen(origen_retiroEnDomicilio,origen_entregaEnSucursal, origen_provincia.CodigoDeRegionNacional, origen_provincia.CodigoDeProvincia, origen_localidad.CodigoDeLocalidad,domicilio_origen, sucursal_origen.NroSucursal);
+                form_de_confirmacion._Destino = Destino.MostrarDestino(esNacional,esInternacional,entregaADomicilio_destino,entregaEnSucursal_destino, pais.CodigoDeRegionMundial, pais.CodigoDePais, destino_provincia.CodigoDeRegionNacional, destino_provincia.CodigoDeProvincia, destino_localidad.CodigoDeLocalidad, direccion_destino, sucursal_destino.NroSucursal);
 
                 form_de_confirmacion.Show();
             }
