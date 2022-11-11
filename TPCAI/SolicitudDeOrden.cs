@@ -188,39 +188,10 @@ namespace TPCAI
         {
             var nuevaSolicitud = new SolicitudDeOrden();
             nuevaSolicitud.NumeroDeOrden = GenerarNumeroDeOrden();
+            nuevaSolicitud.Importe = 
+            
 
-            /*nuevaSolicitud.IDDeServicio = //linkear con el radio button seleccionado. 
-             if (se seleccionó el radio button de correspondencia)
-                  {
-                      IDDeServicio = 1
-                  }
-             else
-                  {
-                      IDDeServicio = 2
-                  }
-                  
-            nuevaSolicitud.CUITCliente = //linkear con el cliente que está logueado. */
-
-            //CREAR INSTANCIA DE ORIGEN
-            //var origen_solicitud = new Origen(); 
-            //Para que funcione el constructor, hay que ir linkeando cada selección del usuario con los parámetro que te pide
-            //nuevaSolicitud.Origen = origen_solicitud;
-
-            //CREAR INSTANCIA DE DESTINO
-            //var destino_solicitud = new Destino();
-            //Para que funcione el constructor, hay que ir linkeando cada selección del usuario con los parámetro que te pide
-            //nuevaSolicitud.Destino = destino_solicitud;
-
-            //linkear urgencia con la selección del checkbox.
-            /*if (checkbox seleccionado)
-                {
-                    nuevaSolicitud.EsUrgente = true;
-                }
-                else
-                {
-                    nuevaSolicitud.EsUrgente = false;
-                }*/
-
+            //nuevaSolicitud.CUITCliente = /linkear con el cliente que está logueado. 
             nuevaSolicitud.CodigoDeEstado = 1;
 
             SolicitudesExistentes.Add(nuevaSolicitud);

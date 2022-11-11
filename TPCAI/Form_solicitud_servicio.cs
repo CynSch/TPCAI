@@ -85,11 +85,19 @@ namespace TPCAI
             cmb_localidad_nacional.Items.Clear();
 
             //Almaceno la provincia seleccionada
-            Provincia provinciaSeleccionada = (Provincia)cmb_provincia_nacional.SelectedItem;
+            string provinciaSeleccionada = cmb_provincia_nacional.SelectedText;
+            int codigoDeProvincia = -1;
+            foreach (Provincia p in Provincia.TodasLasProvincias)
+            {
+                if (p.NombreDeProvincia == provinciaSeleccionada)
+                {
+                    codigoDeProvincia = p.CodigoDeProvincia; 
+                }               
+            }
 
             //Llamo al metodo que muestra las localidades asociadas a la provincia. 
             List<Localidad> localidadesAsociadas = new List<Localidad>();
-            localidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provinciaSeleccionada.CodigoDeProvincia);
+            localidadesAsociadas = Localidad.ListarLocalidadesAsociadas(codigoDeProvincia);
 
             //Asocio la lista con el elemento dropdown
             foreach (Localidad localidad in localidadesAsociadas)
@@ -221,6 +229,7 @@ namespace TPCAI
                 Sucursal sucursal_destino;
                 Provincia origen_provincia;
                 Localidad origen_localidad;
+                DateTime fecha = DateTime.Now;
 
                 //ASIGNACIÓN DE INPUT A VARIABLES
                 if (rd_btn_encomienda.Checked)
@@ -238,8 +247,23 @@ namespace TPCAI
                     esCorrespondencia = true;
                 }
 
-                origen_provincia = (Provincia)cmb_provincia_origen.SelectedItem;
-                origen_localidad = (Localidad)cmb_localidad_origen.SelectedItem;
+                string provinciaSeleccionada = cmb_provincia_origen.SelectedText;
+                foreach (Provincia p in Provincia.TodasLasProvincias)
+                {
+                    if (p.NombreDeProvincia == provinciaSeleccionada)
+                    {
+                        origen_provincia = p;
+                    }
+                }
+
+                string localidadSeleccionada = cmb_localidad_origen.SelectedText;
+                foreach (Localidad l in Localidad.LstLocalidades)
+                {
+                    if (l.NombreDeLocalidad == localidadSeleccionada)
+                    {
+                        origen_localidad = l;
+                    }
+                }
 
                 if (rd_btn_retiro_domicilio.Checked)
                 {
@@ -252,7 +276,15 @@ namespace TPCAI
                 {
                     origen_retiroEnDomicilio = false;
                     origen_entregaEnSucursal = true;
-                    sucursal_origen = (Sucursal)cmb_sucursal_entregaensucursal_origen.SelectedItem;
+
+                    string direccSucursalSeleccionada = cmb_sucursal_entregaensucursal_origen.SelectedText;
+                    foreach (Sucursal s in Sucursal.TodasLasSucursales)
+                    {
+                        if (s.Direccion == direccSucursalSeleccionada)
+                        {
+                            sucursal_origen = s;
+                        }
+                    }
                 }
 
                 if (chkbx_urgencia.Checked)
@@ -268,15 +300,39 @@ namespace TPCAI
                 {
                     esInternacional = true;
                     esNacional = false;
-                    pais = (Pais)cmb_pais_internacional.SelectedItem;
+
+                    string paisSeleccionado = cmb_pais_internacional.SelectedText;
+                    foreach(Pais p in Pais.TodosLosPaises)
+                    {
+                        if (p.NombreDePais == paisSeleccionado)
+                        {
+                            pais = p;
+                        }
+                    }
                     direccion_destino_internacional = txt_direccion_internacional.Text;
                 }
                 else if (rd_btn_nacional.Checked)
                 {
                     esInternacional = false;
                     esNacional = true;
-                    destino_provincia = (Provincia)cmb_provincia_nacional.SelectedItem;
-                    destino_localidad = (Localidad)cmb_localidad_nacional.SelectedItem;
+
+                    string provinciaElegida = cmb_provincia_nacional.SelectedText;
+                    foreach (Provincia p in Provincia.TodasLasProvincias)
+                    {
+                        if (p.NombreDeProvincia == provinciaElegida)
+                        {
+                            destino_provincia = p;
+                        }
+                    }
+
+                    string localidadElegida = cmb_localidad_nacional.SelectedText;
+                    foreach (Localidad l in Localidad.LstLocalidades)
+                    {
+                        if (l.NombreDeLocalidad == localidadElegida)
+                        {
+                            destino_localidad = l;
+                        }
+                    }
                     if (rd_btn_entrega_domicilio.Checked)
                     {
                         entregaADomicilio_destino = true;
@@ -287,19 +343,34 @@ namespace TPCAI
                     {
                         entregaEnSucursal_destino = true;
                         entregaADomicilio_destino = false;
-                        sucursal_destino = (Sucursal)cmb_sucursal_entregaensucursal_destino.SelectedItem;
+
+                        string sucursalElegida = cmb_sucursal_entregaensucursal_destino.SelectedText;
+                        foreach (Sucursal s in Sucursal.TodasLasSucursales)
+                        {
+                            if (s.Direccion == sucursalElegida)
+                            {
+                                sucursal_destino = s;
+                            }
+                        }
                     }
                 }
+
+                decimal importe = Tarifa.CalcularImporte(esUrgente,esCorrespondencia,peso,origen_retiroEnDomicilio,);
 
                 //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 
                 SolicitudDeOrden nuevaSolicitud = SolicitudDeOrden.GrabarNuevaSolicitud();
                 Destino nuevoDestino = Destino.GrabarNuevoDestino();
+                Origen nuevoOrigen = Origen.GrabarNuevoOrigen();
+                Servicio nuevoServicio = Servicio.GrabarNuevoServicio();
 
                 //LLAMADO AL FORM DE CONFIRMACIÓN
                 Form_solicitud_servicio_confirmación form_de_confirmacion = 
                 new Form_solicitud_servicio_confirmación();
                 this.Visible = false;
+
+                    //ACÁ LINKEAR LOS ELEMENTOS DEL FORM CON LA NUEVA SOLICITUD
+                form_de_confirmacion.lbl_kg.Text = nuevoServicio.Peso.ToString();
                 form_de_confirmacion.Show();
             }
         }
@@ -426,7 +497,7 @@ namespace TPCAI
             //Linkeo la lista de sucursales con el drodpwon     
             foreach (Sucursal sucursal in sucursalesAsociadas)
             {
-                cmb_sucursal_entregaensucursal_origen.Items.Add(sucursal.NroSucursal+" - "+sucursal.Direccion);
+                cmb_sucursal_entregaensucursal_origen.Items.Add(sucursal.Direccion);
             }
         }
 
@@ -513,7 +584,7 @@ namespace TPCAI
             //Linkeo la lista de sucursales con el drodpwon     
             foreach (Sucursal sucursal in sucursalesAsociadas)
             {
-                cmb_sucursal_entregaensucursal_destino.Items.Add(sucursal.NroSucursal+" - "+sucursal.Direccion);
+                cmb_sucursal_entregaensucursal_destino.Items.Add(sucursal.Direccion);
             }
         }
 
