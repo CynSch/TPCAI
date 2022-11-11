@@ -375,19 +375,36 @@ namespace TPCAI
                 Form_solicitud_servicio_confirmación form_de_confirmacion =   new Form_solicitud_servicio_confirmación();
                 this.Visible = false;
 
-                   //ACÁ LINKEAR LOS ELEMENTOS DEL FORM CON LA NUEVA SOLICITUD
-                form_de_confirmacion._Peso = nuevoServicio.Peso.ToString();
-                form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString();
-                form_de_confirmacion._Largo = nuevoServicio.Largo.ToString();
-                form_de_confirmacion._Alto = nuevoServicio.Alto.ToString();
+                //ACÁ LINKEAR LOS ELEMENTOS DEL FORM CON LA NUEVA SOLICITUD
+                form_de_confirmacion._NroOrdenGenerada = nuevaSolicitud.NumeroDeOrden;
+                if (rd_btn_correspondencia.Checked)
+                {
+                    form_de_confirmacion._TipoPaquete = "correspondencia";
+                    form_de_confirmacion._Peso = null;
+                    form_de_confirmacion._Ancho = null;
+                    form_de_confirmacion._Largo = null;
+                    form_de_confirmacion._Alto = null;
+                }
+                else if (rd_btn_encomienda.Checked)
+                {
+                    form_de_confirmacion._TipoPaquete = "encomienda";
+                    form_de_confirmacion._Peso = nuevoServicio.Peso.ToString();
+                    form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString();
+                    form_de_confirmacion._Largo = nuevoServicio.Largo.ToString();
+                    form_de_confirmacion._Alto = nuevoServicio.Alto.ToString();
+                }
+
                 if (rd_btn_nacional.Checked)
                 {
                     form_de_confirmacion._TipoEnvio = "Nacional";
                 }
-                else
+                else if(rd_btn_internacional.Checked)
                 {
                     form_de_confirmacion._TipoEnvio = "Internacional";
-                }              
+                }
+                //form_de_confirmacion._Origen = //"linkear origen";
+                //form_de_confirmacion._Destino = //"linkear destino";
+
                 form_de_confirmacion.Show();
             }
         }

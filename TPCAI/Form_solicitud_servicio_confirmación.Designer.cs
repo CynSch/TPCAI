@@ -70,7 +70,6 @@
             this.lbl_solicitud_exitosa.Size = new System.Drawing.Size(482, 25);
             this.lbl_solicitud_exitosa.TabIndex = 0;
             this.lbl_solicitud_exitosa.Text = "SOLICITUD DE SERVICIO GENERADA CON ÉXITO";
-            this.lbl_solicitud_exitosa.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbl_nro_orden
             // 
@@ -82,7 +81,6 @@
             this.lbl_nro_orden.Size = new System.Drawing.Size(105, 25);
             this.lbl_nro_orden.TabIndex = 1;
             this.lbl_nro_orden.Text = "ORDEN #";
-            this.lbl_nro_orden.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // lbl_cm_alto
             // 
@@ -194,7 +192,7 @@
             this.lbl_origen.Size = new System.Drawing.Size(62, 20);
             this.lbl_origen.TabIndex = 23;
             this.lbl_origen.Text = "Origen";
-            this.lbl_origen.Click += new System.EventHandler(this.label2_Click);
+           
             // 
             // lbl_destino
             // 
@@ -219,7 +217,7 @@
             this.lbl_precio.Size = new System.Drawing.Size(71, 20);
             this.lbl_precio.TabIndex = 25;
             this.lbl_precio.Text = "Importe";
-            this.lbl_precio.Click += new System.EventHandler(this.lbl_precio_Click);
+           
             // 
             // lbl_moneda_peso
             // 
@@ -266,7 +264,7 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+           
             // 
             // textBox_Importe
             // 
@@ -379,7 +377,6 @@
             this.lbl_urgencia.Size = new System.Drawing.Size(81, 20);
             this.lbl_urgencia.TabIndex = 37;
             this.lbl_urgencia.Text = "Urgencia";
-            this.lbl_urgencia.Click += new System.EventHandler(this.label3_Click);
             // 
             // lbl_tipo_envio
             // 
