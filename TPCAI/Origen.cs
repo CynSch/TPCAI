@@ -47,63 +47,57 @@ namespace TPCAI
             string salida = null;
 
             // Busca la region nacional por el codigo y devuelve el nombre de la region nacional
-            RegionNacional region = this.BuscarRegionNacional(CodigoDeRegionNacional); // me devuelve toda la linea, pero yo solo quiero el nombre
+            RegionNacional region = RegionNacional.BuscarRegionNacional(CodigoDeRegionNacional); // me devuelve toda la linea, pero yo solo quiero el nombre
             string rn = region.NombreDeRegionNacional; // le asigno el nombre a una variable que es la que voy a mostrar
 
             // Busca la provincis por el codigo y devuelve el nombre de la provincia
-            Provincia provincia = this.BuscarProvincia(CodigoDeProvincia);
+            Provincia provincia = Provincia.BuscarProvincia(CodigoDeProvincia);
             string nombreProvincia = provincia.NombreDeProvincia;
 
             // Busca la localidad por el codigo y devuelve el nombre de la localidad
-            Localidad localidad = this.BuscarLocalidad(CodigoDeLocalidad);
+            Localidad localidad = Localidad.BuscarLocalidad(CodigoDeLocalidad);
             string nombreLocalidad = localidad.NombreDeLocalidad;
-
 
             // se ejecuta si el rb de entrega en sucursal esta seleccionado
             if (entregaSucursal == true)
             {
                 // Busca la sucursal por el codigo y devuelve la direccion de la sucursal
-                Sucursal sucursal = BuscarSucursal(NroSucursal);
+                Sucursal sucursal = Sucursal.BuscarSucursal(NroSucursal);
                 string direccionSucursal = sucursal.Direccion;
-
-                salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccionSucursal;
-                
+                salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccionSucursal;        
             }
 
             // se ejecuta si el rb de retiro en domicilio esta seleccionado
             if (retiroDomicilio == true)
             {
-
                 salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + this.Direccion;
-   
             }
-
             return salida; 
  
         }
          
         
-        private RegionNacional BuscarRegionNacional(int codigoRegNac)
+      /*  private RegionNacional BuscarRegionNacional(int codigoRegNac)
         {
             return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
 
-        }
+        }*/
 
-        private Provincia BuscarProvincia(int codigoProvincia)
+        /*private Provincia BuscarProvincia(int codigoProvincia)
         {
             return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
         }
-
-        private Localidad BuscarLocalidad(int codigoLocalidad)
+        */
+        /*private Localidad BuscarLocalidad(int codigoLocalidad)
         {
             return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
-        }
+        }*/
 
-        private Sucursal BuscarSucursal(int codigoSucursal)
+       /* private Sucursal BuscarSucursal(int codigoSucursal)
         {
             return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
 
-        }
+        }*/
 
     }
 }

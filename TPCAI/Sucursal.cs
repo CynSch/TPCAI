@@ -57,5 +57,11 @@ namespace TPCAI
 
             return sucursales;
         }
+
+        public static Sucursal BuscarSucursal(int codigoSucursal)
+        {
+            return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
+
+        }
     }
 }

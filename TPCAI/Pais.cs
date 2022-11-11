@@ -56,5 +56,11 @@ namespace TPCAI
         }
 
         //Falta metodo de carga desde archivo
+
+        public static Pais BuscarPais(int codigoPais)
+        {
+            return Pais.TodosLosPaises.Find(pais => pais.CodigoDePais == codigoPais);
+        }
+
     }
 }

@@ -62,5 +62,11 @@ namespace TPCAI
             return lista; 
         }
 
+
+        public static Localidad BuscarLocalidad(int codigoLocalidad)
+        {
+            return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
+        }
+
     }
 }

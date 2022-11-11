@@ -109,5 +109,13 @@ namespace TPCAI
             }
             return linea;
         }
+
+
+        public static Provincia BuscarProvincia(int codigoProvincia)
+        {
+            return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
+        }
+
+
     }
 }
