@@ -241,10 +241,14 @@ namespace TPCAI
                     largo = num_largo.Value;
                     alto = num_alto.Value;
                 }
-                else if (rd_btn_correspondencia.Checked)
+                else
                 {
                     esEncomienda = false;
                     esCorrespondencia = true;
+                    peso = 0;
+                    ancho = 0;
+                    largo = 0;
+                    alto = 0;
                 }
 
                 string provinciaSeleccionada = cmb_provincia_origen.SelectedText;
@@ -257,6 +261,8 @@ namespace TPCAI
                 }
 
                 string localidadSeleccionada = cmb_localidad_origen.SelectedText;
+                bool loc_encontrada = false;
+
                 foreach (Localidad l in Localidad.LstLocalidades)
                 {
                     if (l.NombreDeLocalidad == localidadSeleccionada)
@@ -272,7 +278,7 @@ namespace TPCAI
                     domicilio_origen = txt_domicilio_retirodomicilio.Text;
 
                 }
-                else if (rd_btn_origen_entrega_sucursal.Checked)
+                else
                 {
                     origen_retiroEnDomicilio = false;
                     origen_entregaEnSucursal = true;
@@ -291,7 +297,7 @@ namespace TPCAI
                 {
                     esUrgente = true;
                 }
-                else if (!chkbx_urgencia.Checked)
+                else
                 {
                     esUrgente = false;
                 }
@@ -311,7 +317,7 @@ namespace TPCAI
                     }
                     direccion_destino_internacional = txt_direccion_internacional.Text;
                 }
-                else if (rd_btn_nacional.Checked)
+                else
                 {
                     esInternacional = false;
                     esNacional = true;
@@ -333,13 +339,14 @@ namespace TPCAI
                             destino_localidad = l;
                         }
                     }
+
                     if (rd_btn_entrega_domicilio.Checked)
                     {
                         entregaADomicilio_destino = true;
                         entregaEnSucursal_destino = false;
                         direccion_destino_nacional = txt_direccion_nacional.Text;
                     }
-                    else if (rd_btn_destino_entrega_sucursal.Checked)
+                    else
                     {
                         entregaEnSucursal_destino = true;
                         entregaADomicilio_destino = false;
@@ -355,7 +362,7 @@ namespace TPCAI
                     }
                 }
 
-                decimal importe = Tarifa.CalcularImporte(esUrgente,esCorrespondencia,peso,origen_retiroEnDomicilio,);
+                decimal importe = Tarifa.CalcularImporte(esUrgente,esCorrespondencia,peso,origen_retiroEnDomicilio,entregaADomicilio_destino,origen_localidad.CodigoDeLocalidad,sucursal_origen.NroSucursal,esNacional,pais.CodigoDePais,destino_localidad.CodigoDeLocalidad);
 
                 //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 

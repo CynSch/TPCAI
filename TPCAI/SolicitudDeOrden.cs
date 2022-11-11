@@ -34,8 +34,8 @@ namespace TPCAI
         //Saca los estados disponibles del archivo "Solicitudes.txt" y los mete en la lista SolicitudesExistentes
         //El archivo de solicitudes va a tener tooooodas las solicitudes realizadas, para todos los clientes existentes. 
         {
-            /*El archivo tiene el formato:
-            "num_de_orden|id_servicio|cuit_cliente|origen|destino|bool_urgente_o_no|cod_de_estado"*/
+            //El archivo tiene el formato:
+            //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado"
 
             //Primero vacío la lista, por las dudas.
             SolicitudesExistentes.Clear();
@@ -49,13 +49,13 @@ namespace TPCAI
 
                 var solicitud = new SolicitudDeOrden();
                 solicitud.NumeroDeOrden = int.Parse(datosSeparados[0]);
-                solicitud.IDDeServicio = int.Parse(datosSeparados[1]);
-                solicitud.CUITCliente = int.Parse(datosSeparados[2]);
-                solicitud.Origen = datosSeparados[3];                
-                solicitud.Destino = datosSeparados[4];
-                solicitud.EsUrgente = bool.Parse(datosSeparados[5]);
-                solicitud.CodigoDeEstado = int.Parse(datosSeparados[6]);
+                solicitud.CUITCliente = int.Parse(datosSeparados[1]);
+                solicitud.EsUrgente = bool.Parse(datosSeparados[2]);
+                solicitud.Fecha = DateTime.Parse(datosSeparados[3]);
+                solicitud.Importe = decimal.Parse(datosSeparados[4]);
+                solicitud.CodigoDeEstado = int.Parse(datosSeparados[5]);
 
+                //Agrego la solicitud a la lista.
                 SolicitudDeOrden.SolicitudesExistentes.Add(solicitud);
             }
         }
@@ -182,17 +182,18 @@ namespace TPCAI
         }
         //Falta linkear el rdo con la UI
 
-        internal static SolicitudDeOrden GrabarNuevaSolicitud()
+        internal static SolicitudDeOrden GrabarNuevaSolicitud(int cUITCliente,bool esUrgente,DateTime fecha,decimal importe)
         //Este método se tiene que ejecutar cuando hacemos click en "confirmar" la solicitud
         //La nueva solicitud se tiene que agregar a la lista SolicitudesExistentes!!
         {
             var nuevaSolicitud = new SolicitudDeOrden();
-            nuevaSolicitud.NumeroDeOrden = GenerarNumeroDeOrden();
-            nuevaSolicitud.Importe = 
-            
 
-            //nuevaSolicitud.CUITCliente = /linkear con el cliente que está logueado. 
-            nuevaSolicitud.CodigoDeEstado = 1;
+            nuevaSolicitud.NumeroDeOrden = GenerarNumeroDeOrden();
+            nuevaSolicitud.CUITCliente = cUITCliente; //Hay que ver cómo averiguarlo. 
+            nuevaSolicitud.EsUrgente = esUrgente;
+            nuevaSolicitud.Fecha = fecha; 
+            nuevaSolicitud.Importe = importe; //El método calcular lo llama el form. 
+            nuevaSolicitud.CodigoDeEstado = 1; //Por default, arranca en el estado 1.
 
             SolicitudesExistentes.Add(nuevaSolicitud);
 
