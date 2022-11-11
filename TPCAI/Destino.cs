@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Reflection.Emit;
@@ -27,6 +28,7 @@ namespace TPCAI
             NroSucursal = nroSucursal;
 
         }
+        public Destino() { }
         //Propiedades
 
         //SOY MELU! AVISO QUE AGREGUÉ LA PROPIEDAD "NumeroDeOrden" PARA PODER LINKEAR EL DESTINO
@@ -102,13 +104,84 @@ namespace TPCAI
             return salida;
 
         }
-
-        //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
-        //GrabarNuevoDestino()
-        internal static Destino GrabarNuevoDestino()
+        internal static void CargarDestinoOrdenesExistentes()
+        //Saca los destinos existentes en OrigenOrdenes y los mete en la lista TodosLosOrigenes
         {
-            throw new NotImplementedException();
+            // Formato del archivo:
+            // NumeroOrden|EsretiroEnDomicilio|EsEntregaEnSucursal|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
+
+            //Primero vacío la lista, por las dudas.
+            DestinosExistentes.Clear();
+
+            //recorro linea por linea del archivo, y voy agregando a la lista de solicitudes existentes. 
+            var archivoDestino = new StreamReader("DestinoOrdenes.txt");
+            while (!archivoDestino.EndOfStream)
+            {
+                string proximaLinea = archivoDestino.ReadLine();
+                string[] datosSeparados = proximaLinea.Split('|');
+
+                var destinoExistente = new Destino();
+                destinoExistente.NumeroDeOrden = int.Parse(datosSeparados[0]);
+                destinoExistente.EsInternacional = bool.Parse(datosSeparados[1]);
+                destinoExistente.EsNacional = bool.Parse(datosSeparados[2]);
+                destinoExistente.EntregaEnDomicilio = bool.Parse(datosSeparados[3]);
+                destinoExistente.EntregaEnSucursal = bool.Parse(datosSeparados[4]);
+                destinoExistente.CodigoDeRegionMundial = int.Parse(datosSeparados[5]);
+                destinoExistente.CodigoDePais = int.Parse(datosSeparados[6]);
+                destinoExistente.CodigoDeRegionNacional = int.Parse(datosSeparados[7]);
+                destinoExistente.CodigoDeProvincia = int.Parse(datosSeparados[8]);
+                destinoExistente.CodigoDeLocalidad = int.Parse(datosSeparados[9]);
+                destinoExistente.Direccion = datosSeparados[10];
+                destinoExistente.NroSucursal = int.Parse(datosSeparados[11]);
+
+                //Agrego el origen a la lista.
+                Destino.DestinosExistentes.Add(destinoExistente);
+            }
         }
+
+        internal static void GrabarDestino()
+        {
+            //Grabo los origenes desde la lista TodosLosOrigenes en memoria al archivo.
+
+
+            StreamWriter writer = File.CreateText("DestinoOrdenes.txt");
+
+            //Formato del archivo:
+            //NumeroOrden|EsInternacional|EsNacional|EntregaEnDomicilio|EsEntregaEnSucursal|CodigoDeRegionMundial|CodigoDePais|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
+
+            foreach (Destino destinoOrden in DestinosExistentes)
+            {
+
+                string linea = destinoOrden.NumeroDeOrden.ToString() + "|" +
+                                 destinoOrden.EsInternacional.ToString() + "|" +
+                                 destinoOrden.EsNacional.ToString() + "|" +
+                                 destinoOrden.EntregaEnDomicilio.ToString() + "|" +
+                                 destinoOrden.EntregaEnSucursal.ToString() + "|" +
+                                 destinoOrden.CodigoDeRegionMundial.ToString() + "|" +
+                                 destinoOrden.CodigoDePais.ToString() + "|" +
+                                 destinoOrden.CodigoDeRegionNacional.ToString() + "|" +
+                                 destinoOrden.CodigoDeProvincia.ToString() + "|" +
+                                 destinoOrden.CodigoDeLocalidad.ToString() + "|" +
+                                 destinoOrden.Direccion + "|" +
+                                 destinoOrden.NroSucursal.ToString();
+
+                writer.WriteLine(linea);
+            }
+            writer.Close();
+        }
+
+        internal static Destino GrabarNuevoDestino(int numOrden, bool esInt, bool esNac, bool entregaEnDomicilio, bool entregaEnSucursal, int codRegMun, int codPais, int codRegNac, int codProvincia,
+            int codLoc, string direccion, int nroSucursal)
+        {
+            //el nuevo destino se agrega a la lista 
+            var nuevoDestino = new Destino(numOrden, esInt, esNac, entregaEnDomicilio, entregaEnSucursal, codRegMun, codPais, codRegNac, codProvincia, codLoc, direccion, nroSucursal);
+
+            DestinosExistentes.Add(nuevoDestino);
+
+            return nuevoDestino;
+
+        }
+
 
         /* private RegionNacional BuscarRegionNacional(int codigoRegNac)
          {
