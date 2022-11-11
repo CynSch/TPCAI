@@ -12,7 +12,7 @@ namespace TPCAI
 {
     public partial class Form_solicitud_servicio_confirmación : Form
     {
-        public Form_solicitud_servicio_confirmación()
+        public Form_solicitud_servicio_confirmación(SolicitudDeOrden solicitud, Origen origen, Destino destino, Servicio servicio)
         {
             InitializeComponent();
             SolicitudDeOrden solicitudDeOrden = BuscarOrden(); //Lnikear nro de orden.

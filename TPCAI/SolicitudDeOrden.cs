@@ -182,7 +182,7 @@ namespace TPCAI
         }
         //Falta linkear el rdo con la UI
 
-        internal static void GrabarNuevaSolicitud()
+        internal static SolicitudDeOrden GrabarNuevaSolicitud()
         //Este método se tiene que ejecutar cuando hacemos click en "confirmar" la solicitud
         //La nueva solicitud se tiene que agregar a la lista SolicitudesExistentes!!
         {
@@ -224,6 +224,8 @@ namespace TPCAI
             nuevaSolicitud.CodigoDeEstado = 1;
 
             SolicitudesExistentes.Add(nuevaSolicitud);
+
+            return nuevaSolicitud;
          }
 
         internal static void GrabarSolicitudes()

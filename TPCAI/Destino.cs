@@ -45,11 +45,12 @@ namespace TPCAI
         public string Direccion { get; set; }
         public int NroSucursal { get; set; }
         static public List<Destino> DestinosExistentes { get; set; }
-        
+
 
         //Metodos
 
-
+        //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
+        //GrabarNuevoDestino()
 
         public string MostrarDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal)
         {

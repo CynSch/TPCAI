@@ -22,6 +22,9 @@ namespace TPCAI
 
         public decimal Alto { get; set; }  
 
-        public decimal Peso { get; set; }  
+        public decimal Peso { get; set; }
+
+        //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
+        //GrabarNuevoServicio()
     }
 }
