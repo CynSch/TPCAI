@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Reflection.Emit;
@@ -22,6 +23,7 @@ namespace TPCAI
         public string Direccion { get; set; }
         public int NroSucursal { get; set; }
 
+        static internal List<Origen> TodosLosOrigenes = new List<Origen>();
 
         // constructor lleno
         public Origen(int numDeOrden, bool retiroEnDomicilio, bool entregaEnSucursal, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
@@ -72,32 +74,63 @@ namespace TPCAI
             {
                 salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + this.Direccion;
             }
+
             return salida; 
  
         }
-         
-        
-      /*  private RegionNacional BuscarRegionNacional(int codigoRegNac)
+        internal static void GrabarNuevoOrigen()
         {
-            return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
+            //Grabo los origenes desde la lista TodosLosOrigenes en memoria al archivo.
 
-        }*/
 
-        /*private Provincia BuscarProvincia(int codigoProvincia)
-        {
-            return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
+            StreamWriter writer = File.CreateText("OrigenOrdenes.txt");
+
+            //Codigo|Nombre|CodigoDeRegionNacional|ListLocalidadesAsociadas
+
+            foreach (Origen origenOrden in TodosLosOrigenes)
+            {
+                string linea = "";
+
+                if (origenOrden.EsEntregaEnSucursal == true)
+                {
+                    linea = origenOrden.NumeroDeOrden.ToString() + "|" + origenOrden.CodigoDeRegionNacional.ToString() +
+                        "|" + origenOrden.CodigoDeProvincia.ToString() + "|" + origenOrden.CodigoDeLocalidad.ToString() +
+                        "|" + origenOrden.NroSucursal.ToString();
+                   
+                } 
+                else if(origenOrden.EsRetiroEnDomicilio == true)
+                {
+                    linea = origenOrden.NumeroDeOrden.ToString() + "|" + origenOrden.CodigoDeRegionNacional.ToString() +
+                        "|" + origenOrden.CodigoDeProvincia.ToString() + "|" + origenOrden.CodigoDeLocalidad.ToString() +
+                        "|" + origenOrden.Direccion;  
+                }
+               
+                writer.WriteLine(linea);
+            }
+            writer.Close();
         }
-        */
-        /*private Localidad BuscarLocalidad(int codigoLocalidad)
-        {
-            return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
-        }*/
 
-       /* private Sucursal BuscarSucursal(int codigoSucursal)
-        {
-            return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
+            /*  private RegionNacional BuscarRegionNacional(int codigoRegNac)
+              {
+                  return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
 
-        }*/
+              }*/
 
-    }
+            /*private Provincia BuscarProvincia(int codigoProvincia)
+            {
+                return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
+            }
+            */
+            /*private Localidad BuscarLocalidad(int codigoLocalidad)
+            {
+                return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
+            }*/
+
+            /* private Sucursal BuscarSucursal(int codigoSucursal)
+             {
+                 return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
+
+             }*/
+
+        }
 }
