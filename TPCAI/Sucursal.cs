@@ -13,6 +13,8 @@ namespace TPCAI
         public int NroSucursal { get; private set; }
         public Localidad Localidad { get; set; }
         public string Direccion { get; set; }
+        public int CodigoDeProvincia { get; set; }
+        public int CodigoDeLocalidad { get; set; }
 
         static internal List<Sucursal> TodasLasSucursales { get; set; }
 
@@ -41,6 +43,18 @@ namespace TPCAI
         public static List<Sucursal> ListarSucursalesAsociadas(int codigoDeProvincia, int codigoDeLocalidad)
         {
             List<Sucursal> sucursales = new List<Sucursal>();
+
+            foreach (Sucursal sucursal in sucursales)
+            {
+                if (sucursal.CodigoDeProvincia == codigoDeProvincia && sucursal.CodigoDeLocalidad == codigoDeLocalidad)
+                {
+                    sucursales.Add(sucursal);
+                    continue;
+                }
+
+                continue;
+            }
+
             return sucursales;
         }
     }
