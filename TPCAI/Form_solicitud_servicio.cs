@@ -253,43 +253,50 @@ namespace TPCAI
                 }
 
                 string provinciaSeleccionada = cmb_provincia_origen.SelectedText;
-                foreach (Provincia p in Provincia.TodasLasProvincias)
+                /*foreach (Provincia p in Provincia.TodasLasProvincias)
                 {
                     if (p.NombreDeProvincia == provinciaSeleccionada)
                     {
                         origen_provincia = p;
                     }
-                }
+                    
+                }*/
+                //SolicitudesExistentes.Find(solicitud => solicitud.NumeroDeOrden == NumDeOrdenABuscar);
+                origen_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaSeleccionada);
 
                 string localidadSeleccionada = cmb_localidad_origen.SelectedText;
-                foreach (Localidad l in Localidad.LstLocalidades)
+                /*foreach (Localidad l in Localidad.LstLocalidades)
                 {
                     if (l.NombreDeLocalidad == localidadSeleccionada)
                     {
                         origen_localidad = l;
                     }
-                }
+                }*/
+                origen_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadSeleccionada);
 
                 if (rd_btn_retiro_domicilio.Checked)
                 {
                     origen_retiroEnDomicilio = true;
                     origen_entregaEnSucursal = false;
                     domicilio_origen = txt_domicilio_retirodomicilio.Text;
+                    sucursal_origen = null;
 
                 }
                 else
                 {
+                    domicilio_origen = null;
                     origen_retiroEnDomicilio = false;
                     origen_entregaEnSucursal = true;
 
                     string direccSucursalSeleccionada = cmb_sucursal_entregaensucursal_origen.SelectedText;
-                    foreach (Sucursal s in Sucursal.TodasLasSucursales)
+                    /*foreach (Sucursal s in Sucursal.TodasLasSucursales)
                     {
                         if (s.Direccion == direccSucursalSeleccionada)
                         {
                             sucursal_origen = s;
                         }
-                    }
+                    }*/
+                    sucursal_origen = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == direccSucursalSeleccionada);
                 }
 
                 if (chkbx_urgencia.Checked)
@@ -306,17 +313,13 @@ namespace TPCAI
                     esInternacional = true;
                     esNacional = false;
                     string paisSeleccionado = cmb_pais_internacional.SelectedText;
-                    foreach(Pais p in Pais.TodosLosPaises)
-                    {
-                        if (p.NombreDePais == paisSeleccionado)
-                        {
-                            pais = p;
-                        }
-                    }
+                    pais = Pais.TodosLosPaises.Find(pa => pa.NombreDePais == paisSeleccionado);
                     direccion_destino_internacional = txt_direccion_internacional.Text;
+                    destino_localidad = null;
                 }
                 else
                 {
+                    pais = null;
                     esInternacional = false;
                     esNacional = true;
 
@@ -330,13 +333,8 @@ namespace TPCAI
                     }
 
                     string localidadElegida = cmb_localidad_nacional.SelectedText;
-                    foreach (Localidad l in Localidad.LstLocalidades)
-                    {
-                        if (l.NombreDeLocalidad == localidadElegida)
-                        {
-                            destino_localidad = l;
-                        }
-                    }
+                    destino_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadElegida);
+
 
                     if (rd_btn_entrega_domicilio.Checked)
                     {
@@ -350,13 +348,14 @@ namespace TPCAI
                         entregaADomicilio_destino = false;
 
                         string sucursalElegida = cmb_sucursal_entregaensucursal_destino.SelectedText;
-                        foreach (Sucursal s in Sucursal.TodasLasSucursales)
+                        /*foreach (Sucursal s in Sucursal.TodasLasSucursales)
                         {
                             if (s.Direccion == sucursalElegida)
                             {
                                 sucursal_destino = s;
                             }
-                        }
+                        }*/
+                        sucursal_destino = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == sucursalElegida);
                     }
                 }
 
@@ -372,7 +371,7 @@ namespace TPCAI
                 Servicio nuevoServicio = Servicio.GrabarNuevoServicio();
 
                 //LLAMADO AL FORM DE CONFIRMACIÓN
-                Form_solicitud_servicio_confirmación form_de_confirmacion =   new Form_solicitud_servicio_confirmación();
+                Form_solicitud_servicio_confirmación form_de_confirmacion = new Form_solicitud_servicio_confirmación();
                 this.Visible = false;
 
                 //ACÁ LINKEAR LOS ELEMENTOS DEL FORM CON LA NUEVA SOLICITUD
