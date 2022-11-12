@@ -384,7 +384,7 @@ namespace TPCAI
                 this.Visible = false;
 
                 //ACÁ LINKEAR LOS ELEMENTOS DEL FORM CON LA NUEVA SOLICITUD
-                form_de_confirmacion._NroOrdenGenerada = nuevaSolicitud.NumeroDeOrden;
+                form_de_confirmacion._NroOrdenGenerada = nuevaSolicitud.NumeroDeOrden.ToString();
                 if (rd_btn_correspondencia.Checked)
                 {
                     form_de_confirmacion._TipoPaquete = "correspondencia";
@@ -412,7 +412,8 @@ namespace TPCAI
                 }
                 form_de_confirmacion._Origen = Origen.MostrarOrigen(origen_retiroEnDomicilio,origen_entregaEnSucursal, origen_prov_codRegionNacional, origen_prov_codProv, origeno_loc_codLoc,domicilio_origen, origen_suc_codSuc);
                 form_de_confirmacion._Destino = Destino.MostrarDestino(esNacional,esInternacional,entregaADomicilio_destino,entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);
-
+                form_de_confirmacion._Urgencia = Urgencia(nuevaSolicitud.EsUrgente);
+                form_de_confirmacion._Importe = nuevaSolicitud.Importe.ToString();
                 form_de_confirmacion.Show();
             }
         }
@@ -697,6 +698,20 @@ namespace TPCAI
         private void grp_tipo_servicio_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private string Urgencia(bool urgencia)
+        {
+            string salida = "";
+            if (urgencia == true)
+            {
+                salida = "Si";
+            }
+            else
+            {
+                salida = "No";
+            }
+            return salida;
         }
     }
 }

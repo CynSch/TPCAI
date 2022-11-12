@@ -28,9 +28,8 @@ namespace TPCAI
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
-            //SolicitudDeOrden solicitudDeOrden = BuscarOrden(_NroOrdenGenerada); //Lnikear nro de orden.
-
-            textBox_Orden.Text = _NroOrdenGenerada; //solicitudDeOrden.NumeroDeOrden.ToString(); //Mostrar Nro de Orden
+  
+            textBox_Orden.Text = _NroOrdenGenerada; 
             textBox_TPaquete.Text = _TipoPaquete;
             textBox_Peso.Text = _Peso;
             textBox_Ancho.Text = _Ancho;
@@ -39,28 +38,9 @@ namespace TPCAI
             textBoxT_Envio.Text = _TipoEnvio;
             textBox_Origen.Text = _Origen;
             textBox_Destino.Text = _Destino;
-            textBox_Urgencia.Text = _Urgencia; //Urgencia(solicitudDeOrden.EsUrgente);
-            textBox_Importe.Text = _Importe; // solicitudDeOrden.Importe.ToString();
+            textBox_Urgencia.Text = _Urgencia;
+            textBox_Importe.Text = _Importe; 
 
-        }
-        private SolicitudDeOrden BuscarOrden(int numeroOrden)
-        {
-
-            return SolicitudDeOrden.SolicitudesExistentes.Find(s => s.NumeroDeOrden == numeroOrden);
-        }
-
-        private string Urgencia(bool urgencia)
-        {
-            string salida = "";
-            if (urgencia == true)
-            {
-                salida = "Si";
-            }
-            else
-            {
-                salida = "No";
-            }
-            return salida;
         }
 
         private void Form_solicitud_servicio_confirmación_Load(object sender, EventArgs e){}
