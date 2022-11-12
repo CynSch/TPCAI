@@ -14,11 +14,13 @@ namespace TPCAI
 
             ArchivoTarifas.CargarTarifario();
             Factura.ListarFacturas();
+            SolicitudDeOrden.CargarSolicitudesExistentes();
             //Agregar metodos
         }
         public static void ActualizarArchivos()
         {
             //Llama a los metodos que sobreescriben los txt con las listas actualizadas
+            SolicitudDeOrden.GrabarSolicitudesEnArchivo();
 
         }
 
@@ -26,6 +28,7 @@ namespace TPCAI
         {
             //Llama a los metodos que crean los archivos txt por primera vez con los datos hardcodeados
             ArchivoTarifas.GrabarArchivo();
+            SolicitudDeOrden.CrearArchivo();
         }
     }
 }
