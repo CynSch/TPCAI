@@ -19,7 +19,7 @@ namespace TPCAI
         public string NombreDeRegionNacional { get; set; }
 
         public List<Provincia> Provincias { get; set; }
-        static internal List<RegionNacional> LstRegionesNacionales { get; set; }
+        static internal List<RegionNacional> LstRegionesNacionales = new List<RegionNacional>();
 
         public static void ListarRegiones()
         {
