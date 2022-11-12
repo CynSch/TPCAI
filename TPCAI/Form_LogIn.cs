@@ -38,21 +38,12 @@ namespace TPCAI
         {
             while (accesoPermitido)
             {
-                accesoPermitido = ClienteCorporativo.BuscarClienteCorporativo(validador)
+                accesoPermitido = ClienteCorporativo.BuscarClienteCorporativo(Validador.ChequearInt(txtUsuario.Text))
             }
 
-
-            if (txtUsuario.Text != "AndresPanitsch" || txtContraseña.Text != "soyprofesor")
-            {
-                MessageBox.Show("Usuario o contraseña incorrecto. Intente nuevamente");
-                return;
-            }
-            else
-            {
                 Menu elMenu = new Menu();
                 this.Hide();
                 elMenu.Show();
-            }
         }
 
         private void txtContraseña_TextChanged(object sender, EventArgs e)

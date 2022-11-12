@@ -78,7 +78,7 @@ namespace TPCAI
 
         internal static Servicio GrabarNuevoServicio(int numeroDeOrden, bool esEncomienda, bool esCorrespondencia ,decimal ancho, decimal largo, decimal alto, decimal peso)
         {
-            var nuevoServicio = new Servicio(int numeroDeOrden, bool esEncomienda, bool esCorrespondencia ,decimal ancho, decimal largo, decimal alto, decimal peso);
+            var nuevoServicio = new Servicio(numeroDeOrden, esEncomienda,  esCorrespondencia , ancho,  largo,  alto,  peso);
 
             LstServicios.Add(nuevoServicio);
 
