@@ -218,29 +218,40 @@ namespace TPCAI
                 long cuitCliente;
                 bool esEncomienda = false;
                 bool esCorrespondencia = false;
-                decimal peso;
-                decimal ancho;
-                decimal largo;
-                decimal alto;
+                decimal peso=0;
+                decimal ancho=0;
+                decimal largo=0;
+                decimal alto=0;
                 bool origen_retiroEnDomicilio = false;
                 bool origen_entregaEnSucursal = false;
-                string domicilio_origen;
-                Sucursal sucursal_origen;
+                string domicilio_origen="";
+                //Sucursal sucursal_origen;
                 bool esUrgente=false;
                 bool esInternacional = false ;
                 bool esNacional=false;
-                Pais pais;
-                string direccion_destino;
+                //Pais pais;
+                string direccion_destino="";
                 //string direccion_destino_internacional;
-                Provincia destino_provincia;
-                Localidad destino_localidad;
+                //Provincia destino_provincia;
+                //Localidad destino_localidad;
                 bool entregaADomicilio_destino=false;
                 bool entregaEnSucursal_destino=false;
                 //string direccion_destino_nacional;
-                Sucursal sucursal_destino=null;
-                Provincia origen_provincia;
-                Localidad origen_localidad;
+                //Sucursal sucursal_destino=null;
+                //Provincia origen_provincia;
+                //Localidad origen_localidad;
                 DateTime fecha = DateTime.Now;
+
+                int destino_pais_codRegionMundial = 0;
+                int destino_pais_codPais = 0;
+                int destino_prov_codRegionNacional = 0;
+                int destino_prov_codProv = 0;
+                int destino_loc_codLoc = 0;
+                int destino_suc_codSuc = 0;
+                int origen_prov_codRegionNacional = 0;
+                int origen_prov_codProv = 0;
+                int origeno_loc_codLoc = 0;
+                int origen_suc_codSuc = 0;
 
                 //ASIGNACIÓN DE INPUT A VARIABLES
                 if (rd_btn_encomienda.Checked)
@@ -263,16 +274,9 @@ namespace TPCAI
                 }
 
                 string provinciaSeleccionada = cmb_provincia_origen.Text;
-                /*foreach (Provincia p in Provincia.TodasLasProvincias)
-                {
-                    if (p.NombreDeProvincia == provinciaSeleccionada)
-                    {
-                        origen_provincia = p;
-                    }
-                    
-                }*/
-                //SolicitudesExistentes.Find(solicitud => solicitud.NumeroDeOrden == NumDeOrdenABuscar);
-                origen_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaSeleccionada);
+                Provincia origen_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaSeleccionada);
+                origen_prov_codProv = origen_provincia.CodigoDeProvincia;
+                origen_prov_codRegionNacional = origen_provincia.CodigoDeRegionNacional;
 
                 string localidadSeleccionada = cmb_localidad_origen.Text;
                 /*foreach (Localidad l in Localidad.LstLocalidades)
@@ -282,19 +286,20 @@ namespace TPCAI
                         origen_localidad = l;
                     }
                 }*/
-                origen_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadSeleccionada);
+                Localidad origen_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadSeleccionada);
+                origeno_loc_codLoc = origen_localidad.CodigoDeLocalidad;
 
                 if (rd_btn_retiro_domicilio.Checked)
                 {
                     origen_retiroEnDomicilio = true;
                     origen_entregaEnSucursal = false;
                     domicilio_origen = txt_domicilio_retirodomicilio.Text;
-                    sucursal_origen = null;
+                    origen_suc_codSuc = 0;
 
                 }
                 else
                 {
-                    domicilio_origen = null;
+                    domicilio_origen = "";
                     origen_retiroEnDomicilio = false;
                     origen_entregaEnSucursal = true;
 
@@ -306,7 +311,8 @@ namespace TPCAI
                             sucursal_origen = s;
                         }
                     }*/
-                    sucursal_origen = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == direccSucursalSeleccionada);
+                    Sucursal sucursal_origen = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == direccSucursalSeleccionada);
+                    origen_suc_codSuc = sucursal_origen.NroSucursal;
                 }
 
                 if (chkbx_urgencia.Checked)
@@ -323,36 +329,31 @@ namespace TPCAI
                     esInternacional = true;
                     esNacional = false;
                     string paisSeleccionado = cmb_pais_internacional.Text;
-                    pais = Pais.TodosLosPaises.Find(pa => pa.NombreDePais == paisSeleccionado);
+                    Pais pais = Pais.TodosLosPaises.Find(pa => pa.NombreDePais == paisSeleccionado);
+                    destino_pais_codPais = pais.CodigoDePais;
+                    destino_pais_codRegionMundial = pais.CodigoDeRegionMundial;
+
                     direccion_destino = txt_direccion_internacional.Text;
-                    destino_localidad = null;
-                    destino_provincia = null;
                 }
                 else
                 {
-                    pais = null;
                     esInternacional = false;
                     esNacional = true;
 
                     string provinciaElegida = cmb_provincia_nacional.Text;
-                    /*foreach (Provincia p in Provincia.TodasLasProvincias)
-                    {
-                        if (p.NombreDeProvincia == provinciaElegida)
-                        {
-                            destino_provincia = p;
-                        }
-                    }*/
-                    destino_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaElegida);
-                    string localidadElegida = cmb_localidad_nacional.Text;
-                    destino_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadElegida);
+                    Provincia destino_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaElegida);
+                    destino_prov_codProv = destino_provincia.CodigoDeProvincia;
+                    destino_prov_codRegionNacional = destino_provincia.CodigoDeRegionNacional;
 
+                    string localidadElegida = cmb_localidad_nacional.Text;
+                    Localidad destino_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadElegida);
+                    destino_loc_codLoc = destino_localidad.CodigoDeLocalidad;
 
                     if (rd_btn_entrega_domicilio.Checked)
                     {
                         entregaADomicilio_destino = true;
                         entregaEnSucursal_destino = false;
                         direccion_destino = txt_direccion_nacional.Text;
-                        sucursal_destino = null;
                     }
                     else
                     {
@@ -360,12 +361,12 @@ namespace TPCAI
                         entregaADomicilio_destino = false;
                         direccion_destino = null;
                         string sucursalElegida = cmb_sucursal_entregaensucursal_destino.Text;
-                        sucursal_destino = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == sucursalElegida);
+                        Sucursal sucursal_destino = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == sucursalElegida);
+                        destino_suc_codSuc = sucursal_destino.NroSucursal;
                     }
                 }
 
-                //decimal importe = Tarifa.CalcularImporte(esUrgente,esCorrespondencia,peso,origen_retiroEnDomicilio,entregaADomicilio_destino,origen_localidad.CodigoDeLocalidad,sucursal_origen.NroSucursal,esNacional,pais.CodigoDePais,destino_localidad.CodigoDeLocalidad);
-                decimal importe = 1000;
+                decimal importe = Tarifa.CalcularImporte(esUrgente, esCorrespondencia, peso, origen_retiroEnDomicilio, entregaADomicilio_destino, origeno_loc_codLoc, origen_suc_codSuc, esNacional, destino_pais_codPais, destino_loc_codLoc);
 
                 //cuitCliente = ClienteCorporativo.ClienteActual.CUIT;
                 cuitCliente = 24033020220;
@@ -373,10 +374,8 @@ namespace TPCAI
                 //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 
                 SolicitudDeOrden nuevaSolicitud = SolicitudDeOrden.GrabarNuevaSolicitud(cuitCliente,esUrgente,fecha,importe);
-                //Destino nuevoDestino = Destino.GrabarNuevoDestino(nuevaSolicitud.NumeroDeOrden,esInternacional,esNacional,entregaADomicilio_destino,entregaEnSucursal_destino,pais.CodigoDeRegionMundial,pais.CodigoDePais,destino_provincia.CodigoDeRegionNacional,destino_provincia.CodigoDeProvincia,destino_localidad.CodigoDeLocalidad,direccion_destino,sucursal_destino.NroSucursal);
-                Destino nuevoDestino = new Destino(nuevaSolicitud.NumeroDeOrden, esInternacional, esNacional, entregaADomicilio_destino, entregaEnSucursal_destino, pais.CodigoDeRegionMundial, pais.CodigoDePais, destino_provincia.CodigoDeRegionNacional, destino_provincia.CodigoDeProvincia, destino_localidad.CodigoDeLocalidad, direccion_destino, sucursal_destino.NroSucursal);
-               
-                Origen nuevoOrigen = Origen.GrabarNuevoOrigen(nuevaSolicitud.NumeroDeOrden, origen_retiroEnDomicilio, origen_entregaEnSucursal, origen_provincia.CodigoDeRegionNacional, origen_provincia.CodigoDeProvincia, origen_localidad.CodigoDeLocalidad, domicilio_origen, sucursal_origen.NroSucursal);  
+                Destino nuevoDestino = new Destino(nuevaSolicitud.NumeroDeOrden, esInternacional, esNacional, entregaADomicilio_destino, entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);            
+                Origen nuevoOrigen = Origen.GrabarNuevoOrigen(nuevaSolicitud.NumeroDeOrden, origen_retiroEnDomicilio, origen_entregaEnSucursal, origen_prov_codRegionNacional, origen_prov_codProv, origeno_loc_codLoc, domicilio_origen, origen_suc_codSuc);  
                 Servicio nuevoServicio = Servicio.GrabarNuevoServicio(nuevaSolicitud.NumeroDeOrden,esEncomienda,esCorrespondencia,ancho,largo,alto,peso);
 
                 //LLAMADO AL FORM DE CONFIRMACIÓN
@@ -410,8 +409,8 @@ namespace TPCAI
                 {
                     form_de_confirmacion._TipoEnvio = "Internacional";
                 }
-                form_de_confirmacion._Origen = Origen.MostrarOrigen(origen_retiroEnDomicilio,origen_entregaEnSucursal, origen_provincia.CodigoDeRegionNacional, origen_provincia.CodigoDeProvincia, origen_localidad.CodigoDeLocalidad,domicilio_origen, sucursal_origen.NroSucursal);
-                form_de_confirmacion._Destino = Destino.MostrarDestino(esNacional,esInternacional,entregaADomicilio_destino,entregaEnSucursal_destino, pais.CodigoDeRegionMundial, pais.CodigoDePais, destino_provincia.CodigoDeRegionNacional, destino_provincia.CodigoDeProvincia, destino_localidad.CodigoDeLocalidad, direccion_destino, sucursal_destino.NroSucursal);
+                form_de_confirmacion._Origen = Origen.MostrarOrigen(origen_retiroEnDomicilio,origen_entregaEnSucursal, origen_prov_codRegionNacional, origen_prov_codProv, origeno_loc_codLoc,domicilio_origen, origen_suc_codSuc);
+                form_de_confirmacion._Destino = Destino.MostrarDestino(esNacional,esInternacional,entregaADomicilio_destino,entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);
 
                 form_de_confirmacion.Show();
             }
