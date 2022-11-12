@@ -12,7 +12,7 @@ namespace TPCAI
 {
     public partial class Form_solicitud_servicio_confirmación : Form
     {
-        public int _NroOrdenGenerada;
+        public string _NroOrdenGenerada;
         public string _TipoPaquete;
         public string _Peso;
         public string _Ancho;
@@ -21,14 +21,16 @@ namespace TPCAI
         public string _TipoEnvio;
         public string _Origen;
         public string _Destino;
+        public string _Urgencia;
+        public string _Importe;
        
 
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
-            SolicitudDeOrden solicitudDeOrden = BuscarOrden(_NroOrdenGenerada); //Lnikear nro de orden.
+            //SolicitudDeOrden solicitudDeOrden = BuscarOrden(_NroOrdenGenerada); //Lnikear nro de orden.
 
-            textBox_Orden.Text = solicitudDeOrden.NumeroDeOrden.ToString(); //Mostrar Nro de Orden
+            textBox_Orden.Text = _NroOrdenGenerada; //solicitudDeOrden.NumeroDeOrden.ToString(); //Mostrar Nro de Orden
             textBox_TPaquete.Text = _TipoPaquete;
             textBox_Peso.Text = _Peso;
             textBox_Ancho.Text = _Ancho;
@@ -37,8 +39,8 @@ namespace TPCAI
             textBoxT_Envio.Text = _TipoEnvio;
             textBox_Origen.Text = _Origen;
             textBox_Destino.Text = _Destino;
-            textBox_Urgencia.Text = Urgencia(solicitudDeOrden.EsUrgente);
-            textBox_Importe.Text = solicitudDeOrden.Importe.ToString();
+            textBox_Urgencia.Text = _Urgencia; //Urgencia(solicitudDeOrden.EsUrgente);
+            textBox_Importe.Text = _Importe; // solicitudDeOrden.Importe.ToString();
 
         }
         private SolicitudDeOrden BuscarOrden(int numeroOrden)
