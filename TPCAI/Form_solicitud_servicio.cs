@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -108,7 +109,8 @@ namespace TPCAI
 
         private void cmb_localidad_nacional_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            rd_btn_entrega_domicilio.Enabled = true;
+            rd_btn_destino_entrega_sucursal.Enabled = true;
         }
 
         private void Grp_Destino_Enter(object sender, EventArgs e)
@@ -630,6 +632,9 @@ namespace TPCAI
         private void cmb_localidad_origen_SelectedIndexChanged(object sender, EventArgs e)
         {
             Localidad localidad_origen = (Localidad)cmb_localidad_origen.SelectedItem;
+            rd_btn_retiro_domicilio.Enabled = true;
+            rd_btn_origen_entrega_sucursal.Enabled = true;
+
         }
 
         private void grp_tipo_servicio_Enter(object sender, EventArgs e)

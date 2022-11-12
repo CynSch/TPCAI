@@ -681,6 +681,7 @@ namespace TPCAI
             // rd_btn_entrega_domicilio
             // 
             this.rd_btn_entrega_domicilio.AutoSize = true;
+            this.rd_btn_entrega_domicilio.Enabled = false;
             this.rd_btn_entrega_domicilio.Location = new System.Drawing.Point(44, 22);
             this.rd_btn_entrega_domicilio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rd_btn_entrega_domicilio.Name = "rd_btn_entrega_domicilio";
@@ -714,6 +715,7 @@ namespace TPCAI
             // rd_btn_destino_entrega_sucursal
             // 
             this.rd_btn_destino_entrega_sucursal.AutoSize = true;
+            this.rd_btn_destino_entrega_sucursal.Enabled = false;
             this.rd_btn_destino_entrega_sucursal.Location = new System.Drawing.Point(48, 157);
             this.rd_btn_destino_entrega_sucursal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rd_btn_destino_entrega_sucursal.Name = "rd_btn_destino_entrega_sucursal";
