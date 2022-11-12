@@ -17,16 +17,14 @@ namespace TPCAI
         //Propiedades
         public int NumeroDeOrden { get; private set; }
         public int IDDeServicio { get; set; }
-        public int CUITCliente { get; set; }
-        public string Origen { get; set; }
-        public string Destino { get; set; }
+        public long CUITCliente { get; set; }
         public bool EsUrgente { get; set; }
         public int CodigoDeEstado { get; set; }
         public DateTime Fecha { get; private set; }
         public decimal Importe { get; set; }
         public int NumeroDeFactura { get; set; }
 
-        static internal List<SolicitudDeOrden> SolicitudesExistentes { get; set; }
+        static internal List<SolicitudDeOrden> SolicitudesExistentes = new List<SolicitudDeOrden>();
 
         //Métodos
         internal static void CargarSolicitudesExistentes()
@@ -36,7 +34,10 @@ namespace TPCAI
             //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado|nroFactura"
 
             //Primero vacío la lista, por las dudas.
-            SolicitudesExistentes.Clear();
+            if (SolicitudesExistentes.Count > 0)
+            {
+                SolicitudesExistentes.Clear();
+            }
 
             //reocrro linea por linea del archivo, y voy agregando a la lista de solicitudes existentes. 
             var archivoSolicitudes = new StreamReader("Solicitudes.txt");
@@ -47,7 +48,7 @@ namespace TPCAI
 
                 var solicitud = new SolicitudDeOrden();
                 solicitud.NumeroDeOrden = int.Parse(datosSeparados[0]);
-                solicitud.CUITCliente = int.Parse(datosSeparados[1]);
+                solicitud.CUITCliente = long.Parse(datosSeparados[1]);
                 solicitud.EsUrgente = bool.Parse(datosSeparados[2]);
                 solicitud.Fecha = DateTime.Parse(datosSeparados[3]);
                 solicitud.Importe = decimal.Parse(datosSeparados[4]);
@@ -56,6 +57,8 @@ namespace TPCAI
 
                 //Agrego la solicitud a la lista.
                 SolicitudDeOrden.SolicitudesExistentes.Add(solicitud);
+
+                archivoSolicitudes.Close();
             }
         }
 
@@ -83,33 +86,21 @@ namespace TPCAI
             return SolicitudesExistentes.Find(solicitud => solicitud.NumeroDeOrden == NumDeOrdenABuscar);
         }
 
-        public static List<SolicitudDeOrden> ListarOrdenesPendientesDeFacturacion(int cuit_cliente)
+        public static List<SolicitudDeOrden> ListarOrdenesPendientesDeFacturacion(long cuit_cliente)
         //Devuelve una lista de órdenes pendientes de facturación
         {
             //Creo una lista vacía que sirva para almacenar las órdenes pendientes de facturacion de un cliente
             List<SolicitudDeOrden> OrdenesPendientesDeFacturacion = new List<SolicitudDeOrden>();
 
-            //Agrego a la lista todas las solicitudes del cliente
+            //Pongo en la lista aquellas órdenes del cliente que tienen factura=0
             foreach (SolicitudDeOrden sol in SolicitudesExistentes)
             {
-                if (sol.CUITCliente == cuit_cliente)
+                if (sol.CUITCliente == cuit_cliente && sol.NumeroDeFactura == 0)
                 {
                     OrdenesPendientesDeFacturacion.Add(sol);
                 }
             }
 
-            //Saco de la lista las ordenes que tienen factura asociada
-            //Para cada orden, hay que chequear que exista una factura con la orden incluida 
-            foreach (SolicitudDeOrden sol in OrdenesPendientesDeFacturacion)
-            {
-                foreach (Factura fact in Factura.FacturasExistentes)
-                {
-                    if (fact.OrdenesAsociadas.Contains(sol))
-                    {
-                        OrdenesPendientesDeFacturacion.Remove(sol);
-                    }
-                }
-            }
             return OrdenesPendientesDeFacturacion;
         }
         public static string BuscarEstadoDeOrden(int NumDeOrdenABuscar)
@@ -152,7 +143,7 @@ namespace TPCAI
             return EstadoDeLaOrden;
         }
 
-        internal static SolicitudDeOrden GrabarNuevaSolicitud(int cUITCliente,bool esUrgente,DateTime fecha,decimal importe)
+        internal static SolicitudDeOrden GrabarNuevaSolicitud(long cUITCliente,bool esUrgente,DateTime fecha,decimal importe)
         //Este método se tiene que ejecutar cuando hacemos click en "confirmar" la solicitud
         //La nueva solicitud se agrega a la lista SolicitudesExistentes
         {
@@ -161,9 +152,10 @@ namespace TPCAI
             nuevaSolicitud.NumeroDeOrden = GenerarNumeroDeOrden();
             nuevaSolicitud.CUITCliente = cUITCliente; //Hay que ver cómo averiguarlo. 
             nuevaSolicitud.EsUrgente = esUrgente;
-            nuevaSolicitud.Fecha = fecha; 
+            nuevaSolicitud.Fecha = fecha;
             nuevaSolicitud.Importe = importe; //El método calcular lo llama el form. 
             nuevaSolicitud.CodigoDeEstado = 1; //Por default, arranca en el estado 1.
+            nuevaSolicitud.NumeroDeFactura = 0; //cuando se crea, todavía no está facturado. 
 
             SolicitudesExistentes.Add(nuevaSolicitud);
 
@@ -179,11 +171,10 @@ namespace TPCAI
             foreach (SolicitudDeOrden sol in SolicitudesExistentes)
             {
                 //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado|nroFactura"
-                string linea = sol.NumeroDeOrden.ToString() + "|"
-                    + sol.CUITCliente.ToString() + "|"
-                    + sol.EsUrgente + "|" + sol.Fecha + "|" 
-                    + sol.Importe.ToString() + "|" + sol.CodigoDeEstado.ToString() 
-                    + sol.NumeroDeFactura.ToString();
+                string linea = sol.NumeroDeOrden + "|"
+                    + sol.CUITCliente + "|"
+                    + sol.EsUrgente + "|" + sol.Fecha + "|"
+                    + sol.Importe + "|" + sol.CodigoDeEstado + "|" + sol.NumeroDeFactura;
                 writer.WriteLine(linea);
             }
             writer.Close();
