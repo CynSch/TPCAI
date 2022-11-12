@@ -17,6 +17,7 @@ namespace TPCAI
             SolicitudDeOrden.CargarSolicitudesExistentes();
             Destino.CargarDestinoExistentes();
             EstadoDeOrden.CargarEstados();
+            RegionMundial.CargarRegionesMundiales();
             //Agregar metodos
         }
         public static void ActualizarArchivos()
@@ -32,6 +33,7 @@ namespace TPCAI
             ArchivoTarifas.GrabarArchivo();
             SolicitudDeOrden.CrearArchivo();
             EstadoDeOrden.CrearArchivo();
+            RegionMundial.CrearArchivo();
             
         }
     }

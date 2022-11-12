@@ -26,7 +26,7 @@ namespace TPCAI
         public RegionMundial() { }
      
         // Metodos
-        public void CargarRegionesMundiales()
+        internal static void CargarRegionesMundiales()
         {
             //Cargo las regiones mundiales desde el archivo a la lista RegionesMundiales para que esten en memoria
             var archivoRegionMundial = new StreamReader($@"{Environment.CurrentDirectory}\RegionesMundiales.txt");
