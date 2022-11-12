@@ -48,7 +48,11 @@ namespace TPCAI
 
         //Metodos
 
-        
+        private Destino BuscarDestino(int nroOrden)
+        {
+            return DestinosExistentes.Find(d => d.NumeroDeOrden == nroOrden);
+        }
+
         public static string MostrarDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal, int codigoDeRegionMundial,
             int codigoPais, int codigoRegionNacional, int codigoProvincia, int CodigoLocalidad, string direccion, int nroSucursal)
         {

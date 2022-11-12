@@ -91,10 +91,7 @@ namespace TPCAI
                 return destinoAMostrar;
 
         }
-        private Destino BuscarDestino(int nroOrden)
-        {
-            return Destino.DestinosExistentes.Find(d => d.NumeroDeOrden == nroOrden);
-        }
+
         private void btnMenu(object sender, EventArgs e)
         {
             this.Visible = false;
