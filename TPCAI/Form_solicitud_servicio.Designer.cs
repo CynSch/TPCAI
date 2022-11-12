@@ -154,8 +154,6 @@ namespace TPCAI
             // chkbx_urgencia
             // 
             this.chkbx_urgencia.AutoSize = true;
-            this.chkbx_urgencia.Checked = true;
-            this.chkbx_urgencia.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkbx_urgencia.Location = new System.Drawing.Point(140, 27);
             this.chkbx_urgencia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkbx_urgencia.Name = "chkbx_urgencia";

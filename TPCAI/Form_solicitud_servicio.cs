@@ -478,8 +478,6 @@ namespace TPCAI
             //cmb_region_internacional.Enabled = false;
             cmb_pais_internacional.Enabled = false;
             txt_direccion_internacional.Enabled = false;
-            rd_btn_entrega_domicilio.Enabled = true;
-            rd_btn_destino_entrega_sucursal.Enabled = true;
             cmb_sucursal_entregaensucursal_destino.Enabled = true;
             lbl_direccion_nacional.Enabled = true;
             lbl_sucursal_entregaensucursal_destino.Enabled = true;
