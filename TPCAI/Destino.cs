@@ -128,14 +128,61 @@ namespace TPCAI
                 destinoExistente.EsNacional = bool.Parse(datosSeparados[2]);
                 destinoExistente.EntregaEnDomicilio = bool.Parse(datosSeparados[3]);
                 destinoExistente.EntregaEnSucursal = bool.Parse(datosSeparados[4]);
-                destinoExistente.CodigoDeRegionMundial = int.Parse(datosSeparados[5]);
-                destinoExistente.CodigoDePais = int.Parse(datosSeparados[6]);
-                destinoExistente.CodigoDeRegionNacional = int.Parse(datosSeparados[7]);
-                destinoExistente.CodigoDeProvincia = int.Parse(datosSeparados[8]);
-                destinoExistente.CodigoDeLocalidad = int.Parse(datosSeparados[9]);
+                //Puede ser null
+                if (datosSeparados[5] != "null")
+                {
+                    destinoExistente.CodigoDeRegionMundial = int.Parse(datosSeparados[5]);
+                }
+                else
+                {
+                    destinoExistente.CodigoDeRegionMundial = 0;
+                }
+                //Puede ser null
+                if (datosSeparados[6] != "null")
+                {
+                    destinoExistente.CodigoDePais = int.Parse(datosSeparados[6]);
+                }
+                else
+                {
+                    destinoExistente.CodigoDePais= 0;
+                }
+                //Puede ser null
+                if (datosSeparados[7] != "null")
+                {
+                    destinoExistente.CodigoDeRegionNacional = int.Parse(datosSeparados[7]);
+                }
+                else
+                {
+                    destinoExistente.CodigoDeRegionNacional = 0;
+                }
+                //Puede ser null
+                if (datosSeparados[8] != "null")
+                {
+                    destinoExistente.CodigoDeProvincia = int.Parse(datosSeparados[8]);
+                }
+                else
+                {
+                    destinoExistente.CodigoDeProvincia = 0;
+                }
+                //Puede ser null
+                if (datosSeparados[9] != "null")
+                {
+                    destinoExistente.CodigoDeLocalidad = int.Parse(datosSeparados[9]);
+                }
+                else
+                {
+                    destinoExistente.CodigoDeLocalidad = 0;
+                }
                 destinoExistente.Direccion = datosSeparados[10];
-                destinoExistente.NroSucursal = int.Parse(datosSeparados[11]);
-
+                //Puede ser null
+                if (datosSeparados[11] != "null")
+                {
+                    destinoExistente.NroSucursal = int.Parse(datosSeparados[11]);
+                }
+                else
+                {
+                    destinoExistente.NroSucursal = 0;
+                }
                 //Agrego el destino a la lista.
                 Destino.DestinosExistentes.Add(destinoExistente);
             }
