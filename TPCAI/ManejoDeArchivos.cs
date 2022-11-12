@@ -28,6 +28,9 @@ namespace TPCAI
         {
             //Llama a los metodos que sobreescriben los txt con las listas actualizadas
             SolicitudDeOrden.GrabarSolicitudesEnArchivo();
+            Factura.GrabarFacturasEnArchivo();
+            Pais.GrabarPaisesEnArchivo();
+            Sucursal.GrabarPaisesEnArchivo();
             Destino.GrabarDestino();
             Servicio.GrabarNuevoServicioEnArchivo();
         }

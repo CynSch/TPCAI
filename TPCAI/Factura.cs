@@ -11,6 +11,7 @@ namespace TPCAI
     {
 
         //Propiedades
+
         public int NroFactura { get; private set; }
         public decimal Monto { get; set; }
         public DateTime FechaFactura { get; set; }
@@ -46,7 +47,7 @@ namespace TPCAI
             }
         }
 
-        internal static void GrabarSolicitudesEnArchivo()
+        internal static void GrabarFacturasEnArchivo()
         {
             //Actualiza archivo
 
@@ -59,6 +60,78 @@ namespace TPCAI
                     + f.Monto + "|"
                     + f.FechaFactura + "|" + f.EstaPaga + "|"
                     + f.CUIT;
+                writer.WriteLine(linea);
+            }
+            writer.Close();
+        }
+
+
+        internal static void CrearArchivo()
+        {
+            //Creo una lista para guardar las facturas
+            List<Factura> FacturasACargar = new List<Factura>();
+
+
+            //nrofac, monto, fechafac, estapaga, cuit
+
+            //YYYY, MM, DD
+            //Creo objetos "solicitud"
+            var e1 = new Factura();
+            e1.NroFactura = 6000;
+            e1.Monto = 3500;
+            e1.FechaFactura = new DateTime(2022,1,1);
+            e1.EstaPaga = true;
+            e1.CUIT = 27420744817;
+
+            var e2 = new Factura();
+            e2.NroFactura = 6001;
+            e2.Monto = 4200;
+            e2.FechaFactura = new DateTime(2022,5,1);
+            e2.EstaPaga = true;
+            e2.CUIT = 27430742117;
+
+            var e3 = new Factura();
+            e3.NroFactura = 6002;
+            e3.Monto = 5250;
+            e3.FechaFactura = new DateTime(2022, 5, 1);
+            e3.EstaPaga = false;
+            e3.CUIT = 27420744817;
+
+            var e4 = new Factura();
+            e4.NroFactura = 6003;
+            e4.Monto = 8250;
+            e4.FechaFactura = new DateTime(2022, 7, 1);
+            e4.EstaPaga = true;
+            e4.CUIT = 27430742117;
+
+            var e5 = new Factura();
+            e5.NroFactura = 6004;
+            e5.Monto = 11250;
+            e5.FechaFactura = new DateTime(2022, 29, 1);
+            e5.EstaPaga = true;
+            e5.CUIT = 27430742117;
+
+
+
+
+
+
+
+
+
+            //Agrego las solicitudes en la lista
+            EstadosACargar.Add(e1);
+            EstadosACargar.Add(e2);
+            EstadosACargar.Add(e3);
+            EstadosACargar.Add(e4);
+            EstadosACargar.Add(e5);
+
+            //Paso cada item de la lista al archivo
+            StreamWriter writer = File.CreateText("Estados.txt");
+            foreach (EstadoDeOrden e in EstadosACargar)
+            {
+                //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado|nroFactura"
+                string linea = e.CodigoDeEstado + "|" + e.Descripcion;
                 writer.WriteLine(linea);
             }
             writer.Close();

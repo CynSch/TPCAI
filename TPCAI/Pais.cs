@@ -62,7 +62,7 @@ namespace TPCAI
             return Pais.TodosLosPaises.Find(pais => pais.CodigoDePais == codigoPais);
         }
 
-        internal static void GrabarSolicitudesEnArchivo()
+        internal static void GrabarPaisesEnArchivo()
         {
             //Actualiza archivo
 
