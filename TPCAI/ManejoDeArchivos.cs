@@ -16,6 +16,7 @@ namespace TPCAI
             Factura.ListarFacturas();
             SolicitudDeOrden.CargarSolicitudesExistentes();
             Destino.CargarDestinoExistentes();
+            Origen.CargarOrigenOrdenesExistentes();
             EstadoDeOrden.CargarEstados();
             RegionMundial.CargarRegionesMundiales();
             ClienteCorporativo.CargarCLientes();
@@ -33,6 +34,7 @@ namespace TPCAI
             Sucursal.GrabarPaisesEnArchivo();
             Destino.GrabarDestino();
             Servicio.GrabarNuevoServicioEnArchivo();
+            Origen.GrabarOrigen();
         }
 
         public static void CrearArchivos()
@@ -46,6 +48,7 @@ namespace TPCAI
             Localidad.CrearArchivo();
             RegionNacional.CrearArchivo();
             Destino.CrearArchivo();
+            Origen.CrearArchivo();
             
         }
     }
