@@ -35,6 +35,7 @@ namespace TPCAI
             Destino.GrabarDestino();
             Servicio.GrabarNuevoServicioEnArchivo();
             Origen.GrabarOrigen();
+            ArchivoTarifas.GrabarArchivo();
         }
 
         public static void CrearArchivos()
@@ -49,6 +50,7 @@ namespace TPCAI
             RegionNacional.CrearArchivo();
             Destino.CrearArchivo();
             Origen.CrearArchivo();
+            RangoDePeso.CrearRangosIniciales();
             
         }
     }
