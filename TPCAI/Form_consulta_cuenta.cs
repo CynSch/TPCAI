@@ -16,7 +16,6 @@ namespace TPCAI
         public Form_consulta_cuenta()
         {
             InitializeComponent();
-            MostrarDatos();
         }
 
         public void MostrarDatos()
@@ -31,24 +30,36 @@ namespace TPCAI
             // listado de facturas: 
             ListadoFacturas.FullRowSelect = true;
 
-            foreach (Factura factura in Factura.FacturasExistentes)
+            int fila = 0;
+            while (fila < Factura.FacturasExistentes.Count())
             {
-                if (factura.CUIT == ClienteCorporativo.ClienteActual.CUIT)
+                foreach (Factura factura in Factura.FacturasExistentes)
                 {
-                    string Paga = "";
-                    if (factura.EstaPaga == true)
+                    if (factura.CUIT == ClienteCorporativo.ClienteActual.CUIT)
                     {
-                        Paga = "Paga";
+                        if (factura.EstaPaga == true)
+                        {
+                            ListViewItem facturaN = new ListViewItem(factura.NroFactura.ToString());
+                            facturaN.SubItems.Add(factura.Monto.ToString());
+                            facturaN.SubItems.Add(factura.FechaFactura.ToString());
+                            facturaN.SubItems.Add("Paga");
+                            ListadoFacturas.Items.Add(facturaN);
+                        }
+                        else
+                        {
+                            ListViewItem facturaN = new ListViewItem(factura.NroFactura.ToString());
+                            facturaN.SubItems.Add(factura.Monto.ToString());
+                            facturaN.SubItems.Add(factura.FechaFactura.ToString());
+                            facturaN.SubItems.Add("Impaga");
+                            ListadoFacturas.Items.Add(facturaN);
+                        }
+                        fila++;
                     }
                     else
                     {
-                        Paga = "Impaga";
+                        fila++;
+                        continue;
                     }
-                    ListViewItem facturaN = new ListViewItem(factura.NroFactura.ToString());
-                    facturaN.SubItems.Add(factura.Monto.ToString());
-                    facturaN.SubItems.Add(factura.FechaFactura.ToString());
-                    facturaN.SubItems.Add(Paga);
-                    ListadoFacturas.Items.Add(facturaN);
                 }
             }
 
@@ -67,7 +78,14 @@ namespace TPCAI
                         ListViewItem ordenN = new ListViewItem(orden.NumeroDeOrden.ToString()); //nro
                         ordenN.SubItems.Add(orden.Importe.ToString());  //monto
                         ordenN.SubItems.Add(orden.Fecha.ToString()); //fecha
-                        ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).Direccion); //destino
+                        if (Destino.BuscarDestino(orden.NumeroDeOrden).EntregaEnDomicilio == true)
+                        {
+                            ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).Direccion); //destino
+                        }
+                        else
+                        {
+                            ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal.ToString()); //Sucursal
+                        }
                         PendientesFacturacion.Items.Add(ordenN);
                     }
                 }
@@ -78,14 +96,10 @@ namespace TPCAI
         private void BtnDetalleFactura_Click(object sender, EventArgs e)
         {
             ListadoFacturas.FullRowSelect = true;
-            string item = ListadoFacturas.SelectedItems.ToString();
-
-            MessageBox.Show(item);
-        
-                  // var FC = new CuentaCorrienteServiciosFacturados();
-                  // FC.Show();
-                  // FC.MostrarDatos();
-            
+            string idfacturaseleccionada = ListadoFacturas.SelectedItems[0].SubItems[0].Text;
+            var FC = new CuentaCorrienteServiciosFacturados();
+            FC.Show();
+            FC.MostrarDatos(idfacturaseleccionada);
         }
 
         //volver al menu principal
@@ -111,22 +125,17 @@ namespace TPCAI
 
         }
 
-        private void ListadoFacturas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form_consulta_cuenta_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ListadoFacturas_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void ListadoFacturas_SelectedIndexChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListadoFacturas_MouseClick(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

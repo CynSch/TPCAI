@@ -17,29 +17,42 @@ namespace TPCAI
             InitializeComponent();
         }
 
-        public void MostrarDatos()
+        public void MostrarDatos(string idfacturaseleccionada)
         {
-            TxtFactura.Text = "0934567";
+            TxtFactura.Text = idfacturaseleccionada;
 
-            ListViewItem Orden1 = new ListViewItem("1111116485");
-            Orden1.SubItems.Add("01/09/2022");
-            Orden1.SubItems.Add("Nicolas Avellaneda 2520, San Fernando, Buenos Aires");
-            Orden1.SubItems.Add("$15.000");
-            listView1.Items.Add(Orden1);
+            foreach (SolicitudDeOrden orden in SolicitudDeOrden.SolicitudesExistentes)
+            {
+                if (orden.CUITCliente == ClienteCorporativo.ClienteActual.CUIT)
+                {
+                    if (orden.NumeroDeFactura == int.Parse(idfacturaseleccionada))
+                    {
+                        ListViewItem ordenN = new ListViewItem(orden.NumeroDeOrden.ToString()); //nro
+                        ordenN.SubItems.Add(orden.Fecha.ToString()); //fecha
+                        if (Destino.BuscarDestino(orden.NumeroDeOrden).EntregaEnDomicilio == true)
+                        {
+                            ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).Direccion); //destino
+                        }
+                        else
+                        {
+                            ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal.ToString()); //Sucursal
+                        }
+                        ordenN.SubItems.Add(orden.Importe.ToString());  //monto
+                        lvordenesxfactura.Items.Add(ordenN);
+                    }
+                }
+            }
+            lvordenesxfactura.Sorting = SortOrder.Ascending;
 
-            ListViewItem Orden2 = new ListViewItem("1111116486");
-            Orden2.SubItems.Add("05/09/2022");
-            Orden2.SubItems.Add("Belgrano 2577, Victoria, Buenos Aires");
-            Orden2.SubItems.Add("$5.000");
-            listView1.Items.Add(Orden2);
-
-            ListViewItem Orden3 = new ListViewItem("1111116489");
-            Orden3.SubItems.Add("12/09/2022");
-            Orden3.SubItems.Add("Avenida Cazon 4849, Tigre, Buenos Aires");
-            Orden3.SubItems.Add("$35.000");
-            listView1.Items.Add(Orden3);
-
-            TxtImporteTotal.Text = "$55.000"; 
+            decimal importefactura = 0;
+            foreach (Factura factura in Factura.FacturasExistentes)
+            {
+                if (factura.NroFactura == int.Parse(idfacturaseleccionada))
+                {
+                    importefactura = factura.Monto;
+                }
+            }
+            TxtImporteTotal.Text = importefactura.ToString(); 
 
 
         }
@@ -49,6 +62,11 @@ namespace TPCAI
             this.Visible = false;
             this.Close();
             
+        }
+
+        private void lvordenesxfactura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

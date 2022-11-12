@@ -75,7 +75,7 @@
             this.ListadoFacturas.TabIndex = 2;
             this.ListadoFacturas.UseCompatibleStateImageBehavior = false;
             this.ListadoFacturas.View = System.Windows.Forms.View.Details;
-            this.ListadoFacturas.SelectedIndexChanged += new System.EventHandler(this.ListadoFacturas_SelectedIndexChanged_2);
+            this.ListadoFacturas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListadoFacturas_MouseClick);
             // 
             // NFactura
             // 
@@ -109,6 +109,7 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de facturas:";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // BtnDetalleFactura
             // 
