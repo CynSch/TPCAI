@@ -16,7 +16,7 @@ namespace TPCAI
         public int CodigoDeProvincia { get; set; }
         public int CodigoDeLocalidad { get; set; }
 
-        static internal List<Sucursal> TodasLasSucursales { get; set; }
+        static internal List<Sucursal> TodasLasSucursales = new List<Sucursal>();
 
 
         //Métodos

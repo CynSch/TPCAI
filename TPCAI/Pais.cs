@@ -16,7 +16,7 @@ namespace TPCAI
         public string NombreDePais { get; set; }
         public int CodigoDeRegionMundial { get; set; }
 
-        static internal List<Pais> TodosLosPaises { get; set; }
+        static internal List<Pais> TodosLosPaises = new List<Pais>();
 
 
         //Métodos

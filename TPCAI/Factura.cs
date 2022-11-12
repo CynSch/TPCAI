@@ -20,7 +20,7 @@ namespace TPCAI
         public List<SolicitudDeOrden> OrdenesAsociadas = new List<SolicitudDeOrden>();
 
         
-        static public List<Factura> FacturasExistentes { get; set; }
+        static public List<Factura> FacturasExistentes { get; set; } = new List<Factura>();
         //
 
         //Métodos
@@ -47,5 +47,23 @@ namespace TPCAI
 
             }
         }
-}
+
+        internal static void GrabarSolicitudesEnArchivo()
+        {
+            //Actualiza archivo
+
+            StreamWriter writer = File.CreateText("Facturas.txt");
+
+            foreach (Factura f in FacturasExistentes)
+            {
+
+                string linea = f.NroFactura + "|"
+                    + f.Monto + "|"
+                    + f.FechaFactura + "|" + f.EstaPaga + "|"
+                    + f.CUIT;
+                writer.WriteLine(linea);
+            }
+            writer.Close();
+        }
+    }
     }
