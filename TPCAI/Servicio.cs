@@ -60,7 +60,7 @@ namespace TPCAI
 
 
 
-        public static List<Servicio> LstServicios { get; set; }
+        public static List<Servicio> LstServicios = new List<Servicio>();
 
 
         public static void CargarServicios()

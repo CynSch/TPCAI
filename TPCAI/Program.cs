@@ -30,7 +30,9 @@ namespace TPCAI
             //Abrir login.....
             ManejoDeArchivos.ActualizarArchivos();
             */
-            Application.Run(Form_solicitud_servicio);
+            //Application.Run(Form_solicitud_servicio);
+            ClienteCorporativo.CargarCLientes();
+            Application.Run(new Form_LogIn());
         }
     }
 }
