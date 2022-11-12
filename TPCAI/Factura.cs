@@ -18,11 +18,9 @@ namespace TPCAI
         public bool EstaPaga { get; set; }
         public long CUIT { get; set; }
         public List<SolicitudDeOrden> OrdenesAsociadas = new List<SolicitudDeOrden>();
-
-        
-        static public List<Factura> FacturasExistentes { get; set; } = new List<Factura>();
-        //
-
+    
+        static public List<Factura> FacturasExistentes = new List<Factura>();
+    
         //Métodos
         internal static void ListarFacturas() //Lista las sucursales del txt
         {
