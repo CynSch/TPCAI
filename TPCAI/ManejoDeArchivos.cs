@@ -51,6 +51,7 @@ namespace TPCAI
             Destino.CrearArchivo();
             Origen.CrearArchivo();
             RangoDePeso.CrearRangosIniciales();
+            Servicio.CrearArchivo();
             
         }
     }
