@@ -16,66 +16,78 @@ namespace TPCAI
         public Form_consulta_cuenta()
         {
             InitializeComponent();
-        }
-
-        public string MostrarSaldo()
-        {
-           var saldo = "$172.130";
-           return saldo; 
+            MostrarDatos();
         }
 
         public void MostrarDatos()
         {
             //CUIT del cliente
-            lbl_CUIT.Text = "CUIT = 30-99998888-2";
+            lbl_CUIT.Text = "CUIT = " + ClienteCorporativo.ClienteActual.CUIT.ToString();
 
             // saldo de cuenta corriente
-            var saldo = MostrarSaldo();
+            var saldo = "$" + ClienteCorporativo.ClienteActual.Saldo.ToString();
             textBox1.Text = saldo;
 
             // listado de facturas: 
             ListadoFacturas.FullRowSelect = true;
 
-
-            ListViewItem factura2 = new ListViewItem("0934567");
-            factura2.SubItems.Add("$55.000");
-            factura2.SubItems.Add("15/06/2022");
-            factura2.SubItems.Add("Paga");
-            ListadoFacturas.Items.Add(factura2);
-
-
+            foreach (Factura factura in Factura.FacturasExistentes)
+            {
+                if (factura.CUIT == ClienteCorporativo.ClienteActual.CUIT)
+                {
+                    string Paga = "";
+                    if (factura.EstaPaga == true)
+                    {
+                        Paga = "Paga";
+                    }
+                    else
+                    {
+                        Paga = "Impaga";
+                    }
+                    ListViewItem facturaN = new ListViewItem(factura.NroFactura.ToString());
+                    facturaN.SubItems.Add(factura.Monto.ToString());
+                    facturaN.SubItems.Add(factura.FechaFactura.ToString());
+                    facturaN.SubItems.Add(Paga);
+                    ListadoFacturas.Items.Add(facturaN);
+                }
+            }
 
             ListadoFacturas.Sorting = SortOrder.Ascending;
 
             // ordenes pendientes de facturacion
-            ListViewItem orden = new ListViewItem("1111111111");
-            orden.SubItems.Add("$15.630");
-            orden.SubItems.Add("14/10/2022");
-            orden.SubItems.Add("Pedro J. Frías 1080, 5220 Jesus María, Córdoba");
-            PendientesFacturacion.Items.Add(orden);
-
-            ListViewItem orden1 = new ListViewItem("1111111163");
-            orden1.SubItems.Add("$18.600");
-            orden1.SubItems.Add("14/10/2022");
-            orden1.SubItems.Add("San Martín 1002, B7000GKV Tandil, Provincia de Buenos Aires");
-            PendientesFacturacion.Items.Add(orden1);
-
-            ListViewItem orden2 = new ListViewItem("1111214583");
-            orden2.SubItems.Add("$9.050");
-            orden2.SubItems.Add("15/10/2022");
-            orden2.SubItems.Add("Cordero 2985, 2646 San Fernando, Buenos Aires");
-            PendientesFacturacion.Items.Add(orden2);
-
+            foreach (SolicitudDeOrden orden in SolicitudDeOrden.SolicitudesExistentes)
+            {
+                if (orden.CUITCliente == ClienteCorporativo.ClienteActual.CUIT)
+                {
+                    if (orden.NumeroDeFactura == 0)
+                    {
+                        continue;
+                    }
+                    {
+                        ListViewItem ordenN = new ListViewItem(orden.NumeroDeOrden.ToString()); //nro
+                        ordenN.SubItems.Add(orden.Importe.ToString());  //monto
+                        ordenN.SubItems.Add(orden.Fecha.ToString()); //fecha
+                        ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).Direccion); //destino
+                        PendientesFacturacion.Items.Add(ordenN);
+                    }
+                }
+            }
             PendientesFacturacion.Sorting = SortOrder.Ascending;
         }
 
         private void BtnDetalleFactura_Click(object sender, EventArgs e)
         {
+            /*       if(ListadoFacturas.FullRowSelect == true)
+                   {
+                       ListadoFacturas.SelectedItems.CopyTo(facturas, 0);
+                   }
 
-            var FC = new CuentaCorrienteServiciosFacturados();
-            FC.Show();
-            FC.MostrarDatos();
+                   MessageBox.Show(facturas[0]);
 
+                  // var FC = new CuentaCorrienteServiciosFacturados();
+                  // FC.Show();
+                  // FC.MostrarDatos();
+            */
         }
 
         //volver al menu principal
@@ -101,8 +113,19 @@ namespace TPCAI
 
         }
 
-           
+        private void ListadoFacturas_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-   
-    }       
+        }
+
+        private void Form_consulta_cuenta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListadoFacturas_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
