@@ -77,17 +77,15 @@ namespace TPCAI
 
         private void BtnDetalleFactura_Click(object sender, EventArgs e)
         {
-            /*       if(ListadoFacturas.FullRowSelect == true)
-                   {
-                       ListadoFacturas.SelectedItems.CopyTo(facturas, 0);
-                   }
+            ListadoFacturas.FullRowSelect = true;
+            string item = ListadoFacturas.SelectedItems.ToString();
 
-                   MessageBox.Show(facturas[0]);
-
+            MessageBox.Show(item);
+        
                   // var FC = new CuentaCorrienteServiciosFacturados();
                   // FC.Show();
                   // FC.MostrarDatos();
-            */
+            
         }
 
         //volver al menu principal
