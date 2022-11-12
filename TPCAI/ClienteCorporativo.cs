@@ -40,7 +40,7 @@ namespace TPCAI
 
       
         public static List<ClienteCorporativo> LstClientesCorporativos { get;}
-        public static ClienteCorporativo ClienteActual;
+        public static ClienteCorporativo ClienteActual { get;set;}
 
 
         public void CalcularSaldo(double sumador)

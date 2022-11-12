@@ -45,37 +45,34 @@ namespace TPCAI
 
             if (usuarioValido)
             {
-                usuarioEncontrado = ClienteCorporativo.BuscarClienteCorporativo(txtUsuario.Text);
+                usuarioEncontrado = ClienteCorporativo.BuscarClienteCorporativo(long.Parse(txtUsuario.Text));
+                if (usuarioEncontrado)
+                {
+                    accesoPermitido = ClienteCorporativo.ClienteActual.Contraseña == txtContraseña.Text;
+                    if (accesoPermitido)
+                    {
+                        Menu elMenu = new Menu();
+                        this.Hide();
+                        elMenu.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contraseña incorrecta. Intente nuevamente");
+                        txtUsuario.Clear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El C.U.I.T introducido no se encuentra registrado en el sistema. Intente nuevamente");
+                    txtUsuario.Clear();
+                }
             }
             else
             {
-                MessageBox.Show("El valor introducido es invalido, por favor ingrese un numero de C.U.I.T");
+                MessageBox.Show("El valor introducido es invalido. Por favor ingrese un numero de C.U.I.T");
                 txtUsuario.Clear();
             }
 
-
-            if (usuarioEncontrado)
-            {
-                accesoPermitido = ClienteCorporativo.ClienteActual.Contraseña == txtContraseña.Text;
-            }
-            else
-            {
-                MessageBox.Show("El C.U.I.T introducido no se encuentra registrado en el sistema. Intente nuevamente");
-                txtUsuario.Clear();
-            }
-
-
-            if (accesoPermitido)
-            {
-                Menu elMenu = new Menu();
-                this.Hide();
-                elMenu.Show();
-            }
-            else
-            {
-                MessageBox.Show("Contraseña incorrecta. Intente nuevamente");
-                txtUsuario.Clear();
-            }
         }
 
         private void txtContraseña_TextChanged(object sender, EventArgs e)

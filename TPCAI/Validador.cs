@@ -82,7 +82,7 @@ namespace TPCAI
             return valor;
         }
 
-        public static bool ChequearLong(string input, int min, int max)
+        public static bool ChequearLong(string input, long min, long max)
         {
             long entero;
 
