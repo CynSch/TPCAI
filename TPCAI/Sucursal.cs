@@ -61,7 +61,7 @@ namespace TPCAI
 
         }
 
-        internal static void GrabarPaisesEnArchivo()
+        internal static void GrabarSucursalEnArchivo()
         {
             //Actualiza archivo
 

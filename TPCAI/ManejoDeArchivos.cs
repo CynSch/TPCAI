@@ -31,7 +31,7 @@ namespace TPCAI
             SolicitudDeOrden.GrabarSolicitudesEnArchivo();
             Factura.GrabarFacturasEnArchivo();
             Pais.GrabarPaisesEnArchivo();
-            Sucursal.GrabarPaisesEnArchivo();
+            Sucursal.GrabarSucursalEnArchivo();
             Destino.GrabarDestino();
             Servicio.GrabarNuevoServicioEnArchivo();
             Origen.GrabarOrigen();
