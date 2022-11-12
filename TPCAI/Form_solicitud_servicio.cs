@@ -82,33 +82,40 @@ namespace TPCAI
 
         private void cmb_provincia_nacional_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Limpio el dropdown
+            cmb_sucursal_entregaensucursal_destino.ResetText();
+            cmb_localidad_nacional.ResetText();
+
+            //Limpio el dropdown por si se hizo una seleccion de provincia nueva.
+            cmb_localidad_nacional.ResetText();
             cmb_localidad_nacional.Items.Clear();
 
-            //Almaceno la provincia seleccionada
-            string provinciaSeleccionada = cmb_provincia_nacional.SelectedText;
-            int codigoDeProvincia = -1;
-            foreach (Provincia p in Provincia.TodasLasProvincias)
+            //Almaceno la provincia seleccionada en una variable. 
+            int codProvinciaSeleccionada = 0;
+            string provinciaSeleccionada = cmb_provincia_nacional.Text;
+
+            foreach (Provincia prov in Provincia.TodasLasProvincias)
             {
-                if (p.NombreDeProvincia == provinciaSeleccionada)
+                if (prov.NombreDeProvincia == provinciaSeleccionada)
                 {
-                    codigoDeProvincia = p.CodigoDeProvincia; 
-                }               
+                    codProvinciaSeleccionada = prov.CodigoDeProvincia;
+                }
             }
 
             //Llamo al metodo que muestra las localidades asociadas a la provincia. 
             List<Localidad> localidadesAsociadas = new List<Localidad>();
-            localidadesAsociadas = Localidad.ListarLocalidadesAsociadas(codigoDeProvincia);
+            localidadesAsociadas = Localidad.ListarLocalidadesAsociadas(codProvinciaSeleccionada);
 
             //Asocio la lista con el elemento dropdown
-            foreach (Localidad localidad in localidadesAsociadas)
+            foreach (Localidad loc in localidadesAsociadas)
             {
-                cmb_localidad_nacional.Items.Add(localidad.NombreDeLocalidad);
+                cmb_localidad_nacional.Items.Add(loc.NombreDeLocalidad);
             }
+
         }
 
         private void cmb_localidad_nacional_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cmb_sucursal_entregaensucursal_destino.ResetText();
             rd_btn_entrega_domicilio.Enabled = true;
             rd_btn_destino_entrega_sucursal.Enabled = true;
         }
@@ -255,7 +262,7 @@ namespace TPCAI
                     alto = 0;
                 }
 
-                string provinciaSeleccionada = cmb_provincia_origen.SelectedText;
+                string provinciaSeleccionada = cmb_provincia_origen.Text;
                 /*foreach (Provincia p in Provincia.TodasLasProvincias)
                 {
                     if (p.NombreDeProvincia == provinciaSeleccionada)
@@ -267,7 +274,7 @@ namespace TPCAI
                 //SolicitudesExistentes.Find(solicitud => solicitud.NumeroDeOrden == NumDeOrdenABuscar);
                 origen_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaSeleccionada);
 
-                string localidadSeleccionada = cmb_localidad_origen.SelectedText;
+                string localidadSeleccionada = cmb_localidad_origen.Text;
                 /*foreach (Localidad l in Localidad.LstLocalidades)
                 {
                     if (l.NombreDeLocalidad == localidadSeleccionada)
@@ -291,7 +298,7 @@ namespace TPCAI
                     origen_retiroEnDomicilio = false;
                     origen_entregaEnSucursal = true;
 
-                    string direccSucursalSeleccionada = cmb_sucursal_entregaensucursal_origen.SelectedText;
+                    string direccSucursalSeleccionada = cmb_sucursal_entregaensucursal_origen.Text;
                     /*foreach (Sucursal s in Sucursal.TodasLasSucursales)
                     {
                         if (s.Direccion == direccSucursalSeleccionada)
@@ -315,7 +322,7 @@ namespace TPCAI
                 {
                     esInternacional = true;
                     esNacional = false;
-                    string paisSeleccionado = cmb_pais_internacional.SelectedText;
+                    string paisSeleccionado = cmb_pais_internacional.Text;
                     pais = Pais.TodosLosPaises.Find(pa => pa.NombreDePais == paisSeleccionado);
                     direccion_destino = txt_direccion_internacional.Text;
                     destino_localidad = null;
@@ -327,7 +334,7 @@ namespace TPCAI
                     esInternacional = false;
                     esNacional = true;
 
-                    string provinciaElegida = cmb_provincia_nacional.SelectedText;
+                    string provinciaElegida = cmb_provincia_nacional.Text;
                     /*foreach (Provincia p in Provincia.TodasLasProvincias)
                     {
                         if (p.NombreDeProvincia == provinciaElegida)
@@ -336,7 +343,7 @@ namespace TPCAI
                         }
                     }*/
                     destino_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaElegida);
-                    string localidadElegida = cmb_localidad_nacional.SelectedText;
+                    string localidadElegida = cmb_localidad_nacional.Text;
                     destino_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadElegida);
 
 
@@ -352,14 +359,16 @@ namespace TPCAI
                         entregaEnSucursal_destino = true;
                         entregaADomicilio_destino = false;
                         direccion_destino = null;
-                        string sucursalElegida = cmb_sucursal_entregaensucursal_destino.SelectedText;
+                        string sucursalElegida = cmb_sucursal_entregaensucursal_destino.Text;
                         sucursal_destino = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == sucursalElegida);
                     }
                 }
 
-                decimal importe = Tarifa.CalcularImporte(esUrgente,esCorrespondencia,peso,origen_retiroEnDomicilio,entregaADomicilio_destino,origen_localidad.CodigoDeLocalidad,sucursal_origen.NroSucursal,esNacional,pais.CodigoDePais,destino_localidad.CodigoDeLocalidad);
+                //decimal importe = Tarifa.CalcularImporte(esUrgente,esCorrespondencia,peso,origen_retiroEnDomicilio,entregaADomicilio_destino,origen_localidad.CodigoDeLocalidad,sucursal_origen.NroSucursal,esNacional,pais.CodigoDePais,destino_localidad.CodigoDeLocalidad);
+                decimal importe = 1000;
 
-                cuitCliente = ClienteCorporativo.ClienteActual.CUIT;
+                //cuitCliente = ClienteCorporativo.ClienteActual.CUIT;
+                cuitCliente = 24033020220;
 
                 //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 
@@ -418,6 +427,12 @@ namespace TPCAI
 
         private void rd_Internacional_CheckedChanged(object sender, EventArgs e)
         {
+            cmb_provincia_nacional.ResetText();
+            cmb_localidad_nacional.ResetText();
+            txt_direccion_nacional.ResetText();
+            cmb_sucursal_entregaensucursal_destino.ResetText();
+            cmb_sucursal_entregaensucursal_destino.ResetText();
+
             //cmb_region_nacional.Enabled = false;
             cmb_provincia_nacional.Enabled = false;
             cmb_localidad_nacional.Enabled = false;
@@ -470,15 +485,17 @@ namespace TPCAI
 
         private void rd_nacional_CheckedChanged(object sender, EventArgs e)
         {
+            txt_direccion_internacional.ResetText();
+            cmb_pais_internacional.ResetText();
+
             //cmb_region_nacional.Enabled = true;
             cmb_provincia_nacional.Enabled = true;
             cmb_localidad_nacional.Enabled = true;
-            txt_direccion_nacional.Enabled = true;
 
             //cmb_region_internacional.Enabled = false;
             cmb_pais_internacional.Enabled = false;
             txt_direccion_internacional.Enabled = false;
-            cmb_sucursal_entregaensucursal_destino.Enabled = true;
+            
             lbl_direccion_nacional.Enabled = true;
             lbl_sucursal_entregaensucursal_destino.Enabled = true;
 
@@ -492,6 +509,7 @@ namespace TPCAI
 
         private void rd_btn_retiro_domicilio_CheckedChanged(object sender, EventArgs e)
         {
+            cmb_sucursal_entregaensucursal_origen.ResetText();
             //cmb_region__retirodomicilio.Enabled = true;
             cmb_provincia_origen.Enabled = true;
             cmb_localidad_origen.Enabled = true;
@@ -507,6 +525,7 @@ namespace TPCAI
 
         private void rd_btn_entrega_sucursal_CheckedChanged(object sender, EventArgs e)
         {
+            txt_domicilio_retirodomicilio.ResetText();
             //cmb_region_entregaensucursal_origen.Enabled = true;
             cmb_sucursal_entregaensucursal_origen.Enabled = true;
             //cmb_region__retirodomicilio.Enabled = false;
@@ -516,18 +535,27 @@ namespace TPCAI
             cmb_sucursal_entregaensucursal_origen.Items.Clear();
 
             //Saco el dato de la provincia y localidad seleccionadas
-            Provincia provinciaSeleccionada = (Provincia)cmb_provincia_origen.SelectedItem;
-            Localidad localidadSeleccionada = (Localidad)cmb_localidad_origen.SelectedItem;
+            string localidadSeleccionada = cmb_localidad_origen.Text;
+            int codLocSeleccionada = 0;
 
-            //Creo una lista para almacenar las sucursales disponibles
-            List<Sucursal> sucursalesAsociadas = new List<Sucursal>();
-            sucursalesAsociadas = Sucursal.ListarSucursalesAsociadas(provinciaSeleccionada.CodigoDeProvincia, localidadSeleccionada.CodigoDeLocalidad);
-
-            //Linkeo la lista de sucursales con el drodpwon     
-            foreach (Sucursal sucursal in sucursalesAsociadas)
+            foreach (Localidad l in Localidad.LstLocalidades)
             {
-                cmb_sucursal_entregaensucursal_origen.Items.Add(sucursal.Direccion);
+                if (l.NombreDeLocalidad == localidadSeleccionada)
+                {
+                    codLocSeleccionada = l.CodigoDeLocalidad;
+                }
             }
+
+            //sucursalesAsociadas = Sucursal.ListarSucursalesAsociadas(codProvSeleccionada, codLocSeleccionada); - este método no funciona
+
+            //Voy agregando a la lista las sucursales de la localidad. 
+            foreach (Sucursal s in Sucursal.TodasLasSucursales)
+            {
+                if (s.CodigoDeLocalidad == codLocSeleccionada)
+                {
+                    cmb_sucursal_entregaensucursal_origen.Items.Add(s.Direccion);
+                }
+            } 
         }
 
         private void rd_btn_correspondencia_CheckedChanged(object sender, EventArgs e)
@@ -550,21 +578,38 @@ namespace TPCAI
 
         private void cmb_provincia_retirodomicilio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Limpio el dropdown
+            cmb_sucursal_entregaensucursal_origen.ResetText();
+            txt_domicilio_retirodomicilio.ResetText();
+            cmb_localidad_origen.ResetText();
+
+            //Habilito el dropdown de localidades
+            cmb_localidad_origen.Enabled = true;
+
+            //Limpio el dropdown por si se hizo una seleccion de provincia nueva.
             cmb_localidad_origen.Items.Clear();
 
             //Almaceno la provincia seleccionada en una variable. 
-            Provincia provinciaSeleccionada = (Provincia)cmb_provincia_origen.SelectedItem;
+            int codProvinciaSeleccionada = 0;
+            string provinciaSeleccionada = cmb_provincia_origen.Text;
+
+            foreach (Provincia prov in Provincia.TodasLasProvincias)
+            {
+                if (prov.NombreDeProvincia == provinciaSeleccionada)
+                {
+                    codProvinciaSeleccionada = prov.CodigoDeProvincia;
+                }
+            }
 
             //Llamo al metodo que muestra las localidades asociadas a la provincia. 
             List<Localidad> localidadesAsociadas = new List<Localidad>();
-            localidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provinciaSeleccionada.CodigoDeProvincia);
+            localidadesAsociadas = Localidad.ListarLocalidadesAsociadas(codProvinciaSeleccionada);
 
             //Asocio la lista con el elemento dropdown
             foreach (Localidad loc in localidadesAsociadas)
             {
-                cmb_localidad_origen.Items.Add(loc.NombreDeLocalidad);
+                    cmb_localidad_origen.Items.Add(loc.NombreDeLocalidad);
             }
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -588,32 +633,42 @@ namespace TPCAI
             txt_direccion_nacional.Enabled = true;
             lbl_direccion_nacional.Enabled = true;
             lbl_sucursal_entregaensucursal_destino.Enabled = false;
-  
+            cmb_sucursal_entregaensucursal_destino.ResetText();
 
         }
 
         private void rd_btn_destino_entrega_sucursal_CheckedChanged(object sender, EventArgs e)
         {
             cmb_sucursal_entregaensucursal_destino.Enabled = true;
+            lbl_sucursal_entregaensucursal_destino.Enabled = true;
             txt_direccion_nacional.Enabled = false;
             lbl_direccion_nacional.Enabled = false;
-            lbl_sucursal_entregaensucursal_destino.Enabled = true;
+            txt_direccion_nacional.ResetText();
 
             //Limpio el dropdown
             cmb_sucursal_entregaensucursal_destino.Items.Clear();
 
             //Saco el dato de la provincia y localidad seleccionadas
-            Provincia provinciaSeleccionada = (Provincia)cmb_provincia_nacional.SelectedItem;
-            Localidad localidadSeleccionada = (Localidad)cmb_localidad_nacional.SelectedItem;
+            string localidadSeleccionada = cmb_localidad_nacional.Text;
+            int codLocSeleccionada = 0;
 
-            //Creo una lista para almacenar las sucursales disponibles
-            List<Sucursal> sucursalesAsociadas = new List<Sucursal>();
-            sucursalesAsociadas = Sucursal.ListarSucursalesAsociadas(provinciaSeleccionada.CodigoDeProvincia, localidadSeleccionada.CodigoDeLocalidad);
-
-            //Linkeo la lista de sucursales con el drodpwon     
-            foreach (Sucursal sucursal in sucursalesAsociadas)
+            foreach (Localidad l in Localidad.LstLocalidades)
             {
-                cmb_sucursal_entregaensucursal_destino.Items.Add(sucursal.Direccion);
+                if (l.NombreDeLocalidad == localidadSeleccionada)
+                {
+                    codLocSeleccionada = l.CodigoDeLocalidad;
+                }
+            }
+
+            //sucursalesAsociadas = Sucursal.ListarSucursalesAsociadas(codProvSeleccionada, codLocSeleccionada); - este método no funciona
+
+            //Voy agregando a la lista las sucursales de la localidad. 
+            foreach (Sucursal s in Sucursal.TodasLasSucursales)
+            {
+                if (s.CodigoDeLocalidad == codLocSeleccionada)
+                {
+                    cmb_sucursal_entregaensucursal_destino.Items.Add(s.Direccion);
+                }
             }
         }
 
@@ -629,7 +684,9 @@ namespace TPCAI
 
         private void cmb_localidad_origen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Localidad localidad_origen = (Localidad)cmb_localidad_origen.SelectedItem;
+            cmb_sucursal_entregaensucursal_origen.ResetText();
+            txt_domicilio_retirodomicilio.ResetText();
+
             rd_btn_retiro_domicilio.Enabled = true;
             rd_btn_origen_entrega_sucursal.Enabled = true;
 

@@ -49,10 +49,7 @@ namespace TPCAI
                 if (sucursal.CodigoDeProvincia == codigoDeProvincia && sucursal.CodigoDeLocalidad == codigoDeLocalidad)
                 {
                     sucursales.Add(sucursal);
-                    continue;
                 }
-
-                continue;
             }
 
             return sucursales;

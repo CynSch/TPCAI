@@ -204,9 +204,8 @@ namespace TPCAI
             // 
             // cmb_sucursal_entregaensucursal_destino
             // 
+            this.cmb_sucursal_entregaensucursal_destino.Enabled = false;
             this.cmb_sucursal_entregaensucursal_destino.FormattingEnabled = true;
-            this.cmb_sucursal_entregaensucursal_destino.Items.AddRange(new object[] {
-            "03- Av. Cordoba 2122"});
             this.cmb_sucursal_entregaensucursal_destino.Location = new System.Drawing.Point(508, 643);
             this.cmb_sucursal_entregaensucursal_destino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_sucursal_entregaensucursal_destino.Name = "cmb_sucursal_entregaensucursal_destino";
@@ -406,6 +405,7 @@ namespace TPCAI
             // 
             // txt_direccion_internacional
             // 
+            this.txt_direccion_internacional.Enabled = false;
             this.txt_direccion_internacional.Location = new System.Drawing.Point(512, 134);
             this.txt_direccion_internacional.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_direccion_internacional.Multiline = true;
@@ -438,9 +438,8 @@ namespace TPCAI
             // 
             // cmb_sucursal_entregaensucursal_origen
             // 
+            this.cmb_sucursal_entregaensucursal_origen.Enabled = false;
             this.cmb_sucursal_entregaensucursal_origen.FormattingEnabled = true;
-            this.cmb_sucursal_entregaensucursal_origen.Items.AddRange(new object[] {
-            "03- Av. Cordoba 2122"});
             this.cmb_sucursal_entregaensucursal_origen.Location = new System.Drawing.Point(140, 302);
             this.cmb_sucursal_entregaensucursal_origen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_sucursal_entregaensucursal_origen.Name = "cmb_sucursal_entregaensucursal_origen";
@@ -471,6 +470,7 @@ namespace TPCAI
             // 
             // txt_domicilio_retirodomicilio
             // 
+            this.txt_domicilio_retirodomicilio.Enabled = false;
             this.txt_domicilio_retirodomicilio.Location = new System.Drawing.Point(140, 178);
             this.txt_domicilio_retirodomicilio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_domicilio_retirodomicilio.Multiline = true;
@@ -480,9 +480,8 @@ namespace TPCAI
             // 
             // cmb_localidad_origen
             // 
+            this.cmb_localidad_origen.Enabled = false;
             this.cmb_localidad_origen.FormattingEnabled = true;
-            this.cmb_localidad_origen.Items.AddRange(new object[] {
-            "Balvanera"});
             this.cmb_localidad_origen.Location = new System.Drawing.Point(140, 85);
             this.cmb_localidad_origen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_localidad_origen.Name = "cmb_localidad_origen";
@@ -572,9 +571,8 @@ namespace TPCAI
             // 
             // cmb_provincia_nacional
             // 
+            this.cmb_provincia_nacional.Enabled = false;
             this.cmb_provincia_nacional.FormattingEnabled = true;
-            this.cmb_provincia_nacional.Items.AddRange(new object[] {
-            "CABA"});
             this.cmb_provincia_nacional.Location = new System.Drawing.Point(508, 346);
             this.cmb_provincia_nacional.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_provincia_nacional.Name = "cmb_provincia_nacional";
@@ -584,6 +582,7 @@ namespace TPCAI
             // 
             // cmb_pais_internacional
             // 
+            this.cmb_pais_internacional.Enabled = false;
             this.cmb_pais_internacional.FormattingEnabled = true;
             this.cmb_pais_internacional.Location = new System.Drawing.Point(512, 94);
             this.cmb_pais_internacional.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -604,9 +603,8 @@ namespace TPCAI
             // 
             // cmb_localidad_nacional
             // 
+            this.cmb_localidad_nacional.Enabled = false;
             this.cmb_localidad_nacional.FormattingEnabled = true;
-            this.cmb_localidad_nacional.Items.AddRange(new object[] {
-            "Belgrano"});
             this.cmb_localidad_nacional.Location = new System.Drawing.Point(508, 387);
             this.cmb_localidad_nacional.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_localidad_nacional.Name = "cmb_localidad_nacional";
@@ -692,6 +690,7 @@ namespace TPCAI
             // 
             // txt_direccion_nacional
             // 
+            this.txt_direccion_nacional.Enabled = false;
             this.txt_direccion_nacional.Location = new System.Drawing.Point(116, 50);
             this.txt_direccion_nacional.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_direccion_nacional.Multiline = true;
