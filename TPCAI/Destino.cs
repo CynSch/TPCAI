@@ -129,7 +129,7 @@ namespace TPCAI
                 destinoExistente.EntregaEnDomicilio = bool.Parse(datosSeparados[3]);
                 destinoExistente.EntregaEnSucursal = bool.Parse(datosSeparados[4]);
                 //Puede ser null
-                if (datosSeparados[5] != "null")
+                if (datosSeparados[5] != "")
                 {
                     destinoExistente.CodigoDeRegionMundial = int.Parse(datosSeparados[5]);
                 }
@@ -138,7 +138,7 @@ namespace TPCAI
                     destinoExistente.CodigoDeRegionMundial = 0;
                 }
                 //Puede ser null
-                if (datosSeparados[6] != "null")
+                if (datosSeparados[6] != "")
                 {
                     destinoExistente.CodigoDePais = int.Parse(datosSeparados[6]);
                 }
@@ -147,7 +147,7 @@ namespace TPCAI
                     destinoExistente.CodigoDePais= 0;
                 }
                 //Puede ser null
-                if (datosSeparados[7] != "null")
+                if (datosSeparados[7] != "")
                 {
                     destinoExistente.CodigoDeRegionNacional = int.Parse(datosSeparados[7]);
                 }
@@ -156,7 +156,7 @@ namespace TPCAI
                     destinoExistente.CodigoDeRegionNacional = 0;
                 }
                 //Puede ser null
-                if (datosSeparados[8] != "null")
+                if (datosSeparados[8] != "")
                 {
                     destinoExistente.CodigoDeProvincia = int.Parse(datosSeparados[8]);
                 }
@@ -165,7 +165,7 @@ namespace TPCAI
                     destinoExistente.CodigoDeProvincia = 0;
                 }
                 //Puede ser null
-                if (datosSeparados[9] != "null")
+                if (datosSeparados[9] != "")
                 {
                     destinoExistente.CodigoDeLocalidad = int.Parse(datosSeparados[9]);
                 }
@@ -175,7 +175,7 @@ namespace TPCAI
                 }
                 destinoExistente.Direccion = datosSeparados[10];
                 //Puede ser null
-                if (datosSeparados[11] != "null")
+                if (datosSeparados[11] != "")
                 {
                     destinoExistente.NroSucursal = int.Parse(datosSeparados[11]);
                 }
