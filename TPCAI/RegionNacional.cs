@@ -39,6 +39,37 @@ namespace TPCAI
 
             }
         }
+        internal static void CrearArchivo()
+        {
+            List<RegionNacional> listaACargar = new List<RegionNacional>();
+
+            var lst1 = new RegionNacional(1, "Sur");
+            var lst2 = new RegionNacional(2, "Centro");
+            var lst3 = new RegionNacional(3, "Norte");
+            var lst4 = new RegionNacional(4, "Metropilitana");
+            
+
+            listaACargar.Add(lst1);
+            listaACargar.Add(lst2);
+            listaACargar.Add(lst3);
+            listaACargar.Add(lst4);
+            
+
+            StreamWriter writerRegionNacional = File.CreateText($@"{Environment.CurrentDirectory}\RegionesNacionales.txt");
+
+            foreach (RegionNacional rn in listaACargar)
+            {
+                string lineaRegionMundial = rn.CodigoDeRegionNacional + "|"
+                    + rn.NombreDeRegionNacional;
+
+                writerRegionNacional.WriteLine(lineaRegionMundial);
+            }
+
+            writerRegionNacional.Close();
+
+
+
+        }
 
         public static RegionNacional BuscarRegionNacional(int codigoRegNac)
         {

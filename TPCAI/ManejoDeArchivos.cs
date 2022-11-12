@@ -20,6 +20,8 @@ namespace TPCAI
             RegionMundial.CargarRegionesMundiales();
             ClienteCorporativo.CargarCLientes();
             Servicio.CargarServicios();
+            RegionNacional.ListarRegiones();
+            Localidad.ListarLocalidad();
             //Agregar metodos
         }
         public static void ActualizarArchivos()
@@ -38,6 +40,9 @@ namespace TPCAI
             EstadoDeOrden.CrearArchivo();
             RegionMundial.CrearArchivo();
             ClienteCorporativo.CrearArchivo();
+            Localidad.CrearArchivo();
+            RegionNacional.CrearArchivo();
+            Destino.CrearArchivo();
             
         }
     }
