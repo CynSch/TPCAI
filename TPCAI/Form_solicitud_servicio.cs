@@ -373,7 +373,9 @@ namespace TPCAI
                 //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 
                 SolicitudDeOrden nuevaSolicitud = SolicitudDeOrden.GrabarNuevaSolicitud(cuitCliente,esUrgente,fecha,importe);
-                Destino nuevoDestino = Destino.GrabarNuevoDestino(nuevaSolicitud.NumeroDeOrden,esInternacional,esNacional,entregaADomicilio_destino,entregaEnSucursal_destino,pais.CodigoDeRegionMundial,pais.CodigoDePais,destino_provincia.CodigoDeRegionNacional,destino_provincia.CodigoDeProvincia,destino_localidad.CodigoDeLocalidad,direccion_destino,sucursal_destino.NroSucursal);
+                //Destino nuevoDestino = Destino.GrabarNuevoDestino(nuevaSolicitud.NumeroDeOrden,esInternacional,esNacional,entregaADomicilio_destino,entregaEnSucursal_destino,pais.CodigoDeRegionMundial,pais.CodigoDePais,destino_provincia.CodigoDeRegionNacional,destino_provincia.CodigoDeProvincia,destino_localidad.CodigoDeLocalidad,direccion_destino,sucursal_destino.NroSucursal);
+                Destino nuevoDestino = new Destino(nuevaSolicitud.NumeroDeOrden, esInternacional, esNacional, entregaADomicilio_destino, entregaEnSucursal_destino, pais.CodigoDeRegionMundial, pais.CodigoDePais, destino_provincia.CodigoDeRegionNacional, destino_provincia.CodigoDeProvincia, destino_localidad.CodigoDeLocalidad, direccion_destino, sucursal_destino.NroSucursal);
+               
                 Origen nuevoOrigen = Origen.GrabarNuevoOrigen(nuevaSolicitud.NumeroDeOrden, origen_retiroEnDomicilio, origen_entregaEnSucursal, origen_provincia.CodigoDeRegionNacional, origen_provincia.CodigoDeProvincia, origen_localidad.CodigoDeLocalidad, domicilio_origen, sucursal_origen.NroSucursal);  
                 Servicio nuevoServicio = Servicio.GrabarNuevoServicio(nuevaSolicitud.NumeroDeOrden,esEncomienda,esCorrespondencia,ancho,largo,alto,peso);
 

@@ -219,7 +219,7 @@ namespace TPCAI
             int codLoc, string direccion, int nroSucursal)
         {
             //el nuevo destino se agrega a la lista 
-            var nuevoDestino = new Destino(numOrden, esInt, esNac, entregaEnDomicilio, entregaEnSucursal, codRegMun, codPais, codRegNac, codProvincia, codLoc, direccion, nroSucursal);
+            Destino nuevoDestino = new Destino(numOrden, esInt, esNac, entregaEnDomicilio, entregaEnSucursal, codRegMun, codPais, codRegNac, codProvincia, codLoc, direccion, nroSucursal);
 
             DestinosExistentes.Add(nuevoDestino);
 
