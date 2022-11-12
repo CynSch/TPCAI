@@ -70,7 +70,7 @@ namespace TPCAI
 
         private string _Destino(SolicitudDeOrden solicitud)
         {
-            Destino destino = BuscarDestino(solicitud.NumeroDeOrden);
+            Destino destino = Destino.BuscarDestino(solicitud.NumeroDeOrden);
             int nroOrden = destino.NumeroDeOrden;
             bool internacional = destino.EsInternacional;
             bool nacional = destino.EsNacional;

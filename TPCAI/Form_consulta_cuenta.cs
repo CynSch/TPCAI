@@ -125,5 +125,10 @@ namespace TPCAI
         {
 
         }
+
+        private void ListadoFacturas_SelectedIndexChanged_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }
