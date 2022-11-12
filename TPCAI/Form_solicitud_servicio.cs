@@ -366,7 +366,8 @@ namespace TPCAI
                     }
                 }
 
-                decimal importe = Tarifa.CalcularImporte(esUrgente, esCorrespondencia, peso, origen_retiroEnDomicilio, entregaADomicilio_destino, origeno_loc_codLoc, origen_suc_codSuc, esNacional, destino_pais_codPais, destino_loc_codLoc);
+                //decimal importe = Tarifa.CalcularImporte(esUrgente, esCorrespondencia, peso, origen_retiroEnDomicilio, entregaADomicilio_destino, origeno_loc_codLoc, origen_suc_codSuc, esNacional, destino_pais_codPais, destino_loc_codLoc);
+                decimal importe = 1000;
 
                 //cuitCliente = ClienteCorporativo.ClienteActual.CUIT;
                 cuitCliente = 24033020220;
