@@ -247,7 +247,7 @@ namespace TPCAI
 
             var sol6 = new SolicitudDeOrden();
             sol6.NumeroDeOrden = 105;
-            sol6.CUITCliente = 2394933029;
+            sol6.CUITCliente = 23949330290;
             sol6.EsUrgente = false;
             sol6.Fecha = new DateTime(2022, 12, 11);
             sol6.Importe = 1111;
@@ -256,7 +256,7 @@ namespace TPCAI
 
             var sol7 = new SolicitudDeOrden();
             sol7.NumeroDeOrden = 106;
-            sol7.CUITCliente = 2394933029;
+            sol7.CUITCliente = 23949330290;
             sol7.EsUrgente = false;
             sol7.Fecha = new DateTime(2022, 12, 11);
             sol7.Importe = 10;
@@ -265,7 +265,7 @@ namespace TPCAI
 
             var sol8 = new SolicitudDeOrden();
             sol8.NumeroDeOrden = 107;
-            sol8.CUITCliente = 2394933029;
+            sol8.CUITCliente = 23949330290;
             sol8.EsUrgente = false;
             sol8.Fecha = new DateTime(2022, 12, 11);
             sol8.Importe = 10;
