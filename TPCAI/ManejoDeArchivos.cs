@@ -16,6 +16,7 @@ namespace TPCAI
             Factura.ListarFacturas();
             SolicitudDeOrden.CargarSolicitudesExistentes();
             Destino.CargarDestinoExistentes();
+            EstadoDeOrden.CargarEstados();
             //Agregar metodos
         }
         public static void ActualizarArchivos()
@@ -30,6 +31,7 @@ namespace TPCAI
             //Llama a los metodos que crean los archivos txt por primera vez con los datos hardcodeados
             ArchivoTarifas.GrabarArchivo();
             SolicitudDeOrden.CrearArchivo();
+            EstadoDeOrden.CrearArchivo();
             
         }
     }
