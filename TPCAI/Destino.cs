@@ -43,12 +43,12 @@ namespace TPCAI
         public int CodigoDeLocalidad { get; set; }
         public string Direccion { get; set; }
         public int NroSucursal { get; set; }
-        static public List<Destino> DestinosExistentes { get; set; }
+        static public List<Destino> DestinosExistentes = new List<Destino>();
 
 
         //Metodos
 
-        private Destino BuscarDestino(int nroOrden)
+        internal static Destino BuscarDestino(int nroOrden)
         {
             return DestinosExistentes.Find(d => d.NumeroDeOrden == nroOrden);
         }
