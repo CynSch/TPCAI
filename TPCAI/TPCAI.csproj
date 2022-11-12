@@ -89,6 +89,7 @@
       <DependentUpon>Form_solicitud_servicio_confirmación.cs</DependentUpon>
     </Compile>
     <Compile Include="Localidad.cs" />
+    <Compile Include="ManejoDeArchivos.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
