@@ -13,7 +13,7 @@ namespace TPCAI
 {
     internal class ClienteCorporativo
     {
-        public ClienteCorporativo(string nombreCliente, int cuit, string contraseña, int telefono,double saldo,bool esMoroso)
+        public ClienteCorporativo(string nombreCliente, long cuit, string contraseña, int telefono,double saldo,bool esMoroso)
         {
             this.NombreCliente = nombreCliente;
             this.CUIT = cuit;
@@ -27,7 +27,7 @@ namespace TPCAI
 
         public string NombreCliente { get; set; }
 
-        public int CUIT { get; set; }
+        public long CUIT { get; set; }
 
         public string Contraseña { get; set; }
 
@@ -40,7 +40,7 @@ namespace TPCAI
 
       
         public static List<ClienteCorporativo> LstClientesCorporativos { get;}
-        public static ClienteCorporativo ClienteActual;
+        public static ClienteCorporativo ClienteActual {get;private set}
 
 
         public void CalcularSaldo(double sumador)
@@ -53,7 +53,7 @@ namespace TPCAI
             return this.Saldo;
         }
 
-        public static bool BuscarClienteCorporativo(int cuit)
+        public static bool BuscarClienteCorporativo(long cuit)
         //Requiere que antes de usar este cargada la lista
         {
             foreach(var clienteCorporativo in LstClientesCorporativos)
@@ -82,11 +82,11 @@ namespace TPCAI
 
                 var ClienteCorporativo = new ClienteCorporativo(
                     datosSeparados[0],                  //Nombre
-                    int.Parse(datosSeparados[1]),       //CUIT
-                    datosSeparados[2],                  //EsEncomienda
-                    int.Parse(datosSeparados[3]),       //EsCorrespondencia
-                    double.Parse(datosSeparados[4]),   //Ancho
-                    bool.Parse(datosSeparados[5])       //Largo
+                    long.Parse(datosSeparados[1]),       //CUIT
+                    datosSeparados[2],                  //Contraseña
+                    int.Parse(datosSeparados[3]),       //telefono
+                    double.Parse(datosSeparados[4]),    //Saldo
+                    bool.Parse(datosSeparados[5])       //Esmoroso
                     ); 
                
                 LstClientesCorporativos.Add(ClienteCorporativo);

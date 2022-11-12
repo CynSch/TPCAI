@@ -82,9 +82,23 @@ namespace TPCAI
             return valor;
         }
 
-        public static bool ChequearInt(string input)
+        public static bool ChequearLong(string input, int min, int max)
         {
-            int.TryParse()
+            long entero;
+
+            if (long.TryParse(input, out entero))
+            {
+                if(entero < min|| entero > max)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
+            
         }
 
 

@@ -12,7 +12,7 @@ namespace TPCAI
 {
     public partial class Form_LogIn : Form
     {
-        bool accesoPermitido = false;
+        
 
         public Form_LogIn()
         {
@@ -36,14 +36,42 @@ namespace TPCAI
 
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
-            while (accesoPermitido)
+            bool accesoPermitido;
+            bool usuarioEncontrado;
+            bool usuarioValido;
+
+
+            usuarioValido = Validador.ChequearLong(txtUsuario.Text, 10000000000,99999999999);
+
+            if (usuarioValido)
             {
-                accesoPermitido = ClienteCorporativo.BuscarClienteCorporativo(Validador.ChequearInt(txtUsuario.Text))
+                usuarioEncontrado = ClienteCorporativo.BuscarClienteCorporativo(txtUsuario.Text)
+            }
+            else
+            {
+                MessageBox.Show("El valor introducido es invalido, por favor ingrese un numero de C.U.I.T");
+                txtUsuario.Clear();
             }
 
+
+            if (usuarioEncontrado)
+            {
+                accesoPermitido = ClienteCorporativo.ClienteActual.Contraseña == txtContraseña.Text;
+            }
+            else
+            {
+                MessageBox.Show("El C.U.I.T introducido");
+                txtContraseña.Clear();
+            }
+
+
+
+            if (accesoPermitido)
+            {
                 Menu elMenu = new Menu();
                 this.Hide();
                 elMenu.Show();
+            }
         }
 
         private void txtContraseña_TextChanged(object sender, EventArgs e)
