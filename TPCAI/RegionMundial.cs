@@ -13,16 +13,13 @@ namespace TPCAI
         public int CodigoDeRegionMundial { get; set; }
         public string NombreDeRegionMundial { get; set; }
 
-       // public  List<Pais> PaisesAsociados { get; set; }
-
-        static internal List<RegionMundial> LstRegionesMundiales { get; set; }
+        static internal List<RegionMundial> LstRegionesMundiales = new List<RegionMundial>();
 
         //construtor
         public RegionMundial(int codigoDeRegionMundial, string nombreDeRegionMundial)
         {
             CodigoDeRegionMundial = codigoDeRegionMundial;
             NombreDeRegionMundial = nombreDeRegionMundial;
-           // PaisesAsociados = Pais.
         }
 
         //constructor vacio

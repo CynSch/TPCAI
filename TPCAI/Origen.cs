@@ -106,6 +106,8 @@ namespace TPCAI
                 //Agrego el origen a la lista.
                 Origen.TodosLosOrigenes.Add(origenExistente);
             }
+            archivoOrigen.Close();
+
         }
 
         internal static void GrabarOrigen()
@@ -119,16 +121,14 @@ namespace TPCAI
 
             foreach (Origen origenOrden in TodosLosOrigenes)
             {
-
-                string linea = origenOrden.NumeroDeOrden.ToString() + "|" 
-                    + origenOrden.EsRetiroEnDomicilio.ToString() + "|" 
-                    + origenOrden.EsEntregaEnSucursal.ToString() + "|" 
-                    + origenOrden.CodigoDeRegionNacional.ToString() + "|" 
-                    + origenOrden.CodigoDeProvincia.ToString() + "|" 
-                    + origenOrden.CodigoDeLocalidad.ToString() + "|"
+                string linea = origenOrden.NumeroDeOrden + "|" 
+                    + origenOrden.EsRetiroEnDomicilio + "|" 
+                    + origenOrden.EsEntregaEnSucursal + "|" 
+                    + origenOrden.CodigoDeRegionNacional + "|" 
+                    + origenOrden.CodigoDeProvincia + "|" 
+                    + origenOrden.CodigoDeLocalidad + "|"
                     + origenOrden.Direccion + "|" 
-                    + origenOrden.NroSucursal.ToString();
-
+                    + origenOrden.NroSucursal;
 
                 writer.WriteLine(linea);
             }
