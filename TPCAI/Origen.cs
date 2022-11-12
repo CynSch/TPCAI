@@ -147,6 +147,26 @@ namespace TPCAI
 
         }
 
+        internal static void CrearArchivo()
+        {
+            //Grabo la tarifa desde la lista TarifaActual en memoria al archivo
+            StreamWriter writerorigen = File.CreateText($@"{Environment.CurrentDirectory}\OrigenOrdenes.txt");
+
+            string lineaorigen;
+            Origen origen = new Origen();
+            lineaorigen = origen.NumeroDeOrden + "|"
+                    + origen.EsRetiroEnDomicilio + "|"
+                    + origen.EsEntregaEnSucursal + "|"
+                    + origen.CodigoDeRegionNacional + "|"
+                    + origen.CodigoDeProvincia + "|"
+                    + origen.CodigoDeLocalidad + "|"
+                    + origen.Direccion + "|"
+                    + origen.NroSucursal;
+
+            writerorigen.WriteLine(lineaorigen);
+            writerorigen.Close();
+        }
+
         /*  private RegionNacional BuscarRegionNacional(int codigoRegNac)
           {
               return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
