@@ -63,5 +63,22 @@ namespace TPCAI
             return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
 
         }
+
+        internal static void GrabarSolicitudesEnArchivo()
+        {
+            //Actualiza archivo
+
+            StreamWriter writer = File.CreateText("Sucursal.txt");
+
+            foreach (Sucursal s in TodasLasSucursales)
+            {
+
+                string linea = s.NroSucursal + "|"
+                    + s.Localidad.CodigoDeLocalidad + "|"
+                    + s.Direccion;
+                writer.WriteLine(linea);
+            }
+            writer.Close();
+        }
     }
 }

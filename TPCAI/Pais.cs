@@ -55,12 +55,28 @@ namespace TPCAI
             return codigoregion;
         }
 
-        //Falta metodo de carga desde archivo
+
 
         public static Pais BuscarPais(int codigoPais)
         {
             return Pais.TodosLosPaises.Find(pais => pais.CodigoDePais == codigoPais);
         }
 
+        internal static void GrabarSolicitudesEnArchivo()
+        {
+            //Actualiza archivo
+
+            StreamWriter writer = File.CreateText("Paises.txt");
+
+            foreach (Pais p in TodosLosPaises)
+            {
+               //cod pais, nombre pais, cod region mundial
+                string linea = p.CodigoDePais + "|"
+                    + p.NombreDePais + "|"
+                    + p.CodigoDeRegionMundial;
+                writer.WriteLine(linea);
+            }
+            writer.Close();
+        }
     }
 }
