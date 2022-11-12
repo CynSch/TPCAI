@@ -196,7 +196,7 @@
             // 
             this.lbl_CUIT.AutoSize = true;
             this.lbl_CUIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_CUIT.Location = new System.Drawing.Point(346, 25);
+            this.lbl_CUIT.Location = new System.Drawing.Point(362, 25);
             this.lbl_CUIT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_CUIT.Name = "lbl_CUIT";
             this.lbl_CUIT.Size = new System.Drawing.Size(46, 20);
