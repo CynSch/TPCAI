@@ -16,9 +16,21 @@ namespace TPCAI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ClienteCorporativo.CargarCLientes();
-            Application.Run(new Form_LogIn());
-            //Application.Run(new Form_consulta_orden ());
+            //Agregar validacion de si existe txt en la carpeta bin/Debug entonces no corre el crear archivo.
+            /*if ( //si existe txt en la carpeta bin/Debug
+                )
+            {
+                ManejoDeArchivos.CargarArchivos();
+            }
+            else
+            {
+                ManejoDeArchivos.CrearArchivos();
+                ManejoDeArchivos.CargarArchivos();
+            }
+            //Abrir login.....
+            ManejoDeArchivos.ActualizarArchivos();
+            */
+            Application.Run(Form_solicitud_servicio);
         }
     }
 }

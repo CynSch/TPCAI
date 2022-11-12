@@ -17,7 +17,6 @@ namespace TPCAI
             
             this.IDDeServicio = LstServicios.Count + 1;
             this.NumeroDeOrden = numeroDeOrden;
-            //this.IDDeServicio = idDeServicio;   
             this.EsEncomienda = esEncomienda;
             this.EsCorrespondencia = esCorrespondencia;
             this.Alto = alto;

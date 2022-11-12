@@ -234,6 +234,7 @@ namespace TPCAI
             this.grp_tipo_servicio.TabIndex = 16;
             this.grp_tipo_servicio.TabStop = false;
             this.grp_tipo_servicio.Text = "Tipo de Servicio";
+            this.grp_tipo_servicio.Enter += new System.EventHandler(this.grp_tipo_servicio_Enter);
             // 
             // rd_btn_correspondencia
             // 

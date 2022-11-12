@@ -16,9 +16,8 @@ namespace TPCAI
         public DateTime FechaFactura { get; set; }
 
         public bool EstaPaga { get; set; }
-        public ClienteCorporativo ClienteCorporativo { get; set; }
-        public int CUIT { get; set; }
-        public List<SolicitudDeOrden> OrdenesAsociadas { get; set; }
+        public long CUIT { get; set; }
+        public List<SolicitudDeOrden> OrdenesAsociadas = new List<SolicitudDeOrden>();
 
         
         static public List<Factura> FacturasExistentes { get; set; }
@@ -40,7 +39,8 @@ namespace TPCAI
                 factura.NroFactura = int.Parse(datosSeparados[0]);
                 factura.Monto = decimal.Parse(datosSeparados[1]);
                 factura.FechaFactura = DateTime.Parse(datosSeparados[2]);
-                factura.ClienteCorporativo.NombreCliente = datosSeparados[3];
+               // factura.EstaPaga parse a bool.
+                factura.CUIT = long.Parse(datosSeparados[4]);
 
                 //agrego a lista
                 Factura.FacturasExistentes.Add(factura);

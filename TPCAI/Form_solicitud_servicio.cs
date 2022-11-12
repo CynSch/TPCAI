@@ -206,7 +206,7 @@ namespace TPCAI
             else
             {
                 //CREACIÓN DE VARIABLES
-                int cuitCliente;
+                long cuitCliente;
                 bool esEncomienda = false;
                 bool esCorrespondencia = false;
                 decimal peso;
@@ -357,7 +357,7 @@ namespace TPCAI
 
                 decimal importe = Tarifa.CalcularImporte(esUrgente,esCorrespondencia,peso,origen_retiroEnDomicilio,entregaADomicilio_destino,origen_localidad.CodigoDeLocalidad,sucursal_origen.NroSucursal,esNacional,pais.CodigoDePais,destino_localidad.CodigoDeLocalidad);
 
-                cuitCliente = 1111111;
+                cuitCliente = ClienteCorporativo.ClienteActual.CUIT;
 
                 //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 
@@ -630,6 +630,11 @@ namespace TPCAI
         private void cmb_localidad_origen_SelectedIndexChanged(object sender, EventArgs e)
         {
             Localidad localidad_origen = (Localidad)cmb_localidad_origen.SelectedItem;
+        }
+
+        private void grp_tipo_servicio_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -143,7 +143,7 @@ namespace TPCAI
             return EstadoDeLaOrden;
         }
 
-        internal static SolicitudDeOrden GrabarNuevaSolicitud(long cUITCliente,bool esUrgente,DateTime fecha,decimal importe)
+        internal static SolicitudDeOrden GrabarNuevaSolicitud(long CUITCliente,bool esUrgente,DateTime fecha,decimal importe)
         //Este método se tiene que ejecutar cuando hacemos click en "confirmar" la solicitud
         //La nueva solicitud se agrega a la lista SolicitudesExistentes
         {
@@ -165,7 +165,7 @@ namespace TPCAI
         internal static void GrabarSolicitudesEnArchivo()
         {
             //Grabo las solicitudes desde la lista SolicitudesExistentes en memoria al archivo en caso de que se haya agregado una Solicitud
-
+            
             StreamWriter writer = File.CreateText("Solicitudes.txt");
 
             foreach (SolicitudDeOrden sol in SolicitudesExistentes)
