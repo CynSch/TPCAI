@@ -57,9 +57,8 @@ namespace TPCAI
 
                 //Agrego la solicitud a la lista.
                 SolicitudDeOrden.SolicitudesExistentes.Add(solicitud);
-
-                archivoSolicitudes.Close();
             }
+            archivoSolicitudes.Close();
         }
 
         public static int GenerarNumeroDeOrden()
