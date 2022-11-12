@@ -149,7 +149,19 @@ namespace TPCAI
 
         internal static void CrearArchivo()
         {
-            //Grabo la tarifa desde la lista TarifaActual en memoria al archivo
+            List<Origen> origenCargar = new List<Origen>();
+
+            var lst1 = new Origen();
+            lst1.NumeroDeOrden = 100;
+            lst1.EsRetiroEnDomicilio = true;
+            lst1.EsEntregaEnSucursal = false;
+            lst1.CodigoDeRegionNacional = 4;
+            lst1.CodigoDeProvincia = 1;
+            lst1.CodigoDeLocalidad = 2;
+            lst1.Direccion = "v 25 de Mayo 613";
+   
+
+
             StreamWriter writerorigen = File.CreateText($@"{Environment.CurrentDirectory}\OrigenOrdenes.txt");
 
             string lineaorigen;
