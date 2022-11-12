@@ -12,6 +12,8 @@ namespace TPCAI
 {
     public partial class Form_LogIn : Form
     {
+        bool accesoPermitido = false;
+
         public Form_LogIn()
         {
             InitializeComponent();
@@ -34,6 +36,12 @@ namespace TPCAI
 
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
+            while (accesoPermitido)
+            {
+                accesoPermitido = ClienteCorporativo.BuscarClienteCorporativo(validador)
+            }
+
+
             if (txtUsuario.Text != "AndresPanitsch" || txtContraseña.Text != "soyprofesor")
             {
                 MessageBox.Show("Usuario o contraseña incorrecto. Intente nuevamente");

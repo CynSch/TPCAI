@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -12,7 +13,7 @@ namespace TPCAI
 {
     internal class ClienteCorporativo
     {
-        public ClienteCorporativo(string nombreCliente, int cuit, string contraseña, int telefono, decimal saldo,bool esMoroso)
+        public ClienteCorporativo(string nombreCliente, int cuit, string contraseña, int telefono,double saldo,bool esMoroso)
         {
             this.NombreCliente = nombreCliente;
             this.CUIT = cuit;
@@ -32,16 +33,17 @@ namespace TPCAI
 
         public int Telefono { get; set; }
 
-        public decimal Saldo { get; set; }
+        public double Saldo { get; set; }
 
         public bool EsMoroso { get; set; }
 
 
       
-        public static List<ClienteCorporativo> ClientesCorporativos { get;}
+        public static List<ClienteCorporativo> LstClientesCorporativos { get;}
+        public static ClienteCorporativo ClienteActual;
 
 
-        public void CalcularSaldo(int sumador)
+        public void CalcularSaldo(double sumador)
         {
             this.Saldo = this.Saldo + sumador;
         }
@@ -51,10 +53,25 @@ namespace TPCAI
             return this.Saldo;
         }
 
+        public static bool BuscarClienteCorporativo(int cuit)
+        //Requiere que antes de usar este cargada la lista
+        {
+            foreach(var clienteCorporativo in LstClientesCorporativos)
+            {
+                if(clienteCorporativo.CUIT == cuit)
+                {
+                    ClienteCorporativo.ClienteActual = clienteCorporativo;
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
 
         public static void CargarCLientes()
         {
-            //Cargo los servicios desde el archivo a la lista Servicios para que esten en memoria
+            //Cargo los clientes desde el archivo a la lista LstClientesCorporativos para que esten en memoria
             var archivoClientes = new StreamReader("ClientesCorporativos.txt");
             while (!archivoClientes.EndOfStream)
             {
@@ -68,10 +85,11 @@ namespace TPCAI
                     int.Parse(datosSeparados[1]),       //CUIT
                     datosSeparados[2],                  //EsEncomienda
                     int.Parse(datosSeparados[3]),       //EsCorrespondencia
-                    decimal.Parse(datosSeparados[4]),   //Ancho
+                    double.Parse(datosSeparados[4]),   //Ancho
                     bool.Parse(datosSeparados[5])       //Largo
                     ); 
                
+                LstClientesCorporativos.Add(ClienteCorporativo);
 
             }
         }

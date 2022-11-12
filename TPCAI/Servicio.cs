@@ -12,10 +12,12 @@ namespace TPCAI
 {
     internal class Servicio
     {
-        public Servicio(int numeroDeOrden, int idDeServicio, bool esEncomienda, bool esCorrespondencia ,decimal ancho, decimal largo, decimal alto, decimal peso)
+        public Servicio(int numeroDeOrden, bool esEncomienda, bool esCorrespondencia ,decimal ancho, decimal largo, decimal alto, decimal peso)
         {
+            
+            this.IDDeServicio = LstServicios.Count + 1;
             this.NumeroDeOrden = numeroDeOrden;
-            this.IDDeServicio = idDeServicio;   
+            //this.IDDeServicio = idDeServicio;   
             this.EsEncomienda = esEncomienda;
             this.EsCorrespondencia = esCorrespondencia;
             this.Alto = alto;
@@ -43,7 +45,9 @@ namespace TPCAI
 
         public decimal Peso { get; set; }
 
-        public static List<Servicio> Servicios { get; set; }
+
+
+        public static List<Servicio> LstServicios { get; set; }
 
 
         public static void CargarServicios()
@@ -64,7 +68,7 @@ namespace TPCAI
                     decimal.Parse(datosSeparados[4]),   //Ancho
                     decimal.Parse(datosSeparados[5]),   //Largo
                     decimal.Parse(datosSeparados[6]),   //Alto
-                    decimal.Parse(datosSeparados[7])   //Peso
+                    decimal.Parse(datosSeparados[7])    //Peso
                     );
                
                 Servicios.Add(Servicio);
@@ -72,20 +76,37 @@ namespace TPCAI
             }
         }
 
-        internal static void GrabarNuevoServicio(Servicio servicio)
+        internal static Servicio GrabarNuevoServicio(int numeroDeOrden, bool esEncomienda, bool esCorrespondencia ,decimal ancho, decimal largo, decimal alto, decimal peso)
         {
+            var nuevoServicio = new Servicio(int numeroDeOrden, bool esEncomienda, bool esCorrespondencia ,decimal ancho, decimal largo, decimal alto, decimal peso);
+
+            LstServicios.Add(nuevoServicio);
+
+            return nuevoServicio;
+        }
+
+
+        internal static void GrabarNuevoServicioEnArchivo()
+        {
+            var servicio = new Servicio();
 
             StreamWriter writer = File.CreateText("Solicitudes.txt");
 
-            string linea = 
-                servicio.NumeroDeOrden.ToString() + "|"         //Numero de orden
-                + servicio.IDDeServicio.ToString() + "|"        //IDDeServicio
-                + servicio.EsEncomienda.ToString() + "|"        //EsEncomienda
-                + servicio.EsCorrespondencia.ToString() + "|"   //EsCorrespondencia
-                + servicio.Ancho.ToString() + "|"               //Ancho
-                + servicio.Largo.ToString() + "|"               //Largo
-                + servicio.Alto.ToString() + "|"                //Alto
-                + servicio.Peso.ToString();                     //Peso
+            foreach(var servicio in LstServicios)
+            {
+                string linea = 
+                    servicio.NumeroDeOrden.ToString() + "|"         //Numero de orden
+                    + servicio.IDDeServicio.ToString() + "|"        //IDDeServicio
+                    + servicio.EsEncomienda.ToString() + "|"        //EsEncomienda
+                    + servicio.EsCorrespondencia.ToString() + "|"   //EsCorrespondencia
+                    + servicio.Ancho.ToString() + "|"               //Ancho
+                    + servicio.Largo.ToString() + "|"               //Largo
+                    + servicio.Alto.ToString() + "|"                //Alto
+                    + servicio.Peso.ToString();                     //Peso
+
+                writer.WriteLine(linea);
+
+            }
 
             writer.WriteLine(linea);
             

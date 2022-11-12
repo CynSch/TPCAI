@@ -81,6 +81,15 @@ namespace TPCAI
             } while (!valido);
             return valor;
         }
+
+        public static bool ChequearInt(string input)
+        {
+            int.TryParse()
+        }
+
+
+
+
         public static int PedirInt(string mensaje, int min, int max)
         {
             int valor;
