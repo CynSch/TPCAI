@@ -143,7 +143,7 @@ namespace TPCAI
             return EstadoDeLaOrden;
         }
 
-        internal static SolicitudDeOrden GrabarNuevaSolicitud(long CUITCliente,bool esUrgente,DateTime fecha,decimal importe)
+        internal static SolicitudDeOrden GrabarNuevaSolicitud(long cUITCliente,bool esUrgente,DateTime fecha,decimal importe)
         //Este método se tiene que ejecutar cuando hacemos click en "confirmar" la solicitud
         //La nueva solicitud se agrega a la lista SolicitudesExistentes
         {
@@ -191,6 +191,28 @@ namespace TPCAI
                 }
             }
             return ordenesAsociadas;
+        }
+
+        internal static void CrearArchivo()
+        {
+            //Creo objetos "solicitud"
+
+            //Grabo las solicitudes en una lista
+            List<SolicitudDeOrden> ordenesAsociadas = new List<SolicitudDeOrden>();
+
+
+            //Paso cada item de la lista al archivo
+            StreamWriter writer = File.CreateText("Solicitudes.txt");
+            foreach (SolicitudDeOrden sol in solicitudesACargar)
+            {
+                //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado|nroFactura"
+                string linea = sol.NumeroDeOrden + "|"
+                    + sol.CUITCliente + "|"
+                    + sol.EsUrgente + "|" + sol.Fecha + "|"
+                    + sol.Importe + "|" + sol.CodigoDeEstado + "|" + sol.NumeroDeFactura;
+                writer.WriteLine(linea);
+            }
+            writer.Close();
         }
     }
 }
