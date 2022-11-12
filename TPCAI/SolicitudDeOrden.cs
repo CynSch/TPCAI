@@ -198,7 +198,7 @@ namespace TPCAI
             //Creo objetos "solicitud"
 
             //Grabo las solicitudes en una lista
-            List<SolicitudDeOrden> ordenesAsociadas = new List<SolicitudDeOrden>();
+            List<SolicitudDeOrden> solicitudesACargar = new List<SolicitudDeOrden>();
 
 
             //Paso cada item de la lista al archivo
