@@ -23,6 +23,8 @@ namespace TPCAI
             this.EsMoroso = esMoroso;
         }
 
+        public ClienteCorporativo() { }
+
         public string NombreCliente { get; set; }
 
         public long CUIT { get; set; }
@@ -138,7 +140,7 @@ namespace TPCAI
             
 
             //Paso cada item de la lista al archivo
-            StreamWriter writer = File.CreateText("Solicitudes.txt");
+            StreamWriter writer = File.CreateText("ClientesCorporativos.txt");
             foreach (ClienteCorporativo cli in ClientesACargar)
             {
                 
@@ -147,7 +149,7 @@ namespace TPCAI
                     + cli.Contraseña + "|" 
                     + cli.Telefono + "|"
                     + cli.Saldo + "|" 
-                    + cli.EsMoroso + "|" 
+                    + cli.EsMoroso + "|";
 
                 writer.WriteLine(linea);
             }
