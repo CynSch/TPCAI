@@ -19,7 +19,7 @@ namespace TPCAI
         public int CodigoDeLocalidad { get; set; }
         public string NombreDeLocalidad { get; set; }
         public int CodigoDeProvincia { get; set; }
-        static internal List<Localidad> LstLocalidades { get; set; }
+        static internal List<Localidad> LstLocalidades = new List<Localidad>();
 
         public static void ListarLocalidad()
         {
