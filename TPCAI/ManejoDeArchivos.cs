@@ -37,6 +37,7 @@ namespace TPCAI
             SolicitudDeOrden.CrearArchivo();
             EstadoDeOrden.CrearArchivo();
             RegionMundial.CrearArchivo();
+            ClienteCorporativo.CrearArchivo();
             
         }
     }

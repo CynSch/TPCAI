@@ -93,6 +93,67 @@ namespace TPCAI
             }
         }
 
+        internal static void CrearArchivo()
+        {
+            //Creo una lista para guardar las solicitudes
+            List<ClienteCorporativo> ClientesACargar = new List<ClienteCorporativo>();
+
+            var cli1 = new ClienteCorporativo();
+            cli1.NombreCliente = "Julieta Gutierrez";
+            cli1.CUIT = 27420744817;
+            cli1.Contraseña = "1234";
+            cli1.Telefono = 114441111;
+            cli1.Saldo = -500;
+            cli1.EsMoroso = false;
+
+            var cli2 = new ClienteCorporativo();
+            cli2.NombreCliente = "Ruben Randazzo";
+            cli2.CUIT = 23949330290;
+            cli2.Contraseña = "1234";
+            cli2.Telefono = 114442222;
+            cli2.Saldo = -80000;
+            cli2.EsMoroso = true;
+
+            var cli3 = new ClienteCorporativo();
+            cli3.NombreCliente = "Belen Perez";
+            cli3.CUIT = 27430742117;
+            cli3.Contraseña = "1234";
+            cli3.Telefono = 114443333;
+            cli3.Saldo = -5500;
+            cli3.EsMoroso = false;
+
+            var cli4 = new ClienteCorporativo();
+            cli4.NombreCliente = "Andres Panitsch";
+            cli4.CUIT = 20111111111;
+            cli4.Contraseña = "1234";
+            cli4.Telefono = 114444444;
+            cli4.Saldo = 0;
+            cli4.EsMoroso = false;
+
+            //Agrego las solicitudes en la lista
+            ClientesACargar.Add(cli1);
+            ClientesACargar.Add(cli2);
+            ClientesACargar.Add(cli3);
+            ClientesACargar.Add(cli4);
+            
+
+            //Paso cada item de la lista al archivo
+            StreamWriter writer = File.CreateText("Solicitudes.txt");
+            foreach (ClienteCorporativo cli in ClientesACargar)
+            {
+                
+                string linea = cli.NombreCliente + "|"
+                    + cli.CUIT + "|"
+                    + cli.Contraseña + "|" 
+                    + cli.Telefono + "|"
+                    + cli.Saldo + "|" 
+                    + cli.EsMoroso + "|" 
+
+                writer.WriteLine(linea);
+            }
+            writer.Close();
+        }
+
 
     }
 
