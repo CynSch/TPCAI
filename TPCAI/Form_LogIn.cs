@@ -36,16 +36,16 @@ namespace TPCAI
 
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
-            bool accesoPermitido;
-            bool usuarioEncontrado;
-            bool usuarioValido;
+            bool accesoPermitido = false;
+            bool usuarioEncontrado = false;
+            bool usuarioValido = false;
 
 
             usuarioValido = Validador.ChequearLong(txtUsuario.Text, 10000000000,99999999999);
 
             if (usuarioValido)
             {
-                usuarioEncontrado = ClienteCorporativo.BuscarClienteCorporativo(txtUsuario.Text)
+                usuarioEncontrado = ClienteCorporativo.BuscarClienteCorporativo(txtUsuario.Text);
             }
             else
             {
@@ -60,10 +60,9 @@ namespace TPCAI
             }
             else
             {
-                MessageBox.Show("El C.U.I.T introducido");
-                txtContraseña.Clear();
+                MessageBox.Show("El C.U.I.T introducido no se encuentra registrado en el sistema. Intente nuevamente");
+                txtUsuario.Clear();
             }
-
 
 
             if (accesoPermitido)
@@ -71,6 +70,11 @@ namespace TPCAI
                 Menu elMenu = new Menu();
                 this.Hide();
                 elMenu.Show();
+            }
+            else
+            {
+                MessageBox.Show("Contraseña incorrecta. Intente nuevamente");
+                txtUsuario.Clear();
             }
         }
 

@@ -40,7 +40,7 @@ namespace TPCAI
 
       
         public static List<ClienteCorporativo> LstClientesCorporativos { get;}
-        public static ClienteCorporativo ClienteActual {get;private set}
+        public static ClienteCorporativo ClienteActual;
 
 
         public void CalcularSaldo(double sumador)
@@ -48,7 +48,7 @@ namespace TPCAI
             this.Saldo = this.Saldo + sumador;
         }
 
-        public decimal MostrarSaldo()
+        public double MostrarSaldo()
         {
             return this.Saldo;
         }

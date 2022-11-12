@@ -104,7 +104,7 @@ namespace TPCAI
 
 
 
-        public static int PedirInt(string mensaje, int min, int max)
+        public static int PedirInt(string mensaje, long min, long max)
         {
             int valor;
             bool valido = false;

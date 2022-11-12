@@ -26,6 +26,20 @@ namespace TPCAI
             this.Peso = peso;
 
         }
+        public Servicio(int numeroDeOrden,int idDeServicio, bool esEncomienda, bool esCorrespondencia ,decimal ancho, decimal largo, decimal alto, decimal peso)
+        {
+            
+            
+            this.NumeroDeOrden = numeroDeOrden;
+            this.IDDeServicio = idDeServicio;   
+            this.EsEncomienda = esEncomienda;
+            this.EsCorrespondencia = esCorrespondencia;
+            this.Alto = alto;
+            this.Ancho = ancho;   
+            this.Largo = largo;  
+            this.Peso = peso;
+
+        }
 
 
 
@@ -71,7 +85,7 @@ namespace TPCAI
                     decimal.Parse(datosSeparados[7])    //Peso
                     );
                
-                Servicios.Add(Servicio);
+                LstServicios.Add(Servicio);
 
             }
         }
@@ -88,7 +102,6 @@ namespace TPCAI
 
         internal static void GrabarNuevoServicioEnArchivo()
         {
-            var servicio = new Servicio();
 
             StreamWriter writer = File.CreateText("Solicitudes.txt");
 
@@ -108,7 +121,6 @@ namespace TPCAI
 
             }
 
-            writer.WriteLine(linea);
             
             writer.Close();
         }

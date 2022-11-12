@@ -16,8 +16,7 @@ namespace TPCAI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ArchivoTarifas.GrabarArchivo();
-            //Application.Run(new Menu());
+            Application.Run(new Form_LogIn());
             //Application.Run(new Form_consulta_orden ());
         }
     }
