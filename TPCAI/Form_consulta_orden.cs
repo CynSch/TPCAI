@@ -109,8 +109,7 @@ namespace TPCAI
 
         private void Form_consulta_orden_Load(object sender, EventArgs e)
         {
-            SolicitudDeOrden.CargarSolicitudesExistentes();
-            EstadoDeOrden.CargarEstados();
+
         }
 
         private void txtNumeroOrden_TextChanged(object sender, EventArgs e)

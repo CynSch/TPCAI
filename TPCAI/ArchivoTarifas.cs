@@ -19,7 +19,7 @@ namespace TPCAI
 
 
             //Grabo la tarifa desde la lista TarifaActual en memoria al archivo
-            StreamWriter writertarifa = File.CreateText("Tarifa.txt");
+            StreamWriter writertarifa = File.CreateText($@"{Environment.CurrentDirectory}\Tarifa.txt");
 
             // tarifa = RangoDePesos|RecargoUrgente|RecargoRetiroEnPuerta|RegargoEntregaEnPuerta
             string lineatarifa = "";
@@ -31,7 +31,7 @@ namespace TPCAI
 
             //Grabo el rango desde la lista Rangos en memoria al archivo
 
-            StreamWriter writerrango = File.CreateText("RangoDePeso.txt");
+            StreamWriter writerrango = File.CreateText($@"{Environment.CurrentDirectory}\RangoDePeso.txt");
 
             //PesoMinKg|PesoMaxKg|Precios
             string linearangos = "";
@@ -50,7 +50,7 @@ namespace TPCAI
         internal static void CargarTarifario()
         {
             //Cargo el rango de peso desde el archivo a memoria
-            StreamReader reader = new StreamReader("RangoDePeso.txt");
+            StreamReader reader = new StreamReader($@"{Environment.CurrentDirectory}\RangoDePeso.txt");
             while (!reader.EndOfStream)
             {
                 string linea = reader.ReadLine();
@@ -75,7 +75,7 @@ namespace TPCAI
             }
 
             //Cargo la tarifa desde el archivo a memoria
-            var datostarifa = File.ReadLines("Tarifa.txt").First().Split('|');
+            var datostarifa = File.ReadLines($@"{Environment.CurrentDirectory}\Tarifa.txt").First().Split('|');
 
             //RecargoUrgente|RecargoRetiroEnPuerta|RegargoEntregaEnPuerta
             Tarifa tarifa = new Tarifa()

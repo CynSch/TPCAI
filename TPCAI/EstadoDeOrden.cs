@@ -12,7 +12,7 @@ namespace TPCAI
         //Propiedades
         public int CodigoDeEstado { get; set; }
         public string Descripcion { get; set; }
-        static internal List<EstadoDeOrden> EstadosDisponibles { get; set; }
+        static internal List<EstadoDeOrden> EstadosDisponibles = new List<EstadoDeOrden>();
 
         //Métodos
         internal static void CargarEstados()
