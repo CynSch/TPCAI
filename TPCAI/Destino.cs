@@ -179,6 +179,29 @@ namespace TPCAI
             return nuevoDestino;
 
         }
+        internal static void CrearArchivo()
+        {
+            
+            StreamWriter writerorigen = File.CreateText($@"{Environment.CurrentDirectory}\DestinoOrdenes.txt");
+
+            string lineadestino;
+            Destino destino = new Destino();
+            lineadestino = destino.NumeroDeOrden.ToString() + "|" +
+                                 destino.EsInternacional.ToString() + "|" +
+                                 destino.EsNacional.ToString() + "|" +
+                                 destino.EntregaEnDomicilio.ToString() + "|" +
+                                 destino.EntregaEnSucursal.ToString() + "|" +
+                                 destino.CodigoDeRegionMundial.ToString() + "|" +
+                                 destino.CodigoDePais.ToString() + "|" +
+                                 destino.CodigoDeRegionNacional.ToString() + "|" +
+                                 destino.CodigoDeProvincia.ToString() + "|" +
+                                 destino.CodigoDeLocalidad.ToString() + "|" +
+                                 destino.Direccion + "|" +
+                                 destino.NroSucursal.ToString();
+
+            writerorigen.WriteLine(lineadestino);
+            writerorigen.Close();
+        }
 
 
         /* private RegionNacional BuscarRegionNacional(int codigoRegNac)
