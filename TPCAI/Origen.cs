@@ -83,11 +83,8 @@ namespace TPCAI
             // Formato del archivo:
             // NumeroOrden|EsretiroEnDomicilio|EsEntregaEnSucursal|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
 
-            //Primero vacío la lista, por las dudas.
-             TodosLosOrigenes.Clear();
-
             //recorro linea por linea del archivo, y voy agregando a la lista de solicitudes existentes. 
-            var archivoOrigen = new StreamReader("OrigenOrdenes.txt");
+            var archivoOrigen = new StreamReader($@"{Environment.CurrentDirectory}\OrigenOrdenes.txt");
             while (!archivoOrigen.EndOfStream)
             {
                 string proximaLinea = archivoOrigen.ReadLine();
@@ -97,12 +94,47 @@ namespace TPCAI
                 origenExistente.NumeroDeOrden = int.Parse(datosSeparados[0]);
                 origenExistente.EsRetiroEnDomicilio = bool.Parse(datosSeparados[1]);
                 origenExistente.EsEntregaEnSucursal = bool.Parse(datosSeparados[2]);
-                origenExistente.CodigoDeRegionNacional = int.Parse(datosSeparados[3]);
-                origenExistente.CodigoDeProvincia = int.Parse(datosSeparados[4]);
-                origenExistente.CodigoDeLocalidad = int.Parse(datosSeparados[5]);
+                //origenExistente.CodigoDeRegionNacional = int.Parse(datosSeparados[3]);
+                //origenExistente.CodigoDeProvincia = int.Parse(datosSeparados[4]);
+                //origenExistente.CodigoDeLocalidad = int.Parse(datosSeparados[5]);
                 origenExistente.Direccion = datosSeparados[6];
-                origenExistente.NroSucursal = int.Parse(datosSeparados[7]);
-
+                //origenExistente.NroSucursal = int.Parse(datosSeparados[7]);
+                //Puede ser null
+                if (datosSeparados[3] != "")
+                {
+                    origenExistente.CodigoDeRegionNacional = int.Parse(datosSeparados[3]);
+                }
+                else
+                {
+                    origenExistente.CodigoDeRegionNacional = 0;
+                }
+                //Puede ser null
+                if (datosSeparados[4] != "")
+                {
+                    origenExistente.CodigoDeProvincia = int.Parse(datosSeparados[4]);
+                }
+                else
+                {
+                    origenExistente.CodigoDeProvincia = 0;
+                }
+                //Puede ser null
+                if (datosSeparados[5] != "")
+                {
+                    origenExistente.CodigoDeLocalidad = int.Parse(datosSeparados[5]);
+                }
+                else
+                {
+                    origenExistente.CodigoDeLocalidad = 0;
+                }
+                //Puede ser null
+                if (datosSeparados[7] != "")
+                {
+                    origenExistente.NroSucursal = int.Parse(datosSeparados[7]);
+                }
+                else
+                {
+                    origenExistente.NroSucursal = 0;
+                }
                 //Agrego el origen a la lista.
                 Origen.TodosLosOrigenes.Add(origenExistente);
             }
@@ -115,7 +147,7 @@ namespace TPCAI
             //Grabo los origenes desde la lista TodosLosOrigenes en memoria al archivo.
 
 
-            StreamWriter writer = File.CreateText("OrigenOrdenes.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\OrigenOrdenes.txt");
 
             //Formato del archivo: NumeroOrden|EsretiroEnDomicilio|EsEntregaEnSucursal|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
 
@@ -149,57 +181,51 @@ namespace TPCAI
 
         internal static void CrearArchivo()
         {
-            List<Origen> origenCargar = new List<Origen>();
 
-            var lst1 = new Origen();
-            lst1.NumeroDeOrden = 100;
-            lst1.EsRetiroEnDomicilio = true;
-            lst1.EsEntregaEnSucursal = false;
-            lst1.CodigoDeRegionNacional = 4;
-            lst1.CodigoDeProvincia = 1;
-            lst1.CodigoDeLocalidad = 2;
-            lst1.Direccion = "v 25 de Mayo 613";
-   
+            List<Origen> lstcargar = new List<Origen>();
+
+            var lst1 = new Origen(100, true, false, 4, 1, 2, "Av 25 de Mayo 613", 0);
+            var lst2 = new Origen(101, false, true, 4, 6, 46, "", 5);
+            var lst3 = new Origen(102, true, false, 1, 24, 53, "Lavalle 2270 ", 0);
+            var lst4 = new Origen(103, false, true, 4, 1, 8, "", 2);
+            var lst5 = new Origen(104, false, true, 1, 17, 51, "", 3);
+            var lst6 = new Origen(105, true, false, 2, 4, 40, "Chiclana 26 ", 0);
+            var lst7 = new Origen(106, true, false, 1, 24, 53, "Benjamín Matienzo 2041", 0);
+            var lst8 = new Origen(107, false, true, 1, 17, 51, "", 3);
+            var lst9 = new Origen(108, false, true, 1, 3, 31, "", 4);
+            var lst10 = new Origen(109, false, true, 4, 1, 1, "", 1);
+            var lst11 = new Origen(110, true, false, 4, 1, 26, "Sarmiento 2689", 0);
+
+            lstcargar.Add(lst1);
+            lstcargar.Add(lst2);
+            lstcargar.Add(lst3);
+            lstcargar.Add(lst4);
+            lstcargar.Add(lst5);
+            lstcargar.Add(lst6);
+            lstcargar.Add(lst7);
+            lstcargar.Add(lst8);
+            lstcargar.Add(lst9);
+            lstcargar.Add(lst10);
+            lstcargar.Add(lst11);
 
 
             StreamWriter writerorigen = File.CreateText($@"{Environment.CurrentDirectory}\OrigenOrdenes.txt");
 
-            string lineaorigen;
-            Origen origen = new Origen();
-            lineaorigen = origen.NumeroDeOrden + "|"
-                    + origen.EsRetiroEnDomicilio + "|"
-                    + origen.EsEntregaEnSucursal + "|"
-                    + origen.CodigoDeRegionNacional + "|"
-                    + origen.CodigoDeProvincia + "|"
-                    + origen.CodigoDeLocalidad + "|"
-                    + origen.Direccion + "|"
-                    + origen.NroSucursal;
+            foreach (Origen or in lstcargar)
+            {
+                string lineaorigen = or.NumeroDeOrden + "|"
+                        + or.EsRetiroEnDomicilio + "|"
+                        + or.EsEntregaEnSucursal + "|"
+                        + or.CodigoDeRegionNacional + "|"
+                        + or.CodigoDeProvincia + "|"
+                        + or.CodigoDeLocalidad + "|"
+                        + or.Direccion + "|"
+                        + or.NroSucursal;
+                writerorigen.WriteLine(lineaorigen);
+            }
 
-            writerorigen.WriteLine(lineaorigen);
             writerorigen.Close();
         }
-
-        /*  private RegionNacional BuscarRegionNacional(int codigoRegNac)
-          {
-              return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
-
-          }*/
-
-        /*private Provincia BuscarProvincia(int codigoProvincia)
-        {
-            return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
-        }
-        */
-        /*private Localidad BuscarLocalidad(int codigoLocalidad)
-        {
-            return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
-        }*/
-
-        /* private Sucursal BuscarSucursal(int codigoSucursal)
-         {
-             return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
-
-         }*/
 
     }
 }
