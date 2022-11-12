@@ -23,8 +23,6 @@ namespace TPCAI
             this.EsMoroso = esMoroso;
         }
 
-
-
         public string NombreCliente { get; set; }
 
         public long CUIT { get; set; }
@@ -40,6 +38,7 @@ namespace TPCAI
 
       
         public static List<ClienteCorporativo> LstClientesCorporativos = new List<ClienteCorporativo>();
+
         public static ClienteCorporativo ClienteActual;
 
 
@@ -85,7 +84,7 @@ namespace TPCAI
                     long.Parse(datosSeparados[1]),       //CUIT
                     datosSeparados[2],                  //Contraseña
                     int.Parse(datosSeparados[3]),       //telefono
-                    double.Parse(datosSeparados[4]),    //Saldo
+                    double.Parse(datosSeparados[4]),   //Saldo
                     bool.Parse(datosSeparados[5])       //Esmoroso
                     ); 
                

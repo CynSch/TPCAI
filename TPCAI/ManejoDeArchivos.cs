@@ -18,6 +18,8 @@ namespace TPCAI
             Destino.CargarDestinoExistentes();
             EstadoDeOrden.CargarEstados();
             RegionMundial.CargarRegionesMundiales();
+            ClienteCorporativo.CargarCLientes();
+            Servicio.CargarServicios();
             //Agregar metodos
         }
         public static void ActualizarArchivos()
@@ -25,6 +27,7 @@ namespace TPCAI
             //Llama a los metodos que sobreescriben los txt con las listas actualizadas
             SolicitudDeOrden.GrabarSolicitudesEnArchivo();
             Destino.GrabarDestino();
+            Servicio.GrabarNuevoServicioEnArchivo();
         }
 
         public static void CrearArchivos()
