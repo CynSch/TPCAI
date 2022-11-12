@@ -44,6 +44,20 @@ namespace TPCAI
             }
         }
 
+        internal static void CrearArchivo()
+        {
+            //Grabo la tarifa desde la lista TarifaActual en memoria al archivo
+            StreamWriter writerRegionMundial = File.CreateText($@"{Environment.CurrentDirectory}\RegionesMundiales.txt");
+
+            string lineaRegionMundial;
+            RegionMundial regmundial = new RegionMundial();
+            lineaRegionMundial = regmundial.CodigoDeRegionMundial + "|"
+                    + regmundial.NombreDeRegionMundial;
+
+            writerRegionMundial.WriteLine(lineaRegionMundial);
+            writerRegionMundial.Close();
+        }
+
         public static RegionMundial BuscarRegionMundial(int codigoRegionMundial)
         {
             return RegionMundial.LstRegionesMundiales.Find(regionMundial => regionMundial.CodigoDeRegionMundial == codigoRegionMundial);
