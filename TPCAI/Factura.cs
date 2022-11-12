@@ -72,10 +72,7 @@ namespace TPCAI
             List<Factura> FacturasACargar = new List<Factura>();
 
 
-            //nrofac, monto, fechafac, estapaga, cuit
 
-            //YYYY, MM, DD
-            //Creo objetos "solicitud"
             var e1 = new Factura();
             e1.NroFactura = 6000;
             e1.Monto = 3500;
@@ -113,29 +110,23 @@ namespace TPCAI
 
 
 
-
-
-
-
-            /*
-
             //Agrego las solicitudes en la lista
-            EstadosACargar.Add(e1);
-            EstadosACargar.Add(e2);
-            EstadosACargar.Add(e3);
-            EstadosACargar.Add(e4);
-            EstadosACargar.Add(e5);
+            FacturasACargar.Add(e1);
+            FacturasACargar.Add(e2);
+            FacturasACargar.Add(e3);
+            FacturasACargar.Add(e4);
+            FacturasACargar.Add(e5);
 
             //Paso cada item de la lista al archivo
             StreamWriter writer = File.CreateText("Estados.txt");
-            foreach (EstadoDeOrden e in EstadosACargar)
+            foreach (Factura e in FacturasACargar)
             {
                 //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado|nroFactura"
-                string linea = e.CodigoDeEstado + "|" + e.Descripcion;
+                string linea = e.NroFactura + "|" + e.Monto + "|" + e.FechaFactura + "|" + e.EstaPaga + "|" + e.CUIT;
                 writer.WriteLine(linea);
             }
             writer.Close();
-        }*/
+        }
     }
-    }
+
 }
