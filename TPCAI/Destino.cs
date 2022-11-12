@@ -116,7 +116,7 @@ namespace TPCAI
             DestinosExistentes.Clear();
 
             //recorro linea por linea del archivo, y voy agregando a la lista de destinos existentes. 
-            var archivoDestino = new StreamReader("DestinoOrdenes.txt");
+            var archivoDestino = new StreamReader($@"{Environment.CurrentDirectory}DestinoOrdenes.txt");
             while (!archivoDestino.EndOfStream)
             {
                 string proximaLinea = archivoDestino.ReadLine();
@@ -192,7 +192,7 @@ namespace TPCAI
         {
             //Grabo los destinos desde la lista TodosLosdestinos en memoria al archivo.
 
-            StreamWriter writer = File.CreateText("DestinoOrdenes.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}DestinoOrdenes.txt");
 
             foreach (Destino destinoOrden in DestinosExistentes)
             {

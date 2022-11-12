@@ -24,7 +24,7 @@ namespace TPCAI
         public static void ListarRegiones()
         {
             //Cargo las regiones nacionales desde el archivo a la lista RegionesNacionales para que esten en memoria
-            var archivoRegionNacional = new StreamReader("RegionesNacionales.txt");
+            var archivoRegionNacional = new StreamReader($@"{Environment.CurrentDirectory}RegionesNacionales.txt");
             while (!archivoRegionNacional.EndOfStream)
             {
                 string proximaLinea = archivoRegionNacional.ReadLine();
@@ -43,17 +43,17 @@ namespace TPCAI
         {
             List<RegionNacional> listaACargar = new List<RegionNacional>();
 
-            var lst1 = new RegionNacional(1, "Sur");
-            var lst2 = new RegionNacional(2, "Centro");
-            var lst3 = new RegionNacional(3, "Norte");
-            var lst4 = new RegionNacional(4, "Metropilitana");
-            
+            var lst1 = new RegionNacional(1, "NoroesteArgentino");
+            var lst2 = new RegionNacional(2, "NoresteArgentino");
+            var lst3 = new RegionNacional(3, "Cuyo");
+            var lst4 = new RegionNacional(4, "Centro");
+            var lst5 = new RegionNacional(5, "Patagonia");
 
             listaACargar.Add(lst1);
             listaACargar.Add(lst2);
             listaACargar.Add(lst3);
             listaACargar.Add(lst4);
-            
+            listaACargar.Add(lst5);
 
             StreamWriter writerRegionNacional = File.CreateText($@"{Environment.CurrentDirectory}\RegionesNacionales.txt");
 
