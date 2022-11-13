@@ -52,6 +52,9 @@ namespace TPCAI
             Origen.CrearArchivo();
             RangoDePeso.CrearRangosIniciales();
             Servicio.CrearArchivo();
+            Sucursal.CrearArchivo();
+            Factura.CrearArchivo();
+            Pais.CrearArchivo();
             
         }
     }
