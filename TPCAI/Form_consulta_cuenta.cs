@@ -78,8 +78,12 @@ namespace TPCAI
                         ListViewItem ordenN = new ListViewItem(orden.NumeroDeOrden.ToString()); //nro
                         ordenN.SubItems.Add(orden.Importe.ToString());  //monto
                         ordenN.SubItems.Add(orden.Fecha.ToString()); //fecha
-                        if (Destino.BuscarDestino(orden.NumeroDeOrden).EntregaEnDomicilio == true)
+                        if (Destino.BuscarDestino(orden.NumeroDeOrden).EntregaEnDomicilio == true || Destino.BuscarDestino(orden.NumeroDeOrden).EsInternacional == true)
                         {
+                            if(Destino.BuscarDestino(orden.NumeroDeOrden).EsInternacional == true)
+                            {
+                                ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).Direccion+", "+ Pais.BucarNombrePais(Destino.BuscarDestino(orden.NumeroDeOrden).CodigoDePais)); //destino internacional
+                            }
                             ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).Direccion); //destino
                         }
                         else

@@ -199,5 +199,20 @@ namespace TPCAI
             }
             writer.Close();
         }
+
+        internal static string BucarNombrePais(int codigoPais)
+        {
+            string pais = "";
+
+            foreach (Pais p in TodosLosPaises)
+            {
+                if(p.CodigoDePais == codigoPais)
+                {
+                    pais = p.NombreDePais;
+                    break;
+                }
+            }
+            return pais;
+        }
     }
 }
