@@ -181,16 +181,16 @@ namespace TPCAI
             List<Origen> lstcargar = new List<Origen>();
 
             var lst1 = new Origen(100, true, false, 4, 1, 2, "Av 25 de Mayo 613", 0);
-            var lst2 = new Origen(101, false, true, 4, 6, 46, "", 5);
-            var lst3 = new Origen(102, true, false, 1, 24, 53, "Lavalle 2270 ", 0);
-            var lst4 = new Origen(103, false, true, 4, 1, 8, "", 2);
-            var lst5 = new Origen(104, false, true, 1, 17, 51, "", 3);
-            var lst6 = new Origen(105, true, false, 2, 4, 40, "Chiclana 26 ", 0);
-            var lst7 = new Origen(106, true, false, 1, 24, 53, "Benjamín Matienzo 2041", 0);
-            var lst8 = new Origen(107, false, true, 1, 17, 51, "", 3);
-            var lst9 = new Origen(108, false, true, 1, 3, 31, "", 4);
+            var lst2 = new Origen(101, false, true, 4, 6, 13, "", 13);
+            var lst3 = new Origen(102, true, false, 1, 10, 17, "Lavalle 2270 ", 0);
+            var lst4 = new Origen(103, false, true, 4, 1, 8, "", 8);
+            var lst5 = new Origen(104, false, true, 1, 17, 24, "", 24);
+            var lst6 = new Origen(105, true, false, 2, 4, 11, "Chiclana 26 ", 0);
+            var lst7 = new Origen(106, true, false, 1, 10, 17, "Benjamín Matienzo 2041", 0);
+            var lst8 = new Origen(107, false, true, 1, 17, 24, "", 24);
+            var lst9 = new Origen(108, false, true, 1, 3, 10, "", 10);
             var lst10 = new Origen(109, false, true, 4, 1, 1, "", 1);
-            var lst11 = new Origen(110, true, false, 4, 1, 26, "Sarmiento 2689", 0);
+            var lst11 = new Origen(110, true, false, 4, 1, 5, "Sarmiento 2689", 0);
 
             lstcargar.Add(lst1);
             lstcargar.Add(lst2);
