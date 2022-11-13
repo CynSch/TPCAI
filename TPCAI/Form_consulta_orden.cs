@@ -17,7 +17,7 @@ namespace TPCAI
         {
             InitializeComponent();
         }
-       
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string ingreso = txtNumeroOrden.Text;
@@ -25,46 +25,57 @@ namespace TPCAI
             int IngresoLength = ingreso.Length;
 
 
-                 if (string.IsNullOrEmpty(ingreso))
-                 {
-                     MessageBox.Show("El campo no puede quedar vacio. Debe ingresar un dato.");
-                     txtNumeroOrden.Clear();
-                     return;
-                 }
-                else if (IngresoLength > 10)
-                {
-                    MessageBox.Show("Puede ingresar 10 carcateres como maximo");
-                    txtNumeroOrden.Clear();
-                    return;
-                }
-                else if (!correcto)
-                {
-                    MessageBox.Show("Debe ingresar un valor numerico");
-                    txtNumeroOrden.Clear();
-                    return;
-                }
-                else
-                {
+            if (string.IsNullOrEmpty(ingreso))
+            {
+                MessageBox.Show("El campo no puede quedar vacio. Debe ingresar un dato.");
+                txtNumeroOrden.Clear();
+                return;
+            }
+            else if (IngresoLength > 10)
+            {
+                MessageBox.Show("Puede ingresar 10 carcateres como maximo");
+                txtNumeroOrden.Clear();
+                return;
+            }
+            else if (!correcto)
+            {
+                MessageBox.Show("Debe ingresar un valor numerico");
+                txtNumeroOrden.Clear();
+                return;
+            }
+            else
+            {
+                //  SolicitudDeOrden solicitud = BuscarOrden(nro);
+                bool encontrado = false;
 
-              //  SolicitudDeOrden solicitud = BuscarOrden(nro);
-
-                    foreach (SolicitudDeOrden solicitud in SolicitudDeOrden.SolicitudesExistentes)
+                foreach (SolicitudDeOrden solicitud in SolicitudDeOrden.SolicitudesExistentes)
+                {
+                    if (solicitud.NumeroDeOrden == entero)
                     {
-                        if (solicitud.NumeroDeOrden == entero)
+                        if (solicitud.CUITCliente == ClienteCorporativo.ClienteActual.CUIT)
                         {
+
                             TxtNroOrden.Text = solicitud.NumeroDeOrden.ToString();
                             TxtFechaOrden.Text = solicitud.Fecha.ToString();
                             TxtImporteOrden.Text = solicitud.Importe.ToString();
                             Destino destino = _Destino(solicitud);
                             TxtDestinoOrden.Text = Destino.MostrarDestino(destino.EsNacional, destino.EsInternacional, destino.EntregaEnDomicilio, destino.EntregaEnSucursal, destino.CodigoDeRegionMundial, destino.CodigoDePais, destino.CodigoDeRegionNacional, destino.CodigoDeProvincia, destino.CodigoDeLocalidad, destino.Direccion, destino.NroSucursal);
-                           
+
                             TxtEstadoOrden.Text = SolicitudDeOrden.BuscarEstadoDeOrden(solicitud.NumeroDeOrden);
-
+                            encontrado = true;
                         }
-                   
+                        {
+                            encontrado = true;
+                            MessageBox.Show("El numero de orden ingresado no corresponde a este cliente");
+                            break;
+                        }
                     }
-
                 }
+                if (encontrado == false)
+                {
+                    MessageBox.Show("El numero de orden ingresado es inexistente");
+                }
+            }
 
         }
 
