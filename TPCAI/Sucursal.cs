@@ -146,8 +146,80 @@ namespace TPCAI
             e11.CodigoDeLocalidad = 11;
             e11.Direccion = "Riobamba 903";
 
-            //AGREGAR LAS FALTANTES
+            var e12 = new Sucursal();
+            e12.NroSucursal = 12;
+            e12.CodigoDeLocalidad = 12;
+            e12.Direccion = "Pergamino 103";
 
+            var e13 = new Sucursal();
+            e13.NroSucursal = 13;
+            e13.CodigoDeLocalidad = 13;
+            e13.Direccion = "Oyuela 876";
+
+            var e14 = new Sucursal();
+            e14.NroSucursal = 14;
+            e14.CodigoDeLocalidad = 14;
+            e14.Direccion = "Calle 20 777";
+
+            var e15 = new Sucursal();
+            e15.NroSucursal = 15;
+            e15.CodigoDeLocalidad = 15;
+            e15.Direccion = "Nicolas Avellaneda 32";
+
+            var e16 = new Sucursal();
+            e16.NroSucursal = 16;
+            e16.CodigoDeLocalidad = 16;
+            e16.Direccion = "Jose Hernandez 1408";
+
+            var e17 = new Sucursal();
+            e17.NroSucursal = 17;
+            e17.CodigoDeLocalidad = 17;
+            e17.Direccion = "Matienzo 670";
+
+            var e18 = new Sucursal();
+            e18.NroSucursal = 18;
+            e18.CodigoDeLocalidad = 18;
+            e18.Direccion = "Juan C Vera 6582";
+
+            var e19 = new Sucursal();
+            e19.NroSucursal = 19;
+            e19.CodigoDeLocalidad = 19;
+            e19.Direccion = "Condor II 427";
+
+            var e20 = new Sucursal();
+            e20.NroSucursal = 20;
+            e20.CodigoDeLocalidad = 20;
+            e20.Direccion = "Las Orquideas 1225";
+
+            var e21 = new Sucursal();
+            e21.NroSucursal = 21;
+            e21.CodigoDeLocalidad = 21;
+            e21.Direccion = "Roma 3842";
+            
+            var e22 = new Sucursal();
+            e22.NroSucursal = 22;
+            e22.CodigoDeLocalidad = 22;
+            e22.Direccion = "C. M. Garcia 715";
+
+            var e23 = new Sucursal();
+            e23.NroSucursal = 23;
+            e23.CodigoDeLocalidad = 23;
+            e23.Direccion = "Corso 624";
+
+            var e24 = new Sucursal();
+            e24.NroSucursal = 24;
+            e24.CodigoDeLocalidad = 24;
+            e24.Direccion = "Libertad 8900";
+
+            var e25 = new Sucursal();
+            e25.NroSucursal = 25;
+            e25.CodigoDeLocalidad = 25;
+            e25.Direccion = "Gral Urquiza 1290";
+
+            var e26 = new Sucursal();
+            e26.NroSucursal = 26;
+            e26.CodigoDeLocalidad = 26;
+            e26.Direccion = "C. Los Colonos 512";
 
             //Agrego los paises en la lista
             SucursalesACargar.Add(e1);
@@ -161,8 +233,21 @@ namespace TPCAI
             SucursalesACargar.Add(e9);
             SucursalesACargar.Add(e10);
             SucursalesACargar.Add(e11);
-
-
+            SucursalesACargar.Add(e12);
+            SucursalesACargar.Add(e13);
+            SucursalesACargar.Add(e14);
+            SucursalesACargar.Add(e15);
+            SucursalesACargar.Add(e16);
+            SucursalesACargar.Add(e17);
+            SucursalesACargar.Add(e18);
+            SucursalesACargar.Add(e19);
+            SucursalesACargar.Add(e20);
+            SucursalesACargar.Add(e21);
+            SucursalesACargar.Add(e22);
+            SucursalesACargar.Add(e23);
+            SucursalesACargar.Add(e24);
+            SucursalesACargar.Add(e25);
+            SucursalesACargar.Add(e26);
 
             //Paso cada item de la lista al archivo
             StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Sucursales.txt");
