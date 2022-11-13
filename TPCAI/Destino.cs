@@ -69,10 +69,6 @@ namespace TPCAI
             //Se ejecuta si el rb de nacional esta seleccionado
             else if (nacional)
             {
-                RegionNacional regionN = RegionNacional.BuscarRegionNacional(codigoRegionNacional);
-                string rn = regionN.NombreDeRegionNacional;
-
-
                 Provincia provincia = Provincia.BuscarProvincia(codigoProvincia);
                 string nombreProvincia = provincia.NombreDeProvincia;
 
@@ -86,7 +82,7 @@ namespace TPCAI
                     Sucursal sucursal = Sucursal.BuscarSucursal(nroSucursal);
                     string direccionSucursal = sucursal.Direccion;
 
-                    salida = rn + "," + nombreProvincia + "," + nombreLocalidad + ", sucursal " + nroSucursal + " - " + direccionSucursal;
+                    salida = nombreProvincia + "," + nombreLocalidad + ", sucursal " + nroSucursal + " - " + direccionSucursal;
 
                 }
 
@@ -94,7 +90,7 @@ namespace TPCAI
                 if (entregaDomicilio == true)
                 {
 
-                    salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccion;
+                    salida = nombreProvincia + "," + nombreLocalidad + "," + direccion;
 
                 }
                 

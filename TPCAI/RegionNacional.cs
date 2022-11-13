@@ -71,10 +71,5 @@ namespace TPCAI
 
         }
 
-        public static RegionNacional BuscarRegionNacional(int codigoRegNac)
-        {
-            return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
-
-        }
     }
 }
