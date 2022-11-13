@@ -86,7 +86,7 @@ namespace TPCAI
                     Sucursal sucursal = Sucursal.BuscarSucursal(nroSucursal);
                     string direccionSucursal = sucursal.Direccion;
 
-                    salida = rn + "," + nombreProvincia + "," + nombreLocalidad + "," + direccionSucursal;
+                    salida = rn + "," + nombreProvincia + "," + nombreLocalidad + ", sucursal " + nroSucursal + " - " + direccionSucursal;
 
                 }
 
@@ -229,12 +229,12 @@ namespace TPCAI
 
             List<Destino> listaACargar = new List<Destino>();
 
-            var lst1 = new Destino(100, true, false, false, false, 2, 22, 0, 0, 0, "Granada 23, Cancún", 0);
+            var lst1 = new Destino(100, true, false, false, false, 2, 11, 0, 0, 0, "Granada 23, Cancún", 0);
             var lst3 = new Destino(102, false, true, false, true,0,0, 4, 6, 46, "", 5);
             var lst4 = new Destino(103, true, false, false, false, 1, 1, 0, 0,0, "Engenheiro Roberto Freire 3800, Ponta Negra", 0);
             var lst2 = new Destino(101, false, true, false, true, 0, 0, 1, 3, 31, "", 4);
             var lst5 = new Destino(104, true, false, false, false, 3, 21, 0,0, 0, "Magnolia St 2801, Oakland", 0);
-            var lst6 = new Destino(105, false, true, false, true, 0, 0, 0, 1, 1, "", 1);
+            var lst6 = new Destino(105, false, true, false, true, 0, 0, 4, 1, 1, "", 1);
             var lst7 = new Destino(106, false, true, false, true, 0, 0, 0, 1, 8, "", 2);
             var lst8 = new Destino(107, false, true, false, true, 0, 0, 0, 17, 51, "", 3);
             var lst9 = new Destino(108, true, false, false, false, 4, 32, 0, 0, 0, "Av.Clays 20, Bruxelles", 0);
@@ -276,36 +276,5 @@ namespace TPCAI
 
             writerDestino.Close(); 
         }
-
-
-        /* private RegionNacional BuscarRegionNacional(int codigoRegNac)
-         {
-             return RegionNacional.LstRegionesNacionales.Find(regionNacional => regionNacional.CodigoDeRegionNacional == codigoRegNac);
-
-         }*/
-
-        /* private Provincia BuscarProvincia(int codigoProvincia)
-         {
-             return Provincia.TodasLasProvincias.Find(provincia => provincia.CodigoDeProvincia == codigoProvincia);
-         }*/
-
-        /* private Localidad BuscarLocalidad(int codigoLocalidad)
-         {
-             return Localidad.LstLocalidades.Find(localidad => localidad.CodigoDeLocalidad == codigoLocalidad);
-         }*/
-
-        /* private Sucursal BuscarSucursal(int codigoSucursal)
-         {
-             return Sucursal.TodasLasSucursales.Find(sucursal => sucursal.NroSucursal == codigoSucursal);
-
-         }*/
-        /*private RegionMundial BuscarRegionMundial(int codigoRegionMundial)
-        {
-            return RegionMundial.LstRegionesMundiales.Find(regionMundial => regionMundial.CodigoDeRegionMundial == codigoRegionMundial);
-        }*/
-        /* private Pais BuscarPais(int codigoPais)
-         {
-             return Pais.TodosLosPaises.Find(pais => pais.CodigoDePais == codigoPais);
-         }*/
     }
 }
