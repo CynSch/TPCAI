@@ -228,26 +228,55 @@ namespace TPCAI
         }
         internal static void CrearArchivo()
         {
-            
-            StreamWriter writerorigen = File.CreateText($@"{Environment.CurrentDirectory}\DestinoOrdenes.txt");
 
-            string lineadestino;
-            Destino destino = new Destino();
-            lineadestino = destino.NumeroDeOrden.ToString() + "|" +
-                                 destino.EsInternacional.ToString() + "|" +
-                                 destino.EsNacional.ToString() + "|" +
-                                 destino.EntregaEnDomicilio.ToString() + "|" +
-                                 destino.EntregaEnSucursal.ToString() + "|" +
-                                 destino.CodigoDeRegionMundial.ToString() + "|" +
-                                 destino.CodigoDePais.ToString() + "|" +
-                                 destino.CodigoDeRegionNacional.ToString() + "|" +
-                                 destino.CodigoDeProvincia.ToString() + "|" +
-                                 destino.CodigoDeLocalidad.ToString() + "|" +
-                                 destino.Direccion + "|" +
-                                 destino.NroSucursal.ToString();
+            List<Destino> listaACargar = new List<Destino>();
 
-            writerorigen.WriteLine(lineadestino);
-            writerorigen.Close();
+            var lst1 = new Destino(100, true, false, false, false, 2, 22, 12, 0, 0, "Granada 23, Cancún", 0);
+            var lst3 = new Destino(102, false, true, false, true,0,0, 4, 6, 46, null, 5);
+            var lst4 = new Destino(103, true, false, false, false, 1, 1, 0, 0,0, "Engenheiro Roberto Freire 3800, Ponta Negra", 0);
+            var lst2 = new Destino(101, false, true, false, true, 0, 0, 1, 3, 31, null, 4);
+            var lst5 = new Destino(104, true, false, false, false, 3, 21, 0,0, 0, "Magnolia St 2801, Oakland", 0);
+            var lst6 = new Destino(105, false, true, false, true, 0, 0, 0, 1, 1, null, 1);
+            var lst7 = new Destino(106, false, true, false, true, 0, 0, 0, 1, 8, null, 2);
+            var lst8 = new Destino(107, false, true, false, true, 0, 0, 0, 17, 51, null, 3);
+            var lst9 = new Destino(108, true, false, false, false, 4, 32, 0, 0, 0, "Av.Clays 20, Bruxelles", 0);
+            var lst10 = new Destino(109, true, false, false, false, 5, 91, 0, 0, 0, "Dostai 17, Jerusalem", 0);
+            var lst11 = new Destino(110, true, false, false, false, 1, 3, 0, 0, 0, "Martín Rivas 596, Peru", 0);
+
+            listaACargar.Add(lst1);
+            listaACargar.Add(lst2);
+            listaACargar.Add(lst3);
+            listaACargar.Add(lst4);
+            listaACargar.Add(lst5);
+            listaACargar.Add(lst6);
+            listaACargar.Add(lst7);
+            listaACargar.Add(lst8);
+            listaACargar.Add(lst9);
+            listaACargar.Add(lst10);
+            listaACargar.Add(lst11);
+
+
+            StreamWriter writerDestino = File.CreateText($@"{Environment.CurrentDirectory}\DestinoOrdenes.txt");
+
+            foreach (Destino d in listaACargar)
+            {
+                string lineaDestino = d.NumeroDeOrden + "|" +
+                                        d.EsInternacional + "|" +
+                                        d.EsNacional + "|" +
+                                        d.EntregaEnDomicilio + "|" +
+                                        d.EntregaEnSucursal + "|" +
+                                        d.CodigoDeRegionMundial + "|" +
+                                        d.CodigoDePais + "|" +
+                                        d.CodigoDeRegionNacional + "|" +
+                                        d.CodigoDeProvincia + "|" +
+                                        d.CodigoDeLocalidad + "|" +
+                                        d.Direccion + "|" +
+                                        d.NroSucursal;
+
+                writerDestino.WriteLine(lineaDestino);
+            }
+
+            writerDestino.Close(); 
         }
 
 
