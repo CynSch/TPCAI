@@ -183,6 +183,7 @@ namespace TPCAI
                 //Agrego el destino a la lista.
                 Destino.DestinosExistentes.Add(destinoExistente);
             }
+            archivoDestino.Close();
         }
 
         internal static void GrabarDestino()

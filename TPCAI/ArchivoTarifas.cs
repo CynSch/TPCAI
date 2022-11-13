@@ -73,6 +73,7 @@ namespace TPCAI
                     });
                 RangoDePeso.Rangos.Add(rango);
             }
+            reader.Close();
 
             //Cargo la tarifa desde el archivo a memoria
             var datostarifa = File.ReadLines($@"{Environment.CurrentDirectory}\Tarifa.txt").First().Split('|');
