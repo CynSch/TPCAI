@@ -120,39 +120,5 @@ namespace TPCAI
             Application.Exit();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ListadoFacturas_SelectedIndexChanged_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ListadoFacturas_MouseClick(object sender, MouseEventArgs e)
-        {
-           
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ListadoFacturas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PendientesFacturacion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

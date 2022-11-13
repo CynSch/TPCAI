@@ -64,11 +64,6 @@ namespace TPCAI
             
         }
 
-        private void lvordenesxfactura_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CuentaCorrienteServiciosFacturados_FormClosing(object sender, FormClosingEventArgs e)
         {
             ManejoDeArchivos.ActualizarArchivos();

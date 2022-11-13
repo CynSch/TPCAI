@@ -83,15 +83,12 @@ namespace TPCAI
                     MessageBox.Show("El numero de orden ingresado es inexistente");
                 }
             }
-
         }
 
         private Destino _Destino(SolicitudDeOrden solicitud)
         {
             Destino destino = Destino.BuscarDestino(solicitud.NumeroDeOrden);
-
                 return destino;
-
         }
 
         private void btnMenu(object sender, EventArgs e)
@@ -105,21 +102,6 @@ namespace TPCAI
         {
             ManejoDeArchivos.ActualizarArchivos();
             Application.Exit();
-        }
-
-        private void Form_consulta_orden_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNumeroOrden_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtEstadoOrden_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -108,7 +108,7 @@ namespace TPCAI
             e5.Monto = 28440;
             e5.FechaFactura = new DateTime(2022, 7, 3);
             e5.EstaPaga = true;
-            e5.CUIT = 2011111111;
+            e5.CUIT = 20111111111;
 
             var e6 = new Factura();
             e6.NroFactura = 6005;

@@ -61,7 +61,6 @@
             this.txtNumeroOrden.Name = "txtNumeroOrden";
             this.txtNumeroOrden.Size = new System.Drawing.Size(212, 26);
             this.txtNumeroOrden.TabIndex = 1;
-            this.txtNumeroOrden.TextChanged += new System.EventHandler(this.txtNumeroOrden_TextChanged);
             // 
             // btnBuscar
             // 
@@ -179,7 +178,6 @@
             this.TxtEstadoOrden.ReadOnly = true;
             this.TxtEstadoOrden.Size = new System.Drawing.Size(392, 23);
             this.TxtEstadoOrden.TabIndex = 14;
-            this.TxtEstadoOrden.TextChanged += new System.EventHandler(this.TxtEstadoOrden_TextChanged);
             // 
             // Form_consulta_orden
             // 
@@ -205,7 +203,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar estado de orden";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_consulta_orden_FormClosing);
-            this.Load += new System.EventHandler(this.Form_consulta_orden_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

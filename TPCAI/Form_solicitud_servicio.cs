@@ -18,40 +18,12 @@ namespace TPCAI
             InitializeComponent();            
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             if (num_peso.Value > 30)
             {
                 MessageBox.Show("El peso maximo es 30kg");
             }
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            //rd_btn_retiro_domicilio.Checked = true;
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,26 +33,6 @@ namespace TPCAI
             {
                 cmb_provincia_origen.Items.Add(p.NombreDeProvincia);
             }
-
-        }
-
-        private void grp_Origen_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Grpbx_dimensiones_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_localidad_retirodomicilio_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmb_region_nacional_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -139,16 +91,6 @@ namespace TPCAI
             //Habilito radio buttons
             rd_btn_entrega_domicilio.Enabled = true;
             rd_btn_destino_entrega_sucursal.Enabled = true;
-        }
-
-        private void Grp_Destino_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_largo_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -481,11 +423,6 @@ namespace TPCAI
             }
         }
 
-        private void lbl_tipo_paquete_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form_solicitud_servicio_FormClosing(object sender, FormClosingEventArgs e)
         {
             ManejoDeArchivos.ActualizarArchivos();
@@ -521,36 +458,6 @@ namespace TPCAI
             }
         }
 
-        private void lbl_region_internacional_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmb_region_internacional_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmb_pais_internacional_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_pais_internacional_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_direccion_internacional_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_direccion_internacional_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void rd_nacional_CheckedChanged(object sender, EventArgs e)
         {
             txt_direccion_internacional.ResetText();
@@ -584,11 +491,6 @@ namespace TPCAI
             txt_domicilio_retirodomicilio.Enabled = true;
             //cmb_region_entregaensucursal_origen.Enabled = false;
             cmb_sucursal_entregaensucursal_origen.Enabled = false;
-        }
-
-        private void cmb_sucursal_entregaensucursal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void rd_btn_entrega_sucursal_CheckedChanged(object sender, EventArgs e)
@@ -697,21 +599,6 @@ namespace TPCAI
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grp_bx_nacional_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void rd_btn_entrega_domicilio_CheckedChanged(object sender, EventArgs e)
         {   
             cmb_sucursal_entregaensucursal_destino.ResetText();
@@ -757,16 +644,6 @@ namespace TPCAI
             }
         }
 
-        private void txt_direccion_nacional_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void num_ancho_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cmb_localidad_origen_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Reseteo selección de direcc y sucursal
@@ -786,11 +663,6 @@ namespace TPCAI
 
         }
 
-        private void grp_tipo_servicio_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private string Urgencia(bool urgencia)
         {
             string salida = "";
@@ -803,11 +675,6 @@ namespace TPCAI
                 salida = "No";
             }
             return salida;
-        }
-
-        private void GroupBox_destino_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

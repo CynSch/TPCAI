@@ -78,7 +78,6 @@
             this.lvordenesxfactura.TabIndex = 2;
             this.lvordenesxfactura.UseCompatibleStateImageBehavior = false;
             this.lvordenesxfactura.View = System.Windows.Forms.View.Details;
-            this.lvordenesxfactura.SelectedIndexChanged += new System.EventHandler(this.lvordenesxfactura_SelectedIndexChanged);
             // 
             // NroOrden
             // 

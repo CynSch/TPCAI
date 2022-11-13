@@ -44,7 +44,6 @@
             this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "C.U.I.T";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtUsuario
             // 
@@ -54,7 +53,6 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(334, 26);
             this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // txtContraseña
             // 
@@ -75,7 +73,6 @@
             this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Contraseña";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnAceptar
             // 
@@ -104,7 +101,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_LogIn_FormClosing);
-            this.Load += new System.EventHandler(this.Form_LogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

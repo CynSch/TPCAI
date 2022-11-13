@@ -75,8 +75,6 @@
             this.ListadoFacturas.TabIndex = 2;
             this.ListadoFacturas.UseCompatibleStateImageBehavior = false;
             this.ListadoFacturas.View = System.Windows.Forms.View.Details;
-            this.ListadoFacturas.SelectedIndexChanged += new System.EventHandler(this.ListadoFacturas_SelectedIndexChanged);
-            this.ListadoFacturas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListadoFacturas_MouseClick);
             // 
             // NFactura
             // 
@@ -110,7 +108,6 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de facturas:";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // BtnDetalleFactura
             // 
@@ -150,7 +147,6 @@
             this.PendientesFacturacion.TabIndex = 0;
             this.PendientesFacturacion.UseCompatibleStateImageBehavior = false;
             this.PendientesFacturacion.View = System.Windows.Forms.View.Details;
-            this.PendientesFacturacion.SelectedIndexChanged += new System.EventHandler(this.PendientesFacturacion_SelectedIndexChanged);
             // 
             // orden
             // 
@@ -193,7 +189,6 @@
             this.textBox1.Size = new System.Drawing.Size(148, 26);
             this.textBox1.TabIndex = 11;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbl_CUIT
             // 
@@ -205,7 +200,6 @@
             this.lbl_CUIT.Size = new System.Drawing.Size(46, 20);
             this.lbl_CUIT.TabIndex = 12;
             this.lbl_CUIT.Text = "CUIT";
-            this.lbl_CUIT.Click += new System.EventHandler(this.label2_Click);
             // 
             // Form_consulta_cuenta
             // 

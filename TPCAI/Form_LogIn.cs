@@ -19,21 +19,6 @@ namespace TPCAI
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form_LogIn_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
             bool accesoPermitido = false;
@@ -84,11 +69,6 @@ namespace TPCAI
                     btnAceptar.Enabled = true;
                 }
             }
-        }
-
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void Form_LogIn_FormClosing(object sender, FormClosingEventArgs e)
