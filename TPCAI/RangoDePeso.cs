@@ -86,6 +86,7 @@ namespace TPCAI
             Rangos.Add(rango2);
             Rangos.Add(rango3);
             Rangos.Add(rango4);
+
         }
     }
 }

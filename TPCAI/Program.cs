@@ -18,9 +18,8 @@ namespace TPCAI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Agregar validacion de si existe txt en la carpeta bin/Debug entonces no corre el crear archivo.
-            string[] directories = new string[50];
-            directories = Directory.GetDirectories($@"{Environment.CurrentDirectory}\Debug");
-            if (directories.Length == 0)
+           
+            if (Directory.GetFiles($@"{Environment.CurrentDirectory}").Length <= 3)
             {
                 ManejoDeArchivos.CrearArchivos();
                 ManejoDeArchivos.CargarArchivos();
@@ -29,7 +28,7 @@ namespace TPCAI
             {
                 ManejoDeArchivos.CargarArchivos();
             }
-            Application.Run(new Form_LogIn());
+            //Application.Run(new Form_LogIn());
         }
     }
 }
