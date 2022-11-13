@@ -24,23 +24,31 @@ namespace TPCAI
             //Creo objetos "solicitud"
             var e1 = new EstadoDeOrden();
             e1.CodigoDeEstado = 1;
-            e1.Descripcion = "Creado";
+            e1.Descripcion = "Orden de servicio iniciada";
 
             var e2 = new EstadoDeOrden();
             e2.CodigoDeEstado = 2;
-            e2.Descripcion = "Admision";
+            e2.Descripcion = "Entregado en sucursal";
 
             var e3 = new EstadoDeOrden();
             e3.CodigoDeEstado = 3;
-            e3.Descripcion = "En camino";
+            e3.Descripcion = "Retirado";
 
             var e4 = new EstadoDeOrden();
             e4.CodigoDeEstado = 4;
-            e4.Descripcion = "En entrega";
+            e4.Descripcion = "En centro de distribución";
 
             var e5 = new EstadoDeOrden();
             e5.CodigoDeEstado = 5;
-            e5.Descripcion = "Entregado";
+            e5.Descripcion = "En sucursal para entrega";
+
+            var e6 = new EstadoDeOrden();
+            e6.CodigoDeEstado = 6;
+            e6.Descripcion = "En distribución";
+
+            var e7 = new EstadoDeOrden();
+            e7.CodigoDeEstado = 7;
+            e7.Descripcion = "Entregado";
 
             //Agrego las solicitudes en la lista
             EstadosACargar.Add(e1);
@@ -48,6 +56,8 @@ namespace TPCAI
             EstadosACargar.Add(e3);
             EstadosACargar.Add(e4);
             EstadosACargar.Add(e5);
+            EstadosACargar.Add(e6);
+            EstadosACargar.Add(e7);
 
             //Paso cada item de la lista al archivo
             StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Estados.txt");
