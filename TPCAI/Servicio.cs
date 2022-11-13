@@ -88,6 +88,7 @@ namespace TPCAI
                 LstServicios.Add(Servicio);
 
             }
+            archivoServicios.Close();
         }
 
         internal static Servicio GrabarNuevoServicio(int numeroDeOrden, bool esEncomienda, bool esCorrespondencia ,decimal ancho, decimal largo, decimal alto, decimal peso)

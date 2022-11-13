@@ -93,6 +93,7 @@ namespace TPCAI
                 LstClientesCorporativos.Add(ClienteCorporativo);
 
             }
+            archivoClientes.Close();
         }
 
         internal static void CrearArchivo()
