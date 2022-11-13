@@ -28,8 +28,13 @@ namespace TPCAI
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
-  
-            textBox_Orden.Text = _NroOrdenGenerada; 
+
+
+        }
+
+        private void Form_solicitud_servicio_confirmación_Load(object sender, EventArgs e)
+        {
+            textBox_Orden.Text = _NroOrdenGenerada;
             textBox_TPaquete.Text = _TipoPaquete;
             textBox_Peso.Text = _Peso;
             textBox_Ancho.Text = _Ancho;
@@ -39,11 +44,8 @@ namespace TPCAI
             textBox_Origen.Text = _Origen;
             textBox_Destino.Text = _Destino;
             textBox_Urgencia.Text = _Urgencia;
-            textBox_Importe.Text = _Importe; 
-
+            textBox_Importe.Text = _Importe;
         }
-
-        private void Form_solicitud_servicio_confirmación_Load(object sender, EventArgs e){}
 
         private void btn_volver_menu_ppal_Click(object sender, EventArgs e)
         {
