@@ -184,6 +184,24 @@ namespace TPCAI
                 {
                     MessageBox.Show("Debe ingresar una dirección para el origen (retiro a domicilio).");
                 }
+                /*
+                bool estaEnLaLista = false;
+                do
+                {
+                    foreach (string item in cmb_provincia_origen.Items)
+                    {
+                        if (item == cmb_provincia_origen.Text)
+                        {
+                            estaEnLaLista = true;
+                        }
+                    }
+                } while (!estaEnLaLista);
+                if (!estaEnLaLista)
+                {
+                    MessageBox.Show("Error! Debe ingresar una provincia de la lista.");
+                }*/
+
+
 
                 if (rd_btn_origen_entrega_sucursal.Checked && cmb_sucursal_entregaensucursal_origen.Text=="")
                 {
