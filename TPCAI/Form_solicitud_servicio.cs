@@ -401,6 +401,8 @@ namespace TPCAI
                     Origen nuevoOrigen = Origen.GrabarNuevoOrigen(nuevaSolicitud.NumeroDeOrden, origen_retiroEnDomicilio, origen_entregaEnSucursal, origen_prov_codRegionNacional, origen_prov_codProv, origeno_loc_codLoc, domicilio_origen, origen_suc_codSuc);  
                     Servicio nuevoServicio = Servicio.GrabarNuevoServicio(nuevaSolicitud.NumeroDeOrden,esEncomienda,esCorrespondencia,ancho,largo,alto,peso);
 
+                    ManejoDeArchivos.ActualizarArchivos();
+
                     //LLAMADO AL FORM DE CONFIRMACIÓN
                     Form_solicitud_servicio_confirmación form_de_confirmacion = new Form_solicitud_servicio_confirmación();
                     this.Visible = false;
@@ -418,10 +420,10 @@ namespace TPCAI
                     else if (rd_btn_encomienda.Checked)
                     {
                         form_de_confirmacion._TipoPaquete = "encomienda";
-                        form_de_confirmacion._Peso = nuevoServicio.Peso.ToString() + "Kg";
-                        form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString() + "cm";
-                        form_de_confirmacion._Largo = nuevoServicio.Largo.ToString() + "cm";
-                        form_de_confirmacion._Alto = nuevoServicio.Alto.ToString() + "cm";
+                        form_de_confirmacion._Peso = nuevoServicio.Peso.ToString() + " Kg";
+                        form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString() + " cm";
+                        form_de_confirmacion._Largo = nuevoServicio.Largo.ToString() + " cm";
+                        form_de_confirmacion._Alto = nuevoServicio.Alto.ToString() + " cm";
                     }
 
                     if (rd_btn_nacional.Checked)

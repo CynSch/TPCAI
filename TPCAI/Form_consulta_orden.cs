@@ -64,8 +64,14 @@ namespace TPCAI
                             TxtEstadoOrden.Text = SolicitudDeOrden.BuscarEstadoDeOrden(solicitud.NumeroDeOrden);
                             encontrado = true;
                         }
+                        else
                         {
                             encontrado = true;
+                            TxtNroOrden.Text = "";
+                            TxtFechaOrden.Text = "";
+                            TxtImporteOrden.Text = "";
+                            TxtDestinoOrden.Text = "";
+                            TxtEstadoOrden.Text = "";
                             MessageBox.Show("El numero de orden ingresado no corresponde a este cliente");
                             break;
                         }
