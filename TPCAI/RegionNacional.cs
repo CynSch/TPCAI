@@ -24,7 +24,7 @@ namespace TPCAI
         public static void ListarRegiones()
         {
             //Cargo las regiones nacionales desde el archivo a la lista RegionesNacionales para que esten en memoria
-            var archivoRegionNacional = new StreamReader($@"{Environment.CurrentDirectory}RegionesNacionales.txt");
+            var archivoRegionNacional = new StreamReader($@"{Environment.CurrentDirectory}\RegionesNacionales.txt");
             while (!archivoRegionNacional.EndOfStream)
             {
                 string proximaLinea = archivoRegionNacional.ReadLine();

@@ -25,7 +25,7 @@ namespace TPCAI
         public static void ListarLocalidad()
         {
             //Cargo las Localidades desde el archivo a la lista Localidades para que esten en memoria
-            var archivoRegionNacional = new StreamReader($@"{Environment.CurrentDirectory}Localidades.txt");
+            var archivoRegionNacional = new StreamReader($@"{Environment.CurrentDirectory}\Localidades.txt");
             while (!archivoRegionNacional.EndOfStream)
             {
                 string proximaLinea = archivoRegionNacional.ReadLine();
