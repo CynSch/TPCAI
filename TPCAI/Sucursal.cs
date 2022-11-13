@@ -24,7 +24,7 @@ namespace TPCAI
         {
             //lee las sucursales del txt
 
-            var archivoSucursal = new StreamReader("Sucursal.txt");
+            var archivoSucursal = new StreamReader($@"{Environment.CurrentDirectory}\Sucursal.txt");
             while (!archivoSucursal.EndOfStream)
 
             {
@@ -65,7 +65,7 @@ namespace TPCAI
         {
             //Actualiza archivo
 
-            StreamWriter writer = File.CreateText("Sucursal.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Sucursal.txt");
 
             foreach (Sucursal s in TodasLasSucursales)
             {
@@ -157,7 +157,7 @@ namespace TPCAI
 
 
             //Paso cada item de la lista al archivo
-            StreamWriter writer = File.CreateText("Sucursales.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Sucursales.txt");
             foreach (Sucursal e in SucursalesACargar)
             {
 
