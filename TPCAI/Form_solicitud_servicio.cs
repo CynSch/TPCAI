@@ -142,280 +142,291 @@ namespace TPCAI
         //DE ACÁ HAY QUE IR EXTRAYENDO LOS DATOS QUE INGRESA EL USUARIO Y LLAMAR AL METODO CREAR SOLICITUD
         private void btn_continuar_Click(object sender, EventArgs e)
         {
-            //Validaciones de que se ingresen datos
-            if (!rd_btn_encomienda.Checked && !rd_btn_correspondencia.Checked)
+            //Si es moroso, no lo deja avanzar
+            if (ClienteCorporativo.ClienteActual.EsMoroso == true)
             {
-                MessageBox.Show("Debe seleccionar algún tipo de servicio.");
-            }
-
-            if (!rd_btn_origen_entrega_sucursal.Checked && !rd_btn_retiro_domicilio.Checked)
-            {
-                MessageBox.Show("Debe seleccionar algún origen.");
-            }
-
-            if (!rd_btn_nacional.Checked && !rd_btn_internacional.Checked)
-            {
-                MessageBox.Show("Debe seleccionar algún tipo de destino.");
-            }
-
-            else if (rd_btn_encomienda.Checked && (num_peso.Value == 0 
-                || num_alto.Value == 0 || num_largo.Value == 0 || num_ancho.Value == 0))
-            {
-                MessageBox.Show("Las dimensiones deben ser mayor a 0");
-            }
-            else if (rd_btn_retiro_domicilio.Checked && 
-                (cmb_provincia_origen.SelectedIndex == -1 
-                || cmb_localidad_origen.SelectedIndex == -1 
-                || string.IsNullOrEmpty(txt_domicilio_retirodomicilio.Text)))
-            {
-                MessageBox.Show("Debe completar todos los campos visibles " +
-                    "relacionados con el retiro a domicilio para continuar");
-            }
-            else if (rd_btn_origen_entrega_sucursal.Checked &&
-                (cmb_provincia_origen.SelectedIndex == -1
-                || cmb_localidad_origen.SelectedIndex == -1
-                || cmb_sucursal_entregaensucursal_origen.SelectedIndex == -1))
-            {
-                MessageBox.Show("Debe completar todos los campos visibles " +
-                    "relacionados con la entrega en sucursal para continuar");
-            }
-
-            else if (rd_btn_origen_entrega_sucursal.Checked && 
-                (cmb_sucursal_entregaensucursal_origen.SelectedIndex == -1))
-            {
-                MessageBox.Show("Debe completar todos los campos visibles " +
-                    "relacionados con la entrega en sucursal para continuar");
-            }
-            else if (!rd_btn_entrega_domicilio.Checked && !rd_btn_destino_entrega_sucursal.Checked && rd_btn_nacional.Checked)
-            {
-                MessageBox.Show("Debe completar todos los campos relacionados con un tipo de destino nacional.");
-            }
-            else if(rd_btn_nacional.Checked &&
-                rd_btn_entrega_domicilio.Checked &&
-                (cmb_provincia_nacional.SelectedIndex == -1 
-                || cmb_localidad_nacional.SelectedIndex == -1 
-                || string.IsNullOrEmpty(txt_direccion_nacional.Text)))
-            {
-                MessageBox.Show("Debe completar todos los campos visibles" +
-                    " relacionados a un destino nacional a domicilio");
-            }
-            else if (rd_btn_nacional.Checked &&
-                rd_btn_entrega_domicilio.Checked &&
-                (cmb_sucursal_entregaensucursal_destino.SelectedIndex == -1))
-            {
-                MessageBox.Show("Debe completar todos los campos visibles" +
-                    " relacionados a un destino nacional en sucursal");
-            }
-            else if (rd_btn_internacional.Checked && 
-                (cmb_pais_internacional.SelectedIndex == -1 
-                || string.IsNullOrEmpty(txt_direccion_internacional.Text)))
-            {
-                MessageBox.Show("Debe completar todos los campos visibles" +
-                    " relacionados a un destino internacional");
+                MessageBox.Show("Usted está en condición de morosidad, por lo que no puede realizar nuevas solicitudes. Volviendo al menú principal.");
+                this.Visible = false;
+                Menu menu = new Menu();
+                menu.Show();
             }
             else
             {
-                //CREACIÓN DE VARIABLES
-                long cuitCliente;
-                bool esEncomienda = false;
-                bool esCorrespondencia = false;
-                decimal peso=0;
-                decimal ancho=0;
-                decimal largo=0;
-                decimal alto=0;
-                bool origen_retiroEnDomicilio = false;
-                bool origen_entregaEnSucursal = false;
-                string domicilio_origen="";
-                //Sucursal sucursal_origen;
-                bool esUrgente=false;
-                bool esInternacional = false ;
-                bool esNacional=false;
-                //Pais pais;
-                string direccion_destino="";
-                //string direccion_destino_internacional;
-                //Provincia destino_provincia;
-                //Localidad destino_localidad;
-                bool entregaADomicilio_destino=false;
-                bool entregaEnSucursal_destino=false;
-                //string direccion_destino_nacional;
-                //Sucursal sucursal_destino=null;
-                //Provincia origen_provincia;
-                //Localidad origen_localidad;
-                DateTime fecha = DateTime.Now;
-
-                int destino_pais_codRegionMundial = 0;
-                int destino_pais_codPais = 0;
-                int destino_prov_codRegionNacional = 0;
-                int destino_prov_codProv = 0;
-                int destino_loc_codLoc = 0;
-                int destino_suc_codSuc = 0;
-                int origen_prov_codRegionNacional = 0;
-                int origen_prov_codProv = 0;
-                int origeno_loc_codLoc = 0;
-                int origen_suc_codSuc = 0;
-
-                //ASIGNACIÓN DE INPUT A VARIABLES
-                if (rd_btn_encomienda.Checked)
+                //Validaciones de que se ingresen datos
+                if (!rd_btn_encomienda.Checked && !rd_btn_correspondencia.Checked)
                 {
-                    esCorrespondencia = false;
-                    esEncomienda = true;
-                    peso = num_peso.Value;
-                    ancho = num_ancho.Value;
-                    largo = num_largo.Value;
-                    alto = num_alto.Value;
+                    MessageBox.Show("Debe seleccionar algún tipo de servicio.");
+                }
+
+                if (!rd_btn_origen_entrega_sucursal.Checked && !rd_btn_retiro_domicilio.Checked)
+                {
+                    MessageBox.Show("Debe seleccionar algún origen.");
+                }
+
+                if (!rd_btn_nacional.Checked && !rd_btn_internacional.Checked)
+                {
+                    MessageBox.Show("Debe seleccionar algún tipo de destino.");
+                }
+
+                else if (rd_btn_encomienda.Checked && (num_peso.Value == 0 
+                    || num_alto.Value == 0 || num_largo.Value == 0 || num_ancho.Value == 0))
+                {
+                    MessageBox.Show("Las dimensiones deben ser mayor a 0");
+                }
+                else if (rd_btn_retiro_domicilio.Checked && 
+                    (cmb_provincia_origen.SelectedIndex == -1 
+                    || cmb_localidad_origen.SelectedIndex == -1 
+                    || string.IsNullOrEmpty(txt_domicilio_retirodomicilio.Text)))
+                {
+                    MessageBox.Show("Debe completar todos los campos visibles " +
+                        "relacionados con el retiro a domicilio para continuar");
+                }
+                else if (rd_btn_origen_entrega_sucursal.Checked &&
+                    (cmb_provincia_origen.SelectedIndex == -1
+                    || cmb_localidad_origen.SelectedIndex == -1
+                    || cmb_sucursal_entregaensucursal_origen.SelectedIndex == -1))
+                {
+                    MessageBox.Show("Debe completar todos los campos visibles " +
+                        "relacionados con la entrega en sucursal para continuar");
+                }
+
+                else if (rd_btn_origen_entrega_sucursal.Checked && 
+                    (cmb_sucursal_entregaensucursal_origen.SelectedIndex == -1))
+                {
+                    MessageBox.Show("Debe completar todos los campos visibles " +
+                        "relacionados con la entrega en sucursal para continuar");
+                }
+                else if (!rd_btn_entrega_domicilio.Checked && !rd_btn_destino_entrega_sucursal.Checked && rd_btn_nacional.Checked)
+                {
+                    MessageBox.Show("Debe completar todos los campos relacionados con un tipo de destino nacional.");
+                }
+                else if(rd_btn_nacional.Checked &&
+                    rd_btn_entrega_domicilio.Checked &&
+                    (cmb_provincia_nacional.SelectedIndex == -1 
+                    || cmb_localidad_nacional.SelectedIndex == -1 
+                    || string.IsNullOrEmpty(txt_direccion_nacional.Text)))
+                {
+                    MessageBox.Show("Debe completar todos los campos visibles" +
+                        " relacionados a un destino nacional a domicilio");
+                }
+                else if (rd_btn_nacional.Checked &&
+                    rd_btn_entrega_domicilio.Checked &&
+                    (cmb_sucursal_entregaensucursal_destino.SelectedIndex == -1))
+                {
+                    MessageBox.Show("Debe completar todos los campos visibles" +
+                        " relacionados a un destino nacional en sucursal");
+                }
+                else if (rd_btn_internacional.Checked && 
+                    (cmb_pais_internacional.SelectedIndex == -1 
+                    || string.IsNullOrEmpty(txt_direccion_internacional.Text)))
+                {
+                    MessageBox.Show("Debe completar todos los campos visibles" +
+                        " relacionados a un destino internacional");
                 }
                 else
                 {
-                    esEncomienda = false;
-                    esCorrespondencia = true;
-                    peso = 0;
-                    ancho = 0;
-                    largo = 0;
-                    alto = 0;
-                }
+                    //CREACIÓN DE VARIABLES
+                    long cuitCliente;
+                    bool esEncomienda = false;
+                    bool esCorrespondencia = false;
+                    decimal peso=0;
+                    decimal ancho=0;
+                    decimal largo=0;
+                    decimal alto=0;
+                    bool origen_retiroEnDomicilio = false;
+                    bool origen_entregaEnSucursal = false;
+                    string domicilio_origen="";
+                    //Sucursal sucursal_origen;
+                    bool esUrgente=false;
+                    bool esInternacional = false ;
+                    bool esNacional=false;
+                    //Pais pais;
+                    string direccion_destino="";
+                    //string direccion_destino_internacional;
+                    //Provincia destino_provincia;
+                    //Localidad destino_localidad;
+                    bool entregaADomicilio_destino=false;
+                    bool entregaEnSucursal_destino=false;
+                    //string direccion_destino_nacional;
+                    //Sucursal sucursal_destino=null;
+                    //Provincia origen_provincia;
+                    //Localidad origen_localidad;
+                    DateTime fecha = DateTime.Now;
 
-                string provinciaSeleccionada = cmb_provincia_origen.Text;
-                Provincia origen_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaSeleccionada);
-                origen_prov_codProv = origen_provincia.CodigoDeProvincia;
-                origen_prov_codRegionNacional = origen_provincia.CodigoDeRegionNacional;
+                    int destino_pais_codRegionMundial = 0;
+                    int destino_pais_codPais = 0;
+                    int destino_prov_codRegionNacional = 0;
+                    int destino_prov_codProv = 0;
+                    int destino_loc_codLoc = 0;
+                    int destino_suc_codSuc = 0;
+                    int origen_prov_codRegionNacional = 0;
+                    int origen_prov_codProv = 0;
+                    int origeno_loc_codLoc = 0;
+                    int origen_suc_codSuc = 0;
 
-                string localidadSeleccionada = cmb_localidad_origen.Text;
-                /*foreach (Localidad l in Localidad.LstLocalidades)
-                {
-                    if (l.NombreDeLocalidad == localidadSeleccionada)
+                    //ASIGNACIÓN DE INPUT A VARIABLES
+                    if (rd_btn_encomienda.Checked)
                     {
-                        origen_localidad = l;
-                    }
-                }*/
-                Localidad origen_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadSeleccionada);
-                origeno_loc_codLoc = origen_localidad.CodigoDeLocalidad;
-
-                if (rd_btn_retiro_domicilio.Checked)
-                {
-                    origen_retiroEnDomicilio = true;
-                    origen_entregaEnSucursal = false;
-                    domicilio_origen = txt_domicilio_retirodomicilio.Text;
-                    origen_suc_codSuc = 0;
-
-                }
-                else
-                {
-                    domicilio_origen = "";
-                    origen_retiroEnDomicilio = false;
-                    origen_entregaEnSucursal = true;
-
-                    string direccSucursalSeleccionada = cmb_sucursal_entregaensucursal_origen.Text;
-                    /*foreach (Sucursal s in Sucursal.TodasLasSucursales)
-                    {
-                        if (s.Direccion == direccSucursalSeleccionada)
-                        {
-                            sucursal_origen = s;
-                        }
-                    }*/
-                    Sucursal sucursal_origen = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == direccSucursalSeleccionada);
-                    origen_suc_codSuc = sucursal_origen.NroSucursal;
-                }
-
-                if (chkbx_urgencia.Checked)
-                {
-                    esUrgente = true;
-                }
-                else
-                {
-                    esUrgente = false;
-                }
-
-                if (rd_btn_internacional.Checked)
-                {
-                    esInternacional = true;
-                    esNacional = false;
-                    string paisSeleccionado = cmb_pais_internacional.Text;
-                    Pais pais = Pais.TodosLosPaises.Find(pa => pa.NombreDePais == paisSeleccionado);
-                    destino_pais_codPais = pais.CodigoDePais;
-                    destino_pais_codRegionMundial = pais.CodigoDeRegionMundial;
-
-                    direccion_destino = txt_direccion_internacional.Text;
-                }
-                else
-                {
-                    esInternacional = false;
-                    esNacional = true;
-
-                    string provinciaElegida = cmb_provincia_nacional.Text;
-                    Provincia destino_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaElegida);
-                    destino_prov_codProv = destino_provincia.CodigoDeProvincia;
-                    destino_prov_codRegionNacional = destino_provincia.CodigoDeRegionNacional;
-
-                    string localidadElegida = cmb_localidad_nacional.Text;
-                    Localidad destino_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadElegida);
-                    destino_loc_codLoc = destino_localidad.CodigoDeLocalidad;
-
-                    if (rd_btn_entrega_domicilio.Checked)
-                    {
-                        entregaADomicilio_destino = true;
-                        entregaEnSucursal_destino = false;
-                        direccion_destino = txt_direccion_nacional.Text;
+                        esCorrespondencia = false;
+                        esEncomienda = true;
+                        peso = num_peso.Value;
+                        ancho = num_ancho.Value;
+                        largo = num_largo.Value;
+                        alto = num_alto.Value;
                     }
                     else
                     {
-                        entregaEnSucursal_destino = true;
-                        entregaADomicilio_destino = false;
-                        direccion_destino = null;
-                        string sucursalElegida = cmb_sucursal_entregaensucursal_destino.Text;
-                        Sucursal sucursal_destino = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == sucursalElegida);
-                        destino_suc_codSuc = sucursal_destino.NroSucursal;
+                        esEncomienda = false;
+                        esCorrespondencia = true;
+                        peso = 0;
+                        ancho = 0;
+                        largo = 0;
+                        alto = 0;
                     }
+
+                    string provinciaSeleccionada = cmb_provincia_origen.Text;
+                    Provincia origen_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaSeleccionada);
+                    origen_prov_codProv = origen_provincia.CodigoDeProvincia;
+                    origen_prov_codRegionNacional = origen_provincia.CodigoDeRegionNacional;
+
+                    string localidadSeleccionada = cmb_localidad_origen.Text;
+                    /*foreach (Localidad l in Localidad.LstLocalidades)
+                    {
+                        if (l.NombreDeLocalidad == localidadSeleccionada)
+                        {
+                            origen_localidad = l;
+                        }
+                    }*/
+                    Localidad origen_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadSeleccionada);
+                    origeno_loc_codLoc = origen_localidad.CodigoDeLocalidad;
+
+                    if (rd_btn_retiro_domicilio.Checked)
+                    {
+                        origen_retiroEnDomicilio = true;
+                        origen_entregaEnSucursal = false;
+                        domicilio_origen = txt_domicilio_retirodomicilio.Text;
+                        origen_suc_codSuc = 0;
+
+                    }
+                    else
+                    {
+                        domicilio_origen = "";
+                        origen_retiroEnDomicilio = false;
+                        origen_entregaEnSucursal = true;
+
+                        string direccSucursalSeleccionada = cmb_sucursal_entregaensucursal_origen.Text;
+                        /*foreach (Sucursal s in Sucursal.TodasLasSucursales)
+                        {
+                            if (s.Direccion == direccSucursalSeleccionada)
+                            {
+                                sucursal_origen = s;
+                            }
+                        }*/
+                        Sucursal sucursal_origen = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == direccSucursalSeleccionada);
+                        origen_suc_codSuc = sucursal_origen.NroSucursal;
+                    }
+
+                    if (chkbx_urgencia.Checked)
+                    {
+                        esUrgente = true;
+                    }
+                    else
+                    {
+                        esUrgente = false;
+                    }
+
+                    if (rd_btn_internacional.Checked)
+                    {
+                        esInternacional = true;
+                        esNacional = false;
+                        string paisSeleccionado = cmb_pais_internacional.Text;
+                        Pais pais = Pais.TodosLosPaises.Find(pa => pa.NombreDePais == paisSeleccionado);
+                        destino_pais_codPais = pais.CodigoDePais;
+                        destino_pais_codRegionMundial = pais.CodigoDeRegionMundial;
+
+                        direccion_destino = txt_direccion_internacional.Text;
+                    }
+                    else
+                    {
+                        esInternacional = false;
+                        esNacional = true;
+
+                        string provinciaElegida = cmb_provincia_nacional.Text;
+                        Provincia destino_provincia = Provincia.TodasLasProvincias.Find(prov => prov.NombreDeProvincia == provinciaElegida);
+                        destino_prov_codProv = destino_provincia.CodigoDeProvincia;
+                        destino_prov_codRegionNacional = destino_provincia.CodigoDeRegionNacional;
+
+                        string localidadElegida = cmb_localidad_nacional.Text;
+                        Localidad destino_localidad = Localidad.LstLocalidades.Find(loc => loc.NombreDeLocalidad == localidadElegida);
+                        destino_loc_codLoc = destino_localidad.CodigoDeLocalidad;
+
+                        if (rd_btn_entrega_domicilio.Checked)
+                        {
+                            entregaADomicilio_destino = true;
+                            entregaEnSucursal_destino = false;
+                            direccion_destino = txt_direccion_nacional.Text;
+                        }
+                        else
+                        {
+                            entregaEnSucursal_destino = true;
+                            entregaADomicilio_destino = false;
+                            direccion_destino = null;
+                            string sucursalElegida = cmb_sucursal_entregaensucursal_destino.Text;
+                            Sucursal sucursal_destino = Sucursal.TodasLasSucursales.Find(suc => suc.Direccion == sucursalElegida);
+                            destino_suc_codSuc = sucursal_destino.NroSucursal;
+                        }
+                    }
+
+                    decimal importe = Tarifa.CalcularImporte(esUrgente, esCorrespondencia, peso, origen_retiroEnDomicilio, entregaADomicilio_destino, origeno_loc_codLoc, origen_suc_codSuc, esNacional, destino_pais_codPais, destino_loc_codLoc);
+                    //decimal importe = 1000;
+
+                    cuitCliente = ClienteCorporativo.ClienteActual.CUIT;
+                    //cuitCliente = 24033020220;
+
+                    //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
+
+                    SolicitudDeOrden nuevaSolicitud = SolicitudDeOrden.GrabarNuevaSolicitud(cuitCliente,esUrgente,fecha,importe);
+                    Destino nuevoDestino = new Destino(nuevaSolicitud.NumeroDeOrden, esInternacional, esNacional, entregaADomicilio_destino, entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);            
+                    Origen nuevoOrigen = Origen.GrabarNuevoOrigen(nuevaSolicitud.NumeroDeOrden, origen_retiroEnDomicilio, origen_entregaEnSucursal, origen_prov_codRegionNacional, origen_prov_codProv, origeno_loc_codLoc, domicilio_origen, origen_suc_codSuc);  
+                    Servicio nuevoServicio = Servicio.GrabarNuevoServicio(nuevaSolicitud.NumeroDeOrden,esEncomienda,esCorrespondencia,ancho,largo,alto,peso);
+
+                    //LLAMADO AL FORM DE CONFIRMACIÓN
+                    Form_solicitud_servicio_confirmación form_de_confirmacion = new Form_solicitud_servicio_confirmación();
+                    this.Visible = false;
+
+                    //ACÁ LINKEAR LOS ELEMENTOS DEL FORM CON LA NUEVA SOLICITUD
+                    form_de_confirmacion._NroOrdenGenerada = nuevaSolicitud.NumeroDeOrden.ToString();
+                    if (rd_btn_correspondencia.Checked)
+                    {
+                        form_de_confirmacion._TipoPaquete = "correspondencia";
+                        form_de_confirmacion._Peso = "-";
+                        form_de_confirmacion._Ancho = "-";
+                        form_de_confirmacion._Largo = "-";
+                        form_de_confirmacion._Alto = "-";
+                    }
+                    else if (rd_btn_encomienda.Checked)
+                    {
+                        form_de_confirmacion._TipoPaquete = "encomienda";
+                        form_de_confirmacion._Peso = nuevoServicio.Peso.ToString() + "Kg";
+                        form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString() + "cm";
+                        form_de_confirmacion._Largo = nuevoServicio.Largo.ToString() + "cm";
+                        form_de_confirmacion._Alto = nuevoServicio.Alto.ToString() + "cm";
+                    }
+
+                    if (rd_btn_nacional.Checked)
+                    {
+                        form_de_confirmacion._TipoEnvio = "Nacional";
+                    }
+                    else if(rd_btn_internacional.Checked)
+                    {
+                        form_de_confirmacion._TipoEnvio = "Internacional";
+                    }
+                    form_de_confirmacion._Origen = Origen.MostrarOrigen(origen_retiroEnDomicilio,origen_entregaEnSucursal, origen_prov_codRegionNacional, origen_prov_codProv, origeno_loc_codLoc,domicilio_origen, origen_suc_codSuc);
+                    form_de_confirmacion._Destino = Destino.MostrarDestino(esNacional,esInternacional,entregaADomicilio_destino,entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);
+                    form_de_confirmacion._Urgencia = Urgencia(nuevaSolicitud.EsUrgente);
+                    form_de_confirmacion._Importe = nuevaSolicitud.Importe.ToString();
+                    form_de_confirmacion.Show();
                 }
-
-                decimal importe = Tarifa.CalcularImporte(esUrgente, esCorrespondencia, peso, origen_retiroEnDomicilio, entregaADomicilio_destino, origeno_loc_codLoc, origen_suc_codSuc, esNacional, destino_pais_codPais, destino_loc_codLoc);
-                //decimal importe = 1000;
-
-                cuitCliente = ClienteCorporativo.ClienteActual.CUIT;
-                //cuitCliente = 24033020220;
-
-                //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
-
-                SolicitudDeOrden nuevaSolicitud = SolicitudDeOrden.GrabarNuevaSolicitud(cuitCliente,esUrgente,fecha,importe);
-                Destino nuevoDestino = new Destino(nuevaSolicitud.NumeroDeOrden, esInternacional, esNacional, entregaADomicilio_destino, entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);            
-                Origen nuevoOrigen = Origen.GrabarNuevoOrigen(nuevaSolicitud.NumeroDeOrden, origen_retiroEnDomicilio, origen_entregaEnSucursal, origen_prov_codRegionNacional, origen_prov_codProv, origeno_loc_codLoc, domicilio_origen, origen_suc_codSuc);  
-                Servicio nuevoServicio = Servicio.GrabarNuevoServicio(nuevaSolicitud.NumeroDeOrden,esEncomienda,esCorrespondencia,ancho,largo,alto,peso);
-
-                //LLAMADO AL FORM DE CONFIRMACIÓN
-                Form_solicitud_servicio_confirmación form_de_confirmacion = new Form_solicitud_servicio_confirmación();
-                this.Visible = false;
-
-                //ACÁ LINKEAR LOS ELEMENTOS DEL FORM CON LA NUEVA SOLICITUD
-                form_de_confirmacion._NroOrdenGenerada = nuevaSolicitud.NumeroDeOrden.ToString();
-                if (rd_btn_correspondencia.Checked)
-                {
-                    form_de_confirmacion._TipoPaquete = "correspondencia";
-                    form_de_confirmacion._Peso = "-";
-                    form_de_confirmacion._Ancho = "-";
-                    form_de_confirmacion._Largo = "-";
-                    form_de_confirmacion._Alto = "-";
-                }
-                else if (rd_btn_encomienda.Checked)
-                {
-                    form_de_confirmacion._TipoPaquete = "encomienda";
-                    form_de_confirmacion._Peso = nuevoServicio.Peso.ToString() + "Kg";
-                    form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString() + "cm";
-                    form_de_confirmacion._Largo = nuevoServicio.Largo.ToString() + "cm";
-                    form_de_confirmacion._Alto = nuevoServicio.Alto.ToString() + "cm";
-                }
-
-                if (rd_btn_nacional.Checked)
-                {
-                    form_de_confirmacion._TipoEnvio = "Nacional";
-                }
-                else if(rd_btn_internacional.Checked)
-                {
-                    form_de_confirmacion._TipoEnvio = "Internacional";
-                }
-                form_de_confirmacion._Origen = Origen.MostrarOrigen(origen_retiroEnDomicilio,origen_entregaEnSucursal, origen_prov_codRegionNacional, origen_prov_codProv, origeno_loc_codLoc,domicilio_origen, origen_suc_codSuc);
-                form_de_confirmacion._Destino = Destino.MostrarDestino(esNacional,esInternacional,entregaADomicilio_destino,entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);
-                form_de_confirmacion._Urgencia = Urgencia(nuevaSolicitud.EsUrgente);
-                form_de_confirmacion._Importe = nuevaSolicitud.Importe.ToString();
-                form_de_confirmacion.Show();
             }
         }
 
