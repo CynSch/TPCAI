@@ -90,8 +90,8 @@ namespace TPCAI
             rd_btn_destino_entrega_sucursal.Enabled = false;
             txt_direccion_nacional.ResetText();
             txt_direccion_nacional.Enabled = false;
-            cmb_sucursal_entregaensucursal_destino.Enabled = false;
             cmb_sucursal_entregaensucursal_destino.ResetText();
+            cmb_sucursal_entregaensucursal_destino.Enabled = false;
             cmb_localidad_nacional.ResetText();
 
             //Limpio el dropdown por si se hizo una seleccion de provincia nueva.
