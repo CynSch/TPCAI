@@ -28,7 +28,7 @@ namespace TPCAI
             {
                 ManejoDeArchivos.CargarArchivos();
             }
-            //Application.Run(new Form_LogIn());
+            Application.Run(new Form_LogIn());
         }
     }
 }
