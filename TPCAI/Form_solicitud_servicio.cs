@@ -629,6 +629,10 @@ namespace TPCAI
         private void rd_btn_correspondencia_CheckedChanged(object sender, EventArgs e)
         {
             num_peso.Enabled = false;
+            num_peso.ResetText();
+            num_ancho.ResetText();
+            num_alto.ResetText();
+            num_largo.ResetText();
             num_ancho.Enabled = false;
             num_largo.Enabled = false;
             num_alto.Enabled = false;
