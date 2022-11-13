@@ -55,7 +55,7 @@ namespace TPCAI
                 Provincia provincia = new Provincia(int.Parse(datos[0]),datos[1],int.Parse(datos[2]));
                 provincia.LocalidadesAsociadas = new List<Localidad>();
                 provincia.LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provincia.CodigoDeProvincia);
-                Provincia.TodasLasProvincias.Add(provincia);
+                TodasLasProvincias.Add(provincia);
             }
             reader.Close();
         }
@@ -141,8 +141,6 @@ namespace TPCAI
             CodigoDeProvincia = codigoDeProvincia;
             NombreDeProvincia = nombreDeProvincia;
             CodigoDeRegionNacional = codigoDeRegionNacional;
-            LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas((codigoDeProvincia));
-            TodasLasProvincias.Add(this);
         }
 
         public static int BuscarRegionXProvincia(int codigoprovincia)
