@@ -28,8 +28,6 @@ namespace TPCAI
         public Form_solicitud_servicio_confirmación()
         {
             InitializeComponent();
-
-
         }
 
         private void Form_solicitud_servicio_confirmación_Load(object sender, EventArgs e)

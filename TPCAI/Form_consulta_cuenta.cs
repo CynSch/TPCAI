@@ -70,7 +70,7 @@ namespace TPCAI
             {
                 if (orden.CUITCliente == ClienteCorporativo.ClienteActual.CUIT)
                 {
-                    if (orden.NumeroDeFactura == 0)
+                    if (orden.NumeroDeFactura != 0)
                     {
                         continue;
                     }

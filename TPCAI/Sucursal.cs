@@ -25,6 +25,11 @@ namespace TPCAI
             //lee las sucursales del txt
 
             var archivoSucursal = new StreamReader($@"{Environment.CurrentDirectory}\Sucursales.txt");
+            if (TodasLasSucursales.Count > 0)
+            {
+                TodasLasSucursales.Clear();
+            }
+
             while (!archivoSucursal.EndOfStream)
 
             {

@@ -16,6 +16,8 @@ namespace TPCAI
 
         static internal List<Provincia> TodasLasProvincias = new List<Provincia>();
 
+        static internal List<Provincia> lstcargar { get; set; }
+
         internal List<Provincia> ListarProvinciasxRegion(int codigoregion)
         {
             //Creo una lista de las provincias asociadas a una región
@@ -38,6 +40,10 @@ namespace TPCAI
         {
             //Cargo las provincias desde el archivo a la lista TodasLasProvincias para que esten en memoria
             StreamReader reader = new StreamReader($@"{Environment.CurrentDirectory}\Provincias.txt");
+            if(TodasLasProvincias.Count > 0)
+            {
+                TodasLasProvincias.Clear();
+            }
 
             while(!reader.EndOfStream)
             {
@@ -47,12 +53,11 @@ namespace TPCAI
 
                 string[] datos = linea.Split('|');
                 Provincia provincia = new Provincia(int.Parse(datos[0]),datos[1],int.Parse(datos[2]));
+                provincia.LocalidadesAsociadas = new List<Localidad>();
                 provincia.LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provincia.CodigoDeProvincia);
-               
-                //Usa metodo de Localidades donde busca por codigo de provincia.
-              //  provincia.LocalidadesAsociadas = Localidad.ListarLocalidadesAsociadas(provincia.CodigoDeProvincia);
                 Provincia.TodasLasProvincias.Add(provincia);
             }
+            reader.Close();
         }
 
         internal static void GrabarProvincias()
@@ -76,6 +81,7 @@ namespace TPCAI
 
         internal static void CrearArchivo()
         {
+            List<Provincia> lstcargar = new List<Provincia>();
             //Cargo por primera vez las provincias
             Provincia provincia = new Provincia(1, "Buenos Aires", 4);
             Provincia provincia2 = new Provincia(2, "CABA", 4);
@@ -97,29 +103,29 @@ namespace TPCAI
             Provincia provincia18 = new Provincia(18, "San Juan", 3);
             Provincia provincia19 = new Provincia(19, "San Luis", 3);
 
-            Provincia.TodasLasProvincias.Add(provincia);
-            Provincia.TodasLasProvincias.Add(provincia2);
-            Provincia.TodasLasProvincias.Add(provincia3);
-            Provincia.TodasLasProvincias.Add(provincia4);
-            Provincia.TodasLasProvincias.Add(provincia5);
-            Provincia.TodasLasProvincias.Add(provincia6);
-            Provincia.TodasLasProvincias.Add(provincia7);
-            Provincia.TodasLasProvincias.Add(provincia8);
-            Provincia.TodasLasProvincias.Add(provincia9);
-            Provincia.TodasLasProvincias.Add(provincia10);
-            Provincia.TodasLasProvincias.Add(provincia11);
-            Provincia.TodasLasProvincias.Add(provincia12);
-            Provincia.TodasLasProvincias.Add(provincia13);
-            Provincia.TodasLasProvincias.Add(provincia14);
-            Provincia.TodasLasProvincias.Add(provincia15);
-            Provincia.TodasLasProvincias.Add(provincia16);
-            Provincia.TodasLasProvincias.Add(provincia17);
-            Provincia.TodasLasProvincias.Add(provincia18);
-            Provincia.TodasLasProvincias.Add(provincia19);
+            lstcargar.Add(provincia);
+            lstcargar.Add(provincia2);
+            lstcargar.Add(provincia3);
+            lstcargar.Add(provincia4);
+            lstcargar.Add(provincia5);
+            lstcargar.Add(provincia6);
+            lstcargar.Add(provincia7);
+            lstcargar.Add(provincia8);
+            lstcargar.Add(provincia9);
+            lstcargar.Add(provincia10);
+            lstcargar.Add(provincia11);
+            lstcargar.Add(provincia12);
+            lstcargar.Add(provincia13);
+            lstcargar.Add(provincia14);
+            lstcargar.Add(provincia15);
+            lstcargar.Add(provincia16);
+            lstcargar.Add(provincia17);
+            lstcargar.Add(provincia18);
+            lstcargar.Add(provincia19);
 
 
             StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Provincias.txt");
-            foreach (Provincia prov in TodasLasProvincias)
+            foreach (Provincia prov in lstcargar)
             {
                 string linea =  prov.CodigoDeProvincia+ "|" + prov.NombreDeProvincia+ "|"
                     + prov.CodigoDeRegionNacional;

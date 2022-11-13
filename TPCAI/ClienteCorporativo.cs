@@ -150,7 +150,7 @@ namespace TPCAI
                     + cli.Contraseña + "|" 
                     + cli.Telefono + "|"
                     + cli.Saldo + "|" 
-                    + cli.EsMoroso + "|";
+                    + cli.EsMoroso;
 
                 writer.WriteLine(linea);
             }

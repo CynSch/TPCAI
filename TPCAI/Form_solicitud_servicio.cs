@@ -53,6 +53,7 @@ namespace TPCAI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Provincia.TodasLasProvincias.GroupBy(Provincia => Provincia.CodigoDeProvincia);
             foreach (Provincia p in Provincia.TodasLasProvincias)
             {
                 cmb_provincia_origen.Items.Add(p.NombreDeProvincia);

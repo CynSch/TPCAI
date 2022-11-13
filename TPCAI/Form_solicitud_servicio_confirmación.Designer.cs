@@ -219,7 +219,7 @@
             // textBox_Importe
             // 
             this.textBox_Importe.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_Importe.Location = new System.Drawing.Point(158, 452);
+            this.textBox_Importe.Location = new System.Drawing.Point(158, 453);
             this.textBox_Importe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Importe.Name = "textBox_Importe";
             this.textBox_Importe.ReadOnly = true;
@@ -249,7 +249,7 @@
             // textBoxT_Envio
             // 
             this.textBoxT_Envio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxT_Envio.Location = new System.Drawing.Point(201, 266);
+            this.textBoxT_Envio.Location = new System.Drawing.Point(201, 267);
             this.textBoxT_Envio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxT_Envio.Name = "textBoxT_Envio";
             this.textBoxT_Envio.ReadOnly = true;
@@ -299,7 +299,7 @@
             // textBox_TPaquete
             // 
             this.textBox_TPaquete.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_TPaquete.Location = new System.Drawing.Point(206, 44);
+            this.textBox_TPaquete.Location = new System.Drawing.Point(206, 43);
             this.textBox_TPaquete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_TPaquete.Name = "textBox_TPaquete";
             this.textBox_TPaquete.ReadOnly = true;
