@@ -204,99 +204,100 @@ namespace TPCAI
             sol1.CUITCliente = 27420744817;
             sol1.EsUrgente = false;
             sol1.Fecha = new DateTime(2021, 5, 1);
-            sol1.Importe = 500;
-            sol1.CodigoDeEstado = 1;
-            sol1.NumeroDeFactura = 0;
+            sol1.Importe = 9650;
+            sol1.CodigoDeEstado = 7;
+            sol1.NumeroDeFactura = 6000;
 
             var sol2 = new SolicitudDeOrden();
             sol2.NumeroDeOrden = 101;
             sol2.CUITCliente = 27430742117;
             sol2.EsUrgente = true;
             sol2.Fecha = new DateTime(2022, 6, 2);
-            sol2.Importe = 2000;
-            sol2.CodigoDeEstado = 2;
-            sol2.NumeroDeFactura = 6010;
+            sol2.Importe = 1425;
+            sol2.CodigoDeEstado = 7;
+            sol2.NumeroDeFactura = 6001;
 
             var sol3 = new SolicitudDeOrden();
             sol3.NumeroDeOrden = 102;
             sol3.CUITCliente = 27430742117;
             sol3.EsUrgente = true;
             sol3.Fecha = new DateTime(2022, 6, 7);
-            sol3.Importe = 3000;
-            sol3.CodigoDeEstado = 3;
-            sol3.NumeroDeFactura = 6011;
+            sol3.Importe = 4925;
+            sol3.CodigoDeEstado = 7;
+            sol3.NumeroDeFactura = 6001;
 
             var sol4 = new SolicitudDeOrden();
             sol4.NumeroDeOrden = 103;
-            sol4.CUITCliente = 27455742129;
+            sol4.CUITCliente = 20111111111;
             sol4.EsUrgente = false;
-            sol4.Fecha = new DateTime(2022, 10, 11);
-            sol4.Importe = 45000;
-            sol4.CodigoDeEstado = 4;
-            sol4.NumeroDeFactura = 6031;
+            sol4.Fecha = new DateTime(2022, 6, 7);
+            sol4.Importe = 28440;
+            sol4.CodigoDeEstado = 7;
+            sol4.NumeroDeFactura = 6005;
 
             var sol5 = new SolicitudDeOrden();
             sol5.NumeroDeOrden = 104;
-            sol5.CUITCliente = 27430742117;
+            sol5.CUITCliente = 23949330290;
             sol5.EsUrgente = true;
-            sol5.Fecha = new DateTime(2022, 6, 7);
-            sol5.Importe = 22009;
-            sol5.CodigoDeEstado = 5;
-            sol5.NumeroDeFactura = 6030;
+            sol5.Fecha = new DateTime(2022, 7, 7);
+            sol5.Importe = 78500;
+            sol5.CodigoDeEstado = 7;
+            sol5.NumeroDeFactura = 6004;
 
             var sol6 = new SolicitudDeOrden();
             sol6.NumeroDeOrden = 105;
-            sol6.CUITCliente = 23949330290;
+            sol6.CUITCliente = 27420744817;
             sol6.EsUrgente = false;
-            sol6.Fecha = new DateTime(2022, 12, 11);
-            sol6.Importe = 1111;
-            sol6.CodigoDeEstado = 1;
+            sol6.Fecha = new DateTime(2022, 7, 24);
+            sol6.Importe = 11000;
+            sol6.CodigoDeEstado = 6;
             sol6.NumeroDeFactura = 0;
 
             var sol7 = new SolicitudDeOrden();
             sol7.NumeroDeOrden = 106;
-            sol7.CUITCliente = 23949330290;
+            sol7.CUITCliente = 27430742117;
             sol7.EsUrgente = false;
-            sol7.Fecha = new DateTime(2022, 12, 11);
-            sol7.Importe = 10;
-            sol7.CodigoDeEstado = 2;
-            sol7.NumeroDeFactura = 6032;
+            sol7.Fecha = new DateTime(2022, 9, 11);
+            sol7.Importe = 4250;
+            sol7.CodigoDeEstado = 3;
+            sol7.NumeroDeFactura = 0;
 
             var sol8 = new SolicitudDeOrden();
             sol8.NumeroDeOrden = 107;
-            sol8.CUITCliente = 23949330290;
+            sol8.CUITCliente = 20111111111;
             sol8.EsUrgente = false;
-            sol8.Fecha = new DateTime(2022, 12, 11);
-            sol8.Importe = 10;
-            sol8.CodigoDeEstado = 3;
-            sol8.NumeroDeFactura = 6033;
+            sol8.Fecha = new DateTime(2022, 9, 11);
+            sol8.Importe = 750;
+            sol8.CodigoDeEstado = 2;
+            sol8.NumeroDeFactura = 0;
 
             var sol9 = new SolicitudDeOrden();
             sol9.NumeroDeOrden = 108;
-            sol9.CUITCliente = 27430742117;
+            sol9.CUITCliente = 23949330290;
             sol9.EsUrgente = true;
-            sol9.Fecha = new DateTime(2022, 6, 7);
-            sol9.Importe = 22009;
-            sol9.CodigoDeEstado = 4;
-            sol9.NumeroDeFactura = 6034;
+            sol9.Fecha = new DateTime(2022, 10, 2);
+            sol9.Importe = 13725;
+            sol9.CodigoDeEstado = 7;
+            sol9.NumeroDeFactura = 6006;
 
             var sol10 = new SolicitudDeOrden();
             sol10.NumeroDeOrden = 109;
             sol10.CUITCliente = 27430742117;
             sol10.EsUrgente = true;
-            sol10.Fecha = new DateTime(2022, 6, 7);
-            sol10.Importe = 4590;
-            sol10.CodigoDeEstado = 5;
-            sol10.NumeroDeFactura = 6035;
+            sol10.Fecha = new DateTime(2022, 10, 11);
+            sol10.Importe = 142500;
+            sol10.CodigoDeEstado = 2;
+            sol10.NumeroDeFactura = 0;
 
             var sol11 = new SolicitudDeOrden();
             sol11.NumeroDeOrden = 110;
             sol11.CUITCliente = 27430742117;
             sol11.EsUrgente = true;
-            sol11.Fecha = new DateTime(2022, 6, 7);
-            sol11.Importe = 33900;
-            sol11.CodigoDeEstado = 1;
+            sol11.Fecha = new DateTime(2022, 10, 16);
+            sol11.Importe = 46160;
+            sol11.CodigoDeEstado = 4;
             sol11.NumeroDeFactura = 0;
+ 
 
             //Agrego las solicitudes en la lista
             solicitudesACargar.Add(sol1);

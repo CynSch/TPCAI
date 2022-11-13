@@ -106,7 +106,7 @@ namespace TPCAI
             cli1.CUIT = 27420744817;
             cli1.Contraseña = "1234";
             cli1.Telefono = 114441111;
-            cli1.Saldo = -500;
+            cli1.Saldo = 500;
             cli1.EsMoroso = false;
 
             var cli2 = new ClienteCorporativo();
@@ -114,7 +114,7 @@ namespace TPCAI
             cli2.CUIT = 23949330290;
             cli2.Contraseña = "1234";
             cli2.Telefono = 114442222;
-            cli2.Saldo = -80000;
+            cli2.Saldo = -92225;
             cli2.EsMoroso = true;
 
             var cli3 = new ClienteCorporativo();
@@ -122,7 +122,7 @@ namespace TPCAI
             cli3.CUIT = 27430742117;
             cli3.Contraseña = "1234";
             cli3.Telefono = 114443333;
-            cli3.Saldo = -5500;
+            cli3.Saldo = -14600;
             cli3.EsMoroso = false;
 
             var cli4 = new ClienteCorporativo();
