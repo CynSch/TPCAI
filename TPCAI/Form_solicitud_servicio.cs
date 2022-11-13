@@ -83,6 +83,11 @@ namespace TPCAI
 
         private void cmb_provincia_nacional_SelectedIndexChanged(object sender, EventArgs e)
         {
+            rd_btn_entrega_domicilio.Enabled = false;
+            rd_btn_destino_entrega_sucursal.Enabled = false;
+            txt_direccion_nacional.ResetText();
+            txt_direccion_nacional.Enabled = false;
+            cmb_sucursal_entregaensucursal_destino.Enabled = false;
             cmb_sucursal_entregaensucursal_destino.ResetText();
             cmb_localidad_nacional.ResetText();
 
@@ -116,7 +121,19 @@ namespace TPCAI
 
         private void cmb_localidad_nacional_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //desmarco los radio buttons
+            rd_btn_entrega_domicilio.Checked = false;
+            rd_btn_destino_entrega_sucursal.Checked = false;
+
+            //Limpio los inputs
             cmb_sucursal_entregaensucursal_destino.ResetText();
+            txt_direccion_nacional.ResetText();
+
+            //Inhabilito input - se habilitará recién cuando se seleccione un radio button
+            txt_direccion_nacional.Enabled = false;
+            cmb_sucursal_entregaensucursal_destino.Enabled = false;
+
+            //Habilito radio buttons
             rd_btn_entrega_domicilio.Enabled = true;
             rd_btn_destino_entrega_sucursal.Enabled = true;
         }
@@ -670,13 +687,13 @@ namespace TPCAI
         }
 
         private void rd_btn_entrega_domicilio_CheckedChanged(object sender, EventArgs e)
-        {
-            cmb_sucursal_entregaensucursal_destino.Enabled= false;
-            txt_direccion_nacional.Enabled = true;
-            lbl_direccion_nacional.Enabled = true;
-            lbl_sucursal_entregaensucursal_destino.Enabled = false;
+        {   
             cmb_sucursal_entregaensucursal_destino.ResetText();
+            cmb_sucursal_entregaensucursal_destino.Enabled= false;
+            lbl_sucursal_entregaensucursal_destino.Enabled = false;
 
+            txt_direccion_nacional.Enabled = true;
+            lbl_direccion_nacional.Enabled = true;       
         }
 
         private void rd_btn_destino_entrega_sucursal_CheckedChanged(object sender, EventArgs e)
