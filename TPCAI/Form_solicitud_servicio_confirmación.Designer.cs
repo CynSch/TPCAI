@@ -233,7 +233,7 @@
             this.textBox_Urgencia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Urgencia.Name = "textBox_Urgencia";
             this.textBox_Urgencia.ReadOnly = true;
-            this.textBox_Urgencia.Size = new System.Drawing.Size(88, 19);
+            this.textBox_Urgencia.Size = new System.Drawing.Size(134, 19);
             this.textBox_Urgencia.TabIndex = 47;
             // 
             // textBox_Origen
@@ -253,7 +253,7 @@
             this.textBoxT_Envio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxT_Envio.Name = "textBoxT_Envio";
             this.textBoxT_Envio.ReadOnly = true;
-            this.textBoxT_Envio.Size = new System.Drawing.Size(132, 19);
+            this.textBoxT_Envio.Size = new System.Drawing.Size(240, 19);
             this.textBoxT_Envio.TabIndex = 45;
             // 
             // textBox_Alto
@@ -263,7 +263,7 @@
             this.textBox_Alto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Alto.Name = "textBox_Alto";
             this.textBox_Alto.ReadOnly = true;
-            this.textBox_Alto.Size = new System.Drawing.Size(38, 19);
+            this.textBox_Alto.Size = new System.Drawing.Size(277, 19);
             this.textBox_Alto.TabIndex = 44;
             // 
             // textBox_Largo
@@ -273,7 +273,7 @@
             this.textBox_Largo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Largo.Name = "textBox_Largo";
             this.textBox_Largo.ReadOnly = true;
-            this.textBox_Largo.Size = new System.Drawing.Size(38, 19);
+            this.textBox_Largo.Size = new System.Drawing.Size(213, 19);
             this.textBox_Largo.TabIndex = 43;
             // 
             // textBox_Ancho
@@ -283,7 +283,7 @@
             this.textBox_Ancho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Ancho.Name = "textBox_Ancho";
             this.textBox_Ancho.ReadOnly = true;
-            this.textBox_Ancho.Size = new System.Drawing.Size(38, 19);
+            this.textBox_Ancho.Size = new System.Drawing.Size(213, 19);
             this.textBox_Ancho.TabIndex = 42;
             // 
             // textBox_Peso
@@ -293,17 +293,17 @@
             this.textBox_Peso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Peso.Name = "textBox_Peso";
             this.textBox_Peso.ReadOnly = true;
-            this.textBox_Peso.Size = new System.Drawing.Size(38, 19);
+            this.textBox_Peso.Size = new System.Drawing.Size(213, 19);
             this.textBox_Peso.TabIndex = 41;
             // 
             // textBox_TPaquete
             // 
             this.textBox_TPaquete.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_TPaquete.Location = new System.Drawing.Point(206, 43);
+            this.textBox_TPaquete.Location = new System.Drawing.Point(206, 45);
             this.textBox_TPaquete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_TPaquete.Name = "textBox_TPaquete";
             this.textBox_TPaquete.ReadOnly = true;
-            this.textBox_TPaquete.Size = new System.Drawing.Size(132, 19);
+            this.textBox_TPaquete.Size = new System.Drawing.Size(235, 19);
             this.textBox_TPaquete.TabIndex = 40;
             // 
             // textBox_Destino

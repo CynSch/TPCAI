@@ -117,12 +117,12 @@ namespace TPCAI
             e6.EstaPaga = false;
             e6.CUIT = 23949330290;
 
-            var e6 = new Factura();
-            e6.NroFactura = 6006;
-            e6.Monto = 13725;
-            e6.FechaFactura = new DateTime(2022, 11, 1);
-            e6.EstaPaga = false;
-            e6.CUIT = 23949330290;
+            var e7 = new Factura();
+            e7.NroFactura = 6006;
+            e7.Monto = 13725;
+            e7.FechaFactura = new DateTime(2022, 11, 1);
+            e7.EstaPaga = false;
+            e7.CUIT = 23949330290;
 
             //Agrego en la lista
             FacturasACargar.Add(e1);
@@ -131,6 +131,7 @@ namespace TPCAI
             FacturasACargar.Add(e4);
             FacturasACargar.Add(e5);
             FacturasACargar.Add(e6);
+            FacturasACargar.Add(e7);
 
             //Paso cada item de la lista al archivo
             StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Facturas.txt");

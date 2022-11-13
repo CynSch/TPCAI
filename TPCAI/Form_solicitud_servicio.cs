@@ -33,7 +33,10 @@ namespace TPCAI
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-
+            if (num_peso.Value > 30)
+            {
+                MessageBox.Show("El peso maximo es 30kg");
+            }
         }
 
         private void label1_Click_1(object sender, EventArgs e)
