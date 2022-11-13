@@ -37,7 +37,7 @@ namespace TPCAI
         internal static void CargarProvincias()
         {
             //Cargo las provincias desde el archivo a la lista TodasLasProvincias para que esten en memoria
-            StreamReader reader = new StreamReader("Provincias.txt");
+            StreamReader reader = new StreamReader($@"{Environment.CurrentDirectory}\Provincias.txt");
 
             while(!reader.EndOfStream)
             {
@@ -60,7 +60,7 @@ namespace TPCAI
 
             //SOLO USAR SI SE AGREGÓ UNA PROVINCIA O SE MODIFICÓ EL DATO DE ALGUNA PRE-EXISTENTE
 
-            StreamWriter writer = File.CreateText("Provincias.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Provincias.txt");
 
             //Codigo|Nombre|CodigoDeRegionNacional|ListLocalidadesAsociadas
 

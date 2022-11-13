@@ -67,7 +67,7 @@ namespace TPCAI
         public static void CargarServicios()
         {
             //Cargo los servicios desde el archivo a la lista Servicios para que esten en memoria
-            var archivoServicios = new StreamReader("Servicios.txt");
+            var archivoServicios = new StreamReader($@"{Environment.CurrentDirectory}\Servicios.txt");
             while (!archivoServicios.EndOfStream)
             {
                 string proximaLinea = archivoServicios.ReadLine();
@@ -103,7 +103,7 @@ namespace TPCAI
         internal static void GrabarNuevoServicioEnArchivo()
         {
 
-            StreamWriter writer = File.CreateText("Servicios.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Servicios.txt");
 
             foreach(var servicio in LstServicios)
             {
@@ -255,7 +255,7 @@ namespace TPCAI
             ServiciosACargar.Add(ser11);
 
             //Paso cada item de la lista al archivo
-            StreamWriter writer = File.CreateText("Servicios.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Servicios.txt");
             foreach (Servicio ser in ServiciosACargar)
             {
                 

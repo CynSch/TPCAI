@@ -50,7 +50,7 @@ namespace TPCAI
             EstadosACargar.Add(e5);
 
             //Paso cada item de la lista al archivo
-            StreamWriter writer = File.CreateText("Estados.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Estados.txt");
             foreach (EstadoDeOrden e in EstadosACargar)
             {
                 //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado|nroFactura"
@@ -63,7 +63,7 @@ namespace TPCAI
         //Saca los estados disponibles del archivo "Estados.txt" y los mete en la lista EstadosDisponibles
         {
             //El archivo tiene el formato: "1|Creado"
-            var archivoEstados = new StreamReader("Estados.txt");
+            var archivoEstados = new StreamReader($@"{Environment.CurrentDirectory}\Estados.txt");
             while (!archivoEstados.EndOfStream)
             {
                 string proximaLinea = archivoEstados.ReadLine();

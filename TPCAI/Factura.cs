@@ -27,7 +27,7 @@ namespace TPCAI
         {
             //lee las facturas del txt
 
-            var archivoFacturas = new StreamReader("Facturas.txt");
+            var archivoFacturas = new StreamReader($@"{Environment.CurrentDirectory}\Facturas.txt");
             while (!archivoFacturas.EndOfStream)
 
             {
@@ -51,7 +51,7 @@ namespace TPCAI
         {
             //Actualiza archivo
 
-            StreamWriter writer = File.CreateText("Facturas.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Facturas.txt");
 
             foreach (Factura f in FacturasExistentes)
             {

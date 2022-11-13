@@ -40,7 +40,7 @@ namespace TPCAI
             }
 
             //reocrro linea por linea del archivo, y voy agregando a la lista de solicitudes existentes. 
-            var archivoSolicitudes = new StreamReader("Solicitudes.txt");
+            var archivoSolicitudes = new StreamReader($@"{Environment.CurrentDirectory}\Solicitudes.txt");
             while (!archivoSolicitudes.EndOfStream)
             {
                 string proximaLinea = archivoSolicitudes.ReadLine();
@@ -165,7 +165,7 @@ namespace TPCAI
         {
             //Grabo las solicitudes desde la lista SolicitudesExistentes en memoria al archivo en caso de que se haya agregado una Solicitud
 
-            StreamWriter writer = File.CreateText("Solicitudes.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Solicitudes.txt");
 
             foreach (SolicitudDeOrden sol in SolicitudesExistentes)
             {
@@ -312,7 +312,7 @@ namespace TPCAI
             solicitudesACargar.Add(sol11);
 
             //Paso cada item de la lista al archivo
-            StreamWriter writer = File.CreateText("Solicitudes.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Solicitudes.txt");
             foreach (SolicitudDeOrden sol in solicitudesACargar)
             {
                 //numOrden|CUIT|EsUrgente|Fecha|importe|cod_estado|nroFactura"

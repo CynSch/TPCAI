@@ -73,7 +73,7 @@ namespace TPCAI
         public static void CargarCLientes()
         {
             //Cargo los clientes desde el archivo a la lista LstClientesCorporativos para que esten en memoria
-            var archivoClientes = new StreamReader("ClientesCorporativos.txt");
+            var archivoClientes = new StreamReader($@"{ Environment.CurrentDirectory }\ClientesCorporativos.txt");
             while (!archivoClientes.EndOfStream)
             {
                 string proximaLinea = archivoClientes.ReadLine();
@@ -140,7 +140,7 @@ namespace TPCAI
             
 
             //Paso cada item de la lista al archivo
-            StreamWriter writer = File.CreateText("ClientesCorporativos.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\ClientesCorporativos.txt");
             foreach (ClienteCorporativo cli in ClientesACargar)
             {
                 

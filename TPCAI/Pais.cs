@@ -24,7 +24,7 @@ namespace TPCAI
         {
             //lee los paises del txt
          
-            var archivoPaises = new StreamReader("Paises.txt");
+            var archivoPaises = new StreamReader($@"{Environment.CurrentDirectory}\Paises.txt");
             while (!archivoPaises.EndOfStream)
 
             {
@@ -66,7 +66,7 @@ namespace TPCAI
         {
             //Actualiza archivo
 
-            StreamWriter writer = File.CreateText("Paises.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Paises.txt");
 
             foreach (Pais p in TodosLosPaises)
             {
@@ -188,7 +188,7 @@ namespace TPCAI
 
 
             //Paso cada item de la lista al archivo
-            StreamWriter writer = File.CreateText("Paises.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Paises.txt");
             foreach (Pais e in PaisesACargar)
             {
 
