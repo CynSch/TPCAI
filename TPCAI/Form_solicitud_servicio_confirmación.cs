@@ -53,8 +53,13 @@ namespace TPCAI
         }
         private void Form_solicitud_servicio_confirmación_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ManejoDeArchivos.ActualizarArchivos();
             Application.Exit();
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

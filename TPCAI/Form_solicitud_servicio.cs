@@ -425,6 +425,7 @@ namespace TPCAI
 
         private void Form_solicitud_servicio_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ManejoDeArchivos.ActualizarArchivos();
             Application.Exit();
         }
 
@@ -712,6 +713,11 @@ namespace TPCAI
                 salida = "No";
             }
             return salida;
+        }
+
+        private void GroupBox_destino_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

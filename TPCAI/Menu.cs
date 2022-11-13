@@ -48,6 +48,7 @@ namespace TPCAI
 
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ManejoDeArchivos.ActualizarArchivos();
             Application.Exit();
         }
 

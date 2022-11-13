@@ -179,6 +179,7 @@
             this.TxtEstadoOrden.ReadOnly = true;
             this.TxtEstadoOrden.Size = new System.Drawing.Size(392, 23);
             this.TxtEstadoOrden.TabIndex = 14;
+            this.TxtEstadoOrden.TextChanged += new System.EventHandler(this.TxtEstadoOrden_TextChanged);
             // 
             // Form_consulta_orden
             // 

@@ -192,7 +192,6 @@
             this.lbl_origen.Size = new System.Drawing.Size(62, 20);
             this.lbl_origen.TabIndex = 23;
             this.lbl_origen.Text = "Origen";
-           
             // 
             // lbl_destino
             // 
@@ -217,7 +216,6 @@
             this.lbl_precio.Size = new System.Drawing.Size(71, 20);
             this.lbl_precio.TabIndex = 25;
             this.lbl_precio.Text = "Importe";
-           
             // 
             // lbl_moneda_peso
             // 
@@ -264,7 +262,7 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle";
-           
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // textBox_Importe
             // 

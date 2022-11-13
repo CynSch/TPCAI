@@ -68,5 +68,11 @@ namespace TPCAI
         {
 
         }
+
+        private void CuentaCorrienteServiciosFacturados_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ManejoDeArchivos.ActualizarArchivos();
+            Application.Exit();
+        }
     }
 }

@@ -17,21 +17,17 @@ namespace TPCAI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Agregar validacion de si existe txt en la carpeta bin/Debug entonces no corre el crear archivo.
-            /*if ( //si existe txt en la carpeta bin/Debug
-                )
-            {
-                ManejoDeArchivos.CargarArchivos();
-            }
-            else
+            string[] directories = new string[50];
+            directories = Directory.GetDirectories($@"{Environment.CurrentDirectory}\Debug");
+            if (directories.Length == 0)
             {
                 ManejoDeArchivos.CrearArchivos();
                 ManejoDeArchivos.CargarArchivos();
             }
-            //Abrir login.....
-            ManejoDeArchivos.ActualizarArchivos();
-            */
-            //Application.Run(Form_solicitud_servicio);
-            ClienteCorporativo.CargarCLientes();
+            else
+            {
+                ManejoDeArchivos.CargarArchivos();
+            }
             Application.Run(new Form_LogIn());
         }
     }

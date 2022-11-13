@@ -90,5 +90,10 @@ namespace TPCAI
         {
             
         }
+
+        private void Form_LogIn_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -112,6 +112,7 @@ namespace TPCAI
 
         private void Form_consulta_cuenta_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ManejoDeArchivos.ActualizarArchivos();
             Application.Exit();
         }
 
@@ -136,6 +137,11 @@ namespace TPCAI
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListadoFacturas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

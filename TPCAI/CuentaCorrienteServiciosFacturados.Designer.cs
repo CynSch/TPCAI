@@ -147,6 +147,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CuentaCorrienteServiciosFacturados";
             this.Text = "Servicios Facturados";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CuentaCorrienteServiciosFacturados_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

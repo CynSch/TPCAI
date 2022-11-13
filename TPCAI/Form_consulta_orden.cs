@@ -101,6 +101,7 @@ namespace TPCAI
 
         private void Form_consulta_orden_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ManejoDeArchivos.ActualizarArchivos();
             Application.Exit();
         }
 
@@ -110,6 +111,11 @@ namespace TPCAI
         }
 
         private void txtNumeroOrden_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtEstadoOrden_TextChanged(object sender, EventArgs e)
         {
 
         }

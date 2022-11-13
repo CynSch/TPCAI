@@ -75,6 +75,7 @@
             this.ListadoFacturas.TabIndex = 2;
             this.ListadoFacturas.UseCompatibleStateImageBehavior = false;
             this.ListadoFacturas.View = System.Windows.Forms.View.Details;
+            this.ListadoFacturas.SelectedIndexChanged += new System.EventHandler(this.ListadoFacturas_SelectedIndexChanged);
             this.ListadoFacturas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListadoFacturas_MouseClick);
             // 
             // NFactura
