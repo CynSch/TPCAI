@@ -61,13 +61,10 @@ namespace TPCAI
             //Se ejecuta si el rb de internacional esta seleccionado
             if (internacional)
             {
-                RegionMundial regionM = RegionMundial.BuscarRegionMundial(codigoDeRegionMundial);
-                string rm = regionM.NombreDeRegionMundial;
-
                 Pais pais = Pais.BuscarPais(codigoPais);
                 string nombrePais = pais.NombreDePais;
 
-                salida = rm + "," + nombrePais + direccion;
+                salida = nombrePais + ", " + direccion;
             }
             //Se ejecuta si el rb de nacional esta seleccionado
             else if (nacional)

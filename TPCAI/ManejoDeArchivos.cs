@@ -24,6 +24,8 @@ namespace TPCAI
             RegionNacional.ListarRegiones();
             Localidad.ListarLocalidad();
             Provincia.CargarProvincias();
+            Sucursal.ListarSucursales();
+            Pais.ListarPaises();
         }
         public static void ActualizarArchivos()
         {

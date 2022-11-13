@@ -66,7 +66,7 @@ namespace TPCAI
         {
             //Actualiza archivo
 
-            StreamWriter writer = File.CreateText("Sucursal.txt");
+            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Sucursales.txt");
 
             foreach (Sucursal s in TodasLasSucursales)
             {

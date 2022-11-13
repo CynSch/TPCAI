@@ -73,16 +73,6 @@ namespace TPCAI
             }
 
             writerRegionMundial.Close();
-
-
-
         }
-
-        public static RegionMundial BuscarRegionMundial(int codigoRegionMundial)
-        {
-            return RegionMundial.LstRegionesMundiales.Find(regionMundial => regionMundial.CodigoDeRegionMundial == codigoRegionMundial);
-        }
-
-
     }
 }

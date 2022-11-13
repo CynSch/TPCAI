@@ -62,72 +62,144 @@ namespace TPCAI
             {
                 pesolimitecorrespondiente = 20M;
             }
-            RangoDePeso rango = RangoDePeso.BuscarRangoPorMaximo(pesolimitecorrespondiente);
-            //2.Determino la distancia a recorrer:
-            if(esdestinonacional == true)
+            if (escorrespondencia)
             {
-                //verifico si (origencodigolocalidad = destinocodigolocalidad)
-                if(origencodigolocalidad == destinocodigolocalidad)
+                RangoDePeso rangocorrespondencia = RangoDePeso.BuscarRangoPorMaximo(0.5M);
+                //2.Determino la distancia a recorrer:
+                if (esdestinonacional == true)
                 {
-                    // Entonces TipoPrecioLocal
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.Local, out precionacional);    
-                }
-                //Else verifico si codigo de provincia de la localidad de origen y destino son los mismos
-                else if (Localidad.BuscarProvinciaXLocalidad(origencodigolocalidad) == Localidad.BuscarProvinciaXLocalidad(destinocodigolocalidad))
-                {
-                    //Entonces TipoPrecioProvincial
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.Provincial, out precionacional);
-                }
-                 //Else verifico si codigo de región de localidad origen y destino son los mismos
-                 else if (Provincia.BuscarRegionXProvincia(Localidad.BuscarProvinciaXLocalidad(origencodigolocalidad)) == Provincia.BuscarRegionXProvincia(Localidad.BuscarProvinciaXLocalidad(destinocodigolocalidad)))
-                {
-                    //Entonces TipoPrecioRegional
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.Regional, out precionacional);
+                    //verifico si (origencodigolocalidad = destinocodigolocalidad)
+                    if (origencodigolocalidad == destinocodigolocalidad)
+                    {
+                        // Entonces TipoPrecioLocal
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.Local, out precionacional);
+                    }
+                    //Else verifico si codigo de provincia de la localidad de origen y destino son los mismos
+                    else if (Localidad.BuscarProvinciaXLocalidad(origencodigolocalidad) == Localidad.BuscarProvinciaXLocalidad(destinocodigolocalidad))
+                    {
+                        //Entonces TipoPrecioProvincial
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.Provincial, out precionacional);
+                    }
+                    //Else verifico si codigo de región de localidad origen y destino son los mismos
+                    else if (Provincia.BuscarRegionXProvincia(Localidad.BuscarProvinciaXLocalidad(origencodigolocalidad)) == Provincia.BuscarRegionXProvincia(Localidad.BuscarProvinciaXLocalidad(destinocodigolocalidad)))
+                    {
+                        //Entonces TipoPrecioRegional
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.Regional, out precionacional);
+                    }
+                    else
+                    {
+                        //Else TipoPrecioNacional
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.Nacional, out precionacional);
+                    }
                 }
                 else
                 {
-                    //Else TipoPrecioNacional
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.Nacional, out precionacional);
+                    //Loop del nacional siendo el destino CABA. codigo de provincia de caba es 2
+                    if (Localidad.BuscarProvinciaXLocalidad(origencodigolocalidad) == 2)
+                    {
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.Provincial, out precionacional);
+                    }
+                    else
+                    {
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.Regional, out precionacional);
+                    }
+
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 1)
+                    {
+                        //TipoPrecio PaisesLimitrofes
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.Paises_limitrofes, out preciointernacional);
+                    }
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 2)
+                    {
+                        //TipoPrecio America Latina
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.America_Latina, out preciointernacional);
+                    }
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 3)
+                    {
+                        //TipoPrecio America del Norte
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.America_del_Norte, out preciointernacional);
+                    }
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 4)
+                    {
+                        //TipoPrecio Europa
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.Europa, out preciointernacional);
+                    }
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 5)
+                    {
+                        //TipoPrecio Asia
+                        rangocorrespondencia.PreciosxDistancia.TryGetValue(TipoPrecio.Asia, out preciointernacional);
+                    }
                 }
             }
             else
-            {   
-                //Loop del nacional siendo el destino CABA. codigo de provincia de caba es 2
-                if (Localidad.BuscarProvinciaXLocalidad(origencodigolocalidad) == 2)
+            {
+                RangoDePeso rango = RangoDePeso.BuscarRangoPorMaximo(pesolimitecorrespondiente);
+                //2.Determino la distancia a recorrer:
+                if (esdestinonacional == true)
                 {
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.Provincial, out precionacional);
+                    //verifico si (origencodigolocalidad = destinocodigolocalidad)
+                    if (origencodigolocalidad == destinocodigolocalidad)
+                    {
+                        // Entonces TipoPrecioLocal
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.Local, out precionacional);
+                    }
+                    //Else verifico si codigo de provincia de la localidad de origen y destino son los mismos
+                    else if (Localidad.BuscarProvinciaXLocalidad(origencodigolocalidad) == Localidad.BuscarProvinciaXLocalidad(destinocodigolocalidad))
+                    {
+                        //Entonces TipoPrecioProvincial
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.Provincial, out precionacional);
+                    }
+                    //Else verifico si codigo de región de localidad origen y destino son los mismos
+                    else if (Provincia.BuscarRegionXProvincia(Localidad.BuscarProvinciaXLocalidad(origencodigolocalidad)) == Provincia.BuscarRegionXProvincia(Localidad.BuscarProvinciaXLocalidad(destinocodigolocalidad)))
+                    {
+                        //Entonces TipoPrecioRegional
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.Regional, out precionacional);
+                    }
+                    else
+                    {
+                        //Else TipoPrecioNacional
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.Nacional, out precionacional);
+                    }
                 }
                 else
                 {
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.Regional, out precionacional);
-                }
+                    //Loop del nacional siendo el destino CABA. codigo de provincia de caba es 2
+                    if (Localidad.BuscarProvinciaXLocalidad(origencodigolocalidad) == 2)
+                    {
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.Provincial, out precionacional);
+                    }
+                    else
+                    {
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.Regional, out precionacional);
+                    }
 
-                if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 1)
-                {
-                    //TipoPrecio PaisesLimitrofes
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.Paises_limitrofes, out preciointernacional);
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 1)
+                    {
+                        //TipoPrecio PaisesLimitrofes
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.Paises_limitrofes, out preciointernacional);
+                    }
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 2)
+                    {
+                        //TipoPrecio America Latina
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.America_Latina, out preciointernacional);
+                    }
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 3)
+                    {
+                        //TipoPrecio America del Norte
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.America_del_Norte, out preciointernacional);
+                    }
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 4)
+                    {
+                        //TipoPrecio Europa
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.Europa, out preciointernacional);
+                    }
+                    if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 5)
+                    {
+                        //TipoPrecio Asia
+                        rango.PreciosxDistancia.TryGetValue(TipoPrecio.Asia, out preciointernacional);
+                    }
+                    // + TipoPrecio según codigoregiónmundial
                 }
-                if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 2)
-                {
-                    //TipoPrecio America Latina
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.America_Latina, out preciointernacional);
-                }
-                if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 3)
-                {
-                    //TipoPrecio America del Norte
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.America_del_Norte, out preciointernacional);
-                }
-                if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 4)
-                {
-                    //TipoPrecio Europa
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.Europa, out preciointernacional);
-                }
-                if (Pais.BuscarCodigoRegionXPais(destinocodigopais) == 5)
-                {
-                    //TipoPrecio Asia
-                    rango.PreciosxDistancia.TryGetValue(TipoPrecio.Asia, out preciointernacional);
-                }
-                // + TipoPrecio según codigoregiónmundial
             }
             //3. Con punto 1 y 2 determino importe base.
             importebase = precionacional + preciointernacional;

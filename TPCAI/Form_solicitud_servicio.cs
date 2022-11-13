@@ -388,10 +388,10 @@ namespace TPCAI
                 if (rd_btn_correspondencia.Checked)
                 {
                     form_de_confirmacion._TipoPaquete = "correspondencia";
-                    form_de_confirmacion._Peso = null;
-                    form_de_confirmacion._Ancho = null;
-                    form_de_confirmacion._Largo = null;
-                    form_de_confirmacion._Alto = null;
+                    form_de_confirmacion._Peso = "-";
+                    form_de_confirmacion._Ancho = "-";
+                    form_de_confirmacion._Largo = "-";
+                    form_de_confirmacion._Alto = "-";
                 }
                 else if (rd_btn_encomienda.Checked)
                 {
