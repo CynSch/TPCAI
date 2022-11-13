@@ -150,6 +150,7 @@
             this.PendientesFacturacion.TabIndex = 0;
             this.PendientesFacturacion.UseCompatibleStateImageBehavior = false;
             this.PendientesFacturacion.View = System.Windows.Forms.View.Details;
+            this.PendientesFacturacion.SelectedIndexChanged += new System.EventHandler(this.PendientesFacturacion_SelectedIndexChanged);
             // 
             // orden
             // 

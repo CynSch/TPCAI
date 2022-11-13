@@ -84,7 +84,7 @@ namespace TPCAI
                         }
                         else
                         {
-                            ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal.ToString()); //Sucursal
+                            ordenN.SubItems.Add("Sucursal "+Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal.ToString() + " - " + Sucursal.BuscarDireccion(Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal)); //Sucursal
                         }
                         PendientesFacturacion.Items.Add(ordenN);
                     }
@@ -142,6 +142,11 @@ namespace TPCAI
         }
 
         private void ListadoFacturas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PendientesFacturacion_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

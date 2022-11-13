@@ -67,6 +67,21 @@ namespace TPCAI
 
         }
 
+        public static string BuscarDireccion(int codigoSucursal)
+        {
+            string direccion = "";
+
+            foreach (Sucursal suc in TodasLasSucursales)
+            {
+                if(suc.NroSucursal == codigoSucursal)
+                {
+                    direccion = suc.Direccion;
+                    break;
+                }
+            }
+            return direccion;
+        }
+
         internal static void GrabarSucursalEnArchivo()
         {
             //Actualiza archivo
