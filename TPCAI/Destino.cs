@@ -57,16 +57,6 @@ namespace TPCAI
             int codigoPais, int codigoRegionNacional, int codigoProvincia, int CodigoLocalidad, string direccion, int nroSucursal)
         {
             string salida = null;
-
-            RegionNacional regionN = RegionNacional.BuscarRegionNacional(codigoRegionNacional);
-            string rn = regionN.NombreDeRegionNacional;
-
-
-            Provincia provincia = Provincia.BuscarProvincia(codigoProvincia);
-            string nombreProvincia = provincia.NombreDeProvincia;
-
-            Localidad localidad = Localidad.BuscarLocalidad(CodigoLocalidad);
-            string nombreLocalidad = localidad.NombreDeLocalidad;
             
             //Se ejecuta si el rb de internacional esta seleccionado
             if (internacional == true)
@@ -82,6 +72,16 @@ namespace TPCAI
             //Se ejecuta si el rb de nacional esta seleccionado
             if (nacional == true)
             {
+                RegionNacional regionN = RegionNacional.BuscarRegionNacional(codigoRegionNacional);
+                string rn = regionN.NombreDeRegionNacional;
+
+
+                Provincia provincia = Provincia.BuscarProvincia(codigoProvincia);
+                string nombreProvincia = provincia.NombreDeProvincia;
+
+                Localidad localidad = Localidad.BuscarLocalidad(CodigoLocalidad);
+                string nombreLocalidad = localidad.NombreDeLocalidad;
+
                 // se ejecuta si el rb de entrega en sucursal esta seleccionado
                 if (entregaSucursal == true)
                 {
@@ -231,7 +231,7 @@ namespace TPCAI
 
             List<Destino> listaACargar = new List<Destino>();
 
-            var lst1 = new Destino(100, true, false, false, false, 2, 22, 12, 0, 0, "Granada 23, Cancún", 0);
+            var lst1 = new Destino(100, true, false, false, false, 2, 22, 0, 0, 0, "Granada 23, Cancún", 0);
             var lst3 = new Destino(102, false, true, false, true,0,0, 4, 6, 46, "", 5);
             var lst4 = new Destino(103, true, false, false, false, 1, 1, 0, 0,0, "Engenheiro Roberto Freire 3800, Ponta Negra", 0);
             var lst2 = new Destino(101, false, true, false, true, 0, 0, 1, 3, 31, "", 4);
