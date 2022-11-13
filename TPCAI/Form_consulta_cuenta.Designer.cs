@@ -53,7 +53,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 74);
+            this.label1.Location = new System.Drawing.Point(617, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(251, 20);
@@ -102,7 +102,7 @@
             // 
             this.groupBox1.Controls.Add(this.BtnDetalleFactura);
             this.groupBox1.Controls.Add(this.ListadoFacturas);
-            this.groupBox1.Location = new System.Drawing.Point(36, 111);
+            this.groupBox1.Location = new System.Drawing.Point(36, 74);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -126,11 +126,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.PendientesFacturacion);
-            this.groupBox2.Location = new System.Drawing.Point(54, 489);
+            this.groupBox2.Location = new System.Drawing.Point(42, 454);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(1064, 365);
+            this.groupBox2.Size = new System.Drawing.Size(1076, 327);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Servicios pendientes de facturacion:";
@@ -173,7 +173,7 @@
             // 
             // btnMenu
             // 
-            this.btnMenu.Location = new System.Drawing.Point(459, 889);
+            this.btnMenu.Location = new System.Drawing.Point(475, 805);
             this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(208, 35);
@@ -186,7 +186,7 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(304, 71);
+            this.textBox1.Location = new System.Drawing.Point(871, 28);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(148, 26);
@@ -198,7 +198,7 @@
             // 
             this.lbl_CUIT.AutoSize = true;
             this.lbl_CUIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_CUIT.Location = new System.Drawing.Point(362, 25);
+            this.lbl_CUIT.Location = new System.Drawing.Point(59, 31);
             this.lbl_CUIT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_CUIT.Name = "lbl_CUIT";
             this.lbl_CUIT.Size = new System.Drawing.Size(46, 20);
@@ -210,7 +210,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 943);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1144, 1122);
             this.Controls.Add(this.lbl_CUIT);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnMenu);
