@@ -147,6 +147,7 @@
             this.Name = "CuentaCorrienteServiciosFacturados";
             this.Text = "Servicios Facturados";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CuentaCorrienteServiciosFacturados_FormClosing);
+            this.Load += new System.EventHandler(this.CuentaCorrienteServiciosFacturados_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

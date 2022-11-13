@@ -60,14 +60,17 @@ namespace TPCAI
         private void button1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            this.Close();
-            
         }
 
         private void CuentaCorrienteServiciosFacturados_FormClosing(object sender, FormClosingEventArgs e)
         {
             ManejoDeArchivos.ActualizarArchivos();
             Application.Exit();
+        }
+
+        private void CuentaCorrienteServiciosFacturados_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

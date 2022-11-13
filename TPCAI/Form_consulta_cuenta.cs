@@ -100,10 +100,17 @@ namespace TPCAI
         private void BtnDetalleFactura_Click(object sender, EventArgs e)
         {
             ListadoFacturas.FullRowSelect = true;
-            string idfacturaseleccionada = ListadoFacturas.SelectedItems[0].SubItems[0].Text;
-            var FC = new CuentaCorrienteServiciosFacturados();
-            FC.Show();
-            FC.MostrarDatos(idfacturaseleccionada);
+            if(ListadoFacturas.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar una factura de la lista");
+                return;
+            }
+            {
+                string idfacturaseleccionada = ListadoFacturas.SelectedItems[0].SubItems[0].Text;
+                var FC = new CuentaCorrienteServiciosFacturados();
+                FC.Show();
+                FC.MostrarDatos(idfacturaseleccionada);
+            }
         }
 
         //volver al menu principal
