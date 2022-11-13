@@ -12,11 +12,11 @@ namespace TPCAI
     internal class Destino
     {
 
-        public Destino(int numDeOrden, bool esnacional, bool esInternacional, bool entregaEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, int codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
+        public Destino(int numDeOrden, bool esInternacional, bool esnacional, bool entregaEnDomicilio, bool entregaEnSucursal, int codigoDeRegionMundial, int codigoDePais, int codigoDeRegionNacional, int codigoDeProvincia, int codigoDeLocalidad, string direccion, int nroSucursal)
         {
             NumeroDeOrden = numDeOrden;
-            EsNacional = esnacional;
             EsInternacional = esInternacional;
+            EsNacional = esnacional;
             EntregaEnDomicilio = entregaEnDomicilio;
             EntregaEnSucursal = entregaEnSucursal;
             CodigoDeRegionMundial = codigoDeRegionMundial;
@@ -56,10 +56,10 @@ namespace TPCAI
         public static string MostrarDestino(bool nacional, bool internacional, bool entregaDomicilio, bool entregaSucursal, int codigoDeRegionMundial,
             int codigoPais, int codigoRegionNacional, int codigoProvincia, int CodigoLocalidad, string direccion, int nroSucursal)
         {
-            string salida = null;
+            string salida = "";
             
             //Se ejecuta si el rb de internacional esta seleccionado
-            if (internacional == true)
+            if (internacional)
             {
                 RegionMundial regionM = RegionMundial.BuscarRegionMundial(codigoDeRegionMundial);
                 string rm = regionM.NombreDeRegionMundial;
@@ -70,7 +70,7 @@ namespace TPCAI
                 salida = rm + "," + nombrePais + direccion;
             }
             //Se ejecuta si el rb de nacional esta seleccionado
-            if (nacional == true)
+            else if (nacional)
             {
                 RegionNacional regionN = RegionNacional.BuscarRegionNacional(codigoRegionNacional);
                 string rn = regionN.NombreDeRegionNacional;

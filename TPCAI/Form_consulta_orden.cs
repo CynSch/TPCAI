@@ -31,15 +31,13 @@ namespace TPCAI
                      txtNumeroOrden.Clear();
                      return;
                  }
-
-                if (IngresoLength > 10)
+                else if (IngresoLength > 10)
                 {
                     MessageBox.Show("Puede ingresar 10 carcateres como maximo");
                     txtNumeroOrden.Clear();
                     return;
                 }
-    
-                if (!correcto)
+                else if (!correcto)
                 {
                     MessageBox.Show("Debe ingresar un valor numerico");
                     txtNumeroOrden.Clear();
@@ -57,9 +55,11 @@ namespace TPCAI
                             TxtNroOrden.Text = solicitud.NumeroDeOrden.ToString();
                             TxtFechaOrden.Text = solicitud.Fecha.ToString();
                             TxtImporteOrden.Text = solicitud.Importe.ToString();
-                            TxtDestinoOrden.Text = _Destino(solicitud);
-                            TxtEstadoOrden.Text = SolicitudDeOrden.BuscarEstadoDeOrden(solicitud.CodigoDeEstado); 
-                            
+                            Destino destino = _Destino(solicitud);
+                            TxtDestinoOrden.Text = Destino.MostrarDestino(destino.EsNacional, destino.EsInternacional, destino.EntregaEnDomicilio, destino.EntregaEnSucursal, destino.CodigoDeRegionMundial, destino.CodigoDePais, destino.CodigoDeRegionNacional, destino.CodigoDeProvincia, destino.CodigoDeLocalidad, destino.Direccion, destino.NroSucursal);
+                           
+                            TxtEstadoOrden.Text = SolicitudDeOrden.BuscarEstadoDeOrden(solicitud.NumeroDeOrden);
+
                         }
                    
                     }
@@ -68,27 +68,11 @@ namespace TPCAI
 
         }
 
-        private string _Destino(SolicitudDeOrden solicitud)
+        private Destino _Destino(SolicitudDeOrden solicitud)
         {
             Destino destino = Destino.BuscarDestino(solicitud.NumeroDeOrden);
-            int nroOrden = destino.NumeroDeOrden;
-            bool internacional = destino.EsInternacional;
-            bool nacional = destino.EsNacional;
-            bool entregaDomicilio = destino.EntregaEnDomicilio;
-            bool entregaEnSucursal = destino.EntregaEnSucursal;
-            int codRegionMundial = destino.CodigoDeRegionMundial;
-            int codPais = destino.CodigoDePais;
-            int codRegNacional = destino.CodigoDeRegionNacional;
-            int codProvincia = destino.CodigoDeProvincia;
-            int codLocalidad = destino.CodigoDeLocalidad;
-            string direccion = destino.Direccion;
-            int nroSucursal = destino.NroSucursal;
 
-            string destinoAMostrar = Destino.MostrarDestino(nacional, internacional,entregaDomicilio, entregaEnSucursal, codRegionMundial, 
-                codPais, codRegNacional, codProvincia, codLocalidad, direccion, nroSucursal);
-
-
-                return destinoAMostrar;
+                return destino;
 
         }
 
