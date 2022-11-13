@@ -446,7 +446,7 @@ namespace TPCAI
                     form_de_confirmacion._NroOrdenGenerada = nuevaSolicitud.NumeroDeOrden.ToString();
                     if (rd_btn_correspondencia.Checked)
                     {
-                        form_de_confirmacion._TipoPaquete = "correspondencia";
+                        form_de_confirmacion._TipoPaquete = "Correspondencia";
                         form_de_confirmacion._Peso = "-";
                         form_de_confirmacion._Ancho = "-";
                         form_de_confirmacion._Largo = "-";
@@ -454,7 +454,7 @@ namespace TPCAI
                     }
                     else if (rd_btn_encomienda.Checked)
                     {
-                        form_de_confirmacion._TipoPaquete = "encomienda";
+                        form_de_confirmacion._TipoPaquete = "Encomienda";
                         form_de_confirmacion._Peso = nuevoServicio.Peso.ToString() + " Kg";
                         form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString() + " cm";
                         form_de_confirmacion._Largo = nuevoServicio.Largo.ToString() + " cm";
@@ -491,6 +491,7 @@ namespace TPCAI
 
         private void rd_Internacional_CheckedChanged(object sender, EventArgs e)
         {
+
             cmb_provincia_nacional.ResetText();
             cmb_localidad_nacional.ResetText();
             txt_direccion_nacional.ResetText();

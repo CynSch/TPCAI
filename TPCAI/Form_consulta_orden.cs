@@ -72,7 +72,8 @@ namespace TPCAI
                             TxtImporteOrden.Text = "";
                             TxtDestinoOrden.Text = "";
                             TxtEstadoOrden.Text = "";
-                            MessageBox.Show("El numero de orden ingresado no corresponde a este cliente");
+                            MessageBox.Show("Disculpe las molestias: No puede ver órdenes de otros clientes! Busque, en su lugar, una orden que le pertenezca." +
+                                "");
                             break;
                         }
                     }
