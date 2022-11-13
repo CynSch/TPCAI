@@ -232,13 +232,13 @@ namespace TPCAI
             List<Destino> listaACargar = new List<Destino>();
 
             var lst1 = new Destino(100, true, false, false, false, 2, 22, 12, 0, 0, "Granada 23, Cancún", 0);
-            var lst3 = new Destino(102, false, true, false, true,0,0, 4, 6, 46, null, 5);
+            var lst3 = new Destino(102, false, true, false, true,0,0, 4, 6, 46, "", 5);
             var lst4 = new Destino(103, true, false, false, false, 1, 1, 0, 0,0, "Engenheiro Roberto Freire 3800, Ponta Negra", 0);
-            var lst2 = new Destino(101, false, true, false, true, 0, 0, 1, 3, 31, null, 4);
+            var lst2 = new Destino(101, false, true, false, true, 0, 0, 1, 3, 31, "", 4);
             var lst5 = new Destino(104, true, false, false, false, 3, 21, 0,0, 0, "Magnolia St 2801, Oakland", 0);
-            var lst6 = new Destino(105, false, true, false, true, 0, 0, 0, 1, 1, null, 1);
-            var lst7 = new Destino(106, false, true, false, true, 0, 0, 0, 1, 8, null, 2);
-            var lst8 = new Destino(107, false, true, false, true, 0, 0, 0, 17, 51, null, 3);
+            var lst6 = new Destino(105, false, true, false, true, 0, 0, 0, 1, 1, "", 1);
+            var lst7 = new Destino(106, false, true, false, true, 0, 0, 0, 1, 8, "", 2);
+            var lst8 = new Destino(107, false, true, false, true, 0, 0, 0, 17, 51, "", 3);
             var lst9 = new Destino(108, true, false, false, false, 4, 32, 0, 0, 0, "Av.Clays 20, Bruxelles", 0);
             var lst10 = new Destino(109, true, false, false, false, 5, 91, 0, 0, 0, "Dostai 17, Jerusalem", 0);
             var lst11 = new Destino(110, true, false, false, false, 1, 3, 0, 0, 0, "Martín Rivas 596, Peru", 0);
