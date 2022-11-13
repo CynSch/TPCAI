@@ -256,10 +256,10 @@ namespace TPCAI
                 }
                 else if (rd_btn_nacional.Checked &&
                     rd_btn_entrega_domicilio.Checked &&
-                    (cmb_sucursal_entregaensucursal_destino.SelectedIndex == -1))
+                    (txt_direccion_nacional.Text==""))
                 {
                     MessageBox.Show("Debe completar todos los campos visibles" +
-                        " relacionados a un destino nacional en sucursal");
+                        " relacionados a un destino nacional a domicilio");
                 }
                 else if (rd_btn_internacional.Checked && 
                     (cmb_pais_internacional.SelectedIndex == -1 
