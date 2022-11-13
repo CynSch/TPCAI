@@ -23,7 +23,7 @@ namespace TPCAI
             Servicio.CargarServicios();
             RegionNacional.ListarRegiones();
             Localidad.ListarLocalidad();
-            //Agregar metodos
+            Provincia.CargarProvincias();
         }
         public static void ActualizarArchivos()
         {
@@ -36,6 +36,7 @@ namespace TPCAI
             Servicio.GrabarNuevoServicioEnArchivo();
             Origen.GrabarOrigen();
             ArchivoTarifas.GrabarArchivo();
+            Provincia.GrabarProvincias();
         }
 
         public static void CrearArchivos()
@@ -55,7 +56,7 @@ namespace TPCAI
             Sucursal.CrearArchivo();
             Factura.CrearArchivo();
             Pais.CrearArchivo();
-            
+            Provincia.CrearArchivo();
         }
     }
 }
