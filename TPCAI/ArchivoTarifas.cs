@@ -37,13 +37,13 @@ namespace TPCAI
             string linearangos = "";
             foreach (RangoDePeso rango in RangoDePeso.Rangos)
             {
-                linearangos = linearangos + (rango.PesoMinKg.ToString() + "|" + rango.PesoMaxKg.ToString() + "|");
+                linearangos = (rango.PesoMinKg.ToString() + "|" + rango.PesoMaxKg.ToString());
                 foreach (var precio in rango.PreciosxDistancia)
                 {
-                    linearangos = linearangos + (precio.Value.ToString() + "|");
+                    linearangos = linearangos + ("|" + precio.Value.ToString());
                 }
+                writerrango.WriteLine(linearangos);
             }
-            writerrango.WriteLine(linearangos);
             writerrango.Close();
         }
 
@@ -51,6 +51,11 @@ namespace TPCAI
         {
             //Cargo el rango de peso desde el archivo a memoria
             StreamReader reader = new StreamReader($@"{Environment.CurrentDirectory}\RangoDePeso.txt");
+            if(RangoDePeso.Rangos.Count > 0)
+            {
+                RangoDePeso.Rangos.Clear();
+            }
+
             while (!reader.EndOfStream)
             {
                 string linea = reader.ReadLine();
@@ -78,6 +83,10 @@ namespace TPCAI
             //Cargo la tarifa desde el archivo a memoria
             var datostarifa = File.ReadLines($@"{Environment.CurrentDirectory}\Tarifa.txt").First().Split('|');
 
+            if (Tarifa.Tarifario.Count > 0)
+            {
+                Tarifa.Tarifario.Clear();
+            }
             //RecargoUrgente|RecargoRetiroEnPuerta|RegargoEntregaEnPuerta
             Tarifa tarifa = new Tarifa()
             {

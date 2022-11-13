@@ -19,7 +19,9 @@ namespace TPCAI
             foreach (var rangoDePeso in Rangos)
             {
                 if (rangoDePeso.PesoMaxKg == max)
+                {
                     return rangoDePeso;
+                }
             }
             return null;
         }
@@ -29,6 +31,24 @@ namespace TPCAI
             PesoMinKg = pesoMinKg;
             PesoMaxKg = pesoMaxKg;
             PreciosxDistancia = preciosxDistancia;
+        }
+
+        public static string ListarRangos()
+        {
+            string linea = "";
+            foreach (RangoDePeso rango in Rangos)
+            {
+                linea = linea + (rango.PesoMinKg.ToString() + "|" + rango.PesoMaxKg.ToString());
+                foreach (var precio in rango.PreciosxDistancia)
+                {
+                    linea = linea + ("|" + precio.Value.ToString());
+                }
+                linea = linea + "\n";
+            }
+            return linea;
+        }
+        public RangoDePeso()
+        {
         }
 
         internal static void CrearRangosIniciales()

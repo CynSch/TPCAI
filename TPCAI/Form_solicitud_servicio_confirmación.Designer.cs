@@ -289,7 +289,7 @@
             // textBox_Peso
             // 
             this.textBox_Peso.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_Peso.Location = new System.Drawing.Point(201, 74);
+            this.textBox_Peso.Location = new System.Drawing.Point(201, 78);
             this.textBox_Peso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Peso.Name = "textBox_Peso";
             this.textBox_Peso.ReadOnly = true;

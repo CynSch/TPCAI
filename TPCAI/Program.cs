@@ -22,8 +22,8 @@ namespace TPCAI
              if (Directory.GetFiles($@"{Environment.CurrentDirectory}").Length <= 3)
               {
                   ManejoDeArchivos.CrearArchivos();
-                  ManejoDeArchivos.CargarArchivos();
-              }
+                ManejoDeArchivos.CargarArchivos();
+            }
               else
               {
                   ManejoDeArchivos.CargarArchivos();

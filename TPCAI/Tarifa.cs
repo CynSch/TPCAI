@@ -50,18 +50,19 @@ namespace TPCAI
             {
                 pesolimitecorrespondiente = 0.5M;
             }
-            if (Peso > 0.5M && Peso <= 10M)
+            else if (Peso > 0.5M && Peso <= 10M)
             {
                 pesolimitecorrespondiente = 10M;
             }
-            if(Peso > 10M && Peso >= 20M)
+            else if(Peso > 10M && Peso <= 20M)
             {
                 pesolimitecorrespondiente = 20M;
             }
-            if(Peso > 20M && Peso >= 30M)
+            else
             {
                 pesolimitecorrespondiente = 20M;
             }
+
             if (escorrespondencia)
             {
                 RangoDePeso rangocorrespondencia = RangoDePeso.BuscarRangoPorMaximo(0.5M);
@@ -131,6 +132,7 @@ namespace TPCAI
                     }
                 }
             }
+            //Es encomienda
             else
             {
                 RangoDePeso rango = RangoDePeso.BuscarRangoPorMaximo(pesolimitecorrespondiente);
