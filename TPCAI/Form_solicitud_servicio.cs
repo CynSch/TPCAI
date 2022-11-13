@@ -528,12 +528,12 @@ namespace TPCAI
             lbl_direccion_nacional.Enabled = true;
             lbl_sucursal_entregaensucursal_destino.Enabled = true;
 
-            /*Limpio el dropdown
+            //Limpio el dropdown
             cmb_provincia_nacional.Items.Clear();
             foreach (Provincia p in Provincia.TodasLasProvincias)
             {
                 cmb_provincia_nacional.Items.Add(p.NombreDeProvincia);
-            }*/
+            }
         }
 
         private void rd_btn_retiro_domicilio_CheckedChanged(object sender, EventArgs e)
