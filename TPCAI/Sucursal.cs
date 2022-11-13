@@ -77,5 +77,95 @@ namespace TPCAI
             }
             writer.Close();
         }
+
+        internal static void CrearArchivo()
+        {
+            //Creo una lista para guardar las facturas
+            List<Sucursal> SucursalesACargar = new List<Sucursal>();
+
+
+            //Creo objetos 
+            var e1 = new Sucursal();
+            e1.NroSucursal = 1;
+            e1.Localidad.CodigoDeLocalidad = 1;
+            e1.Direccion = "Estanislao Zeballos 2356";
+
+            var e2 = new Sucursal();
+            e2.NroSucursal = 2;
+            e2.Localidad.CodigoDeLocalidad = 8;
+            e2.Direccion = "Av. Maipú 1890";
+
+            var e3 = new Sucursal();
+            e3.NroSucursal = 3;
+            e3.Localidad.CodigoDeLocalidad = 51;
+            e3.Direccion = "Benjamín Zorrilla 2291";
+
+            var e4 = new Sucursal();
+            e4.NroSucursal = 4;
+            e4.Localidad.CodigoDeLocalidad = 31;
+            e4.Direccion = "Gral Urquiza 1290";
+
+            var e5 = new Sucursal();
+            e5.NroSucursal = 5;
+            e5.Localidad.CodigoDeLocalidad = 46;
+            e5.Direccion = "Coronado 1890";
+
+            var e6 = new Sucursal();
+            e6.NroSucursal = 6;
+            e6.Localidad.CodigoDeLocalidad = 46;
+            e6.Direccion = "Coronado 1890";
+
+            var e7 = new Sucursal();
+            e7.NroSucursal = 7;
+            e7.Localidad.CodigoDeLocalidad = 6;
+            e7.Direccion = "Manuel Estrada 880";
+
+            var e8 = new Sucursal();
+            e8.NroSucursal = 8;
+            e8.Localidad.CodigoDeLocalidad = 3;
+            e8.Direccion = "Oliden 110";
+
+            var e9 = new Sucursal();
+            e9.NroSucursal = 9;
+            e9.Localidad.CodigoDeLocalidad = 4;
+            e9.Direccion = "Gral Belgrano 1900";
+
+            var e10 = new Sucursal();
+            e10.NroSucursal = 10;
+            e10.Localidad.CodigoDeLocalidad = 17;
+            e10.Direccion = "Matienzo 670";
+
+            var e11 = new Sucursal();
+            e11.NroSucursal = 11;
+            e11.Localidad.CodigoDeLocalidad = 24;
+            e11.Direccion = "Libertad 8900";
+
+
+            //Agrego los paises en la lista
+            SucursalesACargar.Add(e1);
+            SucursalesACargar.Add(e2);
+            SucursalesACargar.Add(e3);
+            SucursalesACargar.Add(e4);
+            SucursalesACargar.Add(e5);
+            SucursalesACargar.Add(e6);
+            SucursalesACargar.Add(e7);
+            SucursalesACargar.Add(e8);
+            SucursalesACargar.Add(e9);
+            SucursalesACargar.Add(e10);
+            SucursalesACargar.Add(e11);
+
+
+
+            //Paso cada item de la lista al archivo
+            StreamWriter writer = File.CreateText("Sucursales.txt");
+            foreach (Sucursal e in SucursalesACargar)
+            {
+
+                string linea = e.NroSucursal + "|" + e.Localidad.CodigoDeLocalidad + "|" + e.Direccion;
+                writer.WriteLine(linea);
+            }
+            writer.Close();
+        }
     }
 }
+
