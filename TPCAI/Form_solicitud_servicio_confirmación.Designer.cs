@@ -30,11 +30,7 @@
         {
             this.lbl_solicitud_exitosa = new System.Windows.Forms.Label();
             this.lbl_nro_orden = new System.Windows.Forms.Label();
-            this.lbl_cm_alto = new System.Windows.Forms.Label();
-            this.lbl_cm_largo = new System.Windows.Forms.Label();
             this.lbl_alto = new System.Windows.Forms.Label();
-            this.lbl_kg = new System.Windows.Forms.Label();
-            this.lbl_cm_ancho = new System.Windows.Forms.Label();
             this.lbl_peso = new System.Windows.Forms.Label();
             this.lbl_tipo_paquete = new System.Windows.Forms.Label();
             this.lbl_largo = new System.Windows.Forms.Label();
@@ -84,24 +80,6 @@
             this.lbl_nro_orden.TabIndex = 1;
             this.lbl_nro_orden.Text = "ORDEN #";
             // 
-            // lbl_cm_alto
-            // 
-            this.lbl_cm_alto.AutoSize = true;
-            this.lbl_cm_alto.Location = new System.Drawing.Point(169, 146);
-            this.lbl_cm_alto.Name = "lbl_cm_alto";
-            this.lbl_cm_alto.Size = new System.Drawing.Size(21, 13);
-            this.lbl_cm_alto.TabIndex = 21;
-            this.lbl_cm_alto.Text = "cm";
-            // 
-            // lbl_cm_largo
-            // 
-            this.lbl_cm_largo.AutoSize = true;
-            this.lbl_cm_largo.Location = new System.Drawing.Point(169, 116);
-            this.lbl_cm_largo.Name = "lbl_cm_largo";
-            this.lbl_cm_largo.Size = new System.Drawing.Size(21, 13);
-            this.lbl_cm_largo.TabIndex = 22;
-            this.lbl_cm_largo.Text = "cm";
-            // 
             // lbl_alto
             // 
             this.lbl_alto.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
@@ -112,24 +90,6 @@
             this.lbl_alto.Size = new System.Drawing.Size(29, 13);
             this.lbl_alto.TabIndex = 19;
             this.lbl_alto.Text = "Alto";
-            // 
-            // lbl_kg
-            // 
-            this.lbl_kg.AutoSize = true;
-            this.lbl_kg.Location = new System.Drawing.Point(171, 56);
-            this.lbl_kg.Name = "lbl_kg";
-            this.lbl_kg.Size = new System.Drawing.Size(19, 13);
-            this.lbl_kg.TabIndex = 16;
-            this.lbl_kg.Text = "kg";
-            // 
-            // lbl_cm_ancho
-            // 
-            this.lbl_cm_ancho.AutoSize = true;
-            this.lbl_cm_ancho.Location = new System.Drawing.Point(169, 85);
-            this.lbl_cm_ancho.Name = "lbl_cm_ancho";
-            this.lbl_cm_ancho.Size = new System.Drawing.Size(21, 13);
-            this.lbl_cm_ancho.TabIndex = 20;
-            this.lbl_cm_ancho.Text = "cm";
             // 
             // lbl_peso
             // 
@@ -236,11 +196,7 @@
             this.groupBox1.Controls.Add(this.lbl_precio);
             this.groupBox1.Controls.Add(this.lbl_destino);
             this.groupBox1.Controls.Add(this.lbl_origen);
-            this.groupBox1.Controls.Add(this.lbl_cm_alto);
-            this.groupBox1.Controls.Add(this.lbl_cm_largo);
             this.groupBox1.Controls.Add(this.lbl_alto);
-            this.groupBox1.Controls.Add(this.lbl_kg);
-            this.groupBox1.Controls.Add(this.lbl_cm_ancho);
             this.groupBox1.Controls.Add(this.lbl_peso);
             this.groupBox1.Controls.Add(this.lbl_tipo_paquete);
             this.groupBox1.Controls.Add(this.lbl_largo);
@@ -419,10 +375,7 @@
 
         private System.Windows.Forms.Label lbl_solicitud_exitosa;
         private System.Windows.Forms.Label lbl_nro_orden;
-        private System.Windows.Forms.Label lbl_cm_alto;
-        private System.Windows.Forms.Label lbl_cm_largo;
         private System.Windows.Forms.Label lbl_alto;
-        private System.Windows.Forms.Label lbl_cm_ancho;
         private System.Windows.Forms.Label lbl_peso;
         private System.Windows.Forms.Label lbl_tipo_paquete;
         private System.Windows.Forms.Label lbl_largo;
@@ -446,6 +399,5 @@
         private System.Windows.Forms.TextBox textBox_TPaquete;
         private System.Windows.Forms.TextBox textBox_Destino;
         private System.Windows.Forms.TextBox textBox_Orden;
-        public System.Windows.Forms.Label lbl_kg;
     }
 }

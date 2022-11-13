@@ -396,10 +396,10 @@ namespace TPCAI
                 else if (rd_btn_encomienda.Checked)
                 {
                     form_de_confirmacion._TipoPaquete = "encomienda";
-                    form_de_confirmacion._Peso = nuevoServicio.Peso.ToString();
-                    form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString();
-                    form_de_confirmacion._Largo = nuevoServicio.Largo.ToString();
-                    form_de_confirmacion._Alto = nuevoServicio.Alto.ToString();
+                    form_de_confirmacion._Peso = nuevoServicio.Peso.ToString() + "Kg";
+                    form_de_confirmacion._Ancho = nuevoServicio.Ancho.ToString() + "cm";
+                    form_de_confirmacion._Largo = nuevoServicio.Largo.ToString() + "cm";
+                    form_de_confirmacion._Alto = nuevoServicio.Alto.ToString() + "cm";
                 }
 
                 if (rd_btn_nacional.Checked)
