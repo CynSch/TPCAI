@@ -23,7 +23,7 @@ namespace TPCAI
         internal static void ListarPaises() //Lista los paises del txt
         {
             //lee los paises del txt
-         
+
             var archivoPaises = new StreamReader($@"{Environment.CurrentDirectory}\Paises.txt");
             while (!archivoPaises.EndOfStream)
 
@@ -40,6 +40,8 @@ namespace TPCAI
                 Pais.TodosLosPaises.Add(pais);
             }
 
+            archivoPaises.Close();
+
         }
 
         internal static int BuscarCodigoRegionXPais(int codigopais)
@@ -47,7 +49,7 @@ namespace TPCAI
             int codigoregion = 0;
             foreach (Pais pais in TodosLosPaises)
             {
-                if(pais.CodigoDePais == codigopais)
+                if (pais.CodigoDePais == codigopais)
                 {
                     codigoregion = pais.CodigoDeRegionMundial;
                 }
@@ -70,7 +72,7 @@ namespace TPCAI
 
             foreach (Pais p in TodosLosPaises)
             {
-               //cod pais, nombre pais, cod region mundial
+                //cod pais, nombre pais, cod region mundial
                 string linea = p.CodigoDePais + "|"
                     + p.NombreDePais + "|"
                     + p.CodigoDeRegionMundial;
@@ -184,7 +186,7 @@ namespace TPCAI
             PaisesACargar.Add(e14);
             PaisesACargar.Add(e15);
             PaisesACargar.Add(e16);
-            
+
 
 
             //Paso cada item de la lista al archivo
@@ -192,7 +194,7 @@ namespace TPCAI
             foreach (Pais e in PaisesACargar)
             {
 
-                string linea = e.CodigoDePais + "|" + e.NombreDePais + "|" + e.CodigoDeRegionMundial ;
+                string linea = e.CodigoDePais + "|" + e.NombreDePais + "|" + e.CodigoDeRegionMundial;
                 writer.WriteLine(linea);
             }
             writer.Close();

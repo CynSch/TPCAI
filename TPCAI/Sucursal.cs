@@ -24,7 +24,7 @@ namespace TPCAI
         {
             //lee las sucursales del txt
 
-            var archivoSucursal = new StreamReader($@"{Environment.CurrentDirectory}\Sucursal.txt");
+            var archivoSucursal = new StreamReader($@"{Environment.CurrentDirectory}\Sucursales.txt");
             while (!archivoSucursal.EndOfStream)
 
             {
@@ -39,6 +39,7 @@ namespace TPCAI
                 //agrego a lista
                 Sucursal.TodasLasSucursales.Add(sucursal);
             }
+            archivoSucursal.Close();
         }
         public static List<Sucursal> ListarSucursalesAsociadas(int codigoDeProvincia, int codigoDeLocalidad)
         {
@@ -65,7 +66,7 @@ namespace TPCAI
         {
             //Actualiza archivo
 
-            StreamWriter writer = File.CreateText($@"{Environment.CurrentDirectory}\Sucursal.txt");
+            StreamWriter writer = File.CreateText("Sucursal.txt");
 
             foreach (Sucursal s in TodasLasSucursales)
             {
