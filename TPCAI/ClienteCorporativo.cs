@@ -110,9 +110,9 @@ namespace TPCAI
             cli1.EsMoroso = false;
 
             var cli2 = new ClienteCorporativo();
-            cli2.NombreCliente = "Ruben Randazzo";
+            cli2.NombreCliente = "Alejandro Mendez";
             cli2.CUIT = 23949330290;
-            cli2.Contraseña = "1234";
+            cli2.Contraseña = "soyalejandro";
             cli2.Telefono = 114442222;
             cli2.Saldo = -92225;
             cli2.EsMoroso = true;
@@ -128,7 +128,7 @@ namespace TPCAI
             var cli4 = new ClienteCorporativo();
             cli4.NombreCliente = "Andres Panitsch";
             cli4.CUIT = 20111111111;
-            cli4.Contraseña = "1234";
+            cli4.Contraseña = "soyandres";
             cli4.Telefono = 114444444;
             cli4.Saldo = 0;
             cli4.EsMoroso = false;

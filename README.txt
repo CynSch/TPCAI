@@ -1,28 +1,17 @@
-El prototipo incluye los siguientes supuestos: 
+Para probar la aplicación se puede utilizar los siguientes datos para ingresar:
+ANDRES
+CUIT = 20111111111
+Contraseña = soyandres
 
-Información de LogIn	
-	Usuario: AndresPanitsch
-	Contraseña: soyprofesor
-Datos del envío:
-	Tipo paquete: “Encomienda”
-	Peso: 2,00 kg
-	Ancho: 1,00 cm
-	Largo: 1,00 cm
-	Alto: 1,00 cm
-Datos de origen:
-	Región: “Metropolitana”
-	Provincia: “CABA”
-	Localidad: “Balvanera”
-	Dirección: “Av. Córdoba 2122”
-Datos de destino:
-	Tipo de envio: “Nacional”
-	Región: “Metropolitana”
-	Provincia: “CABA”
-	Localidad: “Belgrano”
-	Dirección: “Av. Cabildo 2000”
+ALEJANDRO
+CUIT = 23949330290
+Contraseña = soyalejandro
 
-Número de orden existente: 1111111111
+Cada cliente tiene sus caracteristicas. Para probar todas las funcionales, favor de utilizar la aplicación con ambos usuarios.
 
 
-A la hora de solicitar un servicio y seleccionar región, provincia, localidad o sucursal, sólo se muestran los resultados ingresados para el prototipo, pero en la versión productiva, se mostrarán listados reales, en función de los datos ingresados (región, provincia, localidad, etc.). 
-Este prototipo sólo pretende mostrar la naturaleza del software a desarrollar sin hacer hincapié en los datos. 
+Si ya tenian la applicación bajada a sus computadores previamente (para la corrección del prototipo), 
+favor de borrar los archivos txt de la carpeta bin\Debug antes de correr la aplicación por primera vez.
+
+Aclaracion:
+Hemos creado metodos para que la aplicación cree los archivos con datos la primera vez que se utiliza la aplicación.
