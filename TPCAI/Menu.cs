@@ -15,7 +15,7 @@ namespace TPCAI
         public Menu()
         {
             InitializeComponent();
-            LabelBienvenido.Text = "Bienvenido AndresPanitsch \nSeleccione una opción";
+            LabelBienvenido.Text = "Bienvenido/a " + ClienteCorporativo.ClienteActual.NombreCliente + "\nSeleccione una opción";
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -55,6 +55,11 @@ namespace TPCAI
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void LabelBienvenido_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
