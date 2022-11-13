@@ -163,6 +163,16 @@ namespace TPCAI
                     MessageBox.Show("Debe seleccionar algún origen.");
                 }
 
+                if (rd_btn_retiro_domicilio.Checked && txt_domicilio_retirodomicilio.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar una dirección para el origen (retiro a domicilio).");
+                }
+
+                if (rd_btn_origen_entrega_sucursal.Checked && cmb_sucursal_entregaensucursal_origen.Text=="")
+                {
+                    MessageBox.Show("Debe seleccionar una sucursal para el origen (entrega en sucursal).");
+                }
+
                 if (!rd_btn_nacional.Checked && !rd_btn_internacional.Checked)
                 {
                     MessageBox.Show("Debe seleccionar algún tipo de destino.");
@@ -386,7 +396,8 @@ namespace TPCAI
                     //CREACIÓN DEL OBJETO SOLICITUD, ORIGEN, DESTINO, DSERVICIO
 
                     SolicitudDeOrden nuevaSolicitud = SolicitudDeOrden.GrabarNuevaSolicitud(cuitCliente,esUrgente,fecha,importe);
-                    Destino nuevoDestino = new Destino(nuevaSolicitud.NumeroDeOrden, esInternacional, esNacional, entregaADomicilio_destino, entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);            
+                    //Destino nuevoDestino = new Destino(nuevaSolicitud.NumeroDeOrden, esInternacional, esNacional, entregaADomicilio_destino, entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);            
+                    Destino nuevoDestino = Destino.GrabarNuevoDestino(nuevaSolicitud.NumeroDeOrden, esInternacional, esNacional, entregaADomicilio_destino, entregaEnSucursal_destino, destino_pais_codRegionMundial, destino_pais_codPais, destino_prov_codRegionNacional, destino_prov_codProv, destino_loc_codLoc, direccion_destino, destino_suc_codSuc);
                     Origen nuevoOrigen = Origen.GrabarNuevoOrigen(nuevaSolicitud.NumeroDeOrden, origen_retiroEnDomicilio, origen_entregaEnSucursal, origen_prov_codRegionNacional, origen_prov_codProv, origeno_loc_codLoc, domicilio_origen, origen_suc_codSuc);  
                     Servicio nuevoServicio = Servicio.GrabarNuevoServicio(nuevaSolicitud.NumeroDeOrden,esEncomienda,esCorrespondencia,ancho,largo,alto,peso);
 
@@ -594,8 +605,21 @@ namespace TPCAI
 
         private void cmb_provincia_retirodomicilio_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Reseteo selección de direcc y sucursal
             cmb_sucursal_entregaensucursal_origen.ResetText();
             txt_domicilio_retirodomicilio.ResetText();
+
+            //Deselecciono radio buttons
+            rd_btn_origen_entrega_sucursal.Checked = false;
+            rd_btn_retiro_domicilio.Checked = false;
+
+            //Deshabilito campos de input
+            txt_domicilio_retirodomicilio.Enabled = false;
+            cmb_sucursal_entregaensucursal_origen.Enabled = false;
+
+            rd_btn_retiro_domicilio.Enabled = false;
+            rd_btn_origen_entrega_sucursal.Enabled = false;
+
             cmb_localidad_origen.ResetText();
 
             //Habilito el dropdown de localidades
@@ -700,8 +724,17 @@ namespace TPCAI
 
         private void cmb_localidad_origen_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Reseteo selección de direcc y sucursal
             cmb_sucursal_entregaensucursal_origen.ResetText();
             txt_domicilio_retirodomicilio.ResetText();
+            
+            //Deselecciono radio buttons
+            rd_btn_origen_entrega_sucursal.Checked = false;
+            rd_btn_retiro_domicilio.Checked = false;
+
+            //Deshabilito campos de input
+            txt_domicilio_retirodomicilio.Enabled = false;
+            cmb_sucursal_entregaensucursal_origen.Enabled = false;
 
             rd_btn_retiro_domicilio.Enabled = true;
             rd_btn_origen_entrega_sucursal.Enabled = true;
