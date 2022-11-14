@@ -18,64 +18,99 @@ namespace TPCAI
             InitializeComponent();
         }
 
-        public string MostrarSaldo()
-        {
-           var saldo = "$172.130";
-           return saldo; 
-        }
-
         public void MostrarDatos()
         {
             //CUIT del cliente
-            lbl_CUIT.Text = "CUIT = 30-99998888-2";
+            lbl_CUIT.Text = "CUIT = " + ClienteCorporativo.ClienteActual.CUIT.ToString();
 
             // saldo de cuenta corriente
-            var saldo = MostrarSaldo();
+            var saldo = "$" + ClienteCorporativo.ClienteActual.Saldo.ToString();
             textBox1.Text = saldo;
 
             // listado de facturas: 
             ListadoFacturas.FullRowSelect = true;
 
-
-            ListViewItem factura2 = new ListViewItem("0934567");
-            factura2.SubItems.Add("$55.000");
-            factura2.SubItems.Add("15/06/2022");
-            factura2.SubItems.Add("Paga");
-            ListadoFacturas.Items.Add(factura2);
-
-
+            int fila = 0;
+            while (fila < Factura.FacturasExistentes.Count())
+            {
+                foreach (Factura factura in Factura.FacturasExistentes)
+                {
+                    if (factura.CUIT == ClienteCorporativo.ClienteActual.CUIT)
+                    {
+                        if (factura.EstaPaga == true)
+                        {
+                            ListViewItem facturaN = new ListViewItem(factura.NroFactura.ToString());
+                            facturaN.SubItems.Add(factura.Monto.ToString());
+                            facturaN.SubItems.Add(factura.FechaFactura.ToString());
+                            facturaN.SubItems.Add("Paga");
+                            ListadoFacturas.Items.Add(facturaN);
+                        }
+                        else
+                        {
+                            ListViewItem facturaN = new ListViewItem(factura.NroFactura.ToString());
+                            facturaN.SubItems.Add(factura.Monto.ToString());
+                            facturaN.SubItems.Add(factura.FechaFactura.ToString());
+                            facturaN.SubItems.Add("Impaga");
+                            ListadoFacturas.Items.Add(facturaN);
+                        }
+                        fila++;
+                    }
+                    else
+                    {
+                        fila++;
+                        continue;
+                    }
+                }
+            }
 
             ListadoFacturas.Sorting = SortOrder.Ascending;
 
             // ordenes pendientes de facturacion
-            ListViewItem orden = new ListViewItem("1111111111");
-            orden.SubItems.Add("$15.630");
-            orden.SubItems.Add("14/10/2022");
-            orden.SubItems.Add("Pedro J. Frías 1080, 5220 Jesus María, Córdoba");
-            PendientesFacturacion.Items.Add(orden);
-
-            ListViewItem orden1 = new ListViewItem("1111111163");
-            orden1.SubItems.Add("$18.600");
-            orden1.SubItems.Add("14/10/2022");
-            orden1.SubItems.Add("San Martín 1002, B7000GKV Tandil, Provincia de Buenos Aires");
-            PendientesFacturacion.Items.Add(orden1);
-
-            ListViewItem orden2 = new ListViewItem("1111214583");
-            orden2.SubItems.Add("$9.050");
-            orden2.SubItems.Add("15/10/2022");
-            orden2.SubItems.Add("Cordero 2985, 2646 San Fernando, Buenos Aires");
-            PendientesFacturacion.Items.Add(orden2);
-
+            foreach (SolicitudDeOrden orden in SolicitudDeOrden.SolicitudesExistentes)
+            {
+                if (orden.CUITCliente == ClienteCorporativo.ClienteActual.CUIT)
+                {
+                    if (orden.NumeroDeFactura != 0)
+                    {
+                        continue;
+                    }
+                    {
+                        ListViewItem ordenN = new ListViewItem(orden.NumeroDeOrden.ToString()); //nro
+                        ordenN.SubItems.Add(orden.Importe.ToString());  //monto
+                        ordenN.SubItems.Add(orden.Fecha.ToString()); //fecha
+                        if (Destino.BuscarDestino(orden.NumeroDeOrden).EntregaEnDomicilio == true || Destino.BuscarDestino(orden.NumeroDeOrden).EsInternacional == true)
+                        {
+                            if(Destino.BuscarDestino(orden.NumeroDeOrden).EsInternacional == true)
+                            {
+                                ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).Direccion+", "+ Pais.BucarNombrePais(Destino.BuscarDestino(orden.NumeroDeOrden).CodigoDePais)); //destino internacional
+                            }
+                            ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).Direccion); //destino
+                        }
+                        else
+                        {
+                            ordenN.SubItems.Add("Sucursal "+Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal.ToString() + " - " + Sucursal.BuscarDireccion(Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal)); //Sucursal
+                        }
+                        PendientesFacturacion.Items.Add(ordenN);
+                    }
+                }
+            }
             PendientesFacturacion.Sorting = SortOrder.Ascending;
         }
 
         private void BtnDetalleFactura_Click(object sender, EventArgs e)
         {
-
-            var FC = new CuentaCorrienteServiciosFacturados();
-            FC.Show();
-            FC.MostrarDatos();
-
+            ListadoFacturas.FullRowSelect = true;
+            if(ListadoFacturas.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar una factura de la lista");
+                return;
+            }
+            {
+                string idfacturaseleccionada = ListadoFacturas.SelectedItems[0].SubItems[0].Text;
+                var FC = new CuentaCorrienteServiciosFacturados();
+                FC.Show();
+                FC.MostrarDatos(idfacturaseleccionada);
+            }
         }
 
         //volver al menu principal
@@ -88,21 +123,9 @@ namespace TPCAI
 
         private void Form_consulta_cuenta_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ManejoDeArchivos.ActualizarArchivos();
             Application.Exit();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-           
-
-   
-    }       
+    }
 }

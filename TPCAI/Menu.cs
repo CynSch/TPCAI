@@ -15,11 +15,7 @@ namespace TPCAI
         public Menu()
         {
             InitializeComponent();
-            LabelBienvenido.Text = "Bienvenido AndresPanitsch \nSeleccione una opción";
-        }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
+            LabelBienvenido.Text = "Bienvenido/a " + ClienteCorporativo.ClienteActual.NombreCliente + "\nSeleccione una opción";
         }
 
         private void butsolicitarservicio_Click(object sender, EventArgs e)
@@ -31,13 +27,11 @@ namespace TPCAI
 
         private void butcuentacorriente_Click(object sender, EventArgs e)
         {
-            
             this.Visible = false;
             var CC = new Form_consulta_cuenta();
             CC.Show();
             CC.MostrarDatos();
         }
-
 
         private void butconsultarorden_Click(object sender, EventArgs e)
         {
@@ -48,6 +42,7 @@ namespace TPCAI
 
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ManejoDeArchivos.ActualizarArchivos();
             Application.Exit();
         }
 

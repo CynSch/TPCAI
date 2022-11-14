@@ -39,7 +39,7 @@ namespace TPCAI
             // 
             // butsolicitarservicio
             // 
-            this.butsolicitarservicio.Location = new System.Drawing.Point(128, 221);
+            this.butsolicitarservicio.Location = new System.Drawing.Point(128, 222);
             this.butsolicitarservicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.butsolicitarservicio.Name = "butsolicitarservicio";
             this.butsolicitarservicio.Size = new System.Drawing.Size(417, 48);
@@ -61,7 +61,7 @@ namespace TPCAI
             // 
             // butconsultarorden
             // 
-            this.butconsultarorden.Location = new System.Drawing.Point(128, 430);
+            this.butconsultarorden.Location = new System.Drawing.Point(128, 431);
             this.butconsultarorden.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.butconsultarorden.Name = "butconsultarorden";
             this.butconsultarorden.Size = new System.Drawing.Size(417, 48);
@@ -110,7 +110,6 @@ namespace TPCAI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
-            this.Load += new System.EventHandler(this.Menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
