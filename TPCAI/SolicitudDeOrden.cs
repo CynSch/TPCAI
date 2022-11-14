@@ -233,16 +233,16 @@ namespace TPCAI
             sol4.Fecha = new DateTime(2022, 6, 7);
             sol4.Importe = 28440;
             sol4.CodigoDeEstado = 7;
-            sol4.NumeroDeFactura = 6005;
+            sol4.NumeroDeFactura = 6004;
 
             var sol5 = new SolicitudDeOrden();
             sol5.NumeroDeOrden = 104;
-            sol5.CUITCliente = 20111111111;
+            sol5.CUITCliente = 23949330290;
             sol5.EsUrgente = true;
             sol5.Fecha = new DateTime(2022, 7, 7);
             sol5.Importe = 78500;
             sol5.CodigoDeEstado = 7;
-            sol5.NumeroDeFactura = 6004;
+            sol5.NumeroDeFactura = 6005;
 
             var sol6 = new SolicitudDeOrden();
             sol6.NumeroDeOrden = 105;
