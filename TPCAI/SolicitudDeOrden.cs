@@ -237,7 +237,7 @@ namespace TPCAI
 
             var sol5 = new SolicitudDeOrden();
             sol5.NumeroDeOrden = 104;
-            sol5.CUITCliente = 23949330290;
+            sol5.CUITCliente = 20111111111;
             sol5.EsUrgente = true;
             sol5.Fecha = new DateTime(2022, 7, 7);
             sol5.Importe = 78500;
