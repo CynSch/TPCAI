@@ -51,7 +51,7 @@ namespace TPCAI
 
                                 if (Destino.BuscarDestino(orden.NumeroDeOrden).EsInternacional == true)
                                 {
-                                    direccion = Destino.BuscarDestino(orden.NumeroDeOrden).Direccion + ", " + Pais.BucarNombrePais(Destino.BuscarDestino(orden.NumeroDeOrden).CodigoDePais) + ", " + Destino.BuscarDestino(orden.NumeroDeOrden).Direccion; //destino internacional
+                                    direccion = Destino.BuscarDestino(orden.NumeroDeOrden).Direccion + ", " + Pais.BucarNombrePais(Destino.BuscarDestino(orden.NumeroDeOrden).CodigoDePais); //destino internacional
                                 }
                                 else
                                 {
