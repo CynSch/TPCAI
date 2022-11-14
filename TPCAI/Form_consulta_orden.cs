@@ -54,7 +54,7 @@ namespace TPCAI
                     {
                         if (solicitud.CUITCliente == ClienteCorporativo.ClienteActual.CUIT)
                         {
-
+                            txtNumeroOrden.Clear();
                             TxtNroOrden.Text = solicitud.NumeroDeOrden.ToString();
                             TxtFechaOrden.Text = solicitud.Fecha.ToString();
                             TxtImporteOrden.Text = solicitud.Importe.ToString();
@@ -66,7 +66,9 @@ namespace TPCAI
                         }
                         else
                         {
+                           
                             encontrado = true;
+                            txtNumeroOrden.Clear();
                             TxtNroOrden.Text = "";
                             TxtFechaOrden.Text = "";
                             TxtImporteOrden.Text = "";
@@ -81,6 +83,8 @@ namespace TPCAI
                 if (encontrado == false)
                 {
                     MessageBox.Show("El numero de orden ingresado es inexistente");
+                    txtNumeroOrden.Clear();
+
                 }
             }
         }
