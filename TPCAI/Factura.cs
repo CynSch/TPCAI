@@ -38,7 +38,7 @@ namespace TPCAI
                 factura.NroFactura = int.Parse(datosSeparados[0]);
                 factura.Monto = decimal.Parse(datosSeparados[1]);
                 factura.FechaFactura = DateTime.Parse(datosSeparados[2]);
-                // factura.EstaPaga parse a bool.
+                factura.EstaPaga = bool.Parse(datosSeparados[3]);
                 factura.CUIT = long.Parse(datosSeparados[4]);
 
                 //agrego a lista
