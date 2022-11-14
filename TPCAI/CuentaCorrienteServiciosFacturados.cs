@@ -44,16 +44,27 @@ namespace TPCAI
                         {
                             ListViewItem ordenN = new ListViewItem(orden.NumeroDeOrden.ToString()); //nro
                             ordenN.SubItems.Add(orden.Fecha.ToString()); //fecha
-                            if (Destino.BuscarDestino(orden.NumeroDeOrden).EntregaEnDomicilio == true)
+
+                            if (Destino.BuscarDestino(orden.NumeroDeOrden).EntregaEnDomicilio == true || Destino.BuscarDestino(orden.NumeroDeOrden).EsInternacional == true)
                             {
-                                ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).Direccion); //destino
+                                string direccion = "";
+
+                                if (Destino.BuscarDestino(orden.NumeroDeOrden).EsInternacional == true)
+                                {
+                                    direccion = Destino.BuscarDestino(orden.NumeroDeOrden).Direccion + ", " + Pais.BucarNombrePais(Destino.BuscarDestino(orden.NumeroDeOrden).CodigoDePais) + ", " + Destino.BuscarDestino(orden.NumeroDeOrden).Direccion; //destino internacional
+                                }
+                                else
+                                {
+                                    direccion = "Sucursal " + Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal.ToString() + " - " + Sucursal.BuscarDireccion(Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal) + " " + Destino.BuscarDestino(orden.NumeroDeOrden).Direccion;
+
+                                }
+                                ordenN.SubItems.Add(direccion);
                             }
-                            else
-                            {
-                                ordenN.SubItems.Add(Destino.BuscarDestino(orden.NumeroDeOrden).NroSucursal.ToString()); //Sucursal
-                            }
+
                             ordenN.SubItems.Add(orden.Importe.ToString());  //monto
+                            
                             lvordenesxfactura.Items.Add(ordenN);
+
                         }
                     }
                 }
