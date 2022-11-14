@@ -112,8 +112,8 @@ namespace TPCAI
             this.Grp_solicitar_servicio.Controls.Add(this.lbl_pais_internacional);
             this.Grp_solicitar_servicio.Controls.Add(this.rd_btn_internacional);
             this.Grp_solicitar_servicio.Controls.Add(this.rd_btn_nacional);
-            this.Grp_solicitar_servicio.Controls.Add(this.GroupBox_destino);
             this.Grp_solicitar_servicio.Controls.Add(this.groupBox1);
+            this.Grp_solicitar_servicio.Controls.Add(this.GroupBox_destino);
             this.Grp_solicitar_servicio.Location = new System.Drawing.Point(30, 18);
             this.Grp_solicitar_servicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Grp_solicitar_servicio.Name = "Grp_solicitar_servicio";
@@ -127,6 +127,16 @@ namespace TPCAI
             // 
             this.lbl_sucursal_entregaensucursal_destino.AutoSize = true;
             this.lbl_sucursal_entregaensucursal_destino.Location = new System.Drawing.Point(488, 808);
+            this.lbl_sucursal_entregaensucursal_destino.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_sucursal_entregaensucursal_destino.Name = "lbl_sucursal_entregaensucursal_destino";
+            this.lbl_sucursal_entregaensucursal_destino.Size = new System.Drawing.Size(75, 20);
+            this.lbl_sucursal_entregaensucursal_destino.TabIndex = 22;
+            this.lbl_sucursal_entregaensucursal_destino.Text = "Sucursal ";
+            // 
+            // lbl_sucursal_entregaensucursal_destino
+            // 
+            this.lbl_sucursal_entregaensucursal_destino.AutoSize = true;
+            this.lbl_sucursal_entregaensucursal_destino.Location = new System.Drawing.Point(488, 820);
             this.lbl_sucursal_entregaensucursal_destino.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_sucursal_entregaensucursal_destino.Name = "lbl_sucursal_entregaensucursal_destino";
             this.lbl_sucursal_entregaensucursal_destino.Size = new System.Drawing.Size(75, 20);
