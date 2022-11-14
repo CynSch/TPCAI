@@ -44,18 +44,21 @@ namespace TPCAI
                     {
                         MessageBox.Show("Contraseña incorrecta. Intente nuevamente");
                         txtUsuario.Clear();
+                        txtContraseña.Clear();
                     }
                 }
                 else
                 {
                     MessageBox.Show("El C.U.I.T introducido no se encuentra registrado en el sistema. Intente nuevamente");
                     txtUsuario.Clear();
+                    txtContraseña.Clear();
                 }
             }
             else
             {
                 MessageBox.Show("El valor introducido es invalido. Por favor ingrese un numero de C.U.I.T");
                 txtUsuario.Clear();
+                txtContraseña.Clear();
             }
 
         }
