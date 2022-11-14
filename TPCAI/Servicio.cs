@@ -128,7 +128,7 @@ namespace TPCAI
 
         internal static void CrearArchivo ()
         {
-            //Creo una lista para guardar las solicitudes
+            //Creo una lista para guardar los servicios
             List<Servicio> ServiciosACargar = new List<Servicio>();
 
             var ser1 = new Servicio();
@@ -242,7 +242,7 @@ namespace TPCAI
             ser11.Alto = 544;
             ser11.Peso = 10.4M;
 
-            //Agrego las solicitudes en la lista
+            //Agrego los servicios en la lista
             ServiciosACargar.Add(ser1);
             ServiciosACargar.Add(ser2);
             ServiciosACargar.Add(ser3);
@@ -275,8 +275,5 @@ namespace TPCAI
             writer.Close();
         }
 
-            
-        //SOY MELU NO TE OLVIDES DE ARMARME EL MÉTODO
-        //GrabarNuevoServicio()
     }
 }

@@ -83,7 +83,7 @@ namespace TPCAI
 
         internal static void CrearArchivo()
         {
-            //Creo una lista para guardar las facturas
+            //Creo una lista para guardar los paises
             List<Pais> PaisesACargar = new List<Pais>();
 
 

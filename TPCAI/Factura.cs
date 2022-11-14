@@ -23,10 +23,8 @@ namespace TPCAI
         static public List<Factura> FacturasExistentes = new List<Factura>();
 
         //Métodos
-        internal static void ListarFacturas() //Lista las sucursales del txt
+        internal static void ListarFacturas() //Lista las facturas del txt
         {
-            //lee las facturas del txt
-
             var archivoFacturas = new StreamReader($@"{Environment.CurrentDirectory}\Facturas.txt");
             while (!archivoFacturas.EndOfStream)
 

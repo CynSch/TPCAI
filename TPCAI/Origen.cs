@@ -90,11 +90,7 @@ namespace TPCAI
                 origenExistente.NumeroDeOrden = int.Parse(datosSeparados[0]);
                 origenExistente.EsRetiroEnDomicilio = bool.Parse(datosSeparados[1]);
                 origenExistente.EsEntregaEnSucursal = bool.Parse(datosSeparados[2]);
-                //origenExistente.CodigoDeRegionNacional = int.Parse(datosSeparados[3]);
-                //origenExistente.CodigoDeProvincia = int.Parse(datosSeparados[4]);
-                //origenExistente.CodigoDeLocalidad = int.Parse(datosSeparados[5]);
                 origenExistente.Direccion = datosSeparados[6];
-                //origenExistente.NroSucursal = int.Parse(datosSeparados[7]);
                 //Puede ser null
                 if (datosSeparados[3] != "")
                 {

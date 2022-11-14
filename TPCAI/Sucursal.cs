@@ -101,7 +101,7 @@ namespace TPCAI
 
         internal static void CrearArchivo()
         {
-            //Creo una lista para guardar las facturas
+            //Creo una lista para guardar las sucursales
             List<Sucursal> SucursalesACargar = new List<Sucursal>();
 
 
@@ -236,7 +236,7 @@ namespace TPCAI
             e26.CodigoDeLocalidad = 26;
             e26.Direccion = "C. Los Colonos 512";
 
-            //Agrego los paises en la lista
+            //Agrego las sucursales en la lista
             SucursalesACargar.Add(e1);
             SucursalesACargar.Add(e2);
             SucursalesACargar.Add(e3);
