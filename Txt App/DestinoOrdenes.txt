@@ -1,4 +1,0 @@
-﻿NumeroOrden|EsInternacional|EsNacional|EsEntregaEnDomicilio|EsEntregaEnSucursal|CodigoDeRegionMundial|CodigoDePais|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
-
-100|true|false|false|false|2|"pais"|null|null|null|direccion|null
-101|false|true|false|true|null|null|1|"provincia"|"localidad"|null|"sucursal"

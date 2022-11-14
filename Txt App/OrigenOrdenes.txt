@@ -1,4 +1,0 @@
-﻿NumeroOrden|EsretiroEnDomicilio|EsEntregaEnSucursal|CodRegionNacional|CodProvincia|CodLocalidad|Direccion|NroSucursal
-
-100|true|false|3|"provincia"|"localidad"|"direccion"|null
-101|false|true|4|"provincia"|"localidad"|null|"nroSucursal"
