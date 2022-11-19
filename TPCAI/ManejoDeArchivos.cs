@@ -45,6 +45,7 @@ namespace TPCAI
         {
             //Llama a los metodos que crean los archivos txt por primera vez con los datos hardcodeados
             RangoDePeso.CrearRangosIniciales();
+            Tarifa.CrearArchivo();
             ArchivoTarifas.GrabarArchivo();
             SolicitudDeOrden.CrearArchivo();
             EstadoDeOrden.CrearArchivo();

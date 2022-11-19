@@ -16,7 +16,7 @@ namespace TPCAI
 
         internal static List<Tarifa> Tarifario = new List<Tarifa>();
 
-        public Tarifa()
+        public Tarifa(decimal recargourgente, decimal recargoretiroenpuerta, decimal recargoentregaenpuerta)
         {
             // Usado para grabar.
 
@@ -27,9 +27,24 @@ namespace TPCAI
                 [20M] = RangoDePeso.BuscarRangoPorMaximo(20M),
                 [30M] = RangoDePeso.BuscarRangoPorMaximo(0.5M)
             };
-            RecargoUrgente = 0.5M; //con un tope de 15000
-            RecargoRetiroEnPuerta = 3500M;
-            RecargoEntregaEnPuerta = 1500M;
+            RecargoUrgente = recargourgente;
+            RecargoRetiroEnPuerta = recargoretiroenpuerta;
+            RecargoEntregaEnPuerta = recargoentregaenpuerta;
+        }
+
+        internal static Tarifa BuscarTarifa()
+        {
+            foreach (Tarifa tarifa in Tarifario)
+            {
+                return tarifa;
+            }
+            return null;
+        }
+
+        internal static void CrearArchivo()
+        {
+            Tarifa tarifa = new Tarifa(0.5M, 3500M, 1500M);
+            Tarifario.Add(tarifa);
         }
 
         internal static decimal CalcularImporte(bool esurgente, bool escorrespondencia, decimal Peso, bool esretiroenpuerta, bool esentregaenpuerta
@@ -231,32 +246,5 @@ namespace TPCAI
             importe = importebase + recargourgente + recargoentrega + recargoretiro;
             return importe;
         }    
-
-        /*  internal static string MostrarTarifa()
-          {
-
-              string lineatarifa = "";
-              Tarifa tarifa = new Tarifa();
-              string linearangos = "";
-              string linea = "";
-              foreach (var rango in tarifa.RangoDePesos)
-              {
-                  linearangos = linearangos + ("|" + rango.Key + "|") ;
-                  foreach (var peso in tarifa.RangoDePesos.Values)
-                  {
-                      //da error aca
-                      linearangos = linearangos + (peso.PesoMinKg + "|" + peso.PesoMaxKg + "|");
-                      foreach (var precio in peso.PreciosxDistancia)
-                      {
-                          linearangos = linearangos + (";" + precio.Value);
-                      }
-                  }
-              }
-              lineatarifa = "|" + tarifa.RecargoUrgente + "|" + tarifa.RecargoRetiroEnPuerta +
-                "|" + tarifa.RecargoEntregaEnPuerta;
-              linea = linearangos + lineatarifa;
-              return linea;
-          }
-        */
     }
 }

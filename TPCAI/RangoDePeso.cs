@@ -47,9 +47,6 @@ namespace TPCAI
             }
             return linea;
         }
-        public RangoDePeso()
-        {
-        }
 
         internal static void CrearRangosIniciales()
         {
