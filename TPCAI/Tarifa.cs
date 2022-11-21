@@ -11,12 +11,14 @@ namespace TPCAI
         internal Dictionary<decimal, RangoDePeso> RangoDePesos { get; set; }
         //llave del diccionario va a ser el peso maximo
         internal decimal RecargoUrgente { get; set; }
+
+        internal decimal MaximoRecargoUrgente { get; set; }
         internal decimal RecargoRetiroEnPuerta { get; set; }
         internal decimal RecargoEntregaEnPuerta { get; set; }
 
         internal static List<Tarifa> Tarifario = new List<Tarifa>();
 
-        public Tarifa(decimal recargourgente, decimal recargoretiroenpuerta, decimal recargoentregaenpuerta)
+        public Tarifa(decimal recargourgente, decimal maximorecargourgente, decimal recargoretiroenpuerta, decimal recargoentregaenpuerta)
         {
             // Usado para grabar.
 
@@ -28,6 +30,7 @@ namespace TPCAI
                 [30M] = RangoDePeso.BuscarRangoPorMaximo(0.5M)
             };
             RecargoUrgente = recargourgente;
+            MaximoRecargoUrgente = maximorecargourgente;
             RecargoRetiroEnPuerta = recargoretiroenpuerta;
             RecargoEntregaEnPuerta = recargoentregaenpuerta;
         }
@@ -43,7 +46,7 @@ namespace TPCAI
 
         internal static void CrearArchivo()
         {
-            Tarifa tarifa = new Tarifa(0.5M, 3500M, 1500M);
+            Tarifa tarifa = new Tarifa(0.5M, 15000M, 3500M, 1500M);
             Tarifario.Add(tarifa);
         }
 
@@ -223,9 +226,9 @@ namespace TPCAI
             //4. Si esurgente = true, entonces recargourgente = importe base * 0.5 while (recargourgente < 15000)
             if(esurgente == true)
             {
-                if ((importebase / Tarifa.BuscarTarifa().RecargoUrgente) > 15000)
+                if ((importebase / Tarifa.BuscarTarifa().RecargoUrgente) > Tarifa.BuscarTarifa().MaximoRecargoUrgente)
                 {
-                    recargourgente = 15000M;
+                    recargourgente = Tarifa.BuscarTarifa().MaximoRecargoUrgente;
                 }
                 else
                 {
