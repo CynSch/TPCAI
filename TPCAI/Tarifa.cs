@@ -223,24 +223,24 @@ namespace TPCAI
             //4. Si esurgente = true, entonces recargourgente = importe base * 0.5 while (recargourgente < 15000)
             if(esurgente == true)
             {
-                if ((importebase / 2) > 15000)
+                if ((importebase / Tarifa.BuscarTarifa().RecargoUrgente) > 15000)
                 {
                     recargourgente = 15000M;
                 }
                 else
                 {
-                    recargourgente = importebase / 2;
+                    recargourgente = importebase * Tarifa.BuscarTarifa().RecargoUrgente;
                 }
             }
             //5. Si esretiroendomicilio= true, entonces recargoretiroenpuerta = 3500
             if (esretiroenpuerta == true)
             {
-                recargoretiro = 3500M;
+                recargoretiro = Tarifa.BuscarTarifa().RecargoRetiroEnPuerta;
             }
             //6. Si esentregaendomicilio = true, entonces recargoentregaenpuerta = 1500
             if (esentregaenpuerta == true)
             {
-                recargoentrega = 1500M;
+                recargoentrega = Tarifa.BuscarTarifa().RecargoEntregaEnPuerta;
             }
             //7. Calulo importe final = importe base + recargos
             importe = importebase + recargourgente + recargoentrega + recargoretiro;
