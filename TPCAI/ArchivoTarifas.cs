@@ -23,7 +23,7 @@ namespace TPCAI
 
             // tarifa = RangoDePesos|RecargoUrgente|RecargoRetiroEnPuerta|RegargoEntregaEnPuerta
             string lineatarifa = "";
-            Tarifa tarifa = new Tarifa();
+            Tarifa tarifa = new Tarifa(Tarifa.BuscarTarifa().RecargoUrgente, Tarifa.BuscarTarifa().RecargoRetiroEnPuerta, Tarifa.BuscarTarifa().RecargoEntregaEnPuerta);
             lineatarifa = tarifa.RecargoUrgente + "|" + tarifa.RecargoRetiroEnPuerta +
               "|" + tarifa.RecargoEntregaEnPuerta;
             writertarifa.WriteLine(lineatarifa);
@@ -88,7 +88,7 @@ namespace TPCAI
                 Tarifa.Tarifario.Clear();
             }
             //RecargoUrgente|RecargoRetiroEnPuerta|RegargoEntregaEnPuerta
-            Tarifa tarifa = new Tarifa()
+            Tarifa tarifa = new Tarifa(decimal.Parse(datostarifa[0]), decimal.Parse(datostarifa[1]), decimal.Parse(datostarifa[2]))
             {
                 RangoDePesos = new Dictionary<decimal, RangoDePeso>
                 {
@@ -96,10 +96,7 @@ namespace TPCAI
                     [10M] = RangoDePeso.BuscarRangoPorMaximo(10M),
                     [20M] = RangoDePeso.BuscarRangoPorMaximo(20M),
                     [30M] = RangoDePeso.BuscarRangoPorMaximo(30M)
-                },
-                RecargoUrgente = decimal.Parse(datostarifa[0]),
-                RecargoRetiroEnPuerta = decimal.Parse(datostarifa[1]),
-                RecargoEntregaEnPuerta = decimal.Parse(datostarifa[2])
+                }
             };
             Tarifa.Tarifario.Add(tarifa);
         }
